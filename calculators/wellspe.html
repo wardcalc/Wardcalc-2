@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Wells Score for PE | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space (Above Tool)</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">Wells Score for PE</h1>
+      <p class="tool-info">The Wells Score for Pulmonary Embolism (PE) objectifies the pre-test probability of PE to guide diagnostic testing.</p>
+
+      <div class="field"><label class="field-label" data-k="f_dvt_signs">Clinical signs/symptoms of DVT</label>
+        <div class="chips"><button class="chip" data-g="p1" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p1" data-v="3" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_pe_no1">PE is #1 diagnosis OR equally likely</label>
+        <div class="chips"><button class="chip" data-g="p2" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p2" data-v="3" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_hr100">Heart rate > 100 bpm</label>
+        <div class="chips"><button class="chip" data-g="p3" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p3" data-v="1.5" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_immob">Immobilisation ≥ 3 days or surgery in previous 4 weeks</label>
+        <div class="chips"><button class="chip" data-g="p4" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p4" data-v="1.5" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_prev_pe">Previous DVT or PE</label>
+        <div class="chips"><button class="chip" data-g="p5" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p5" data-v="1.5" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_haemoptysis">Haemoptysis</label>
+        <div class="chips"><button class="chip" data-g="p6" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p6" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_malignancy">Active malignancy (treatment within 6 months)</label>
+        <div class="chips"><button class="chip" data-g="p7" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p7" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      
+      <button class="go-btn" onclick="calc_pe()">Calculate Wells PE</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space (Below Tool)</div>
+
+      <div class="mnem-panel">
+        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
+        <div class="mnem-body">
+          <div class="mnem-block">
+            <div class="mnem-flag">🇬🇧</div>
+            <div class="mnem-main"><b>D</b>VT · <b>P</b>E#1 · <b>H</b>R>100 · <b>I</b>mmobile · <b>P</b>revious · <b>H</b>aemoptysis · <b>M</b>alignancy</div>
+          </div>
+          <div class="mnem-block">
+            <div class="mnem-flag">🇷🇺</div>
+            <div class="mnem-main"><b>Т</b>ГВ · <b>Т</b>ЭЛА#1 · <b>Ч</b>СС>100 · <b>И</b>ммоб · <b>А</b>намнез · <b>К</b>рово · <b>Р</b>ак</div>
+          </div>
+          <div class="mnem-block">
+            <div class="mnem-flag">🇺🇿</div>
+            <div class="mnem-main"><b>D</b>VT · <b>O</b>E#1 · <b>Y</b>U>100 · <b>I</b>mmob · <b>A</b>vval · <b>Q</b>on · <b>S</b>araton</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO TEXT FOR ADSENSE -->
+    <div class="seo-content">
+      <h2>Understanding the Wells Score for PE</h2>
+      <p>Pulmonary Embolism (PE) is a potentially fatal condition that can present with vague or non-specific symptoms. The Wells Score allows clinicians to calculate a pre-test probability to determine the safest and most cost-effective diagnostic pathway.</p>
+      
+      <h2>Clinical Interpretations (Two-Tier Model)</h2>
+      <ul>
+        <li><strong>PE Unlikely (≤ 4 points):</strong> Consider applying the PERC rule. If PERC positive or not applied, obtain a highly sensitive D-dimer test. A negative D-dimer rules out PE.</li>
+        <li><strong>PE Likely (> 4 points):</strong> Proceed directly to diagnostic imaging, typically Computed Tomography Pulmonary Angiography (CTPA). A D-dimer is not recommended here, as a negative result does not safely rule out PE in a high-risk patient.</li>
+      </ul>
+      <p><em>References: Wells PS, Anderson DR, Rodger M, et al. Derivation of a simple clinical model to categorize patients probability of pulmonary embolism. Thromb Haemost. 2000;83(3):416-420.</em></p>
+    </div>
+  </div>
+
+  <script src="../js/global.js"></script>
+  <script>updateUI();</script>
+</body>
+</html>
