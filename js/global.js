@@ -5,6 +5,7 @@
 ══════════════════════════════════════ */
 const T = {
 en:{
+  alert_msg: 'Please complete all fields.',
   badge:'Built by a Medical Student · For Medical Students',
   h1a:'Clinical Tools', h1b:'for Ward Rounds',
   sub:'15 evidence-based calculators with mnemonics in 3 languages. Fast, free, mobile-first.',
@@ -102,7 +103,7 @@ en:{
 
   r_gcs_mild:'Mild impairment / Normal or mild TBI', r_gcs_mild_1:'Full neurological assessment — pupil responses, limb power, coordination.', r_gcs_mild_2:'Neurological observations every 30–60 minutes.', r_gcs_mild_3:'CT head if mechanism of injury, focal deficit, or any deterioration.',
   r_gcs_mod:'Moderate brain injury', r_gcs_mod_1:'⚠ Urgent CT head — do not delay.', r_gcs_mod_2:'Neurosurgery referral immediately.', r_gcs_mod_3:'Position 30° head elevation. IV access. Bloods.', r_gcs_mod_4:'Reassess GCS every 15 minutes — escalate if deterioration.',
-  r_gcs_sev:'Severe brain injury — airway at immediate risk', r_gcs_sev_1:'⚠ GCS ≤ 8 = intubation threshold. Call anaesthetics/intensivist immediately.', r_gcs_sev_2:'Rapid Sequence Intubation (RSI). In-line cervical immobilisation if trauma.', r_gcs_sev_3:'Urgent CT head + spine. Neurosurgery on call.', r_gcs_sev_4:'ICU admission. Document capacity assessment.',
+  r_gcs_sev:'Severe brain injury — airway at immediate risk', r_gcs_sev_1:'⚠ GCS ≤ 8 = intubation threshold. Call anaesthetics/intensivist immediately.', r_gcs_sev_2:'Rapid Sequence Intubation (RSI). In-line cervical immobilisation if trauma.', r_gcs_sev_3:'Ururgent CT head + spine. Neurosurgery on call.', r_gcs_sev_4:'ICU admission. Document capacity assessment.',
   r_apgar_norm:'Normal — Reassuring', r_apgar_norm_1:'Warm, dry and stimulate the newborn.', r_apgar_norm_2:'Routine newborn care — skin to skin.', r_apgar_norm_3:'Repeat APGAR at 5 minutes.',
   r_apgar_mod:'Moderate concern — requires intervention', r_apgar_mod_1:'Stimulate: rub back, flick soles.', r_apgar_mod_2:'Supplemental oxygen via mask.', r_apgar_mod_3:'Call paediatrician immediately.', r_apgar_mod_4:'Prepare bag-mask ventilation equipment.',
   r_apgar_crit:'Critical — Immediate full resuscitation', r_apgar_crit_1:'⚠ Call NICU team immediately.', r_apgar_crit_2:'Positive pressure ventilation at 40–60 breaths/min.', r_apgar_crit_3:'Chest compressions if no improvement (3:1 ratio).', r_apgar_crit_4:'Umbilical venous catheter access.',
@@ -154,6 +155,7 @@ en:{
 },
 
 ru:{
+  alert_msg: 'Пожалуйста, заполните все поля.',
   badge:'Создано студентом-медиком · Для студентов-медиков',
   h1a:'Клинические инструменты', h1b:'для обходов',
   sub:'15 клинических калькуляторов с мнемониками на 3 языках. Быстро, бесплатно, мобильно.',
@@ -267,7 +269,7 @@ ru:{
   r_egfr_g3a:'G3a — Умеренное снижение (45–59)', r_egfr_g3a_1:'Мониторинг каждые 6 месяцев.', r_egfr_g3a_2:'Коррекция доз метформина, дигоксина, антибиотиков.',
   r_egfr_g3b:'G3b — Умеренно-выраженное снижение (30–44)', r_egfr_g3b_1:'Мониторинг каждые 3 месяца. Направление к нефрологу.', r_egfr_g3b_2:'ОТМЕНИТЬ метформин (СКФ <30), избегать НПВП.',
   r_egfr_g4:'G4 — Выраженное снижение (15–29)', r_egfr_g4_1:'⚠ Срочно к нефрологу. Планирование заместительной терапии.', r_egfr_g4_2:'Формирование АВ-фистулы — занимает 3–6 месяцев.',
-  r_egfr_g5:'G5 — Почечная недостаточность (< 15 мл/мин)', r_egfr_g5_1:'Начало диализа или превентивная трансплантация.', r_egfr_g5_2:'Все препараты пересматриваются нефрологом.',
+  r_egfr_g5:'G5 — Почечная недостаточность (< 15 мл/min)', r_egfr_g5_1:'Начало диализа или превентивная трансплантация.', r_egfr_g5_2:'Все препараты пересматриваются нефрологом.',
   r_mews_lo:'Низкий риск — рутинное наблюдение', r_mews_lo_1:'Рутинный мониторинг по протоколу отделения.', r_mews_lo_2:'Эскалировать при клиническом ухудшении независимо от MEWS.',
   r_mews_md:'Средний риск — увеличить частоту наблюдений', r_mews_md_1:'Увеличить частоту измерений до каждых 30–60 мин.', r_mews_md_2:'Информировать медсестру и лечащего врача.', r_mews_md_3:'Контроль водного баланса, диуреза, гликемии.',
   r_mews_hi:'Высокий риск — срочный врачебный осмотр', r_mews_hi_1:'⚠ Немедленный осмотр врача.', r_mews_hi_2:'Оценка по схеме А–Е.', r_mews_hi_3:'Венозный доступ × 2. Анализы: ОАК, электролиты, СРБ, лактат, посевы крови.',
@@ -290,6 +292,7 @@ ru:{
 },
 
 uz:{
+  alert_msg: 'Barcha maydonlarni to\'ldiring.',
   badge:"Tibbiyot talabasi tomonidan · Tibbiyot talabalari uchun",
   h1a:'Klinik Asboblar', h1b:'Ward uchun',
   sub:"3 tilda mnemonikalar bilan 15 ta klinik kalkulyator. Tez, bepul, mobil.",
@@ -502,7 +505,7 @@ function allSet(gs){
   return gs.every(g=>gv(g)!==null); 
 }
 function alertMsg(){ 
-  alert(LANG==='ru'?'Пожалуйста, заполните все поля.':LANG==='uz'?"Barcha maydonlarni to'ldiring.":'Please complete all fields.'); 
+  alert(t('alert_msg')); 
 }
 
 function switchTab(i){
@@ -758,21 +761,37 @@ function calc_ranson(){
 function calc_psi(){
   const age = parseFloat(document.getElementById('psi_age').value);
   const sex = gv('psi_sex'); 
+  
+  // Demographics & Comorbidities
   const nursing_home = gv('psi_nh'); 
   const neoplastic = gv('psi_neo'); 
   const liver = gv('psi_liv'); 
   const chf = gv('psi_chf'); 
   const cerebro = gv('psi_cvd'); 
   const renal = gv('psi_ren'); 
+  
+  // Physical Exam
   const ams = gv('psi_ams'); 
   const rr = gv('psi_rr'); 
   const sbp = gv('psi_sbp'); 
   const temp = gv('psi_temp'); 
   const pulse = gv('psi_pulse'); 
   
+  // Labs & Imaging
+  const ph = gv('psi_ph'); 
+  const bun = gv('psi_bun'); 
+  const na = gv('psi_na'); 
+  const gluc = gv('psi_gluc'); 
+  const hct = gv('psi_hct'); 
+  const pao2 = gv('psi_pao2'); 
+  const effusion = gv('psi_eff');
+  
   if(isNaN(age) || sex===null) { alertMsg(); return; }
   
-  let score = age + sex + (nursing_home||0) + (neoplastic||0) + (liver||0) + (chf||0) + (cerebro||0) + (renal||0) + (ams||0) + (rr||0) + (sbp||0) + (temp||0) + (pulse||0);
+  let score = age + sex + 
+             (nursing_home||0) + (neoplastic||0) + (liver||0) + (chf||0) + (cerebro||0) + (renal||0) + 
+             (ams||0) + (rr||0) + (sbp||0) + (temp||0) + (pulse||0) +
+             (ph||0) + (bun||0) + (na||0) + (gluc||0) + (hct||0) + (pao2||0) + (effusion||0);
   
   let cls = score <= 50 ? 1 : score <= 70 ? 2 : score <= 90 ? 3 : score <= 130 ? 4 : 5;
   const map = {
