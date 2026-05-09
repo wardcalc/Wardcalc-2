@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ranson's Criteria | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">Ranson's Criteria</h1>
+      <p class="tool-info" data-k="d_ranson">Pancreatitis severity at admission and 48 hours. Predicts mortality risk.</p>
+
+      <h3 style="color:var(--gold); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin-bottom:15px;" data-k="at_adm">At Admission</h3>
+      <div class="field"><label class="field-label" data-k="f_age55">Age > 55 years</label>
+        <div class="chips"><button class="chip" data-g="rn2" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn2" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_wbc">WBC > 16 × 10⁹/L</label>
+        <div class="chips"><button class="chip" data-g="rn5" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn5" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_glucose">Glucose > 11 mmol/L (> 200 mg/dL)</label>
+        <div class="chips"><button class="chip" data-g="rn1" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn1" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_ldh">LDH > 350 IU/L</label>
+        <div class="chips"><button class="chip" data-g="rn3" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn3" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_ast">AST > 250 IU/L</label>
+        <div class="chips"><button class="chip" data-g="rn4" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn4" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+
+      <h3 style="color:var(--gold); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin:25px 0 15px;" data-k="at_48h">At 48 Hours</h3>
+      <div class="field"><label class="field-label" data-k="f_hct">Haematocrit drop > 10% (48 h)</label>
+        <div class="chips"><button class="chip" data-g="rn6" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn6" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_bun">BUN rise > 1.8 mmol/L (48 h)</label>
+        <div class="chips"><button class="chip" data-g="rn7" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn7" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_ca">Calcium < 2 mmol/L (48 h)</label>
+        <div class="chips"><button class="chip" data-g="rn8" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn8" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_pao2_r">PaO₂ < 60 mmHg (48 h)</label>
+        <div class="chips"><button class="chip" data-g="rn9" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn9" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_fluid">Fluid sequestration > 6 litres (48 h)</label>
+        <div class="chips"><button class="chip" data-g="rn10" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn10" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      
+      <button class="go-btn" onclick="calc_ranson()" data-k="btn">Calculate</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space</div>
+
+      <div class="mnem-panel">
+        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid</span></div>
+        <div class="mnem-body">
+          <div class="mnem-block"><div class="mnem-flag">🇬🇧</div><div class="mnem-main">Admission: <b>G</b>lucose · <b>A</b>ge · <b>L</b>DH · <b>A</b>ST · <b>W</b>BC → "<b>GA LAW</b>"</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <h2>Understanding Ranson's Criteria</h2>
+      <p>Introduced in 1974, Ranson's criteria comprise 11 clinical signs to objectively evaluate the severity of acute pancreatitis. Five factors are assessed at admission to help establish an early prognosis, and an additional six are assessed 48 hours later to capture the systemic inflammatory response and third-spacing of fluids.</p>
+    </div>
+  </div>
+  <script src="../js/global.js"></script><script>updateUI();</script>
+</body>
+</html>
