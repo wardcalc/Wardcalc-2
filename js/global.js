@@ -28,6 +28,12 @@ en:{
   about_p2: 'As healthcare becomes increasingly globalized, medical students and professionals often navigate literature and patient interactions in multiple languages. WardCalc focuses on deep educational and documentary depth, providing evidence-based calculators paired with clinical mnemonics in English, Russian, and Uzbek.',
   about_h3: 'Our Commitment',
   about_p3: 'We are committed to providing free, mobile-first tools to assist medical students globally. By integrating clinical action plans and first-line pharmacological guidelines, we aim to bridge the gap between textbook theory and practical ward rounds.',
+  
+  contact_p1: 'Have feedback, found a bug, or want to suggest a new calculator? We would love to hear from you.',
+  contact_email: 'Email: msabirali@example.com',
+  privacy_p1: 'WardCalc operates entirely offline on your device. We do not collect, store, or transmit any personal or patient data. All calculations are performed locally.',
+  terms_p1: 'By using WardCalc, you acknowledge that it is a reference tool for educational purposes. It does not constitute medical advice.',
+  disc_p1: 'The calculators, scores, and clinical action plans provided by WardCalc are for educational purposes only. They do not replace clinical judgement, direct patient examination, or institutional guidelines. Always consult your supervising physician before acting on any calculated score.',
 
   d_gcs:'Assess consciousness level in any patient. The score every doctor demands first on a trauma call.',
   d_apgar:'Newborn assessment at 1 and 5 minutes. Guides resuscitation decisions in every delivery room.',
@@ -165,7 +171,7 @@ ru:{
   badge:'Создано студентом-медиком · Для студентов-медиков',
   h1a:'Клинические инструменты', h1b:'для обходов',
   sub:'15 клинических калькуляторов с мнемониками на 3 языках. Быстро, бесплатно, мобильно.',
-  kpi1:'Калькуляторы', kpi2:'Языка', kpi3:'Бесплатно',
+  kpi1:'Калькуляторы', kpi2:'Языки', kpi3:'Бесплатно',
   all_label:'Все калькуляторы',
   disclaimer:'Только в образовательных целях. WardCalc не заменяет клиническое суждение и действующие рекомендации. Всегда консультируйтесь с лечащим врачом.',
   footer:'Создано студентом-медиком для студентов-медиков',
@@ -184,6 +190,12 @@ ru:{
   about_p2: 'Поскольку здравоохранение становится всё более глобализированным, студентам-медикам и специалистам часто приходится работать с литературой и пациентами на разных языках. WardCalc ориентирован на глубокую образовательную и документальную базу, предоставляя научно обоснованные калькуляторы вместе с клиническими мнемониками на английском, русском и узбекском языках.',
   about_h3: 'Наши обязательства',
   about_p3: 'Мы стремимся предоставлять бесплатные мобильные инструменты для помощи студентам-медикам по всему миру. Интегрируя планы клинических действий и рекомендации по фармакотерапии первой линии, мы стремимся преодолеть разрыв между теорией из учебников и практическими обходами в отделениях.',
+  
+  contact_p1: 'Есть отзывы, нашли ошибку или хотите предложить новый калькулятор? Мы будем рады вас услышать.',
+  contact_email: 'Email: msabirali@example.com',
+  privacy_p1: 'WardCalc работает полностью автономно на вашем устройстве. Мы не собираем, не храним и не передаем никакие личные данные или данные пациентов. Все вычисления выполняются локально.',
+  terms_p1: 'Используя WardCalc, вы признаете, что это справочный инструмент для образовательных целей. Он не является медицинской консультацией.',
+  disc_p1: 'Калькуляторы, оценки и планы клинических действий, предоставляемые WardCalc, предназначены только для образовательных целей. Они не заменяют клиническое суждение, непосредственный осмотр пациента или институциональные рекомендации. Всегда консультируйтесь с лечащим врачом.',
 
   d_gcs:'Оценка уровня сознания. Первое, что спрашивают при каждом тяжёлом случае.',
   d_apgar:'Оценка новорождённого на 1-й и 5-й минутах. Определяет тактику реанимации.',
@@ -327,6 +339,12 @@ uz:{
   about_p2: 'Sog\'liqni saqlash sohasi tobora globallashib borayotganligi sababli, tibbiyot talabalari va mutaxassislar ko\'pincha adabiyotlar va bemorlar bilan turli tillarda muloqot qilishadi. WardCalc chuqur ta\'lim va hujjatli asosga e\'tibor qaratib, ingliz, rus va o\'zbek tillarida klinik mnemonikalar bilan birga ilmiy asoslangan kalkulyatorlarni taqdim etadi.',
   about_h3: 'Bizning majburiyatimiz',
   about_p3: 'Biz butun dunyo bo\'ylab tibbiyot talabalariga yordam berish uchun bepul, mobil qurilmalarga moslashgan vositalarni taqdim etishga intilamiz. Klinik harakatlar rejalari va birinchi qator farmakologik ko\'rsatmalarni birlashtirib, biz darslik nazariyasi va amaliy shifoxona aylanmalari o\'rtasidagi bo\'shliqni to\'ldirishni maqsad qilganmiz.',
+  
+  contact_p1: 'Fikr-mulohazalaringiz bormi, xato topdingizmi yoki yangi kalkulyator taklif qilmoqchimisiz? Biz sizni eshitishdan xursand bo\'lamiz.',
+  contact_email: 'Email: msabirali@example.com',
+  privacy_p1: 'WardCalc qurilmangizda to\'liq oflayn ishlaydi. Biz hech qanday shaxsiy yoki bemor ma\'lumotlarini yig\'maymiz, saqlamaymiz yoki uzatmaymiz. Barcha hisob-kitoblar mahalliy darajada amalga oshiriladi.',
+  terms_p1: 'WardCalc-dan foydalanish orqali siz uning ta\'lim maqsadlarida foydalaniladigan ma\'lumotnoma vositasi ekanligini tan olasiz. Bu tibbiy maslahat o\'rnini bosmaydi.',
+  disc_p1: 'WardCalc tomonidan taqdim etilgan kalkulyatorlar, ballar va klinik harakatlar rejalari faqat ta\'lim maqsadida. Ular klinik mulohaza, bemorni bevosita tekshirish yoki muassasa ko\'rsatmalarini almashtirmaydi. Har doim nazoratchi shifokoringiz bilan maslahatlashing.',
 
   d_gcs:"Ong darajasini baholash. Har bir og'ir holatda birinchi so'raladigan ball.",
   d_apgar:"1 va 5 daqiqada yangi tug'ilganni baholash. Reanimatsiya qarorini belgilaydi.",
