@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Centor Score | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">Centor Score</h1>
+      <p class="tool-info" data-k="d_centor">Streptococcal pharyngitis probability. Evidence-based answer to "prescribe antibiotics?"</p>
+
+      <div class="field"><label class="field-label" data-k="f_cough_a">Absence of cough</label>
+        <div class="chips"><button class="chip" data-g="cen1" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="cen1" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_exudates">Tonsillar exudates or swelling</label>
+        <div class="chips"><button class="chip" data-g="cen2" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="cen2" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_lymph">Tender anterior cervical lymphadenopathy</label>
+        <div class="chips"><button class="chip" data-g="cen3" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="cen3" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_temp38">Temperature > 38.0°C</label>
+        <div class="chips"><button class="chip" data-g="cen4" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="cen4" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_c_age">Age Group</label>
+        <div class="chips">
+          <button class="chip" data-g="cenage" data-v="1" onclick="pickChip(this)">3–14 years (1)</button>
+          <button class="chip" data-g="cenage" data-v="0" onclick="pickChip(this)">15–44 years (0)</button>
+          <button class="chip" data-g="cenage" data-v="-1" onclick="pickChip(this)">≥ 45 years (-1)</button>
+        </div>
+      </div>
+      
+      <button class="go-btn" onclick="calc_centor()" data-k="btn">Calculate</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space</div>
+
+      <div class="mnem-panel">
+        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid</span></div>
+        <div class="mnem-body">
+          <div class="mnem-block"><div class="mnem-flag">🇬🇧</div><div class="mnem-main"><b>C</b>ough absent · <b>E</b>xudates · <b>N</b>odes · <b>T</b>emp>38 — "<b>CENT</b>or"</div></div>
+          <div class="mnem-block"><div class="mnem-flag">🇷🇺</div><div class="mnem-main"><b>К</b>ашель нет · <b>Э</b>кссудат · <b>Л</b>имфоузлы · <b>Т</b>емп — "<b>КЭЛТ</b>"</div></div>
+          <div class="mnem-block"><div class="mnem-flag">🇺🇿</div><div class="mnem-main"><b>Y</b>o'tal yo'q · <b>E</b>ksudat · <b>L</b>imfa · <b>H</b>arorat — "<b>YELH</b>"</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <h2>Understanding the Centor Score</h2>
+      <p>The Centor Score helps clinicians determine the likelihood of Group A Streptococcal (GAS) pharyngitis. By estimating this probability, it guides the judicious use of rapid antigen detection testing (RADT) and empiric antibiotics, reducing unnecessary prescriptions and antimicrobial resistance.</p>
+    </div>
+  </div>
+  <script src="../js/global.js"></script><script>updateUI();</script>
+</body>
+</html>
