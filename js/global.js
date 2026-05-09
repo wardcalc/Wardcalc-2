@@ -23,6 +23,12 @@ en:{
   
   nav_about: 'About Us', nav_contact: 'Contact', nav_privacy: 'Privacy Policy', nav_terms: 'Terms', nav_disc: 'Disclaimer',
 
+  about_p1: 'WardCalc was developed by Muhammad Sabir Ali, a medical student (2D-GenMed 21) at the Bukhara State Medical Institute. It was built to solve a practical problem on the clinical wards: accessing reliable, fast, and multi-lingual medical scoring tools.',
+  about_h2: 'Educational Mission',
+  about_p2: 'As healthcare becomes increasingly globalized, medical students and professionals often navigate literature and patient interactions in multiple languages. WardCalc focuses on deep educational and documentary depth, providing evidence-based calculators paired with clinical mnemonics in English, Russian, and Uzbek.',
+  about_h3: 'Our Commitment',
+  about_p3: 'We are committed to providing free, mobile-first tools to assist medical students globally. By integrating clinical action plans and first-line pharmacological guidelines, we aim to bridge the gap between textbook theory and practical ward rounds.',
+
   d_gcs:'Assess consciousness level in any patient. The score every doctor demands first on a trauma call.',
   d_apgar:'Newborn assessment at 1 and 5 minutes. Guides resuscitation decisions in every delivery room.',
   d_wellsdvt:'Pre-test probability of DVT. Does this leg need ultrasound or just a D-dimer? Answer in 60 seconds.',
@@ -103,7 +109,7 @@ en:{
 
   r_gcs_mild:'Mild impairment / Normal or mild TBI', r_gcs_mild_1:'Full neurological assessment — pupil responses, limb power, coordination.', r_gcs_mild_2:'Neurological observations every 30–60 minutes.', r_gcs_mild_3:'CT head if mechanism of injury, focal deficit, or any deterioration.',
   r_gcs_mod:'Moderate brain injury', r_gcs_mod_1:'⚠ Urgent CT head — do not delay.', r_gcs_mod_2:'Neurosurgery referral immediately.', r_gcs_mod_3:'Position 30° head elevation. IV access. Bloods.', r_gcs_mod_4:'Reassess GCS every 15 minutes — escalate if deterioration.',
-  r_gcs_sev:'Severe brain injury — airway at immediate risk', r_gcs_sev_1:'⚠ GCS ≤ 8 = intubation threshold. Call anaesthetics/intensivist immediately.', r_gcs_sev_2:'Rapid Sequence Intubation (RSI). In-line cervical immobilisation if trauma.', r_gcs_sev_3:'Ururgent CT head + spine. Neurosurgery on call.', r_gcs_sev_4:'ICU admission. Document capacity assessment.',
+  r_gcs_sev:'Severe brain injury — airway at immediate risk', r_gcs_sev_1:'⚠ GCS ≤ 8 = intubation threshold. Call anaesthetics/intensivist immediately.', r_gcs_sev_2:'Rapid Sequence Intubation (RSI). In-line cervical immobilisation if trauma.', r_gcs_sev_3:'Urgent CT head + spine. Neurosurgery on call.', r_gcs_sev_4:'ICU admission. Document capacity assessment.',
   r_apgar_norm:'Normal — Reassuring', r_apgar_norm_1:'Warm, dry and stimulate the newborn.', r_apgar_norm_2:'Routine newborn care — skin to skin.', r_apgar_norm_3:'Repeat APGAR at 5 minutes.',
   r_apgar_mod:'Moderate concern — requires intervention', r_apgar_mod_1:'Stimulate: rub back, flick soles.', r_apgar_mod_2:'Supplemental oxygen via mask.', r_apgar_mod_3:'Call paediatrician immediately.', r_apgar_mod_4:'Prepare bag-mask ventilation equipment.',
   r_apgar_crit:'Critical — Immediate full resuscitation', r_apgar_crit_1:'⚠ Call NICU team immediately.', r_apgar_crit_2:'Positive pressure ventilation at 40–60 breaths/min.', r_apgar_crit_3:'Chest compressions if no improvement (3:1 ratio).', r_apgar_crit_4:'Umbilical venous catheter access.',
@@ -172,6 +178,12 @@ ru:{
   sp_vasc:'Сосуды', sp_icu:'ОРИТ / Отделение', sp_inf:'Инфекции', sp_gen:'Общее', sp_surg:'Хирургия',
   
   nav_about: 'О нас', nav_contact: 'Контакты', nav_privacy: 'Конфиденциальность', nav_terms: 'Условия', nav_disc: 'Отказ от ответственности',
+
+  about_p1: 'WardCalc был разработан Мухаммадом Сабиром Али, студентом-медиком (2D-GenMed 21) Бухарского государственного медицинского института. Приложение создано для решения практической проблемы в клинических отделениях: доступа к надёжным, быстрым и мультиязычным инструментам медицинской оценки.',
+  about_h2: 'Образовательная миссия',
+  about_p2: 'Поскольку здравоохранение становится всё более глобализированным, студентам-медикам и специалистам часто приходится работать с литературой и пациентами на разных языках. WardCalc ориентирован на глубокую образовательную и документальную базу, предоставляя научно обоснованные калькуляторы вместе с клиническими мнемониками на английском, русском и узбекском языках.',
+  about_h3: 'Наши обязательства',
+  about_p3: 'Мы стремимся предоставлять бесплатные мобильные инструменты для помощи студентам-медикам по всему миру. Интегрируя планы клинических действий и рекомендации по фармакотерапии первой линии, мы стремимся преодолеть разрыв между теорией из учебников и практическими обходами в отделениях.',
 
   d_gcs:'Оценка уровня сознания. Первое, что спрашивают при каждом тяжёлом случае.',
   d_apgar:'Оценка новорождённого на 1-й и 5-й минутах. Определяет тактику реанимации.',
@@ -309,6 +321,12 @@ uz:{
   sp_vasc:"Qon tomir", sp_icu:"ORIT / Bo'lim", sp_inf:'Yuqumli kasallik', sp_gen:'Umumiy', sp_surg:'Jarrohlik',
   
   nav_about: 'Biz haqimizda', nav_contact: 'Aloqa', nav_privacy: 'Maxfiylik siyosati', nav_terms: 'Shartlar', nav_disc: 'Ogohlantirish',
+
+  about_p1: 'WardCalc Buxoro davlat tibbiyot instituti tibbiyot talabasi (2D-GenMed 21) Muhammad Sobir Ali tomonidan ishlab chiqilgan. U klinik bo\'limlardagi amaliy muammoni hal qilish uchun yaratilgan: ishonchli, tezkor va ko\'p tilli tibbiy baholash vositalaridan foydalanish.',
+  about_h2: 'Ta\'lim missiyasi',
+  about_p2: 'Sog\'liqni saqlash sohasi tobora globallashib borayotganligi sababli, tibbiyot talabalari va mutaxassislar ko\'pincha adabiyotlar va bemorlar bilan turli tillarda muloqot qilishadi. WardCalc chuqur ta\'lim va hujjatli asosga e\'tibor qaratib, ingliz, rus va o\'zbek tillarida klinik mnemonikalar bilan birga ilmiy asoslangan kalkulyatorlarni taqdim etadi.',
+  about_h3: 'Bizning majburiyatimiz',
+  about_p3: 'Biz butun dunyo bo\'ylab tibbiyot talabalariga yordam berish uchun bepul, mobil qurilmalarga moslashgan vositalarni taqdim etishga intilamiz. Klinik harakatlar rejalari va birinchi qator farmakologik ko\'rsatmalarni birlashtirib, biz darslik nazariyasi va amaliy shifoxona aylanmalari o\'rtasidagi bo\'shliqni to\'ldirishni maqsad qilganmiz.',
 
   d_gcs:"Ong darajasini baholash. Har bir og'ir holatda birinchi so'raladigan ball.",
   d_apgar:"1 va 5 daqiqada yangi tug'ilganni baholash. Reanimatsiya qarorini belgilaydi.",
