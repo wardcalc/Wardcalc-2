@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms - WardCalc</title>
+    <!-- This links back your premium dark styling -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
+
+    <!-- Top Navigation Bar -->
+    <nav class="navbar" style="display: flex; justify-content: space-between; padding: 20px 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <a href="index.html" style="color: var(--white, #fff); text-decoration: none; font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
+            <span style="background: var(--bg3, #222); padding: 8px 12px; border-radius: 8px; color: var(--gold, #d4af37);">🫀</span> WardCalc
+        </a>
+        
+        <div class="lang-switch" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+            <button class="lang-btn active" onclick="setLang('en', this)" style="background: var(--gold, #d4af37); color: #000; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;">EN</button>
+            <button class="lang-btn" onclick="setLang('ru', this)" style="background: transparent; color: var(--w60, #888); border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;">RU</button>
+            <button class="lang-btn" onclick="setLang('uz', this)" style="background: transparent; color: var(--w60, #888); border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;">UZ</button>
+        </div>
+    </nav>
+
+    <!-- Main Content inside the Dark Card -->
+    <div style="padding: 20px; max-width: 800px; margin: 40px auto;">
+        <div class="content-card" style="background: var(--bg2, #1a1b26); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);">
+            
+            <h2 data-k="nav_terms" style="color: var(--gold, #d4af37); margin-bottom: 20px; font-size: 24px;">Terms</h2>
+            
+            <p data-k="terms_p1" style="color: var(--w80, #cbd5e1); line-height: 1.8; font-size: 15px;">
+                By using WardCalc, you acknowledge that it is a reference tool for educational purposes. It does not constitute medical advice.
+            </p>
+            
+        </div>
+    </div>
+
+    <!-- This connects your translations -->
+    <script src="js/global.js"></script>
+    
+    <!-- Ensures text updates immediately when the page loads -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof updateUI === 'function') updateUI();
+        });
+    </script>
+</body>
+</html>
