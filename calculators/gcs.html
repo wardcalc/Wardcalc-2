@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Glasgow Coma Scale | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space (Above Tool)</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">Glasgow Coma Scale (GCS)</h1>
+      <p class="tool-info" data-k="info_gcs">The Glasgow Coma Scale (GCS) is used to reliably measure a person's level of consciousness...</p>
+
+      <div class="field"><label class="field-label" data-k="f_eye">Eye Opening</label>
+        <div class="chips">
+          <button class="chip" data-g="ge" data-v="4" onclick="pickChip(this)">Spontaneous (4)</button>
+          <button class="chip" data-g="ge" data-v="3" onclick="pickChip(this)">To voice (3)</button>
+          <button class="chip" data-g="ge" data-v="2" onclick="pickChip(this)">To pain (2)</button>
+          <button class="chip" data-g="ge" data-v="1" onclick="pickChip(this)">None (1)</button>
+        </div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_verbal">Verbal Response</label>
+        <div class="chips">
+          <button class="chip" data-g="gv" data-v="5" onclick="pickChip(this)">Oriented (5)</button>
+          <button class="chip" data-g="gv" data-v="4" onclick="pickChip(this)">Confused (4)</button>
+          <button class="chip" data-g="gv" data-v="3" onclick="pickChip(this)">Words (3)</button>
+          <button class="chip" data-g="gv" data-v="2" onclick="pickChip(this)">Sounds (2)</button>
+          <button class="chip" data-g="gv" data-v="1" onclick="pickChip(this)">None (1)</button>
+        </div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_motor">Motor Response</label>
+        <div class="chips">
+          <button class="chip" data-g="gm" data-v="6" onclick="pickChip(this)">Obeys (6)</button>
+          <button class="chip" data-g="gm" data-v="5" onclick="pickChip(this)">Localizes (5)</button>
+          <button class="chip" data-g="gm" data-v="4" onclick="pickChip(this)">Withdrawal (4)</button>
+          <button class="chip" data-g="gm" data-v="3" onclick="pickChip(this)">Flexion (3)</button>
+          <button class="chip" data-g="gm" data-v="2" onclick="pickChip(this)">Extension (2)</button>
+          <button class="chip" data-g="gm" data-v="1" onclick="pickChip(this)">None (1)</button>
+        </div>
+      </div>
+      
+      <button class="go-btn" onclick="calc_gcs()" data-k="btn">Calculate GCS</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space (Below Tool)</div>
+
+      <div class="mnem-panel">
+        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
+        <div class="mnem-body">
+          <div class="mnem-block">
+            <div class="mnem-flag">🇬🇧</div>
+            <div class="mnem-main"><b>E</b>yes · <b>V</b>erbal · <b>M</b>otor = "<b>EVM</b>"</div>
+          </div>
+          <div class="mnem-block">
+            <div class="mnem-flag">🇷🇺</div>
+            <div class="mnem-main"><b>Г</b>лаза · <b>Р</b>ечь · <b>Д</b>вижение = ШКГ — "<b>ГРД</b>"</div>
+          </div>
+          <div class="mnem-block">
+            <div class="mnem-flag">🇺🇿</div>
+            <div class="mnem-main"><b>K</b>o'z · <b>N</b>utq · <b>H</b>arakat = GCS — "<b>KNH</b>"</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEO TEXT FOR ADSENSE -->
+    <div class="seo-content">
+      <h2>Understanding the GCS</h2>
+      <p>The Glasgow Coma Scale provides a practical, standardized method to assess impairment of conscious level in response to defined stimuli. It is essential in traumatic brain injury protocols.</p>
+      
+      <h2>Clinical Interpretations</h2>
+      <ul>
+        <li><strong>13-15:</strong> Mild impairment. Usually indicates a normal state or mild traumatic brain injury (TBI).</li>
+        <li><strong>9-12:</strong> Moderate brain injury. Requires urgent imaging and close neurological monitoring.</li>
+        <li><strong>3-8:</strong> Severe brain injury. A score of 8 or less is the universally accepted threshold for securing a definitive airway via intubation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../js/global.js"></script>
+  <script>
+    // This loads the right language text as soon as the page opens!
+    updateUI();
+  </script>
+</body>
+</html>
