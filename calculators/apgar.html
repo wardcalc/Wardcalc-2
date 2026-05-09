@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>APGAR Score | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space (Above Tool)</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">APGAR Score</h1>
+      <p class="tool-info" data-k="info_apgar">The APGAR score provides a standardized assessment for infants after delivery...</p>
+
+      <div class="field"><label class="field-label" data-k="f_appear">Appearance</label>
+        <div class="chips">
+          <button class="chip" data-g="aa" data-v="2" onclick="pickChip(this)">Pink all over (2)</button>
+          <button class="chip" data-g="aa" data-v="1" onclick="pickChip(this)">Blue extremities (1)</button>
+          <button class="chip" data-g="aa" data-v="0" onclick="pickChip(this)">Blue/pale all over (0)</button>
+        </div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_pulse">Pulse</label>
+        <div class="chips">
+          <button class="chip" data-g="ap" data-v="2" onclick="pickChip(this)">≥ 100 bpm (2)</button>
+          <button class="chip" data-g="ap" data-v="1" onclick="pickChip(this)">< 100 bpm (1)</button>
+          <button class="chip" data-g="ap" data-v="0" onclick="pickChip(this)">Absent (0)</button>
+        </div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_grimace">Grimace</label>
+        <div class="chips">
+          <button class="chip" data-g="ag" data-v="2" onclick="pickChip(this)">Cry/Cough (2)</button>
+          <button class="chip" data-g="ag" data-v="1" onclick="pickChip(this)">Grimace only (1)</button>
+          <button class="chip" data-g="ag" data-v="0" onclick="pickChip(this)">None (0)</button>
+        </div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_activity">Activity</label>
+        <div class="chips">
+          <button class="chip" data-g="ac" data-v="2" onclick="pickChip(this)">Active motion (2)</button>
+          <button class="chip" data-g="ac" data-v="1" onclick="pickChip(this)">Some flexion (1)</button>
+          <button class="chip" data-g="ac" data-v="0" onclick="pickChip(this)">Limp (0)</button>
+        </div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_resp_a">Respiration</label>
+        <div class="chips">
+          <button class="chip" data-g="ar" data-v="2" onclick="pickChip(this)">Strong cry (2)</button>
+          <button class="chip" data-g="ar" data-v="1" onclick="pickChip(this)">Weak/irregular (1)</button>
+          <button class="chip" data-g="ar" data-v="0" onclick="pickChip(this)">Absent (0)</button>
+        </div>
+      </div>
+      
+      <button class="go-btn" onclick="calc_apgar()" data-k="btn">Calculate APGAR</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space (Below Tool)</div>
+
+      <div class="mnem-panel">
+        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
+        <div class="mnem-body">
+          <div class="mnem-block">
+            <div class="mnem-flag">🇬🇧</div>
+            <div class="mnem-main"><b>A</b>ppearance · <b>P</b>ulse · <b>G</b>rimace · <b>A</b>ctivity · <b>R</b>espiration</div>
+          </div>
+          <div class="mnem-block">
+            <div class="mnem-flag">🇷🇺</div>
+            <div class="mnem-main"><b>В</b>нешний вид · <b>П</b>ульс · <b>Г</b>римаса · <b>А</b>ктивность · <b>Д</b>ыхание</div>
+          </div>
+          <div class="mnem-block">
+            <div class="mnem-flag">🇺🇿</div>
+            <div class="mnem-main"><b>K</b>o'rinish · <b>Y</b>urak · <b>G</b>rimasa · <b>F</b>aollik · <b>N</b>afas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <h2>Understanding the APGAR Score</h2>
+      <p>Designed by Dr. Virginia Apgar in 1952, the APGAR score is a rapid method for assessing the clinical status of the newborn infant at 1 minute and 5 minutes after birth. It provides a standardized mechanism to record fetal-to-neonatal transition.</p>
+      
+      <h2>Clinical Interpretations</h2>
+      <ul>
+        <li><strong>7-10:</strong> Normal. The infant is transitioning well. Routine post-delivery care is appropriate.</li>
+        <li><strong>4-6:</strong> Moderately depressed. The infant requires interventions such as stimulation and supplemental oxygen.</li>
+        <li><strong>0-3:</strong> Severely depressed. Immediate, full neonatal resuscitation protocols must be initiated.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="../js/global.js"></script>
+  <script>updateUI();</script>
+</body>
+</html>
