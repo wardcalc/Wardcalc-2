@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WardCalc — Clinical Calculators</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div><div class="bg-grid"></div></div>
+
+  <nav>
+    <a class="logo" href="index.html">
+      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+    </a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div style="padding: 0 28px; max-width: 1100px; margin: 0 auto;">
+    <div class="ad-banner">AdSense Space (Top Banner)</div>
+  </div>
+
+  <section class="hero">
+    <h1 data-k="h1a">Clinical Tools</h1>
+    <p class="hero-sub" data-k="sub">15 evidence-based calculators with mnemonics in 3 languages.</p>
+  </section>
+
+  <main class="main">
+    <div class="grid-header"><span style="color:var(--gold); font-family:var(--mono); text-transform:uppercase; font-size:11px;" data-k="all_label">All Calculators</span></div>
+    <div class="calc-grid" id="calcGrid"></div>
+  </main>
+
+  <footer>
+    <p class="footer-text"><b>WardCalc</b> &nbsp;·&nbsp; <span data-k="footer">Built by a medical student, for medical students</span></p>
+    <div class="footer-links">
+      <a href="about.html" data-k="nav_about">About Us</a>
+      <a href="contact.html" data-k="nav_contact">Contact</a>
+      <a href="privacy.html" data-k="nav_privacy">Privacy Policy</a>
+      <a href="terms.html" data-k="nav_terms">Terms</a>
+      <a href="disclaimer.html" data-k="nav_disc">Disclaimer</a>
+    </div>
+  </footer>
+
+  <script src="js/global.js"></script>
+  <script>
+    // This tells the JS to build your grid of 15 calculators!
+    renderGrid();
+    updateUI();
+  </script>
+</body>
+</html>
