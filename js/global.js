@@ -468,22 +468,25 @@ let LANG = 'en';
 const t = k => (T[LANG]||T.en)[k] || T.en[k] || k;
 
 /* ── UI HELPERS ── */
-function updateUI(){
-  document.querySelectorAll('[data-k]').forEach(el => {
-    if (el.tagName === 'INPUT' && el.type === 'search') {
-      el.placeholder = t(el.dataset.k);
-    } else {
-      el.innerHTML = t(el.dataset.k);
-    }
-  });
-}
-
 function setLang(l, btn){
   LANG = l;
-  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  
+  // 1. Reset ALL buttons to transparent background and gray text
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.remove('active');
+    b.style.background = 'transparent';
+    b.style.color = 'var(--w60, #888)';
+  });
+  
+  // 2. Apply the gold background and black text to the CLICKED button
   btn.classList.add('active');
+  btn.style.background = 'var(--gold, #d4af37)';
+  btn.style.color = '#000';
+  
   updateUI();
   if(document.getElementById('calcGrid')) renderGrid();
+}
+
 }
 
 /* ── CALCULATOR DATA ── */
