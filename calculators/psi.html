@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PSI / PORT Score | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">PSI / PORT Score</h1>
+      <p class="tool-info" data-k="d_psi">Pneumonia Severity Index. Uses 20 variables to accurately stratify mortality risk and guide admission.</p>
+
+      <h3 style="color:var(--gold); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin-bottom:15px;">Demographics</h3>
+      <div class="field"><label class="field-label">Age in Years (Adds 1 pt per year)</label><input class="num-field" type="number" id="psi_age" placeholder="e.g. 65" min="18" max="110"></div>
+      <div class="field"><label class="field-label">Sex</label>
+        <div class="chips"><button class="chip" data-g="psi_sex" data-v="0" onclick="pickChip(this)" data-k="male">Male (0)</button><button class="chip" data-g="psi_sex" data-v="-10" onclick="pickChip(this)" data-k="female">Female (-10)</button></div>
+      </div>
+      <div class="field"><label class="field-label">Nursing home resident</label>
+        <div class="chips"><button class="chip" data-g="psi_nh" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="psi_nh" data-v="10" onclick="pickChip(this)" data-k="yes">Yes (+10)</button></div>
+      </div>
+
+      <h3 style="color:var(--gold); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin:25px 0 15px;">Comorbidities</h3>
+      <div class="field"><label class="field-label">Neoplastic disease</label><div class="chips"><button class="chip" data-g="psi_neo" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_neo" data-v="30" onclick="pickChip(this)">Yes (+30)</button></div></div>
+      <div class="field"><label class="field-label">Liver disease</label><div class="chips"><button class="chip" data-g="psi_liv" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_liv" data-v="20" onclick="pickChip(this)">Yes (+20)</button></div></div>
+      <div class="field"><label class="field-label">Congestive heart failure</label><div class="chips"><button class="chip" data-g="psi_chf" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_chf" data-v="10" onclick="pickChip(this)">Yes (+10)</button></div></div>
+      <div class="field"><label class="field-label">Cerebrovascular disease</label><div class="chips"><button class="chip" data-g="psi_cvd" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_cvd" data-v="10" onclick="pickChip(this)">Yes (+10)</button></div></div>
+      <div class="field"><label class="field-label">Renal disease</label><div class="chips"><button class="chip" data-g="psi_ren" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_ren" data-v="10" onclick="pickChip(this)">Yes (+10)</button></div></div>
+
+      <h3 style="color:var(--gold); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin:25px 0 15px;">Physical Exam</h3>
+      <div class="field"><label class="field-label">Altered mental status</label><div class="chips"><button class="chip" data-g="psi_ams" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_ams" data-v="20" onclick="pickChip(this)">Yes (+20)</button></div></div>
+      <div class="field"><label class="field-label">Respiratory rate ≥ 30 /min</label><div class="chips"><button class="chip" data-g="psi_rr" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_rr" data-v="20" onclick="pickChip(this)">Yes (+20)</button></div></div>
+      <div class="field"><label class="field-label">Systolic BP < 90 mmHg</label><div class="chips"><button class="chip" data-g="psi_sbp" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_sbp" data-v="20" onclick="pickChip(this)">Yes (+20)</button></div></div>
+      <div class="field"><label class="field-label">Temperature < 35°C or ≥ 40°C</label><div class="chips"><button class="chip" data-g="psi_temp" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_temp" data-v="15" onclick="pickChip(this)">Yes (+15)</button></div></div>
+      <div class="field"><label class="field-label">Pulse ≥ 125 /min</label><div class="chips"><button class="chip" data-g="psi_pulse" data-v="0" onclick="pickChip(this)">No</button><button class="chip" data-g="psi_pulse" data-v="10" onclick="pickChip(this)">Yes (+10)</button></div></div>
+      
+      <button class="go-btn" onclick="calc_psi()" data-k="btn">Calculate</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space</div>
+    </div>
+
+    <div class="seo-content">
+      <h2>Understanding the Pneumonia Severity Index (PSI)</h2>
+      <p>The Pneumonia Severity Index, also known as the PORT score, is a comprehensive clinical prediction rule designed to calculate the probability of morbidity and mortality among patients with community-acquired pneumonia (CAP). While more complex than CURB-65, it is considered more robust due to the inclusion of age, specific comorbidities, and vital signs.</p>
+    </div>
+  </div>
+  <script src="../js/global.js"></script><script>updateUI();</script>
+</body>
+</html>
