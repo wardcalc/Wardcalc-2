@@ -314,3 +314,19 @@ footer{border-top:1px solid var(--border);padding:28px;text-align:center}
 .footer-links{margin-top:15px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
 .footer-links a{color:var(--w40);text-decoration:none;font-size:12px;}
 .contact-link{color:var(--sapphire);text-decoration:none;font-weight:600;}
+/* ── CLOSE BUTTON FOR STANDALONE PAGES ── */
+.calc-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+.close-btn {
+  width: 38px; height: 38px; border-radius: 11px; flex-shrink: 0;
+  background: var(--w05); border: 1px solid var(--border);
+  display: grid; place-items: center; text-decoration: none;
+  color: var(--w40); font-size: 16px; cursor: pointer; transition: .18s;
+}
+.close-btn:hover {
+  background: rgba(224,92,122,.12); border-color: var(--rose); color: var(--rose);
+}
