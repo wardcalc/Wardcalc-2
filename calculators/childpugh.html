@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Child-Pugh Score | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space (Above Tool)</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">Child-Pugh Score</h1>
+      <p class="tool-info" data-k="d_childpugh">Chronic liver disease prognosis. Class A, B or C — determines surgery risk and drug dosing.</p>
+
+      <div class="field"><label class="field-label" data-k="f_bilirubin">Bilirubin (μmol/L)</label>
+        <div class="chips"><button class="chip" data-g="cb" data-v="1" onclick="pickChip(this)">< 34</button><button class="chip" data-g="cb" data-v="2" onclick="pickChip(this)">34–50</button><button class="chip" data-g="cb" data-v="3" onclick="pickChip(this)">> 50</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_albumin">Albumin (g/L)</label>
+        <div class="chips"><button class="chip" data-g="ca" data-v="1" onclick="pickChip(this)">> 35</button><button class="chip" data-g="ca" data-v="2" onclick="pickChip(this)">28–35</button><button class="chip" data-g="ca" data-v="3" onclick="pickChip(this)">< 28</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_pt">PT prolongation / INR</label>
+        <div class="chips"><button class="chip" data-g="cp" data-v="1" onclick="pickChip(this)">< 4s / INR < 1.7</button><button class="chip" data-g="cp" data-v="2" onclick="pickChip(this)">4–6s / 1.7–2.3</button><button class="chip" data-g="cp" data-v="3" onclick="pickChip(this)">> 6s / INR > 2.3</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_ascites">Ascites</label>
+        <div class="chips"><button class="chip" data-g="casc" data-v="1" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="casc" data-v="2" onclick="pickChip(this)">Mild/Moderate</button><button class="chip" data-g="casc" data-v="3" onclick="pickChip(this)">Severe/Refractory</button></div>
+      </div>
+      <div class="field"><label class="field-label" data-k="f_enceph">Hepatic Encephalopathy</label>
+        <div class="chips"><button class="chip" data-g="ce" data-v="1" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="ce" data-v="2" onclick="pickChip(this)">Grade I–II</button><button class="chip" data-g="ce" data-v="3" onclick="pickChip(this)">Grade III–IV</button></div>
+      </div>
+      
+      <button class="go-btn" onclick="calc_childpugh()" data-k="btn">Calculate</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space (Below Tool)</div>
+
+      <div class="mnem-panel">
+        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
+        <div class="mnem-body">
+          <div class="mnem-block"><div class="mnem-flag">🇬🇧</div><div class="mnem-main"><b>B</b>ilirubin · <b>A</b>lbumin · <b>P</b>T/INR · <b>A</b>scites · <b>E</b>nceph — "<b>BAPAE</b>"</div></div>
+          <div class="mnem-block"><div class="mnem-flag">🇷🇺</div><div class="mnem-main"><b>Б</b>илирубин · <b>А</b>льбумин · <b>П</b>В/МНО · <b>А</b>сцит · <b>Э</b>нцеф — "<b>БАПАЭ</b>"</div></div>
+          <div class="mnem-block"><div class="mnem-flag">🇺🇿</div><div class="mnem-main"><b>B</b>ilirubin · <b>A</b>lbumin · <b>P</b>T/INR · <b>A</b>ssit · <b>E</b>nsefalopatiya — "<b>BAPAE</b>"</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <h2>Understanding the Child-Pugh Score</h2>
+      <p>The Child-Pugh score is a globally recognized system for assessing the prognosis of chronic liver disease, primarily cirrhosis. It provides a reliable estimate of disease severity and survival, which is crucial for surgical risk assessment and medication dosing.</p>
+      <ul>
+        <li><strong>Class A (5-6 points):</strong> Well-compensated disease. Good prognosis.</li>
+        <li><strong>Class B (7-9 points):</strong> Significant functional compromise. Hepatology referral indicated.</li>
+        <li><strong>Class C (10-15 points):</strong> Decompensated disease. Poor prognosis, urgent transplant assessment required.</li>
+      </ul>
+    </div>
+  </div>
+  <script src="../js/global.js"></script><script>updateUI();</script>
+</body>
+</html>
