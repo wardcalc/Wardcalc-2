@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>eGFR (CKD-EPI) | WardCalc</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="ad-banner">AdSense Space</div>
+
+    <div class="calc-container">
+      <h1 class="tool-title">eGFR (CKD-EPI)</h1>
+      <p class="tool-info" data-k="d_egfr">Kidney function using CKD-EPI. Critical for safe drug prescribing in every patient.</p>
+
+      <div class="field"><label class="field-label" data-k="f_creat">Serum Creatinine (μmol/L)</label><input class="num-field" type="number" id="ecr" placeholder="e.g. 90" min="10"></div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
+        <div class="field"><label class="field-label" data-k="f_age">Age (years)</label><input class="num-field" type="number" id="eage" placeholder="e.g. 45" min="18" max="110"></div>
+        <div class="field"><label class="field-label" data-k="f_sex">Sex</label>
+          <div class="chips"><button class="chip" data-g="esex" data-v="M" onclick="pickChip(this)" data-k="male">Male</button><button class="chip" data-g="esex" data-v="F" onclick="pickChip(this)" data-k="female">Female</button></div>
+        </div>
+      </div>
+      
+      <button class="go-btn" onclick="calc_egfr()" data-k="btn">Calculate</button>
+      <div id="R" class="result-box"></div>
+
+      <div class="ad-banner">AdSense Space</div>
+
+      <div class="mnem-panel">
+        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid</span></div>
+        <div class="mnem-body">
+          <div class="mnem-block"><div class="mnem-flag">🌍</div><div class="mnem-main"><b>G1</b> ≥90 · <b>G2</b> 60–89 · <b>G3a</b> 45–59 · <b>G3b</b> 30–44 · <b>G4</b> 15–29 · <b>G5</b> <15</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="seo-content">
+      <h2>Understanding eGFR and CKD-EPI</h2>
+      <p>The estimated Glomerular Filtration Rate (eGFR) is the best overall index of kidney function. The 2021 CKD-EPI Creatinine equation is the gold standard recommended by the National Kidney Foundation, as it provides a highly accurate estimate without requiring a race coefficient.</p>
+      <p>It is vital to check the eGFR before prescribing renally excreted drugs (e.g., Metformin, DOACs, antibiotics) to prevent accidental toxicity.</p>
+    </div>
+  </div>
+  <script src="../js/global.js"></script><script>updateUI();</script>
+</body>
+</html>
