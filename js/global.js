@@ -304,7 +304,7 @@ ru:{
   r_nihss_minor:'Малый инсульт (NIHSS 1–4)', r_nihss_minor_1:'Госпитализация в острое инсультное отделение.', r_nihss_minor_2:'Бесконтрастная КТ головы — срочно.', r_nihss_minor_3:'Оценка возможности тромболизиса при давности ≤ 4,5 ч.',
   r_nihss_mod:'Умеренный инсульт (NIHSS 5–15)', r_nihss_mod_1:'⚠ КТ головы немедленно — исключить геморрагию.', r_nihss_mod_2:'Целевое время «дверь–игла» < 60 минут.', r_nihss_mod_3:'КТ-ангиография — при ОЛО → направление на тромбэктомию.',
   r_nihss_modsev:'Умеренно-тяжёлый инсульт (NIHSS 16–20)', r_nihss_modsev_1:'⚠ КТ + КТА срочно. Направление на тромбэктомию при ОЛО.', r_nihss_modsev_2:'Оценка дыхательных путей — может потребоваться реанимация.', r_nihss_modsev_3:'Декомпрессивная краниэктомия при злокачественном инфаркте СМА.',
-  r_nihss_sev:'Тяжёлый инсульт (NIHSS > 20)', r_nihss_sev_1:'⚠ ОРИТ. Тромбэктомия при ОЛО на КТА.', r_nihss_sev_2:'Беседа с семьями — прогноз, планирование паллиативной помощи.', r_nihss_sev_3:'НГЗ при нарушении глотания.',
+  r_nihss_sev:'Тяжёлый инсульт (NIHSS > 20)', r_nihss_sev_1:'⚠ ОРИТ. Тромбэктомия при ОЛО на КТА.', r_nihss_sev_2:'Беседа с семьёй — прогноз, планирование паллиативной помощи.', r_nihss_sev_3:'НГЗ при нарушении глотания.',
   r_sofa_lo:'Лёгкая органная дисфункция', r_sofa_lo_1:'Тщательный мониторинг. Лечение первопричины.', r_sofa_lo_2:'Переоценка SOFA ежедневно.', r_sofa_lo_3:'30 мл/кг кристаллоидов при подозрении на сепсис.',
   r_sofa_md:'Умеренная полиорганная дисфункция', r_sofa_md_1:'⚠ Немедленная оценка необходимости перевода в ОРИТ.', r_sofa_md_2:'Контроль источника инфекции: дренирование, удаление катетеров, хирургия.', r_sofa_md_3:'Органоспецифическая поддержка: ИВЛ, вазопрессоры.',
   r_sofa_hi:'Тяжёлая полиорганная недостаточность', r_sofa_hi_1:'⚠ Немедленно в ОРИТ. Полная органная поддержка.', r_sofa_hi_2:'Инвазивный мониторинг: артериальная линия, ЦВК, сердечный выброс.', r_sofa_hi_3:'Заместительная почечная терапия при сохраняющемся ОПП.',
@@ -459,8 +459,8 @@ uz:{
   r_ranson_lo:"Yengil pankreatit (o'lim < 5%)", r_ranson_lo_1:"IV suyuqlik: kristalloid 250–500 mL/soat.", r_ranson_lo_2:"Og'iz orqali ovqatlanishni to'xtating → toqat qilsa shaffof suyuqlik.", r_ranson_lo_3:"Og'riq qoldiruvchi + antiemetik. Ca²⁺ va glyukozani nazorat qiling.",
   r_ranson_md:"O'rtacha og'ir pankreatit", r_ranson_md_1:"PMSP monitoringi.", r_ranson_md_2:"Yaxshilanmasa 72–96 soatda kontrastli qorin KT.", r_ranson_md_3:"24–48 soat ichida erta nazoyeyunal ovqatlantirish.",
   r_ranson_hi:"Og'ir pankreatit (ball > 6 da o'lim > 50%)", r_ranson_hi_1:"⚠ ORIT ga yotqizish. Agressiv Hartman eritmasi 500 mL/soat.", r_ranson_hi_2:"Gepatobiliaria jarrohi yo'llanmasi. Infitsiyalangan nekroz → aralashuv.", r_ranson_hi_3:"Arterial liniya, MVO, soatlik suyuqlik balansi.",
-  r_psi_1:"I sinf — Juda past xavf (o'lim < 0,1%)", r_psi_2:"II sinf — Past xavf (o'lim ~0,6%)", r_psi_3:"III sinf — O'rtacha xavf (o'lim ~2,8%)", r_psi_4:"IV sinf — O'rtacha-yuqori xavf (o'lim ~8,2%)", r_psi_5:"V sinf — Yuqori xavf (o'lim ~29%)",
-  r_psi_1_1:"Ambulatoriya davolash mos.", r_psi_1_2:"Amoksitsillin 500 mg 3 marta/kun × 5 kun.", r_psi_2_1:"Ko'pchilik uchun ambulatoriya mos.", r_psi_2_2:"I sinfdagi kabi og'iz orqali antibiotiklar.", r_psi_3_1:"Qisqa muddatli kasalxona yoki 24 soat kuzatuv.", r_psi_3_2:"Og'iz orqali qabul qilib bo'lmasa IV antibiotiklar.", r_psi_4_1:"Kasalxonaga yotqizish majburiy.", r_psi_4_2:"Ikki tomonlama IV antibiotik terapiyasi.", r_psi_5_1:"⚠ Kasalxona. Og'ir belgilar bo'lsa ORIT/PMSP.", r_psi_5_2:"To'liq pnevmoniya parvarish protokoli.",
+  r_psi_1:'I sinf — Juda past xavf (o\'lim < 0,1%)', r_psi_2:'II sinf — Past xavf (o\'lim ~0,6%)', r_psi_3:'III sinf — O\'rtacha xavf (o\'lim ~2,8%)', r_psi_4:'IV sinf — O\'rtacha-yuqori xavf (o\'lim ~8,2%)', r_psi_5:'V sinf — Yuqori xavf (o\'lim ~29%)',
+  r_psi_1_1:'Ambulatoriya davolash mos.', r_psi_1_2:'Amoksitsillin 500 mg 3 marta/kun × 5 kun.', r_psi_2_1:'Ko\'pchilik uchun ambulatoriya mos.', r_psi_2_2:'I sinfdagi kabi og\'iz orqali antibiotiklar.', r_psi_3_1:'Qisqa muddatli kasalxona yoki 24 soat kuzatuv.', r_psi_3_2:'Og\'iz orqali qabul qilib bo\'lmasa IV antibiotiklar.', r_psi_4_1:'Kasalxonaga yotqizish majburiy.', r_psi_4_2:'Ikki tomonlama IV antibiotik terapiyasi.', r_psi_5_1:'⚠ Kasalxona. Og\'ir belgilar bo\'lsa ORIT/PMSP.', r_psi_5_2:'To\'liq pnevmoniya parvarish protokoli.',
 }
 };
 
@@ -481,22 +481,19 @@ function updateUI(){
 function setLang(l, btn){
   LANG = l;
   
-  // 1. Reset ALL buttons to transparent background and gray text
+  // 1. Force reset ALL buttons with strict CSS
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.remove('active');
-    b.style.background = 'transparent';
-    b.style.color = 'var(--w60, #888)';
+    b.style.cssText = 'background: transparent !important; color: #888 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   });
   
-  // 2. Apply the gold background ONLY if a button was actually clicked
+  // 2. Force apply gold to the CLICKED button
   if (btn) {
     btn.classList.add('active');
-    btn.style.background = 'var(--gold, #d4af37)';
-    btn.style.color = '#000';
+    btn.style.cssText = 'background: #d4af37 !important; color: #000 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   }
   
   updateUI();
-  // 3. Render the calculators safely
   if(document.getElementById('calcGrid')) renderGrid();
 }
 
@@ -812,7 +809,6 @@ function calc_psi(){
   const age = parseFloat(document.getElementById('psi_age').value);
   const sex = gv('psi_sex'); 
   
-  // Demographics & Comorbidities
   const nursing_home = gv('psi_nh'); 
   const neoplastic = gv('psi_neo'); 
   const liver = gv('psi_liv'); 
@@ -820,14 +816,12 @@ function calc_psi(){
   const cerebro = gv('psi_cvd'); 
   const renal = gv('psi_ren'); 
   
-  // Physical Exam
   const ams = gv('psi_ams'); 
   const rr = gv('psi_rr'); 
   const sbp = gv('psi_sbp'); 
   const temp = gv('psi_temp'); 
   const pulse = gv('psi_pulse'); 
   
-  // Labs & Imaging
   const ph = gv('psi_ph'); 
   const bun = gv('psi_bun'); 
   const na = gv('psi_na'); 
@@ -854,3 +848,11 @@ function calc_psi(){
   const [sev,ik,a1k,a2k, dFn] = map[cls];
   showResult(['Class I','Class II','Class III','Class IV','Class V'][cls-1], '(' + score + ' pts)', sev, t(ik), S(1,t(a1k))+S(2,t(a2k)), dFn());
 }
+
+/* ── AUTO-INITIALIZE ON PAGE LOAD ── */
+document.addEventListener('DOMContentLoaded', () => {
+    updateUI(); 
+    if(document.getElementById('calcGrid')) {
+        renderGrid();
+    }
+});
