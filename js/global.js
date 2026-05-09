@@ -20,10 +20,8 @@ en:{
   sp_renal:'Renal', sp_ped:'Pediatrics', sp_hep:'Hepatology',
   sp_vasc:'Vascular', sp_icu:'ICU / Ward', sp_inf:'Infectious', sp_gen:'General', sp_surg:'Surgery',
   
-  // LEGAL & NAV LINKS
   nav_about: 'About Us', nav_contact: 'Contact', nav_privacy: 'Privacy Policy', nav_terms: 'Terms', nav_disc: 'Disclaimer',
 
-  // TOOL DESCRIPTIONS
   d_gcs:'Assess consciousness level in any patient. The score every doctor demands first on a trauma call.',
   d_apgar:'Newborn assessment at 1 and 5 minutes. Guides resuscitation decisions in every delivery room.',
   d_wellsdvt:'Pre-test probability of DVT. Does this leg need ultrasound or just a D-dimer? Answer in 60 seconds.',
@@ -40,7 +38,6 @@ en:{
   d_ranson:'Pancreatitis severity at admission and 48 hours. Predicts mortality risk.',
   d_psi:'Pneumonia Severity Index (PORT Score). Uses 20 variables to accurately stratify mortality risk and guide admission.',
   
-  // FIELDS
   f_eye:'Eye Opening', f_verbal:'Verbal Response', f_motor:'Motor Response',
   f_appear:'Appearance (Skin Colour)', f_pulse:'Pulse (Heart Rate)',
   f_grimace:'Grimace (Reflex Irritability)', f_activity:'Activity (Muscle Tone)', f_resp_a:'Respiration',
@@ -93,7 +90,18 @@ en:{
   at_adm:'At Admission', at_48h:'At 48 Hours',
   mnem_all:'Memory Aid — All 3 Languages',
 
-  // RESULTS
+  // BUTTON TRANSLATIONS (GCS)
+  g_e4: 'Spontaneous (4)', g_e3: 'To voice (3)', g_e2: 'To pain (2)', g_e1: 'None (1)',
+  g_v5: 'Oriented (5)', g_v4: 'Confused (4)', g_v3: 'Words (3)', g_v2: 'Sounds (2)', g_v1: 'None (1)',
+  g_m6: 'Obeys (6)', g_m5: 'Localizes (5)', g_m4: 'Withdrawal (4)', g_m3: 'Flexion (3)', g_m2: 'Extension (2)', g_m1: 'None (1)',
+
+  // BUTTON TRANSLATIONS (APGAR)
+  a_a2: 'Pink all over (2)', a_a1: 'Blue extremities (1)', a_a0: 'Blue/pale all over (0)',
+  a_p2: '≥ 100 bpm (2)', a_p1: '< 100 bpm (1)', a_p0: 'Absent (0)',
+  a_g2: 'Cry/Cough (2)', a_g1: 'Grimace only (1)', a_g0: 'None (0)',
+  a_c2: 'Active motion (2)', a_c1: 'Some flexion (1)', a_c0: 'Limp (0)',
+  a_r2: 'Strong cry (2)', a_r1: 'Weak/irregular (1)', a_r0: 'Absent (0)',
+
   r_gcs_mild:'Mild impairment / Normal or mild TBI', r_gcs_mild_1:'Full neurological assessment — pupil responses, limb power, coordination.', r_gcs_mild_2:'Neurological observations every 30–60 minutes.', r_gcs_mild_3:'CT head if mechanism of injury, focal deficit, or any deterioration.',
   r_gcs_mod:'Moderate brain injury', r_gcs_mod_1:'⚠ Urgent CT head — do not delay.', r_gcs_mod_2:'Neurosurgery referral immediately.', r_gcs_mod_3:'Position 30° head elevation. IV access. Bloods.', r_gcs_mod_4:'Reassess GCS every 15 minutes — escalate if deterioration.',
   r_gcs_sev:'Severe brain injury — airway at immediate risk', r_gcs_sev_1:'⚠ GCS ≤ 8 = intubation threshold. Call anaesthetics/intensivist immediately.', r_gcs_sev_2:'Rapid Sequence Intubation (RSI). In-line cervical immobilisation if trauma.', r_gcs_sev_3:'Urgent CT head + spine. Neurosurgery on call.', r_gcs_sev_4:'ICU admission. Document capacity assessment.',
@@ -220,6 +228,18 @@ ru:{
   at_adm:'При поступлении', at_48h:'Через 48 часов',
   mnem_all:'Мнемоника — На 3 языках',
 
+  // BUTTON TRANSLATIONS (GCS)
+  g_e4: 'Самопроизвольно (4)', g_e3: 'На голос (3)', g_e2: 'На боль (2)', g_e1: 'Нет (1)',
+  g_v5: 'Ориентирован (5)', g_v4: 'Спутанная (4)', g_v3: 'Слова (3)', g_v2: 'Звуки (2)', g_v1: 'Нет (1)',
+  g_m6: 'Выполняет (6)', g_m5: 'Локализует (5)', g_m4: 'Отдёргивание (4)', g_m3: 'Сгибание (3)', g_m2: 'Разгибание (2)', g_m1: 'Нет (1)',
+
+  // BUTTON TRANSLATIONS (APGAR)
+  a_a2: 'Розовый везде (2)', a_a1: 'Акроцианоз (1)', a_a0: 'Синий/бледный (0)',
+  a_p2: '≥ 100 уд/мин (2)', a_p1: '< 100 уд/мин (1)', a_p0: 'Отсутствует (0)',
+  a_g2: 'Кашель/плач (2)', a_g1: 'Только гримаса (1)', a_g0: 'Нет (0)',
+  a_c2: 'Активные движения (2)', a_c1: 'Сгибание (1)', a_c0: 'Вялый (0)',
+  a_r2: 'Громкий плач (2)', a_r1: 'Слабое/нерег (1)', a_r0: 'Нет (0)',
+
   r_gcs_mild:'Лёгкое нарушение сознания / Лёгкая ЧМТ', r_gcs_mild_1:'Полный неврологический осмотр: зрачки, сила конечностей, координация.', r_gcs_mild_2:'Неврологические наблюдения каждые 30–60 мин.', r_gcs_mild_3:'КТ головы при механизме травмы, очаговом дефиците или ухудшении.',
   r_gcs_mod:'Умеренная черепно-мозговая травма', r_gcs_mod_1:'⚠ Срочная КТ головы — без промедлений.', r_gcs_mod_2:'Немедленная консультация нейрохирурга.', r_gcs_mod_3:'Положение 30° — голова приподнята. Венозный доступ. Анализы.', r_gcs_mod_4:'Пересматривайте ШКГ каждые 15 мин — эскалируйте при ухудшении.',
   r_gcs_sev:'Тяжёлая ЧМТ — немедленный риск для дыхательных путей', r_gcs_sev_1:'⚠ ШКГ ≤ 8 = порог интубации. Немедленно вызвать анестезиолога/реаниматолога.', r_gcs_sev_2:'БСИ (быстрая последовательная интубация). Иммобилизация шейного отдела при травме.', r_gcs_sev_3:'Срочная КТ головы + позвоночника. Нейрохирург на связи.', r_gcs_sev_4:'Госпитализация в ОРИТ. Оценка дееспособности.',
@@ -345,6 +365,18 @@ uz:{
   f_fluid:"Suyuqlik sekvestratsiyasi > 6 litr (48 soat)", f_psi_cls:'PSI xavf sinfi',
   at_adm:'Qabulda', at_48h:'48 soatda', mnem_all:"Mnemonika — 3 tilda",
 
+  // BUTTON TRANSLATIONS (GCS)
+  g_e4: 'O\'z-o\'zidan (4)', g_e3: 'Ovozga (3)', g_e2: 'Og\'riqqa (2)', g_e1: 'Yo\'q (1)',
+  g_v5: 'Mo\'ljallangan (5)', g_v4: 'Chalkash (4)', g_v3: 'So\'zlar (3)', g_v2: 'Tovushlar (2)', g_v1: 'Yo\'q (1)',
+  g_m6: 'Bajaradi (6)', g_m5: 'Lokalizatsiya (5)', g_m4: 'Tortib olish (4)', g_m3: 'Bukilish (3)', g_m2: 'Yozilish (2)', g_m1: 'Yo\'q (1)',
+
+  // BUTTON TRANSLATIONS (APGAR)
+  a_a2: 'Hamma joyi pushti (2)', a_a1: 'Akrotsianoz (1)', a_a0: 'Ko\'k/oq (0)',
+  a_p2: '≥ 100/daqiqa (2)', a_p1: '< 100/daqiqa (1)', a_p0: 'Yo\'q (0)',
+  a_g2: 'Yig\'lash (2)', a_g1: 'Faqat grimasa (1)', a_g0: 'Yo\'q (0)',
+  a_c2: 'Faol harakat (2)', a_c1: 'Biroz bukilish (1)', a_c0: 'Bo\'sh (0)',
+  a_r2: 'Baland yig\'lash (2)', a_r1: 'Zaif (1)', a_r0: 'Yo\'q (0)',
+
   r_gcs_mild:"Engil buzilish / Yengil bosh-miya jarohati", r_gcs_mild_1:"To'liq nevrologik tekshiruv: ko'z qorachig'i, oyoq-qo'l kuchi, koordinatsiya.", r_gcs_mild_2:"Har 30–60 daqiqada nevrologik kuzatuv.", r_gcs_mild_3:"Jarohat mexanizmi, fokal defitsit yoki yomonlashish bo'lsa KT.",
   r_gcs_mod:"O'rtacha bosh-miya jarohati", r_gcs_mod_1:"⚠ Shoshilinch bosh KT — kechiktirmang.", r_gcs_mod_2:"Neyrojarroh bilan darhol maslahatlashing.", r_gcs_mod_3:"Bosh 30° ko'tarilgan holat. Venoz kirish. Qon tahlillari.", r_gcs_mod_4:"Har 15 daqiqada GCS qayta baholash — yomonlashsa tezlashtiring.",
   r_gcs_sev:"Og'ir bosh-miya jarohati — nafas yo'li xavf ostida", r_gcs_sev_1:"⚠ GCS ≤ 8 = intubatsiya chegarasi. Darhol anesteziolog/reanimatolog chaqiring.", r_gcs_sev_2:"Tez ketma-ket intubatsiya (RSI). Jarohatda bo'yin imobolizatsiyasi.", r_gcs_sev_3:"Shoshilinch bosh + umurtqa KT. Neyrojarroh tayyor bo'lsin.", r_gcs_sev_4:"ORIT ga yotqizish. Huquqiy layoqatni baholash.",
@@ -446,7 +478,7 @@ function renderGrid(){
   if(!grid) return;
   grid.innerHTML = '';
   CARDS.forEach(c => {
-    const el = document.createElement('a'); // Now a link for SEO/AdSense!
+    const el = document.createElement('a'); 
     el.className = 'calc-card';
     el.href = `calculators/${c.id}.html`; 
     el.style.textDecoration = 'none';
@@ -496,8 +528,8 @@ function showResult(score, unit, sev, interp, actions, drugs){
       <div style="color:var(--white); font-weight:600; font-size:16px; margin-top:10px; font-style:italic;">${interp}</div>
     </div>
     <div class="result-tabs" style="display:flex; background:var(--bg2);">
-      <button class="result-tab on" onclick="switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer;">Action Plan</button>
-      <button class="result-tab" onclick="switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer;">First-Line Rx</button>
+      <button class="result-tab on" onclick="switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer;">${t('tab_a')}</button>
+      <button class="result-tab" onclick="switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer;">${t('tab_d')}</button>
     </div>
     <div class="result-panels" style="background:var(--bg2);">
       <div class="result-panel on" style="padding:24px;">${actions}</div>
@@ -711,24 +743,22 @@ function calc_ranson(){
 }
 
 function calc_psi(){
-  // Accurate PSI calculation logic
   const age = parseFloat(document.getElementById('psi_age').value);
-  const sex = gv('psi_sex'); // M=0, F=-10
-  const nursing_home = gv('psi_nh'); // Yes=10
-  const neoplastic = gv('psi_neo'); // Yes=30
-  const liver = gv('psi_liv'); // Yes=20
-  const chf = gv('psi_chf'); // Yes=10
-  const cerebro = gv('psi_cvd'); // Yes=10
-  const renal = gv('psi_ren'); // Yes=10
-  const ams = gv('psi_ams'); // Yes=20
-  const rr = gv('psi_rr'); // >=30 = 20
-  const sbp = gv('psi_sbp'); // <90 = 20
-  const temp = gv('psi_temp'); // <35 or >=40 = 15
-  const pulse = gv('psi_pulse'); // >=125 = 10
+  const sex = gv('psi_sex'); 
+  const nursing_home = gv('psi_nh'); 
+  const neoplastic = gv('psi_neo'); 
+  const liver = gv('psi_liv'); 
+  const chf = gv('psi_chf'); 
+  const cerebro = gv('psi_cvd'); 
+  const renal = gv('psi_ren'); 
+  const ams = gv('psi_ams'); 
+  const rr = gv('psi_rr'); 
+  const sbp = gv('psi_sbp'); 
+  const temp = gv('psi_temp'); 
+  const pulse = gv('psi_pulse'); 
   
   if(isNaN(age) || sex===null) { alertMsg(); return; }
   
-  // Base score from clinical signs (Note: Make sure your psi.html file has these data-g keys!)
   let score = age + sex + (nursing_home||0) + (neoplastic||0) + (liver||0) + (chf||0) + (cerebro||0) + (renal||0) + (ams||0) + (rr||0) + (sbp||0) + (temp||0) + (pulse||0);
   
   let cls = score <= 50 ? 1 : score <= 70 ? 2 : score <= 90 ? 3 : score <= 130 ? 4 : 5;
