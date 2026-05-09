@@ -90,12 +90,10 @@ en:{
   at_adm:'At Admission', at_48h:'At 48 Hours',
   mnem_all:'Memory Aid — All 3 Languages',
 
-  // BUTTON TRANSLATIONS (GCS)
   g_e4: 'Spontaneous (4)', g_e3: 'To voice (3)', g_e2: 'To pain (2)', g_e1: 'None (1)',
   g_v5: 'Oriented (5)', g_v4: 'Confused (4)', g_v3: 'Words (3)', g_v2: 'Sounds (2)', g_v1: 'None (1)',
   g_m6: 'Obeys (6)', g_m5: 'Localizes (5)', g_m4: 'Withdrawal (4)', g_m3: 'Flexion (3)', g_m2: 'Extension (2)', g_m1: 'None (1)',
 
-  // BUTTON TRANSLATIONS (APGAR)
   a_a2: 'Pink all over (2)', a_a1: 'Blue extremities (1)', a_a0: 'Blue/pale all over (0)',
   a_p2: '≥ 100 bpm (2)', a_p1: '< 100 bpm (1)', a_p0: 'Absent (0)',
   a_g2: 'Cry/Cough (2)', a_g1: 'Grimace only (1)', a_g0: 'None (0)',
@@ -228,12 +226,10 @@ ru:{
   at_adm:'При поступлении', at_48h:'Через 48 часов',
   mnem_all:'Мнемоника — На 3 языках',
 
-  // BUTTON TRANSLATIONS (GCS)
   g_e4: 'Самопроизвольно (4)', g_e3: 'На голос (3)', g_e2: 'На боль (2)', g_e1: 'Нет (1)',
   g_v5: 'Ориентирован (5)', g_v4: 'Спутанная (4)', g_v3: 'Слова (3)', g_v2: 'Звуки (2)', g_v1: 'Нет (1)',
   g_m6: 'Выполняет (6)', g_m5: 'Локализует (5)', g_m4: 'Отдёргивание (4)', g_m3: 'Сгибание (3)', g_m2: 'Разгибание (2)', g_m1: 'Нет (1)',
 
-  // BUTTON TRANSLATIONS (APGAR)
   a_a2: 'Розовый везде (2)', a_a1: 'Акроцианоз (1)', a_a0: 'Синий/бледный (0)',
   a_p2: '≥ 100 уд/мин (2)', a_p1: '< 100 уд/мин (1)', a_p0: 'Отсутствует (0)',
   a_g2: 'Кашель/плач (2)', a_g1: 'Только гримаса (1)', a_g0: 'Нет (0)',
@@ -365,12 +361,10 @@ uz:{
   f_fluid:"Suyuqlik sekvestratsiyasi > 6 litr (48 soat)", f_psi_cls:'PSI xavf sinfi',
   at_adm:'Qabulda', at_48h:'48 soatda', mnem_all:"Mnemonika — 3 tilda",
 
-  // BUTTON TRANSLATIONS (GCS)
   g_e4: 'O\'z-o\'zidan (4)', g_e3: 'Ovozga (3)', g_e2: 'Og\'riqqa (2)', g_e1: 'Yo\'q (1)',
   g_v5: 'Mo\'ljallangan (5)', g_v4: 'Chalkash (4)', g_v3: 'So\'zlar (3)', g_v2: 'Tovushlar (2)', g_v1: 'Yo\'q (1)',
   g_m6: 'Bajaradi (6)', g_m5: 'Lokalizatsiya (5)', g_m4: 'Tortib olish (4)', g_m3: 'Bukilish (3)', g_m2: 'Yozilish (2)', g_m1: 'Yo\'q (1)',
 
-  // BUTTON TRANSLATIONS (APGAR)
   a_a2: 'Hamma joyi pushti (2)', a_a1: 'Akrotsianoz (1)', a_a0: 'Ko\'k/oq (0)',
   a_p2: '≥ 100/daqiqa (2)', a_p1: '< 100/daqiqa (1)', a_p0: 'Yo\'q (0)',
   a_g2: 'Yig\'lash (2)', a_g1: 'Faqat grimasa (1)', a_g0: 'Yo\'q (0)',
@@ -512,27 +506,46 @@ function alertMsg(){
 }
 
 function switchTab(i){
-  document.querySelectorAll('.result-tab').forEach((t,j)=>t.classList.toggle('on',j===i));
-  document.querySelectorAll('.result-panel').forEach((p,j)=>p.classList.toggle('on',j===i));
+  const tabs = document.querySelectorAll('.result-tab');
+  const panels = document.querySelectorAll('.result-panel');
+  
+  tabs.forEach((t, j) => {
+    t.classList.toggle('on', j === i);
+    t.style.color = (j === i) ? 'var(--gold)' : 'var(--w40)';
+    t.style.borderBottomColor = (j === i) ? 'var(--gold)' : 'transparent';
+  });
+  
+  panels.forEach((p, j) => {
+    p.style.display = (j === i) ? 'block' : 'none';
+    p.classList.toggle('on', j === i);
+  });
 }
 
 function showResult(score, unit, sev, interp, actions, drugs){
   const box = document.getElementById('R'); if(!box) return;
   box.className = `result-box visible`;
+  
+  const riskText = sev === 'lo' ? t('sev_lo') : sev === 'md' ? t('sev_md') : t('sev_hi');
+  const riskColor = sev === 'hi' ? 'var(--rose)' : sev === 'md' ? 'var(--amber)' : 'var(--emerald)';
+
   box.innerHTML = `
     <div class="result-hero" style="background:var(--bg3); padding:30px; border-bottom:1px solid var(--border);">
       <div style="display:flex; align-items:center; gap:10px;">
-        <div class="result-number" style="color: ${sev==='hi'?'var(--rose)':sev==='md'?'var(--amber)':'var(--emerald)'}; font-size:48px; font-weight:800; line-height:1;">${score}</div>
-        <span style="color:var(--w40); font-family:var(--mono); font-size:12px;">${unit}</span>
+        <div class="result-number" style="color: ${riskColor}; font-size:48px; font-weight:800; line-height:1;">${score}</div>
+        <span style="color:var(--w40); font-family:var(--mono); font-size:12px; text-transform:uppercase;">${unit}</span>
       </div>
-      <div style="color:var(--white); font-weight:600; font-size:16px; margin-top:10px; font-style:italic;">${interp}</div>
+      <div style="text-align:right; font-family:var(--mono); font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-top:10px; color:${riskColor};">
+        ${riskText}
+      </div>
     </div>
     <div class="result-tabs" style="display:flex; background:var(--bg2);">
-      <button class="result-tab on" onclick="switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer;">${t('tab_a')}</button>
-      <button class="result-tab" onclick="switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer;">${t('tab_d')}</button>
+      <button class="result-tab on" onclick="switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_i')}</button>
+      <button class="result-tab" onclick="switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_a')}</button>
+      <button class="result-tab" onclick="switchTab(2)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_d')}</button>
     </div>
     <div class="result-panels" style="background:var(--bg2);">
-      <div class="result-panel on" style="padding:24px;">${actions}</div>
+      <div class="result-panel on" style="padding:24px; color:var(--w80); font-size:15px; font-style:italic; line-height:1.7;">${interp}</div>
+      <div class="result-panel" style="padding:24px; display:none;">${actions}</div>
       <div class="result-panel" style="padding:24px; display:none;">${drugs}</div>
     </div>`;
 }
