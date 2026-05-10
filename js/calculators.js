@@ -1,6 +1,6 @@
-/* ── CALCULATION LOGIC FOR WARDCALC (MULTILINGUAL) ── */
+/* ── WARDCALC: MULTILINGUAL CALCULATION LOGIC ── */
 
-// 1. GLASGOW COMA SCALE
+// 1. GLASGOW COMA SCALE (GCS)
 function calc_gcs(){
   const e = gv('ge'), v = gv('gv'), m = gv('gm');
   if(e === null || v === null || m === null){ alertMsg(); return; }
