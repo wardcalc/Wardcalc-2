@@ -12,8 +12,8 @@ en:{
   sp_neuro: 'Neurology', sp_ped: 'Pediatrics', sp_gen: 'General', sp_resp: 'Respiratory', sp_cardio: 'Cardiology', sp_gastro: 'Gastroenterology', sp_id: 'Infectious Disease',
   mnem_all: 'Memory Aid — All 3 Languages', yes: 'Yes', no: 'No', YES: 'Yes', NO: 'No',
   
-  // --- FOOTER & ABOUT PAGES ---
-  ft_about: 'About Us', ft_contact: 'Contact', ft_disc: 'Disclaimer', ft_rights: '© 2026 WardCalc. All rights reserved.',
+  // --- FOOTER & INFO PAGES ---
+  ft_about: 'About Us', ft_contact: 'Contact', ft_disc: 'Disclaimer', ft_terms: 'Terms & Conditions', ft_privacy: 'Privacy Policy', ft_rights: '© 2026 WardCalc. All rights reserved.',
   nav_about: 'About WardCalc',
   about_p1: 'WardCalc was developed by Ali Muhammad Sabir, a final year medical student at Bukhara State Medical Institute, to provide quick, evidence-based clinical decision tools at the bedside.',
   about_h2: 'Our Mission',
@@ -22,6 +22,8 @@ en:{
   about_p3: 'All tools are built using internationally recognized guidelines. However, WardCalc is strictly an educational tool and should not replace professional clinical judgment.',
   nav_contact: 'Contact Us', contact_p1: 'Have a suggestion or found a bug? We would love to hear from you.',
   nav_disc: 'Disclaimer', disc_p1: 'WardCalc is an educational tool. Do not use for direct patient care without verifying with primary sources.',
+  nav_terms: 'Terms & Conditions', terms_p1: 'By using WardCalc, you agree to use this application strictly as an educational and reference tool.',
+  nav_privacy: 'Privacy Policy', privacy_p1: 'We respect your privacy. WardCalc operates entirely on your device and does not collect or store personal patient data.',
   
   // --- SEVERITY TAGS (BOTH CASES) ---
   sev_lo: 'LOW RISK', sev_md: 'MODERATE RISK', sev_hi: 'HIGH RISK',
@@ -164,8 +166,8 @@ ru:{
   sp_neuro: 'Неврология', sp_ped: 'Педиатрия', sp_gen: 'Общие', sp_resp: 'Пульмонология', sp_cardio: 'Кардиология', sp_gastro: 'Гастроэнтерология', sp_id: 'Инфекционные болезни',
   mnem_all: 'Мнемоника — На 3 языках', yes: 'Да', no: 'Нет', YES: 'Да', NO: 'Нет',
   
-  // --- FOOTER & ABOUT PAGES ---
-  ft_about: 'О нас', ft_contact: 'Контакты', ft_disc: 'Отказ от ответственности', ft_rights: '© 2026 WardCalc. Все права защищены.',
+  // --- FOOTER & INFO PAGES ---
+  ft_about: 'О нас', ft_contact: 'Контакты', ft_disc: 'Отказ от ответственности', ft_terms: 'Условия использования', ft_privacy: 'Политика конфиденциальности', ft_rights: '© 2026 WardCalc. Все права защищены.',
   nav_about: 'О проекте WardCalc',
   about_p1: 'WardCalc был разработан Али Мухаммадом Сабиром, студентом-медиком выпускного курса Бухарского государственного медицинского института, для предоставления быстрых, доказательных инструментов принятия клинических решений у постели больного.',
   about_h2: 'Наша миссия',
@@ -174,6 +176,8 @@ ru:{
   about_p3: 'Все инструменты созданы на основе признанных международных рекомендаций. Однако WardCalc является исключительно образовательным инструментом и не должен заменять профессиональное клиническое мышление.',
   nav_contact: 'Контакты', contact_p1: 'Свяжитесь с нами для обратной связи или сообщения об ошибках.',
   nav_disc: 'Отказ от ответственности', disc_p1: 'WardCalc является образовательным инструментом. Не используйте для прямого ухода за пациентами без проверки.',
+  nav_terms: 'Условия использования', terms_p1: 'Используя WardCalc, вы соглашаетесь использовать это приложение исключительно в качестве образовательного и справочного инструмента.',
+  nav_privacy: 'Политика конфиденциальности', privacy_p1: 'Мы уважаем вашу конфиденциальность. WardCalc работает полностью на вашем устройстве и не собирает личные данные пациентов.',
 
   // --- SEVERITY TAGS (BOTH CASES) ---
   sev_lo: 'НИЗКИЙ РИСК', sev_md: 'СРЕДНИЙ РИСК', sev_hi: 'ВЫСОКИЙ РИСК',
@@ -316,8 +320,8 @@ uz:{
   sp_neuro: 'Nevrologiya', sp_ped: 'Pediatriya', sp_gen: 'Umumiy', sp_resp: 'Nafas tizimi', sp_cardio: 'Kardiologiya', sp_gastro: 'Gastroenterologiya', sp_id: 'Yuqumli kasalliklar',
   mnem_all: 'Mnemonika — 3 tilda', yes: 'Ha', no: 'Yo\'q', YES: 'Ha', NO: 'Yo\'q',
   
-  // --- FOOTER & ABOUT PAGES ---
-  ft_about: 'Biz haqimizda', ft_contact: 'Aloqa', ft_disc: 'Rad etish', ft_rights: '© 2026 WardCalc. Barcha huquqlar himoyalangan.',
+  // --- FOOTER & INFO PAGES ---
+  ft_about: 'Biz haqimizda', ft_contact: 'Aloqa', ft_disc: 'Rad etish', ft_terms: 'Foydalanish shartlari', ft_privacy: 'Maxfiylik siyosati', ft_rights: '© 2026 WardCalc. Barcha huquqlar himoyalangan.',
   nav_about: 'WardCalc haqida',
   about_p1: 'WardCalc Buxoro davlat tibbiyot instituti bitiruvchi talabasi Ali Muhammad Sabir tomonidan bemor yotog\'i yonida tezkor va isbotlarga asoslangan klinik qarorlar qabul qilish vositalarini taqdim etish uchun ishlab chiqilgan.',
   about_h2: 'Bizning maqsadimiz',
@@ -326,6 +330,8 @@ uz:{
   about_p3: 'Barcha vositalar xalqaro miqyosda tan olingan ko\'rsatmalar asosida yaratilgan. Biroq, WardCalc qat\'iy ravishda ta\'lim vositasi bo\'lib, kasbiy klinik xulosa o\'rnini bosmasligi kerak.',
   nav_contact: 'Aloqa', contact_p1: 'Taklifingiz bormi yoki xato topdingizmi? Biz bilan bog\'laning.',
   nav_disc: 'Rad etish', disc_p1: 'WardCalc bu ta\'lim vositasidir. Birlamchi manbalar bilan tekshirmasdan to\'g\'ridan-to\'g\'ri bemorni parvarish qilish uchun foydalanmang.',
+  nav_terms: 'Foydalanish shartlari', terms_p1: 'WardCalc-dan foydalanish orqali siz ushbu ilovadan qat\'iyan ta\'lim va ma\'lumot vositasi sifatida foydalanishga rozilik bildirasiz.',
+  nav_privacy: 'Maxfiylik siyosati', privacy_p1: 'Biz sizning maxfiyligingizni hurmat qilamiz. WardCalc to\'liq qurilmangizda ishlaydi va shaxsiy bemor ma\'lumotlarini yig\'maydi.',
 
   // --- SEVERITY TAGS (BOTH CASES) ---
   sev_lo: 'PAST XAVF', sev_md: 'O\'RTACHA XAVF', sev_hi: 'YUQORI XAVF',
