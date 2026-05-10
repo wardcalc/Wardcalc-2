@@ -1,8 +1,5 @@
 'use strict';
 
-/* ══════════════════════════════════════
-   TRANSLATION DICTIONARY
-══════════════════════════════════════ */
 const T = {
 en:{
   alert_msg: 'Please complete all fields.',
@@ -167,6 +164,8 @@ en:{
   
   gcs_info_title: 'Understanding the GCS',
   gcs_info_p1: 'The Glasgow Coma Scale provides a standardized method to assess impairment of conscious level. It is used globally in emergency departments and ICUs, especially for patients with head injuries.',
+  gcs_info_p3: 'The scale evaluates three independent modalities: Eye opening (E), Verbal response (V), and Motor response (M). A normal, fully alert patient will score 15 (E4, V5, M6), while a completely unresponsive patient scores 3 (E1, V1, M1).',
+  gcs_info_p4: 'When calculating the score, always record the best response. For instance, if the right arm localizes to pain but the left arm flexes abnormally, the motor score is 5.',
   gcs_info_p2: 'Clinical Threshold: A score of 8 or less is generally considered the threshold where a patient can no longer protect their own airway and requires intubation.',
   
   nihss_info_title: "NIH Stroke Scale (NIHSS) Information",
@@ -329,6 +328,8 @@ ru:{
   
   gcs_info_title: 'Понимание шкалы Глазго (ШКГ)',
   gcs_info_p1: 'Шкала ком Глазго представляет собой стандартизированный метод оценки нарушения уровня сознания. Она используется во всем мире в отделениях неотложной помощи и ОРИТ, особенно у пациентов с травмами головы.',
+  gcs_info_p3: 'Шкала оценивает три независимые модальности: открывание глаз (E), речевой ответ (V) и двигательный ответ (M). Нормальный, полностью бодрствующий пациент набирает 15 баллов (E4, V5, M6), в то время как полностью невосприимчивый пациент набирает 3 балла (E1, V1, M1).',
+  gcs_info_p4: 'При подсчете баллов всегда фиксируйте наилучший ответ. Например, если правая рука локализует боль, а левая аномально сгибается, оценка моторики равна 5.',
   gcs_info_p2: 'Клинический порог: балл 8 или меньше обычно считается порогом, при котором пациент больше не может защитить свои дыхательные пути и требует интубации.',
 
   nihss_info_title: "Информация о Шкале Инсульта NIH (NIHSS)",
@@ -490,6 +491,8 @@ uz:{
   
   gcs_info_title: 'Glazgo shkalasini (GCS) tushunish',
   gcs_info_p1: 'Glazgo koma shkalasi ong darajasining buzilishini baholash uchun standartlashtirilgan usulni taqdim etadi. U butun dunyo bo\'ylab shoshilinch yordam bo\'limlari va reanimatsiya bo\'limlarida, ayniqsa bosh jarohati bo\'lgan bemorlar uchun qo\'llaniladi.',
+  gcs_info_p3: 'Shkala uchta mustaqil modalni baholaydi: Ko\'z ochilishi (E), Og\'zaki javob (V) va Harakat javobi (M). Oddiy, to\'liq hushyor bemor 15 ball (E4, V5, M6) oladi, butunlay javobsiz bemor esa 3 ball (E1, V1, M1) oladi.',
+  gcs_info_p4: 'Ballni hisoblashda har doim eng yaxshi javobni yozing. Masalan, agar o\'ng qo\'l og\'riqni ishora qilsa, lekin chap qo\'l g\'ayritabiiy egilsa, harakat bali 5 ga teng.',
   gcs_info_p2: 'Klinik chegara: 8 yoki undan past ball odatda bemor o\'z nafas yo\'llarini himoya qila olmaydigan va intubatsiyani talab qiladigan chegara hisoblanadi.',
 
   nihss_info_title: "NIH Insult Shkalasi (NIHSS) Ma'lumotlari",
