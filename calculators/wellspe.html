@@ -3,11 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Wells' Criteria for PE — WardCalc</title>
-  
+  <title>PSI / PORT Score — WardCalc</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -31,119 +29,89 @@
 
   <main class="main" style="padding-top: 20px;">
     
-    <div style="max-width: 600px; margin: 0 auto 20px;">
-        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
-            AdSense Space (Top Banner)
-        </div>
-    </div>
-
     <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
         
-        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
+        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none;">&times;</a>
 
-        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_resp"></div>
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); text-transform: uppercase; margin-bottom: 15px;" data-k="sp_resp"></div>
 
-        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Wells' PE Criteria</h1>
-        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_pe"></p>
+        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">PSI / PORT Score</h1>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_psi"></p>
 
-        <div class="input-group" style="margin-bottom: 15px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_dvt"></label>
-            <div class="chip-row">
-                <button class="chip" data-g="p1" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="p1" data-v="3" onclick="pickChip(this)" data-k="yes"></button>
+        <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Demographics</h3>
+        
+        <div class="input-group" style="margin-bottom: 20px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_age"></label>
+            <div class="num-input-wrap" style="display: flex; align-items: center; background: var(--bg3); border-radius: 10px; padding: 0 15px; border: 1px solid rgba(255,255,255,0.1);">
+                <input class="num-field" type="number" id="psi_age" placeholder="65" style="background: transparent; border: none; color: var(--gold); font-size: 20px; font-weight: bold; width: 100%; padding: 15px 0; outline: none; text-align: right;">
             </div>
         </div>
 
-        <div class="input-group" style="margin-bottom: 15px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_alt"></label>
+        <div class="input-group" style="margin-bottom: 20px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_sex"></label>
             <div class="chip-row">
-                <button class="chip" data-g="p2" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="p2" data-v="3" onclick="pickChip(this)" data-k="yes"></button>
+                <button class="chip" data-g="psi_sex" data-v="0" onclick="pickChip(this)" data-k="sex_m"></button>
+                <button class="chip" data-g="psi_sex" data-v="-10" onclick="pickChip(this)" data-k="sex_f"></button>
             </div>
         </div>
 
-        <div class="input-group" style="margin-bottom: 15px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_hr"></label>
+        <div class="input-group" style="margin-bottom: 25px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_nh"></label>
             <div class="chip-row">
-                <button class="chip" data-g="p3" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="p3" data-v="1.5" onclick="pickChip(this)" data-k="yes"></button>
+                <button class="chip" data-g="psi_nh" data-v="10" onclick="toggleChip(this)" data-k="yes" style="width:100%"></button>
             </div>
         </div>
 
-        <div class="input-group" style="margin-bottom: 15px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_immob"></label>
-            <div class="chip-row">
-                <button class="chip" data-g="p4" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="p4" data-v="1.5" onclick="pickChip(this)" data-k="yes"></button>
-            </div>
+        <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Comorbidities</h3>
+        <div style="display:grid; gap:10px; margin-bottom:25px;">
+            <button class="chip" data-g="psi_neo" data-v="30" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_neo"></button>
+            <button class="chip" data-g="psi_liv" data-v="20" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_liv"></button>
+            <button class="chip" data-g="psi_chf" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_chf"></button>
+            <button class="chip" data-g="psi_cvd" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_cvd"></button>
+            <button class="chip" data-g="psi_ren" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_ren"></button>
         </div>
 
-        <div class="input-group" style="margin-bottom: 15px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_hx"></label>
-            <div class="chip-row">
-                <button class="chip" data-g="p5" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="p5" data-v="1.5" onclick="pickChip(this)" data-k="yes"></button>
-            </div>
+        <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Physical Exam</h3>
+        <div style="display:grid; gap:10px; margin-bottom:25px;">
+            <button class="chip" data-g="psi_ams" data-v="20" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_ams"></button>
+            <button class="chip" data-g="psi_rr" data-v="20" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_rr"></button>
+            <button class="chip" data-g="psi_sbp" data-v="20" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_sbp"></button>
+            <button class="chip" data-g="psi_temp" data-v="15" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_temp"></button>
+            <button class="chip" data-g="psi_pulse" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_pulse"></button>
         </div>
 
-        <div class="input-group" style="margin-bottom: 15px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_hemop"></label>
-            <div class="chip-row">
-                <button class="chip" data-g="p6" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="p6" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
-            </div>
+        <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Labs & Imaging</h3>
+        <div style="display:grid; gap:10px; margin-bottom:30px;">
+            <button class="chip" data-g="psi_ph" data-v="30" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_ph"></button>
+            <button class="chip" data-g="psi_bun" data-v="20" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_bun"></button>
+            <button class="chip" data-g="psi_na" data-v="20" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_na"></button>
+            <button class="chip" data-g="psi_gluc" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_gluc"></button>
+            <button class="chip" data-g="psi_hct" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_hct"></button>
+            <button class="chip" data-g="psi_pao2" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_pao2"></button>
+            <button class="chip" data-g="psi_eff" data-v="10" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;" data-k="f_psi_eff"></button>
         </div>
 
-        <div class="input-group" style="margin-bottom: 30px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_malig"></label>
-            <div class="chip-row">
-                <button class="chip" data-g="p7" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="p7" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
-            </div>
-        </div>
-
-        <button class="calc-btn" onclick="calc_wellspe()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;"></button>
+        <button class="calc-btn" onclick="calc_psi()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;"></button>
 
         <div id="R" style="margin-top: 20px; display: block;"></div>
-
-        <div style="margin-top: 30px;">
-            <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
-                AdSense Space (Below Results)
-            </div>
-        </div>
     </div>
 
     <div style="max-width: 600px; margin: 20px auto 50px;">
-        
-        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all"></div>
-            <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
-                🇬🇧 <b>D</b>VT · <b>P</b>E#1 · <b>H</b>R>100 · <b>I</b>mmob · <b>P</b>revious · <b>H</b>aemoptysis · <b>M</b>alignancy — "<b>DPIH</b>"<br>
-                🇷🇺 <b>Т</b>ГВ · <b>Т</b>ЭЛА#1 · <b>Ч</b>СС>100 · <b>И</b>ммоб · <b>А</b>намнез · <b>К</b>рово · <b>Р</b>ак — "<b>ТТЧИАКР</b>"<br>
-                🇺🇿 <b>D</b>VT · <b>O</b>E#1 · <b>Y</b>U>100 · <b>I</b>mmob · <b>A</b>vval · <b>Q</b>on · <b>S</b>araton — "<b>DOYIAQS</b>"
-            </div>
-        </div>
-
         <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
-            <h3 data-k="pe_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
-            
-            <p data-k="pe_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            
-            <p data-k="pe_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            
+            <h3 data-k="psi_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
+            <p data-k="psi_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
+            <p data-k="psi_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
             <p style="color: var(--white); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
-                <b><span data-k="pe_info_p3"></span></b>
+                <b><span data-k="psi_info_p3"></span></b>
             </p>
         </div>
     </div>
-
   </main>
 
-  <script src="../js/translations.js?v=20"></script>
-  <script src="../js/drugs.js?v=20"></script>
-  <script src="../js/ui.js?v=20"></script>
-  <script src="../js/calculators.js?v=20"></script> 
-  <script src="../js/main.js?v=20"></script>
-
+  <script src="../js/translations.js?v=fresh"></script>
+  <script src="../js/drugs.js?v=fresh"></script>
+  <script src="../js/ui.js?v=fresh"></script>
+  <script src="../js/calculators.js?v=fresh"></script> 
+  <script src="../js/main.js?v=fresh"></script>
 </body>
 </html>
