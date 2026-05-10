@@ -1,139 +1,102 @@
 'use strict';
 
-// 1. HELPERS
-function gv(g){
-    var e = document.querySelector('[data-g="' + g + '"].on');
-    return e ? parseFloat(e.getAttribute('data-v')) : null;
-}
-
-// Logic helper for yes/no tools (returns 0 if null)
+// 1. SAFETY & HELPERS
+window.t = window.t || function(k) { return k; };
+function gv(g){ var e = document.querySelector('[data-g="' + g + '"].on'); return e ? parseFloat(e.getAttribute('data-v')) : null; }
 function gv0(g){ var v = gv(g); return v !== null ? v : 0; }
+function rS(txt) { return txt && txt !== 'undefined' ? '<div style="margin-bottom:12px; line-height:1.6; color:rgba(255,255,255,0.85);">' + txt + '</div>' : ''; }
+function rD(ttl, dsc) { return ttl && ttl !== 'undefined' ? '<div style="margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.05);"><strong style="color:#d4af37; font-size:15px; display:block; margin-bottom:4px;">' + ttl + '</strong><span style="color:rgba(255,255,255,0.7); font-size:14px; line-height:1.6;">' + dsc + '</span></div>' : ''; }
 
-function rowS(num, text) {
-    if (!text || text === 'undefined') return '';
-    return '<div style="margin-bottom:12px; display:flex; gap:10px;"><span style="color:#d4af37; font-weight:bold;">' + num + '.</span> <span>' + text + '</span></div>';
-}
-
-function rowD(title, desc) {
-    return '<div style="margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.05);"><strong style="color:#fff; font-size:15px; display:block; margin-bottom:4px;">' + title + '</strong><span style="color:rgba(255,255,255,0.6); font-size:13px; line-height:1.5;">' + desc + '</span></div>';
-}
-
-// --- 2. THE 15 CALCULATORS ---
-
-// 1. GCS
+// 2. CALCULATORS
 window.calc_gcs = function(){
-    var e = gv('ge'), v = gv('gv'), m = gv('gm');
-    if(e===null || v===null || m===null) return alert("Select all fields");
-    var s = e + v + m;
-    var sev = s >= 13 ? 'lo' : s >= 9 ? 'md' : 'hi';
-    window.showResult(s, '/15', sev, window.t('r_gcs_mild'), rowS(1, window.t('r_gcs_mild_1')), rowD('Thiamine','100mg IV'));
+    var e=gv('ge'),v=gv('gv'),m=gv('gm'); if(e===null||v===null||m===null) return alert(window.t('alert_msg'));
+    var s=e+v+m; if(s<3) s=3; var sev=s>=13?'lo':s>=9?'md':'hi', l=s>=13?'mi':s>=9?'mo':'se';
+    window.showResult(s, '/15', sev, window.t('r_gcs_'+l), rS(window.t('a_gcs_'+l)), rD(window.t('rx_gcs_'+l+'_n'), window.t('rx_gcs_'+l+'_d')));
 };
 
-// 2. APGAR
 window.calc_apgar = function(){
-    var s = gv('aa')+gv('ap')+gv('ag')+gv('ac')+gv('ar');
-    var sev = s >= 7 ? 'lo' : s >= 4 ? 'md' : 'hi';
-    window.showResult(s, '/10', sev, window.t('r_apgar_norm'), rowS(1, window.t('r_apgar_norm_1')), rowD('Vitamin K','1mg IM'));
+    var s=0, ks=['aa','ap','ag','ac','ar']; for(var i=0;i<ks.length;i++){var v=gv(ks[i]); if(v===null) return alert(window.t('alert_msg')); s+=v;}
+    var sev=s>=7?'lo':s>=4?'md':'hi', l=s>=7?'no':s>=4?'mo':'cr';
+    window.showResult(s, '/10', sev, window.t('r_apgar_'+l), rS(window.t('a_apgar_'+l)), rD(window.t('rx_apgar_'+l+'_n'), window.t('rx_apgar_'+l+'_d')));
 };
 
-// 3. WELLS DVT
 window.calc_wellsdvt = window.calc_dvt = function(){
-    var s = 0; ['d1','d2','d3','d4','d5','d6','d7','d8','d9'].forEach(function(k){ s += gv0(k); });
-    var sev = s >= 3 ? 'hi' : s >= 1 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t('r_dvt_hi'), rowS(1, "Proximal Vein Ultrasound"), rowD('Apixaban','10mg BD for 7 days'));
+    var s=0; ['d1','d2','d3','d4','d5','d6','d7','d8','d9'].forEach(function(k){ s+=gv0(k); });
+    var sev=s>=3?'hi':s>=1?'md':'lo', l=s>=3?'hi':s>=1?'md':'lo';
+    window.showResult(s, 'pts', sev, window.t('r_dvt_'+l), rS(window.t('a_dvt_'+l)), rD(window.t('rx_dvt_'+l+'_n'), window.t('rx_dvt_'+l+'_d')));
 };
 
-// 4. WELLS PE
 window.calc_wellspe = window.calc_pe = function(){
-    var s = 0; ['p1','p2','p3','p4','p5','p6','p7'].forEach(function(k){ s += gv0(k); });
-    var sev = s > 4 ? 'hi' : s >= 2 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t('r_pe_hi'), rowS(1, "Urgent CTPA Imaging"), rowD('Enoxaparin','1.5mg/kg OD'));
+    var s=0; ['p1','p2','p3','p4','p5','p6','p7'].forEach(function(k){ s+=gv0(k); });
+    var sev=s>4?'hi':s>=2?'md':'lo', l=s>4?'hi':s>=2?'md':'lo';
+    window.showResult(s, 'pts', sev, window.t('r_pe_'+l), rS(window.t('a_pe_'+l)), rD(window.t('rx_pe_'+l+'_n'), window.t('rx_pe_'+l+'_d')));
 };
 
-// 5. CURB-65
 window.calc_curb65 = function(){
-    var s = 0; ['c1','c2','c3','c4','c5'].forEach(function(k){ s += gv0(k); });
-    var sev = s >= 3 ? 'hi' : s === 2 ? 'md' : 'lo';
-    window.showResult(s, '/5', sev, window.t('r_curb_hi'), rowS(1, "Inpatient Admission"), rowD('Amoxicillin','500mg - 1g TDS'));
+    var s=0; ['c1','c2','c3','c4','c5'].forEach(function(k){ s+=gv0(k); });
+    var sev=s>=3?'hi':s===2?'md':'lo', l=s>=3?'hi':s===2?'md':'lo';
+    window.showResult(s, '/5', sev, window.t('r_curb_'+l), rS(window.t('a_curb_'+l)), rD(window.t('rx_curb_'+l+'_n'), window.t('rx_curb_'+l+'_d')));
 };
 
-// 6. CHA2DS2-VASc
 window.calc_chads2 = function(){
-    var s = 0; ['ch_c','ch_h','ch_a2','ch_d','ch_s2','ch_v','ch_a1','ch_sex'].forEach(function(k){ s += gv0(k); });
-    var sev = s >= 2 ? 'hi' : s === 1 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t('r_chads_hi'), rowS(1, "Oral Anticoagulation"), rowD('Apixaban','5mg BD'));
+    var s=0; ['ch_c','ch_h','ch_a2','ch_d','ch_s2','ch_v','ch_a1','ch_sex'].forEach(function(k){ s+=gv0(k); });
+    var sev=s>=2?'hi':s===1?'md':'lo', l=s>=2?'hi':s===1?'md':'lo';
+    window.showResult(s, 'pts', sev, window.t('r_chads_'+l), rS(window.t('a_chads_'+l)), rD(window.t('rx_chads_'+l+'_n'), window.t('rx_chads_'+l+'_d')));
 };
 
-// 7. CHILD-PUGH
 window.calc_childpugh = function(){
-    var s = gv('cb')+gv('ca')+gv('cp')+gv('casc')+gv('ce');
-    var cls = s <= 6 ? 'A' : s <= 9 ? 'B' : 'C';
-    var sev = s <= 6 ? 'lo' : s <= 9 ? 'md' : 'hi';
-    window.showResult(s, 'pts (Class ' + cls + ')', sev, window.t('r_cp_a'), rowS(1, "Hepatology Review"), rowD('Lactulose','30ml TDS'));
+    var s=0, ks=['cb','ca','cp','casc','ce']; for(var i=0;i<ks.length;i++){var v=gv(ks[i]); if(v===null) return alert(window.t('alert_msg')); s+=v;}
+    var cls=s<=6?'A':s<=9?'B':'C', sev=s<=6?'lo':s<=9?'md':'hi', l=s<=6?'a':s<=9?'b':'c';
+    window.showResult(s, 'Class '+cls, sev, window.t('r_cp_'+l), rS(window.t('a_cp_'+l)), rD(window.t('rx_cp_'+l+'_n'), window.t('rx_cp_'+l+'_d')));
 };
 
-// 8. BMI
 window.calc_bmi = function(){
-    var w = parseFloat(document.getElementById('bw').value), h = parseFloat(document.getElementById('bh').value)/100;
-    if(!w || !h) return alert("Enter weight/height");
-    var b = (w/(h*h)).toFixed(1);
-    var sev = b >= 30 ? 'hi' : b >= 25 ? 'md' : 'lo';
-    window.showResult(b, 'kg/m²', sev, window.t('r_bmi_norm'), rowS(1, "Lifestyle Optimization"), "");
+    var w=parseFloat(document.getElementById('bw').value), h=parseFloat(document.getElementById('bh').value)/100; if(!w||!h) return alert(window.t('alert_msg'));
+    var b=(w/(h*h)).toFixed(1), sev=b>=30?'hi':b>=25?'md':'lo', l=b<18.5?'un':b<25?'no':b<30?'ov':b<35?'ob1':'ob2';
+    window.showResult(b, 'kg/m²', sev, window.t('r_bmi_'+l), rS(window.t('a_bmi_'+l)), rD(window.t('rx_bmi_'+l+'_n'), window.t('rx_bmi_'+l+'_d')));
 };
 
-// 9. EGFR (CKD-EPI 2021)
 window.calc_egfr = function(){
-    var cr = parseFloat(document.getElementById('ecr').value), age = parseFloat(document.getElementById('eage').value), sex = gv('esex');
-    if(!cr || !age || !sex) return alert("Fill all fields");
-    var crMg = cr/88.4, k = (sex === 1.012) ? 0.7 : 0.9, a = (sex === 1.012) ? -0.241 : -0.302;
-    var eg = Math.round(142 * Math.pow(Math.min(crMg/k, 1), a) * Math.pow(Math.max(crMg/k, 1), -1.200) * Math.pow(0.9938, age) * sex);
-    var sev = eg < 60 ? 'md' : 'lo';
-    window.showResult(eg, 'mL/min', sev, "CKD stage evaluated", rowS(1, "Review renal dosing"), rowD('ACE Inhibitor','Ramipril 2.5mg'));
+    var cr=parseFloat(document.getElementById('ecr').value), age=parseFloat(document.getElementById('eage').value), sex=gv('esex'); if(!cr||!age||!sex) return alert(window.t('alert_msg'));
+    var crMg=cr/88.4, k=(sex===1.012)?0.7:0.9, a=(sex===1.012)?-0.241:-0.302;
+    var eg=Math.round(142*Math.pow(Math.min(crMg/k,1),a)*Math.pow(Math.max(crMg/k,1),-1.2)*Math.pow(0.9938,age)*sex);
+    var sev=eg<60?'hi':'lo', l=eg>=60?'no':eg>=30?'md':'se';
+    window.showResult(eg, 'mL/min', sev, window.t('r_egfr_'+l), rS(window.t('a_egfr_'+l)), rD(window.t('rx_egfr_'+l+'_n'), window.t('rx_egfr_'+l+'_d')));
 };
 
-// 10. MEWS
 window.calc_mews = function(){
-    var s = gv('mrr')+gv('mbp')+gv('mhr')+gv('mtemp')+gv('mavpu');
-    var sev = s >= 5 ? 'hi' : s >= 3 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t('r_mews_hi'), rowS(1, "Immediate Medical Review"), rowD('Oxygen','Titrate to 94-98%'));
+    var s=gv0('mrr')+gv0('mbp')+gv0('mhr')+gv0('mtemp')+gv0('mavpu');
+    var sev=s>=5?'hi':s>=3?'md':'lo', l=s>=5?'hi':s>=3?'md':'lo';
+    window.showResult(s, 'pts', sev, window.t('r_mews_'+l), rS(window.t('a_mews_'+l)), rD(window.t('rx_mews_'+l+'_n'), window.t('rx_mews_'+l+'_d')));
 };
 
-// 11. CENTOR
 window.calc_centor = function(){
-    var s = gv0('cen1')+gv0('cen2')+gv0('cen3')+gv0('cen4')+gv0('cenage');
-    var sev = s >= 4 ? 'hi' : s >= 2 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t('r_centor_hi'), rowS(1, "Consider Rapid Strep Test"), rowD('Penicillin V','500mg QDS'));
+    var s=gv0('cen1')+gv0('cen2')+gv0('cen3')+gv0('cen4')+gv0('cenage');
+    var sev=s>=4?'hi':s>=2?'md':'lo', l=s>=4?'hi':s>=2?'md':'lo';
+    window.showResult(s, 'pts', sev, window.t('r_centor_'+l), rS(window.t('a_centor_'+l)), rD(window.t('rx_centor_'+l+'_n'), window.t('rx_centor_'+l+'_d')));
 };
 
-// 12. NIHSS
 window.calc_nihss = function(){
-    var s = parseInt(document.getElementById('nihss_s').value);
-    if(isNaN(s)) return alert("Enter score");
-    var sev = s > 15 ? 'hi' : s > 5 ? 'md' : 'lo';
-    window.showResult(s, '/42', sev, window.t('r_nihss_mod'), rowS(1, "Stroke Team Activation"), rowD('Aspirin','300mg Stat'));
+    var s=parseInt(document.getElementById('nihss_s').value); if(isNaN(s)) return alert(window.t('alert_msg'));
+    var sev=s>15?'hi':s>5?'md':'lo', l=s>20?'se':s>15?'ms':s>5?'mo':'mi';
+    window.showResult(s, '/42', sev, window.t('r_nihss_'+l), rS(window.t('a_nihss_'+l)), rD(window.t('rx_nihss_'+l+'_n'), window.t('rx_nihss_'+l+'_d')));
 };
 
-// 13. SOFA
 window.calc_sofa = function(){
-    var s = gv0('sr')+gv0('sc')+gv0('sl')+gv0('scv')+gv0('sn')+gv0('sk');
-    var sev = s >= 10 ? 'hi' : s >= 5 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t('r_sofa_hi'), rowS(1, "Critical Care Evaluation"), rowD('Norepinephrine','Titrate to MAP >65'));
+    var s=gv0('sr')+gv0('sc')+gv0('sl')+gv0('scv')+gv0('sn')+gv0('sk');
+    var sev=s>=10?'hi':s>=5?'md':'lo', l=s>=10?'hi':s>=5?'md':'lo';
+    window.showResult(s, 'pts', sev, window.t('r_sofa_'+l), rS(window.t('a_sofa_'+l)), rD(window.t('rx_sofa_'+l+'_n'), window.t('rx_sofa_'+l+'_d')));
 };
 
-// 14. RANSON
 window.calc_ranson = function(){
-    var s = 0; ['rn1','rn2','rn3','rn4','rn5','rn6','rn7','rn8','rn9','rn10'].forEach(function(k){ s += gv0(k); });
-    var sev = s >= 5 ? 'hi' : s >= 3 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t('r_ranson_hi'), rowS(1, "Aggressive Fluid Resuscitation"), rowD('IV Fluids','Hartmann\'s 250ml/hr'));
+    var s=0; ['rn1','rn2','rn3','rn4','rn5','rn6','rn7','rn8','rn9','rn10'].forEach(function(k){ s+=gv0(k); });
+    var sev=s>=5?'hi':s>=3?'md':'lo', l=s>=5?'hi':s>=3?'md':'lo';
+    window.showResult(s, 'pts', sev, window.t('r_ranson_'+l), rS(window.t('a_ranson_'+l)), rD(window.t('rx_ranson_'+l+'_n'), window.t('rx_ranson_'+l+'_d')));
 };
 
-// 15. PSI/PORT
 window.calc_psi = function(){
-    var age = parseFloat(document.getElementById('psi_age').value), sex = gv('psi_sex');
-    if(!age || sex === null) return alert("Enter age/sex");
-    var s = age + sex;
-    ['psi_nh','psi_neo','psi_liv','psi_chf','psi_cvd','psi_ren','psi_ams','psi_rr','psi_sbp','psi_temp','psi_pulse','psi_ph','psi_bun','psi_na','psi_gluc','psi_hct','psi_pao2','psi_eff'].forEach(function(k){ s += gv0(k); });
-    var cls = s <= 50 ? 1 : s <= 70 ? 2 : s <= 90 ? 3 : s <= 130 ? 4 : 5;
-    var sev = cls >= 4 ? 'hi' : 'lo';
-    window.showResult('Class '+cls, '('+s+' pts)', sev, "Pneumonia Severity Index", rowS(1, "Assess for hospitalization"), rowD('Ceftriaxone','1g IV OD'));
+    var age=parseFloat(document.getElementById('psi_age').value), sex=gv('psi_sex'); if(isNaN(age)||sex===null) return alert(window.t('alert_msg'));
+    var s=age+sex; ['psi_nh','psi_neo','psi_liv','psi_chf','psi_cvd','psi_ren','psi_ams','psi_rr','psi_sbp','psi_temp','psi_pulse','psi_ph','psi_bun','psi_na','psi_gluc','psi_hct','psi_pao2','psi_eff'].forEach(function(k){ s+=gv0(k); });
+    var cls=s<=50?1:s<=70?2:s<=90?3:s<=130?4:5, sev=cls>=4?'hi':cls===3?'md':'lo', l=cls;
+    window.showResult('Class '+cls, '('+s+' pts)', sev, window.t('r_psi_'+l), rS(window.t('a_psi_'+l)), rD(window.t('rx_psi_'+l+'_n'), window.t('rx_psi_'+l+'_d')));
 };
