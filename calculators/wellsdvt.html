@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Wells Score for DVT | WardCalc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Wells' Criteria for DVT — WardCalc</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  </div>
+
   <nav>
-    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <a class="logo" href="../index.html">
+      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+    </a>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
       <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
@@ -17,81 +29,137 @@
     </div>
   </nav>
 
-  <div class="page-wrap">
-    <div class="ad-banner">AdSense Space (Above Tool)</div>
-
-    <div class="calc-container">
-      <h1 class="tool-title">Wells Score for DVT</h1>
-      <p class="tool-info">The Wells Score is a clinical prediction rule used to estimate the pre-test probability of Deep Vein Thrombosis (DVT).</p>
-
-      <div class="field"><label class="field-label" data-k="f_cancer">Active cancer (treatment within 6 months)</label>
-        <div class="chips"><button class="chip" data-g="d1" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d1" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_paralysis">Paralysis, paresis or immobilisation of lower limb</label>
-        <div class="chips"><button class="chip" data-g="d2" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d2" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_bedridden">Bedridden > 3 days or major surgery within 12 weeks</label>
-        <div class="chips"><button class="chip" data-g="d3" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d3" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_tenderness">Localised tenderness along deep venous system</label>
-        <div class="chips"><button class="chip" data-g="d4" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d4" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_legswollen">Entire leg swollen</label>
-        <div class="chips"><button class="chip" data-g="d5" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d5" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_calfswelling">Calf swelling > 3 cm vs asymptomatic side</label>
-        <div class="chips"><button class="chip" data-g="d6" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d6" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_pitting">Pitting oedema in symptomatic leg only</label>
-        <div class="chips"><button class="chip" data-g="d7" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d7" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_collateral">Collateral superficial veins (non-varicose)</label>
-        <div class="chips"><button class="chip" data-g="d8" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d8" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_alt_dvt">Alternative diagnosis at least as likely as DVT (−2 pts)</label>
-        <div class="chips"><button class="chip" data-g="d9" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="d9" data-v="-2" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      
-      <button class="go-btn" onclick="calc_dvt()">Calculate Wells DVT</button>
-      <div id="R" class="result-box"></div>
-
-      <div class="ad-banner">AdSense Space (Below Tool)</div>
-
-      <div class="mnem-panel">
-        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
-        <div class="mnem-body">
-          <div class="mnem-block">
-            <div class="mnem-flag">🇬🇧</div>
-            <div class="mnem-main"><b>C</b>ancer · <b>A</b>lt unlikely · <b>L</b>eg swollen · <b>L</b>ocal tenderness — "<b>CALL</b>"</div>
-          </div>
-          <div class="mnem-block">
-            <div class="mnem-flag">🇷🇺</div>
-            <div class="mnem-main"><b>О</b>пухоль · <b>А</b>льтернатива мала · <b>О</b>тёк · <b>Б</b>оль — "<b>ООАБ</b>"</div>
-          </div>
-          <div class="mnem-block">
-            <div class="mnem-flag">🇺🇿</div>
-            <div class="mnem-main"><b>S</b>araton · <b>A</b>lternativa · <b>S</b>hish · <b>O</b>g'riq — "<b>SASO</b>"</div>
-          </div>
+  <main class="main" style="padding-top: 20px;">
+    
+    <div style="max-width: 600px; margin: 0 auto 20px;">
+        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+            AdSense Space (Top Banner)
         </div>
-      </div>
     </div>
 
-    <!-- SEO TEXT FOR ADSENSE -->
-    <div class="seo-content">
-      <h2>Understanding the Wells Score</h2>
-      <p>The Wells Criteria for DVT was designed to stratify patients into risk categories for deep vein thrombosis, allowing clinicians to safely guide further diagnostic testing, such as D-dimer assays and venous ultrasonography.</p>
-      
-      <h2>Clinical Interpretations</h2>
-      <ul>
-        <li><strong>High Risk (≥ 3 points):</strong> DVT is highly probable. Proceed directly to proximal leg ultrasound. If ultrasound is delayed, empirical anticoagulation may be indicated.</li>
-        <li><strong>Moderate Risk (1-2 points):</strong> Obtain a high-sensitivity D-dimer test. If positive, proceed to ultrasound.</li>
-        <li><strong>Low Risk (≤ 0 points):</strong> DVT is unlikely. A negative D-dimer effectively rules out DVT without the need for imaging.</li>
-      </ul>
-      <p><em>References: Wells PS, Anderson DR, Bormanis J, et al. Value of assessment of pretest probability of deep-vein thrombosis in clinical management. Lancet. 1997;350(9094):1795-1798.</em></p>
-    </div>
-  </div>
+    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+        
+        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
 
-  <script src="../js/global.js"></script>
-  <script>updateUI();</script>
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_cardio"></div>
+
+        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Wells' DVT Criteria</h1>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_dvt"></p>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_cancer"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d1" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d1" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_paralysis"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d2" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d2" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_bedridden"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d3" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d3" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_tenderness"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d4" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d4" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_swelling_entire"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d5" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d5" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_swelling_calf"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d6" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d6" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pitting"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d7" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d7" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_collateral"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d8" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d8" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 30px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_alt_dx"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="d9" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="d9" data-v="-2" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calc_wellsdvt()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;"></button>
+
+        <div id="R" style="margin-top: 20px; display: block;"></div>
+
+        <div style="margin-top: 30px;">
+            <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+                AdSense Space (Below Results)
+            </div>
+        </div>
+    </div>
+
+    <div style="max-width: 600px; margin: 20px auto 50px;">
+        
+        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all"></div>
+            <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
+                🇬🇧 <b>C</b>ancer · <b>A</b>lt unlikely · <b>L</b>eg swollen · <b>L</b>ocal tenderness — "<b>CALL</b>"<br>
+                🇷🇺 <b>О</b>пухоль · <b>А</b>льтернатива мала · <b>О</b>тёк · <b>Б</b>оль — "<b>ООАБ</b>"<br>
+                🇺🇿 <b>S</b>araton · <b>A</b>lternativa · <b>S</b>hish · <b>O</b>g'riq — "<b>SASO</b>"
+            </div>
+        </div>
+
+        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
+            <h3 data-k="dvt_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
+            
+            <p data-k="dvt_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
+            
+            <p data-k="dvt_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
+            
+            <p style="color: var(--white); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
+                <b><span data-k="dvt_info_p3"></span></b>
+            </p>
+        </div>
+    </div>
+
+  </main>
+
+  <script src="../js/translations.js?v=19"></script>
+  <script src="../js/drugs.js?v=19"></script>
+  <script src="../js/ui.js?v=19"></script>
+  <script src="../js/calculators.js?v=19"></script> 
+  <script src="../js/main.js?v=19"></script>
+
 </body>
 </html>
