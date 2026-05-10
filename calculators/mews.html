@@ -1,66 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>MEWS Score | WardCalc</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEWS Score - WardCalc</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Calculator Specific Styles to match your premium theme */
+        .calc-container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        .input-group { background: var(--bg2, #1a1b26); padding: 25px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .input-label { color: var(--white, #fff); font-size: 15px; font-weight: 600; margin-bottom: 15px; display: block; }
+        
+        /* Dynamic Chip Grids */
+        .chip-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 8px; }
+        .chip-grid-vertical { display: flex; flex-direction: column; gap: 8px; }
+        
+        .chip { background: var(--bg3, #222); color: var(--w80, #cbd5e1); padding: 12px 8px; border-radius: 10px; border: 1px solid transparent; cursor: pointer; text-align: center; font-size: 13px; transition: all 0.2s; font-weight: 500; }
+        .chip.on { background: rgba(212, 175, 55, 0.1); border-color: var(--gold, #d4af37); color: var(--gold, #d4af37); }
+        
+        .calc-btn { width: 100%; background: transparent; color: var(--gold, #d4af37); border: 1px solid var(--gold, #d4af37); padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; letter-spacing: 1px; margin-top: 10px; transition: 0.3s; }
+        .calc-btn:hover { background: var(--gold, #d4af37); color: #000; }
+        
+        .mnem-box { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 30px; }
+        .mnem-title { color: var(--w60, #888); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .mnem-text { color: var(--gold, #d4af37); font-family: var(--mono, monospace); font-size: 14px; line-height: 1.8; }
+        .mnem-flag { display: inline-block; width: 25px; }
+        
+        .seo-content { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--w60, #888); font-size: 14px; line-height: 1.6; }
+        .seo-content h2 { color: var(--w80, #cbd5e1); font-size: 18px; margin-bottom: 15px; }
+    </style>
 </head>
-<body>
-  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
-  <nav>
-    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
-    <div class="lang-sw">
-      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
-      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
-    </div>
-  </nav>
+<body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
 
-  <div class="page-wrap">
-    <div class="ad-banner">AdSense Space (Above Tool)</div>
+    <nav class="navbar" style="display: flex; justify-content: space-between; padding: 20px 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <a href="../index.html" style="color: var(--white, #fff); text-decoration: none; font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
+            <span style="background: var(--bg3, #222); padding: 8px 12px; border-radius: 8px; color: var(--gold, #d4af37);">🫀</span> WardCalc
+        </a>
+        
+        <div class="lang-switch" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+            <button class="lang-btn" onclick="setLang('ru', this)">RU</button>
+            <button class="lang-btn" onclick="setLang('uz', this)">UZ</button>
+        </div>
+    </nav>
 
     <div class="calc-container">
-      <h1 class="tool-title">MEWS Score</h1>
-      <p class="tool-info" data-k="d_mews">Detect patient deterioration before cardiac arrest. Every ward, every shift.</p>
-
-      <div class="field"><label class="field-label" data-k="f_rr">Respiratory Rate (/min)</label>
-        <div class="chips"><button class="chip" data-g="mrr" data-v="3" onclick="pickChip(this)">< 9</button><button class="chip" data-g="mrr" data-v="0" onclick="pickChip(this)">9–14</button><button class="chip" data-g="mrr" data-v="1" onclick="pickChip(this)">15–20</button><button class="chip" data-g="mrr" data-v="2" onclick="pickChip(this)">21–29</button><button class="chip" data-g="mrr" data-v="3" onclick="pickChip(this)">≥ 30</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_sbp">Systolic BP (mmHg)</label>
-        <div class="chips"><button class="chip" data-g="mbp" data-v="3" onclick="pickChip(this)">< 70</button><button class="chip" data-g="mbp" data-v="2" onclick="pickChip(this)">71–80</button><button class="chip" data-g="mbp" data-v="1" onclick="pickChip(this)">81–100</button><button class="chip" data-g="mbp" data-v="0" onclick="pickChip(this)">101–199</button><button class="chip" data-g="mbp" data-v="2" onclick="pickChip(this)">≥ 200</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_hr">Heart Rate (/min)</label>
-        <div class="chips"><button class="chip" data-g="mhr" data-v="2" onclick="pickChip(this)">< 40</button><button class="chip" data-g="mhr" data-v="0" onclick="pickChip(this)">41–100</button><button class="chip" data-g="mhr" data-v="1" onclick="pickChip(this)">101–110</button><button class="chip" data-g="mhr" data-v="2" onclick="pickChip(this)">111–129</button><button class="chip" data-g="mhr" data-v="3" onclick="pickChip(this)">≥ 130</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_temp">Temperature (°C)</label>
-        <div class="chips"><button class="chip" data-g="mtemp" data-v="2" onclick="pickChip(this)">< 35.0</button><button class="chip" data-g="mtemp" data-v="0" onclick="pickChip(this)">35.0–38.4</button><button class="chip" data-g="mtemp" data-v="2" onclick="pickChip(this)">≥ 38.5</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_avpu">Consciousness (AVPU)</label>
-        <div class="chips"><button class="chip" data-g="mavpu" data-v="0" onclick="pickChip(this)">Alert (A)</button><button class="chip" data-g="mavpu" data-v="1" onclick="pickChip(this)">Voice (V)</button><button class="chip" data-g="mavpu" data-v="2" onclick="pickChip(this)">Pain (P)</button><button class="chip" data-g="mavpu" data-v="3" onclick="pickChip(this)">Unresponsive (U)</button></div>
-      </div>
-      
-      <button class="go-btn" onclick="calc_mews()" data-k="btn">Calculate</button>
-      <div id="R" class="result-box"></div>
-
-      <div class="ad-banner">AdSense Space (Below Tool)</div>
-
-      <div class="mnem-panel">
-        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
-        <div class="mnem-body">
-          <div class="mnem-block"><div class="mnem-flag">🇬🇧</div><div class="mnem-main"><b>R</b>esp · <b>B</b>P · <b>H</b>R · <b>T</b>emp · <b>C</b>onsciousness — "<b>RBHTC</b>"</div></div>
-          <div class="mnem-block"><div class="mnem-flag">🇷🇺</div><div class="mnem-main"><b>Д</b>ыхание · <b>А</b>Д · <b>Ч</b>СС · <b>Т</b>емпература · <b>С</b>ознание — "<b>ДАЧТС</b>"</div></div>
-          <div class="mnem-block"><div class="mnem-flag">🇺🇿</div><div class="mnem-main"><b>N</b>afas · <b>B</b>osim · <b>Y</b>urak · <b>H</b>arorat · <b>O</b>ng — "<b>NBYHO</b>"</div></div>
+        <div style="margin-bottom: 30px;">
+            <div style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold, #d4af37); padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px;" data-k="sp_icu">ICU / WARD</div>
+            <h1 style="color: var(--white, #fff); margin: 0 0 10px 0; font-size: 32px;">MEWS Score</h1>
+            <p style="color: var(--w60, #888); margin: 0; font-size: 15px;" data-k="d_mews">Detect patient deterioration before cardiac arrest. Every ward, every shift.</p>
         </div>
-      </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_rr">Respiratory Rate (/min)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="mrr" data-v="3" onclick="pickChip(this)">&lt; 9</button>
+                <button class="chip" data-g="mrr" data-v="0" onclick="pickChip(this)">9–14</button>
+                <button class="chip" data-g="mrr" data-v="1" onclick="pickChip(this)">15–20</button>
+                <button class="chip" data-g="mrr" data-v="2" onclick="pickChip(this)">21–29</button>
+                <button class="chip" data-g="mrr" data-v="3" onclick="pickChip(this)">&ge; 30</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_sbp">Systolic BP (mmHg)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="mbp" data-v="3" onclick="pickChip(this)">&lt; 70</button>
+                <button class="chip" data-g="mbp" data-v="2" onclick="pickChip(this)">71–80</button>
+                <button class="chip" data-g="mbp" data-v="1" onclick="pickChip(this)">81–100</button>
+                <button class="chip" data-g="mbp" data-v="0" onclick="pickChip(this)">101–199</button>
+                <button class="chip" data-g="mbp" data-v="2" onclick="pickChip(this)">&ge; 200</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_hr">Heart Rate (/min)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="mhr" data-v="2" onclick="pickChip(this)">&lt; 40</button>
+                <button class="chip" data-g="mhr" data-v="0" onclick="pickChip(this)">41–100</button>
+                <button class="chip" data-g="mhr" data-v="1" onclick="pickChip(this)">101–110</button>
+                <button class="chip" data-g="mhr" data-v="2" onclick="pickChip(this)">111–129</button>
+                <button class="chip" data-g="mhr" data-v="3" onclick="pickChip(this)">&ge; 130</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_temp">Temperature (°C)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="mtemp" data-v="2" onclick="pickChip(this)">&lt; 35.0</button>
+                <button class="chip" data-g="mtemp" data-v="0" onclick="pickChip(this)">35.0–38.4</button>
+                <button class="chip" data-g="mtemp" data-v="2" onclick="pickChip(this)">&ge; 38.5</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_avpu">Consciousness (AVPU)</span>
+            <div class="chip-grid-vertical">
+                <button class="chip" style="text-align: left; padding-left: 20px;" data-g="mavpu" data-v="0" onclick="pickChip(this)">Alert (A)</button>
+                <button class="chip" style="text-align: left; padding-left: 20px;" data-g="mavpu" data-v="1" onclick="pickChip(this)">Voice (V)</button>
+                <button class="chip" style="text-align: left; padding-left: 20px;" data-g="mavpu" data-v="2" onclick="pickChip(this)">Pain (P)</button>
+                <button class="chip" style="text-align: left; padding-left: 20px;" data-g="mavpu" data-v="3" onclick="pickChip(this)">Unresponsive (U)</button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calc_mews()" data-k="btn">Calculate</button>
+
+        <div id="R" style="margin-top: 30px;"></div>
+
+        <div class="mnem-box">
+            <div class="mnem-title" data-k="mnem_all">Memory Aid — All 3 Languages</div>
+            <div class="mnem-text">
+                <div><span class="mnem-flag">🇬🇧</span> <b>R</b>esp · <b>B</b>P · <b>H</b>R · <b>T</b>emp · <b>C</b>onsciousness — "<b>RBHTC</b>"</div>
+                <div style="margin: 10px 0;"><span class="mnem-flag">🇷🇺</span> <b>Д</b>ыхание · <b>А</b>Д · <b>Ч</b>СС · <b>Т</b>емпература · <b>С</b>ознание — "<b>ДАЧТС</b>"</div>
+                <div><span class="mnem-flag">🇺🇿</span> <b>N</b>afas · <b>B</b>osim · <b>Y</b>urak · <b>H</b>arorat · <b>O</b>ng — "<b>NBYHO</b>"</div>
+            </div>
+        </div>
+
+        <div class="seo-content">
+            <h2>Understanding the MEWS Score</h2>
+            <p>The Modified Early Warning Score (MEWS) is a simple, physiological scoring system used in hospitals worldwide to quickly identify patients at risk of catastrophic clinical deterioration.</p>
+            <p style="margin-top: 10px;">By regularly measuring vital signs, nurses and junior doctors can calculate a score that acts as a definitive "trigger" for escalating care. A score of 5 or more is statistically associated with an increased likelihood of ICU admission or cardiac arrest.</p>
+        </div>
+
     </div>
 
-    <div class="seo-content">
-      <h2>Understanding the MEWS Score</h2>
-      <p>The Modified Early Warning Score (MEWS) is a simple, physiological scoring system used in hospitals worldwide to quickly identify patients at risk of catastrophic clinical deterioration.</p>
-      <p>By regularly measuring vital signs, nurses and junior doctors can calculate a score that acts as a definitive "trigger" for escalating care. A score of 5 or more is statistically associated with an increased likelihood of ICU admission or cardiac arrest.</p>
-    </div>
-  </div>
-  <script src="../js/global.js"></script><script>updateUI();</script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/drugs.js"></script>
+
+    <script src="../js/ui.js"></script>
+
+    <script src="../js/calculator.js"></script> 
+
+    <script src="../js/main.js"></script>
 </body>
 </html>
