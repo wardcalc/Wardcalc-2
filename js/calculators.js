@@ -111,35 +111,7 @@
   <script src="../js/translations.js?v=999"></script>
   <script src="../js/drugs.js?v=999"></script>
   <script src="../js/ui.js?v=999"></script>
-  <script src="../js/main.js?v=999"></script>
+  <script src="../js/calculators.js?v=999"></script> <script src="../js/main.js?v=999"></script>
 
-  <script>
-    function calc_gcs() {
-      try {
-          if (typeof gv === 'undefined') {
-              alert("CRITICAL ERROR: The browser cannot find your ui.js file! Please check if your 'js' folder is uploaded to GitHub correctly.");
-              return;
-          }
-          
-          const e=gv('ge'), v=gv('gv'), m=gv('gm');
-          
-          if(e===null || v===null || m===null){
-              alert("Please select one option from Eye Opening, Verbal, and Motor before calculating!");
-              return;
-          }
-          
-          const s=e+v+m;
-          
-          if(s>=13) showResult(s,'/15','lo',t('r_gcs_mild'), S(1,t('r_gcs_mild_1'))+S(2,t('r_gcs_mild_2'))+S(3,t('r_gcs_mild_3')), RX.thiamine()+RX.dex());
-          else if(s>=9) showResult(s,'/15','md',t('r_gcs_mod'), S(1,t('r_gcs_mod_1'))+S(2,t('r_gcs_mod_2'))+S(3,t('r_gcs_mod_3'))+S(4,t('r_gcs_mod_4')), RX.manni()+RX.leve2());
-          else showResult(s,'/15','hi',t('r_gcs_sev'), S(1,t('r_gcs_sev_1'))+S(2,t('r_gcs_sev_2'))+S(3,t('r_gcs_sev_3'))+S(4,t('r_gcs_sev_4')), RX.ketam()+RX.suxam());
-
-          document.getElementById('R').style.display = 'block';
-
-      } catch (err) {
-          alert("Code Error: " + err.message);
-      }
-    }
-  </script>
 </body>
 </html>
