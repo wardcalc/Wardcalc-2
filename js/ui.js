@@ -1,37 +1,78 @@
 /* ── UI HELPERS ── */
-function updateUI(){
-  document.querySelectorAll('[data-k]').forEach(el => {
-    if (el.tagName === 'INPUT' && el.type === 'search') {
-      el.placeholder = t(el.dataset.k);
+
+// 1. MEMORY: Auto-load saved language when ANY page opens
+document.addEventListener('DOMContentLoaded', () => {
+  let savedLang = localStorage.getItem('wardcalc_lang') || 'en';
+  
+  if (typeof window !== 'undefined') {
+    window.LANG = savedLang;
+  }
+
+  // Force apply strict CSS to the correct button on load
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    if (b.innerText.toLowerCase() === savedLang.toLowerCase()) {
+      b.classList.add('active');
+      b.style.cssText = 'background: #d4af37 !important; color: #000 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
     } else {
-      el.innerHTML = t(el.dataset.k);
+      b.classList.remove('active');
+      b.style.cssText = 'background: transparent !important; color: #888 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
     }
   });
-}
 
+  updateUI();
+  if(document.getElementById('calcGrid') && typeof renderGrid === 'function') renderGrid();
+});
+
+// 2. SWITCHER: Save language to memory and update buttons
 function setLang(l, btn){
-  LANG = l;
+  if (typeof window !== 'undefined') window.LANG = l;
+  localStorage.setItem('wardcalc_lang', l); // Saves to memory
   
-  // 1. Force reset ALL buttons with strict CSS
+  // Force reset ALL buttons with strict CSS
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.remove('active');
     b.style.cssText = 'background: transparent !important; color: #888 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   });
   
-  // 2. Force apply gold to the CLICKED button
+  // Force apply gold to the CLICKED button
   if (btn) {
     btn.classList.add('active');
     btn.style.cssText = 'background: #d4af37 !important; color: #000 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   }
   
   updateUI();
-  if(document.getElementById('calcGrid')) renderGrid();
+  if(document.getElementById('calcGrid') && typeof renderGrid === 'function') renderGrid();
 }
 
+// 3. TRANSLATOR: Applies dictionary text to the page
+function updateUI(){
+  if (typeof t !== 'function') return;
+  document.querySelectorAll('[data-k]').forEach(el => {
+    const key = el.dataset.k;
+    const translatedText = t(key);
+    
+    if (translatedText !== key) {
+        if (el.tagName === 'INPUT' && (el.type === 'search' || el.hasAttribute('placeholder'))) {
+          el.placeholder = translatedText;
+        } else {
+          el.innerHTML = translatedText;
+        }
+    }
+  });
+}
+
+// 4. CHIP LOGIC: Single Selection (Yes/No, Male/Female)
 function pickChip(btn){
   document.querySelectorAll(`[data-g="${btn.dataset.g}"]`).forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
 }
+
+// 5. CHIP LOGIC: Multiple Selection / Toggles (Fixes PSI/PORT Score!)
+function toggleChip(el) {
+  el.classList.toggle('on');
+}
+
+// 6. CALCULATOR HELPERS
 function gv(g){ 
   const e=document.querySelector(`[data-g="${g}"].on`); 
   return e ? parseFloat(e.dataset.v) : null; 
@@ -43,6 +84,7 @@ function alertMsg(){
   alert(t('alert_msg')); 
 }
 
+// 7. RESULT TAB SYSTEM
 function switchTab(i){
   const tabs = document.querySelectorAll('.result-tab');
   const panels = document.querySelectorAll('.result-panel');
@@ -59,6 +101,7 @@ function switchTab(i){
   });
 }
 
+// 8. RESULT DISPLAY GENERATOR
 function showResult(score, unit, sev, interp, actions, drugs){
   const box = document.getElementById('R'); if(!box) return;
   box.className = `result-box visible`;
@@ -86,4 +129,22 @@ function showResult(score, unit, sev, interp, actions, drugs){
       <div class="result-panel" style="padding:24px; display:none;">${actions}</div>
       <div class="result-panel" style="padding:24px; display:none;">${drugs}</div>
     </div>`;
+}
+
+// 9. SEARCH BAR FUNCTION (For index.html)
+function filterTools() {
+    let input = document.getElementById('search');
+    if (!input) return;
+    
+    let filter = input.value.toLowerCase();
+    let tools = document.querySelectorAll('.tool-card');
+    
+    tools.forEach(tool => {
+        let text = tool.innerText.toLowerCase();
+        if (text.includes(filter)) {
+            tool.style.display = "block";
+        } else {
+            tool.style.display = "none";
+        }
+    });
 }
