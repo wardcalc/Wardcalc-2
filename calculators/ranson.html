@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Ranson's Criteria | WardCalc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Ranson's Criteria — WardCalc</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  </div>
+
   <nav>
-    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <a class="logo" href="../index.html">
+      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+    </a>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
       <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
@@ -17,65 +29,146 @@
     </div>
   </nav>
 
-  <div class="page-wrap">
-    <div class="ad-banner">AdSense Space</div>
-
-    <div class="calc-container">
-      <h1 class="tool-title">Ranson's Criteria</h1>
-      <p class="tool-info" data-k="d_ranson">Pancreatitis severity at admission and 48 hours. Predicts mortality risk.</p>
-
-      <h3 style="color:var(--gold); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin-bottom:15px;" data-k="at_adm">At Admission</h3>
-      <div class="field"><label class="field-label" data-k="f_age55">Age > 55 years</label>
-        <div class="chips"><button class="chip" data-g="rn2" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn2" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_wbc">WBC > 16 × 10⁹/L</label>
-        <div class="chips"><button class="chip" data-g="rn5" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn5" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_glucose">Glucose > 11 mmol/L (> 200 mg/dL)</label>
-        <div class="chips"><button class="chip" data-g="rn1" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn1" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_ldh">LDH > 350 IU/L</label>
-        <div class="chips"><button class="chip" data-g="rn3" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn3" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_ast">AST > 250 IU/L</label>
-        <div class="chips"><button class="chip" data-g="rn4" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn4" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-
-      <h3 style="color:var(--gold); font-size:12px; font-family:var(--mono); text-transform:uppercase; margin:25px 0 15px;" data-k="at_48h">At 48 Hours</h3>
-      <div class="field"><label class="field-label" data-k="f_hct">Haematocrit drop > 10% (48 h)</label>
-        <div class="chips"><button class="chip" data-g="rn6" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn6" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_bun">BUN rise > 1.8 mmol/L (48 h)</label>
-        <div class="chips"><button class="chip" data-g="rn7" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn7" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_ca">Calcium < 2 mmol/L (48 h)</label>
-        <div class="chips"><button class="chip" data-g="rn8" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn8" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_pao2_r">PaO₂ < 60 mmHg (48 h)</label>
-        <div class="chips"><button class="chip" data-g="rn9" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn9" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_fluid">Fluid sequestration > 6 litres (48 h)</label>
-        <div class="chips"><button class="chip" data-g="rn10" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="rn10" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      
-      <button class="go-btn" onclick="calc_ranson()" data-k="btn">Calculate</button>
-      <div id="R" class="result-box"></div>
-
-      <div class="ad-banner">AdSense Space</div>
-
-      <div class="mnem-panel">
-        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid</span></div>
-        <div class="mnem-body">
-          <div class="mnem-block"><div class="mnem-flag">🇬🇧</div><div class="mnem-main">Admission: <b>G</b>lucose · <b>A</b>ge · <b>L</b>DH · <b>A</b>ST · <b>W</b>BC → "<b>GA LAW</b>"</div></div>
+  <main class="main" style="padding-top: 20px;">
+    
+    <div style="max-width: 600px; margin: 0 auto 20px;">
+        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+            AdSense Space (Top Banner)
         </div>
-      </div>
     </div>
 
-    <div class="seo-content">
-      <h2>Understanding Ranson's Criteria</h2>
-      <p>Introduced in 1974, Ranson's criteria comprise 11 clinical signs to objectively evaluate the severity of acute pancreatitis. Five factors are assessed at admission to help establish an early prognosis, and an additional six are assessed 48 hours later to capture the systemic inflammatory response and third-spacing of fluids.</p>
+    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+        
+        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
+
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_gastro"></div>
+
+        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Ranson's Criteria</h1>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_ranson"></p>
+
+        <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; opacity:0.7;">At Admission</h3>
+        
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_age55"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn2" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn2" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_wbc"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn5" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn5" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_glu"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn1" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn1" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_ldh"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn3" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn3" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 25px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_ast"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn4" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn4" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; opacity:0.7;">At 48 Hours</h3>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_hct_drop"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn6" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn6" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_bun_rise"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn7" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn7" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_ca_low"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn8" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn8" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pao2_low"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn9" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn9" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 30px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_fluid_seq"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="rn10" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="rn10" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calc_ranson()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;"></button>
+
+        <div id="R" style="margin-top: 20px; display: block;"></div>
+
+        <div style="margin-top: 30px;">
+            <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+                AdSense Space (Below Results)
+            </div>
+        </div>
     </div>
-  </div>
-  <script src="../js/global.js"></script><script>updateUI();</script>
+
+    <div style="max-width: 600px; margin: 20px auto 50px;">
+        
+        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all"></div>
+            <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
+                🇬🇧 Admission: <b>G</b>lucose · <b>A</b>ge · <b>L</b>DH · <b>A</b>ST · <b>W</b>BC — "<b>GA LAW</b>"<br>
+                🇷🇺 При поступлении: <b>Г</b>люкоза · <b>В</b>озраст · <b>Л</b>ДГ · <b>А</b>СТ · <b>Л</b>ейкоциты — "<b>ГВЛАЛ</b>"<br>
+                🇺🇿 Qabulda: <b>G</b>lyukoza · <b>Y</b>osh · <b>L</b>DH · <b>A</b>ST · <b>L</b>eykotsitlar — "<b>GYLAL</b>"
+            </div>
+        </div>
+
+        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
+            <h3 data-k="ranson_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
+            <p data-k="ranson_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
+            <p data-k="ranson_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
+            <p style="color: var(--white); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
+                <b><span data-k="ranson_info_p3"></span></b>
+            </p>
+        </div>
+    </div>
+
+  </main>
+
+  <script src="../js/translations.js?v=17"></script>
+  <script src="../js/drugs.js?v=17"></script>
+  <script src="../js/ui.js?v=17"></script>
+  <script src="../js/calculators.js?v=17"></script> 
+  <script src="../js/main.js?v=17"></script>
+
 </body>
 </html>
