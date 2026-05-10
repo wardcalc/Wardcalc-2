@@ -1,12 +1,11 @@
 'use strict';
-// 1. Immediate Safety Definition
+
+// 1. Safety Fallback for Translations
 window.t = window.t || function(k) { return k; };
 
 document.addEventListener('DOMContentLoaded', function() {
     var savedLang = localStorage.getItem('wardcalc_lang') || 'en';
     window.setLang(savedLang);
-    // Unblock the UI
-    if (typeof window.updateUI === 'function') window.updateUI();
 });
 
 window.setLang = function(l, btn){
@@ -56,18 +55,28 @@ window.switchTab = function(i){
 window.showResult = function(score, unit, sev, interp, actions, drugs){
     var box = document.getElementById('R'); if(!box) return;
     box.className = 'result-box visible';
+    
+    // Get Translated Tab Names
+    var labelI = window.t('tab_i') || 'Interpretation';
+    var labelA = window.t('tab_a') || 'Action Plan';
+    var labelD = window.t('tab_d') || 'First-Line Rx';
+    
     var riskColor = sev === 'hi' ? '#ff4d4d' : sev === 'md' ? '#ffa500' : '#00ff7f';
     
     var h = '<div class="result-hero" style="background:rgba(255,255,255,0.03);padding:25px;border-bottom:1px solid rgba(255,255,255,0.1);border-radius:12px 12px 0 0;">';
     h += '<div style="display:flex;align-items:baseline;gap:8px;"><div style="color:' + riskColor + ';font-size:42px;font-weight:800;">' + score + '</div>';
     h += '<span style="color:rgba(255,255,255,0.4);font-size:12px;text-transform:uppercase;font-family:monospace;">' + unit + '</span></div></div>';
-    h += '<div style="display:flex;background:rgba(255,255,255,0.02);">';
-    h += '<button class="result-tab on" onclick="switchTab(0)" style="flex:1;padding:12px;background:none;border:none;color:#d4af37;border-bottom:2px solid #d4af37;font-size:10px;text-transform:uppercase;font-weight:700;">Logic</button>';
-    h += '<button class="result-tab" onclick="switchTab(1)" style="flex:1;padding:12px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;font-weight:700;">Action</button>';
-    h += '<button class="result-tab" onclick="switchTab(2)" style="flex:1;padding:12px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:10px;text-transform:uppercase;font-weight:700;">Rx</button></div>';
+    
+    h += '<div class="result-tabs" style="display:flex;background:rgba(255,255,255,0.02);">';
+    h += '<button class="result-tab on" onclick="switchTab(0)" style="flex:1;padding:12px;background:none;border:none;color:#d4af37;border-bottom:2px solid #d4af37;font-size:9px;text-transform:uppercase;font-weight:700;">' + labelI + '</button>';
+    h += '<button class="result-tab" onclick="switchTab(1)" style="flex:1;padding:12px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:9px;text-transform:uppercase;font-weight:700;">' + labelA + '</button>';
+    h += '<button class="result-tab" onclick="switchTab(2)" style="flex:1;padding:12px;background:none;border:none;color:rgba(255,255,255,0.4);font-size:9px;text-transform:uppercase;font-weight:700;">' + labelD + '</button></div>';
+    
     h += '<div class="result-panels" style="background:rgba(255,255,255,0.01);border-radius:0 0 12px 12px;border:1px solid rgba(255,255,255,0.1);border-top:none;">';
-    h += '<div class="result-panel on" style="padding:20px;line-height:1.6;font-style:italic;">' + interp + '</div>';
-    h += '<div class="result-panel" style="padding:20px;display:none;line-height:1.6;">' + actions + '</div>';
-    h += '<div class="result-panel" style="padding:20px;display:none;line-height:1.6;">' + drugs + '</div></div>';
+    h += '<div class="result-panel on" style="padding:24px;color:rgba(255,255,255,0.8);line-height:1.7;font-style:italic;">' + interp + '</div>';
+    h += '<div class="result-panel" style="padding:24px;display:none;line-height:1.7;">' + actions + '</div>';
+    h += '<div class="result-panel" style="padding:24px;display:none;line-height:1.7;">' + drugs + '</div></div>';
+    
     box.innerHTML = h;
+    box.scrollIntoView({ behavior: 'smooth' });
 };
