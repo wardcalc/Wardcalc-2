@@ -6,32 +6,51 @@ document.addEventListener('DOMContentLoaded', function() {
     var savedLang = localStorage.getItem('wardcalc_lang') || 'en';
     window.setLang(savedLang);
 
-    // Auto-refresh to prevent blank text on slow loads
     var refreshCount = 0;
     var globalRefresh = setInterval(function() {
         window.updateUI();
         if (++refreshCount > 30) clearInterval(globalRefresh);
     }, 100);
 
-    // Global Click Listener with Double-Fire Protection
+    // BULLETPROOF TOGGLE FIX: Strip buggy inline HTML clicks to stop double-firing
+    document.querySelectorAll('.chip').forEach(function(c) {
+        c.removeAttribute('onclick'); 
+    });
+
     document.body.addEventListener('click', function(e) {
+        // Language Switcher
         var langBtn = e.target.closest('.lang-btn');
         if (langBtn) { 
             window.setLang(langBtn.innerText.toLowerCase(), langBtn); 
             return; 
         }
 
+        // Chip Clicker
         var chip = e.target.closest('.chip');
         if (chip) {
-            // FIX: If your HTML already has onclick="", do not fire twice!
-            if (chip.hasAttribute('onclick')) return;
-
+            e.preventDefault();
             var g = chip.getAttribute('data-g');
-            // Check if it is a multi-select tool (CHADS2, Wells, SOFA, Ranson, Centor, PSI)
-            if (g && (g.indexOf('ch_') === 0 || g.indexOf('p') === 0 || g.indexOf('d') === 0 || g.indexOf('rn') === 0 || g.indexOf('cen') === 0 || g.indexOf('s') === 0 || g.indexOf('psi') === 0)) {
-                window.toggleChip(chip);
+            if (!g) return;
+
+            // List of all Multi-Select tools (CHADS, Wells, PSI, etc.)
+            var multi = ['ch_c','ch_h','ch_a2','ch_d','ch_s2','ch_v','ch_a1','ch_sex',
+                         'p1','p2','p3','p4','p5','p6','p7',
+                         'd1','d2','d3','d4','d5','d6','d7','d8','d9',
+                         'rn1','rn2','rn3','rn4','rn5','rn6','rn7','rn8','rn9','rn10',
+                         'cen1','cen2','cen3','cen4','cenage',
+                         'sr','sc','sl','scv','sn','sk',
+                         'psi_nh','psi_neo','psi_liv','psi_chf','psi_cvd','psi_ren','psi_ams',
+                         'psi_rr','psi_sbp','psi_temp','psi_pulse','psi_ph','psi_bun','psi_na',
+                         'psi_gluc','psi_hct','psi_pao2','psi_eff'];
+            
+            if (multi.indexOf(g) > -1) {
+                chip.classList.toggle('on'); // Toggle ON/OFF
             } else {
-                window.pickChip(chip);
+                // Single Select (GCS, APGAR)
+                document.querySelectorAll('[data-g="' + g + '"]').forEach(function(b) { 
+                    b.classList.remove('on'); 
+                });
+                chip.classList.add('on');
             }
         }
     });
@@ -40,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
 window.setLang = function(l, btn) {
     window.LANG = l;
     localStorage.setItem('wardcalc_lang', l);
-    
     document.querySelectorAll('.lang-btn').forEach(function(b) {
         b.classList.remove('active');
         b.style.cssText = 'background:transparent!important;color:#888!important;border:none;padding:6px 14px;border-radius:15px;cursor:pointer;font-size:11px;font-weight:700;';
@@ -57,9 +75,7 @@ window.updateUI = function() {
         var key = el.getAttribute('data-k');
         var txt = window.t(key);
         
-        if (!txt || txt === key) { 
-            txt = key; 
-        }
+        if (!txt || txt === key) { txt = key; }
 
         if (el.tagName === 'INPUT') {
             el.placeholder = txt;
@@ -71,16 +87,8 @@ window.updateUI = function() {
     });
 };
 
-window.pickChip = function(btn) { 
-    var g = btn.getAttribute('data-g'); 
-    if (!g) return; 
-    document.querySelectorAll('[data-g="' + g + '"]').forEach(function(b) { b.classList.remove('on'); }); 
-    btn.classList.add('on'); 
-};
-window.toggleChip = function(el) { el.classList.toggle('on'); };
 window.switchTab = function(i) {
-    var tabs = document.querySelectorAll('.result-tab');
-    var panels = document.querySelectorAll('.result-panel');
+    var tabs = document.querySelectorAll('.result-tab'), panels = document.querySelectorAll('.result-panel');
     tabs.forEach(function(t, j) {
         t.classList.toggle('on', j === i);
         t.style.color = (j === i) ? '#d4af37' : 'rgba(255,255,255,0.4)';
