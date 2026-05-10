@@ -25,21 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 2. SWITCHER: Save language to memory and update buttons
 function setLang(l, btn){
+  // 1. Save directly to memory BEFORE translating
   if (typeof window !== 'undefined') window.LANG = l;
-  localStorage.setItem('wardcalc_lang', l); // Saves to memory
+  localStorage.setItem('wardcalc_lang', l); 
   
-  // Force reset ALL buttons with strict CSS
+  // 2. Force reset ALL buttons with strict CSS
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.remove('active');
     b.style.cssText = 'background: transparent !important; color: #888 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   });
   
-  // Force apply gold to the CLICKED button
+  // 3. Force apply gold to the CLICKED button
   if (btn) {
     btn.classList.add('active');
     btn.style.cssText = 'background: #d4af37 !important; color: #000 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   }
+
+  // 4. Clear any visible calculator results so they don't get stuck in the old language
+  const resultBox = document.getElementById('R');
+  if (resultBox) {
+    resultBox.innerHTML = '';
+    resultBox.className = ''; // Remove the 'visible' class
+  }
   
+  // 5. Fire the translator
   updateUI();
   if(document.getElementById('calcGrid') && typeof renderGrid === 'function') renderGrid();
 }
