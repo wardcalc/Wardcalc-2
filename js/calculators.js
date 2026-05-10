@@ -2,7 +2,7 @@
 
 function calc_gcs(){
   const e=gv('ge'),v=gv('gv'),m=gv('gm');
-  if(e===null||v===null||m===null){alertMsg();return}
+  if(e===null||v===null||m===null){alertMsg();return;}
   const s=e+v+m;
   if(s>=13) showResult(s,'/15','lo',t('r_gcs_mild'), S(1,t('r_gcs_mild_1'))+S(2,t('r_gcs_mild_2'))+S(3,t('r_gcs_mild_3')), RX.thiamine()+RX.dex());
   else if(s>=9) showResult(s,'/15','md',t('r_gcs_mod'), S(1,t('r_gcs_mod_1'))+S(2,t('r_gcs_mod_2'))+S(3,t('r_gcs_mod_3'))+S(4,t('r_gcs_mod_4')), RX.manni()+RX.leve2());
@@ -11,7 +11,7 @@ function calc_gcs(){
 
 function calc_apgar(){
   const ks=['aa','ap','ag','ac','ar'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s>=7) showResult(s,'/10','lo',t('r_apgar_norm'), S(1,t('r_apgar_norm_1'))+S(2,t('r_apgar_norm_2'))+S(3,t('r_apgar_norm_3')), RX.vitk()+RX.dex());
   else if(s>=4) showResult(s,'/10','md',t('r_apgar_mod'), S(1,t('r_apgar_mod_1'))+S(2,t('r_apgar_mod_2'))+S(3,t('r_apgar_mod_3'))+S(4,t('r_apgar_mod_4')), RX.o2()+RX.glucose10());
@@ -20,7 +20,7 @@ function calc_apgar(){
 
 function calc_dvt(){
   const ks=['d1','d2','d3','d4','d5','d6','d7','d8','d9'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s>=3) showResult(s,'pts','hi',t('r_dvt_hi'), S(1,t('r_dvt_hi_1'))+S(2,t('r_dvt_hi_2'))+S(3,t('r_dvt_hi_3')), RX.apix_dvt()+RX.riva_dvt());
   else if(s>=1) showResult(s,'pts','md',t('r_dvt_md'), S(1,t('r_dvt_md_1'))+S(2,t('r_dvt_md_2')), D('Anticoagulation only if USS confirms DVT',''));
@@ -29,7 +29,7 @@ function calc_dvt(){
 
 function calc_pe(){
   const ks=['p1','p2','p3','p4','p5','p6','p7'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s>4) showResult(s,'pts','hi',t('r_pe_hi'), S(1,t('r_pe_hi_1'))+S(2,t('r_pe_hi_2'))+S(3,t('r_pe_hi_3')), RX.apix_pe()+RX.altep_pe());
   else if(s>=2) showResult(s,'pts','md',t('r_pe_md'), S(1,t('r_pe_md_1'))+S(2,t('r_pe_md_2')), RX.riva_dvt()+RX.enox());
@@ -38,7 +38,7 @@ function calc_pe(){
 
 function calc_curb65(){
   const ks=['c1','c2','c3','c4','c5'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s<=1) showResult(s,'/5','lo',t('r_curb_lo'), S(1,t('r_curb_lo_1'))+S(2,t('r_curb_lo_2'))+S(3,t('r_curb_lo_3')), RX.amox_curb());
   else if(s===2) showResult(s,'/5','md',t('r_curb_md'), S(1,t('r_curb_md_1'))+S(2,t('r_curb_md_2'))+S(3,t('r_curb_md_3')), RX.coamox());
@@ -47,7 +47,7 @@ function calc_curb65(){
 
 function calc_chads2(){
   const ks=['h1','h2','h3','h4','h5','h6','h7','h8'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s===0) showResult(s,'/9','lo',t('r_chads_lo'), S(1,t('r_chads_lo_1'))+S(2,t('r_chads_lo_2')), RX.aspirin_af());
   else if(s<=1) showResult(s,'/9','md',t('r_chads_md'), S(1,t('r_chads_md_1'))+S(2,t('r_chads_md_2')), RX.apix_af()+RX.riva_af());
@@ -56,7 +56,7 @@ function calc_chads2(){
 
 function calc_childpugh(){
   const ks=['cb','ca','cp','casc','ce'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   const cls=s<=6?'A':s<=9?'B':'C';
   const sev=s<=6?'lo':s<=9?'md':'hi';
@@ -66,7 +66,7 @@ function calc_childpugh(){
 function calc_bmi(){
   const w=parseFloat(document.getElementById('bw').value);
   const h=parseFloat(document.getElementById('bh').value)/100;
-  if(!w||!h||isNaN(w)||isNaN(h)){alertMsg();return}
+  if(!w||!h||isNaN(w)||isNaN(h)){alertMsg();return;}
   const b=(w/(h*h)).toFixed(1);
   if(b<18.5) showResult(b,'kg/m²','md',t('r_bmi_under'), S(1,t('r_bmi_under_1'))+S(2,t('r_bmi_under_2')), RX.hicalnor()+RX.thiamine());
   else if(b<25) showResult(b,'kg/m²','lo',t('r_bmi_norm'), S(1,t('r_bmi_norm_1')), D('No pharmacological intervention',''));
@@ -79,7 +79,7 @@ function calc_egfr(){
   const cr=parseFloat(document.getElementById('ecr').value);
   const age=parseFloat(document.getElementById('eage').value);
   const sx=document.querySelector('[data-g="esex"].on');
-  if(!cr||!age||!sx){alertMsg();return}
+  if(!cr||!age||!sx){alertMsg();return;}
   const sex=sx.dataset.v;
   const crMg=cr/88.4,kappa=sex==='F'?0.7:0.9,alpha=sex==='F'?-0.241:-0.302,sf=sex==='F'?1.012:1;
   const eg=Math.round(142*Math.pow(Math.min(crMg/kappa,1),alpha)*Math.pow(Math.max(crMg/kappa,1),-1.200)*Math.pow(0.9938,age)*sf);
@@ -93,7 +93,7 @@ function calc_egfr(){
 
 function calc_mews(){
   const ks=['mrr','mbp','mhr','mtemp','mavpu'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s<=2) showResult(s,'/14','lo',t('r_mews_lo'), S(1,t('r_mews_lo_1'))+S(2,t('r_mews_lo_2')), D('No specific pharmacological intervention',''));
   else if(s<=4) showResult(s,'/14','md',t('r_mews_md'), S(1,t('r_mews_md_1'))+S(2,t('r_mews_md_2'))+S(3,t('r_mews_md_3')), RX.iv_fluid()+RX.o2());
@@ -102,7 +102,7 @@ function calc_mews(){
 
 function calc_centor(){
   const ks=['cen1','cen2','cen3','cen4','cenage'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s<=1) showResult(s,'/5','lo',t('r_centor_lo'), S(1,t('r_centor_lo_1'))+S(2,t('r_centor_lo_2')), RX.noab()+RX.paracib());
   else if(s<=3) showResult(s,'/5','md',t('r_centor_md'), S(1,t('r_centor_md_1'))+S(2,t('r_centor_md_2')), D('Antibiotics only if Strep A confirmed',''));
@@ -111,7 +111,7 @@ function calc_centor(){
 
 function calc_nihss(){
   const s=parseInt(document.getElementById('nihss_s').value);
-  if(isNaN(s)||s<0||s>42){alertMsg();return}
+  if(isNaN(s)||s<0||s>42){alertMsg();return;}
   if(s===0) showResult(s,'/42','lo',t('r_nihss_none'), S(1,t('r_nihss_none_1'))+S(2,t('r_nihss_none_2')), RX.aspirin_tia());
   else if(s<=4) showResult(s,'/42','lo',t('r_nihss_minor'), S(1,t('r_nihss_minor_1'))+S(2,t('r_nihss_minor_2'))+S(3,t('r_nihss_minor_3')), RX.altep_str()+RX.aspirin_tia());
   else if(s<=15) showResult(s,'/42','md',t('r_nihss_mod'), S(1,t('r_nihss_mod_1'))+S(2,t('r_nihss_mod_2'))+S(3,t('r_nihss_mod_3')), RX.altep_str()+RX.thrombect());
@@ -121,7 +121,7 @@ function calc_nihss(){
 
 function calc_sofa(){
   const ks=['sr','sc','sl','scv','sn','sk'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s<=6) showResult(s,'/24','lo',t('r_sofa_lo'), S(1,t('r_sofa_lo_1'))+S(2,t('r_sofa_lo_2'))+S(3,t('r_sofa_lo_3')), RX.pip_sep()+RX.iv_fluid());
   else if(s<=12) showResult(s,'/24','md',t('r_sofa_md'), S(1,t('r_sofa_md_1'))+S(2,t('r_sofa_md_2'))+S(3,t('r_sofa_md_3')), RX.nora()+RX.hc());
@@ -130,7 +130,7 @@ function calc_sofa(){
 
 function calc_ranson(){
   const ks=['rn1','rn2','rn3','rn4','rn5','rn6','rn7','rn8','rn9','rn10'];
-  if(!allSet(ks)){alertMsg();return}
+  if(!allSet(ks)){alertMsg();return;}
   const s=ks.reduce((a,k)=>a+gv(k),0);
   if(s<=2) showResult(s,'/11','lo',t('r_ranson_lo'), S(1,t('r_ranson_lo_1'))+S(2,t('r_ranson_lo_2'))+S(3,t('r_ranson_lo_3')), RX.hart()+RX.morph());
   else if(s<=4) showResult(s,'/11','md',t('r_ranson_md'), S(1,t('r_ranson_md_1'))+S(2,t('r_ranson_md_2'))+S(3,t('r_ranson_md_3')), D("Hartmann's solution preferred", '')+RX.nnj());
