@@ -1,177 +1,181 @@
 'use strict';
-window.onerror = function(msg, url, line) { alert("🚨 MATH ERROR: " + msg + " line " + line); };
 
-// --- 1. HELPERS ---
-function gv(g){
-    var e = document.querySelector('[data-g="' + g + '"].on');
-    return e ? parseFloat(e.getAttribute('data-v')) : null;
+/**
+ * WARDCALC MASTER DICTIONARY
+ * Developer: Muhammad Sabir Ali, Final year student at Bukhara State Medical Institute.
+ */
+
+window.T = {
+en:{
+  // --- UI & GENERAL ---
+  badge: 'CLINICAL DECISION TOOLS', h1a: 'Ward', h1b: 'Calc', sub: 'Evidence-based medical calculators.',
+  all_label: 'ALL CALCULATORS', search_ph: 'Search tools (e.g. GCS, BMI)...', alert_msg: 'Please select all fields.', 
+  btn: 'Calculate', tab_i: 'Logic', tab_a: 'Action', tab_d: 'Rx',
+  sp_neuro: 'Neurology', sp_ped: 'Pediatrics', sp_gen: 'General', sp_resp: 'Respiratory', sp_cardio: 'Cardiology', sp_gastro: 'Gastro', sp_id: 'Infectious Dis.',
+  sev_lo: 'LOW RISK', sev_md: 'MODERATE RISK', sev_hi: 'HIGH RISK',
+
+  // --- 1. GCS ---
+  r_gcs_mild: 'Mild Injury (GCS 13-15)', r_gcs_mod: 'Moderate Injury (GCS 9-12)', r_gcs_sev: 'Severe Injury (GCS 3-8)',
+  r_gcs_mild_1: 'Routine neurological observation.', r_gcs_mod_1: 'Urgent CT head scan indicated.', r_gcs_sev_1: 'Secure airway; Intubation threshold.',
+
+  // --- 2. APGAR ---
+  r_apgar_norm: 'Normal Neonatal Transition', r_apgar_mod: 'Moderately Depressed', r_apgar_crit: 'Critically Low',
+  r_apgar_norm_1: 'Routine postnatal care.',
+
+  // --- 3. WELLS DVT ---
+  r_dvt_hi: 'DVT Likely', r_dvt_md: 'Moderate Risk', r_dvt_lo: 'DVT Unlikely',
+  r_dvt_hi_1: 'Urgent venous ultrasound required.',
+
+  // --- 4. WELLS PE ---
+  r_pe_hi: 'PE Likely', r_pe_md: 'Moderate Risk', r_pe_lo: 'PE Unlikely',
+  r_pe_hi_1: 'Urgent CTPA imaging required.',
+
+  // --- 5. CURB-65 ---
+  r_curb_hi: 'Severe Pneumonia', r_curb_md: 'Moderate Pneumonia', r_curb_lo: 'Mild Pneumonia',
+  r_curb_hi_1: 'Urgent admission; consider ICU.',
+
+  // --- 6. CHADS-VASC ---
+  r_chads_hi: 'High Stroke Risk', r_chads_md: 'Intermediate Risk', r_chads_lo: 'Low Stroke Risk',
+  r_chads_hi_1: 'Long-term oral anticoagulation recommended.',
+
+  // --- 7. CHILD-PUGH ---
+  r_cp_a: 'Class A: Compensated', r_cp_b: 'Class B: Significant', r_cp_c: 'Class C: Decompensated',
+  r_cp_c_1: 'Hepatology and transplant evaluation.',
+
+  // --- 8. BMI ---
+  r_bmi_under: 'Underweight', r_bmi_norm: 'Normal Weight', r_bmi_over: 'Overweight', r_bmi_ob1: 'Obesity Class I', r_bmi_ob2: 'Obesity Class II+',
+  r_bmi_norm_1: 'Maintain healthy lifestyle habits.',
+
+  // --- 9. EGFR ---
+  r_egfr_g1: 'Normal/High GFR', r_egfr_g1_1: 'Monitor renal function progression.',
+
+  // --- 10. MEWS ---
+  r_mews_hi: 'Critical Deterioration', r_mews_md: 'Potential Instability', r_mews_lo: 'Physiologically Stable',
+  r_mews_hi_1: 'Immediate medical review; Call RRT.',
+
+  // --- 11. CENTOR ---
+  r_centor_hi: 'Strep Highly Likely', r_centor_md: 'Possible Strep', r_centor_lo: 'Viral Pharyngitis likely',
+  r_centor_hi_1: 'Empirical antibiotics may be justified.',
+
+  // --- 12. NIHSS ---
+  r_nihss_sev: 'Severe Stroke', r_nihss_modsev: 'Moderate-Severe', r_nihss_mod: 'Moderate Stroke', r_nihss_minor: 'Minor Stroke',
+  r_nihss_mod_1: 'Activate stroke/thrombolysis protocol.',
+
+  // --- 13. SOFA ---
+  r_sofa_hi: 'High Sepsis Mortality', r_sofa_md: 'Moderate Sepsis Risk', r_sofa_lo: 'Low Sepsis Risk',
+  r_sofa_hi_1: 'Aggressive ICU management needed.',
+
+  // --- 14. RANSON ---
+  r_ranson_hi: 'Severe Pancreatitis', r_ranson_md: 'Moderate Pancreatitis', r_ranson_lo: 'Mild Pancreatitis',
+  r_ranson_hi_1: 'Intensive fluid resuscitation required.',
+
+  // --- 15. PSI/PORT ---
+  r_psi_1: 'Class I: Low Risk', r_psi_2: 'Class II: Low Risk', r_psi_3: 'Class III: Moderate', r_psi_4: 'Class IV: High Risk', r_psi_5: 'Class V: Very High',
+  r_psi_1_1: 'Suitable for outpatient management.'
+},
+
+ru:{
+  // --- UI & GENERAL ---
+  badge: 'КЛИНИЧЕСКИЕ ИНСТРУМЕНТЫ', h1a: 'Ward', h1b: 'Calc', sub: 'Медицинские калькуляторы на основе доказательств.',
+  all_label: 'ВСЕ КАЛЬКУЛЯТОРЫ', search_ph: 'Поиск (ШКГ, ИМТ)...', alert_msg: 'Пожалуйста, выберите все поля.', 
+  btn: 'Рассчитать', tab_i: 'Логика', tab_a: 'Действие', tab_d: 'Лечение',
+  sp_neuro: 'Неврология', sp_ped: 'Педиатрия', sp_gen: 'Общие', sp_resp: 'Пульмонология', sp_cardio: 'Кардиология', sp_gastro: 'Гастро', sp_id: 'Инф. болезни',
+  sev_lo: 'НИЗКИЙ РИСК', sev_md: 'СРЕДНИЙ РИСК', sev_hi: 'ВЫСОКИЙ РИСК',
+
+  // --- 1. GCS ---
+  r_gcs_mild: 'Легкая ЧМТ (ШКГ 13-15)', r_gcs_mod: 'Средняя ЧМТ (ШКГ 9-12)', r_gcs_sev: 'Тяжелая ЧМТ (ШКГ 3-8)',
+  r_gcs_mild_1: 'Плановое неврологическое наблюдение.', r_gcs_mod_1: 'Срочное КТ головы.', r_gcs_sev_1: 'Интубация; защита дыхательных путей.',
+
+  // --- 2. APGAR ---
+  r_apgar_norm: 'Нормальная адаптация', r_apgar_mod: 'Умеренная депрессия', r_apgar_crit: 'Критическое состояние',
+  r_apgar_norm_1: 'Стандартный послеродовой уход.',
+
+  // --- 3. WELLS DVT ---
+  r_dvt_hi: 'ТГВ вероятен', r_dvt_md: 'Средний риск', r_dvt_lo: 'ТГВ маловероятен',
+  r_dvt_hi_1: 'Срочное УЗИ вен нижних конечностей.',
+
+  // --- 4. WELLS PE ---
+  r_pe_hi: 'ТЭЛА вероятна', r_pe_md: 'Средний риск', r_pe_lo: 'ТЭЛА маловероятна',
+  r_pe_hi_1: 'Срочное выполнение КТ-ангиографии.',
+
+  // --- 5. CURB-65 ---
+  r_curb_hi: 'Тяжелая пневмония', r_curb_md: 'Средняя пневмония', r_curb_lo: 'Легкая пневмония',
+  r_curb_hi_1: 'Срочная госпитализация; рассмотреть ОРИТ.',
+
+  // --- 6. CHADS-VASC ---
+  r_chads_hi: 'Высокий риск инсульта', r_chads_md: 'Умеренный риск', r_chads_lo: 'Низкий риск инсульта',
+  r_chads_hi_1: 'Рекомендованы пероральные антикоагулянты.',
+
+  // --- 7. CHILD-PUGH ---
+  r_cp_a: 'Класс A: Компенсированный', r_cp_b: 'Класс B: Существенный', r_cp_c: 'Класс C: Декомпенсированный',
+  r_cp_c_1: 'Консультация гепатолога и оценка для трансплантации.',
+
+  // --- 8. BMI ---
+  r_bmi_under: 'Дефицит веса', r_bmi_norm: 'Нормальный вес', r_bmi_over: 'Избыточный вес', r_bmi_ob1: 'Ожирение I', r_bmi_ob2: 'Ожирение II+',
+  r_bmi_norm_1: 'Поддерживайте здоровый образ жизни.',
+
+  // --- 10. MEWS ---
+  r_mews_hi: 'Критическое ухудшение', r_mews_md: 'Возможная нестабильность', r_mews_lo: 'Стабильное состояние',
+  r_mews_hi_1: 'Срочный осмотр врачом; вызов реаниматолога.',
+
+  // --- 12. NIHSS ---
+  r_nihss_sev: 'Тяжелый инсульт', r_nihss_modsev: 'Средне-тяжелый', r_nihss_mod: 'Средний инсульт', r_nihss_minor: 'Легкий инсульт',
+  r_nihss_mod_1: 'Активация протокола лечения инсульта.'
+},
+
+uz:{
+  // --- UI & GENERAL ---
+  badge: 'KLINIK VOSITALAR', h1a: 'Ward', h1b: 'Calc', sub: 'Isbotlangan tibbiy kalkulyatorlar.',
+  all_label: 'BARCHA KALKULYATORLAR', search_ph: 'Qidiruv (GCS, TVI)...', alert_msg: 'Barcha maydonlarni tanlang.', 
+  btn: 'Hisoblash', tab_i: 'Mantiq', tab_a: 'Harakat', tab_d: 'Davolash',
+  sp_neuro: 'Nevrologiya', sp_ped: 'Pediatriya', sp_gen: 'Umumiy', sp_resp: 'Nafas tizimi', sp_cardio: 'Kardiologiya', sp_gastro: 'Gastro', sp_id: 'Yuqumli kasal.',
+  sev_lo: 'PAST XAVF', sev_md: 'O’RTACHA XAVF', sev_hi: 'YUQORI XAVF',
+
+  // --- 1. GCS ---
+  r_gcs_mild: 'Yengil jarohat (GCS 13-15)', r_gcs_mod: 'O’rtacha jarohat (GCS 9-12)', r_gcs_sev: 'Og’ir jarohat (GCS 3-8)',
+  r_gcs_mild_1: 'Nevrologik kuzatuv o\'tkazilsin.', r_gcs_mod_1: 'Zudlik bilan bosh KT qilish lozim.', r_gcs_sev_1: 'Nafas yo\'llarini himoyalash; Intubatsiya.',
+
+  // --- 2. APGAR ---
+  r_apgar_norm: 'Normal holat', r_apgar_mod: 'O’rtacha depressiya', r_apgar_crit: 'Kritik holat',
+  r_apgar_norm_1: 'Doimiy tug\'ruqdan keyingi parvarish.',
+
+  // --- 3. WELLS DVT ---
+  r_dvt_hi: 'TVT ehtimoli yuqori', r_dvt_md: 'O\'rtacha xavf', r_dvt_lo: 'TVT ehtimoli past',
+  r_dvt_hi_1: 'Zudlik bilan tomirlar UTT tekshiruvi.',
+
+  // --- 4. WELLS PE ---
+  r_pe_hi: 'O’ATE ehtimoli yuqori', r_pe_md: 'O\'rtacha xavf', r_pe_lo: 'O’ATE ehtimoli past',
+  r_pe_hi_1: 'Zudlik bilan KT-angiografiya tekshiruvi.',
+
+  // --- 5. CURB-65 ---
+  r_curb_hi: 'Og’ir pnevmoniya', r_curb_md: 'O\'rtacha pnevmoniya', r_curb_lo: 'Yengil pnevmoniya',
+  r_curb_hi_1: 'Zudlik bilan kasalxonaga yotqizish; ORIT.',
+
+  // --- 6. CHADS-VASC ---
+  r_chads_hi: 'Insult xavfi yuqori', r_chads_md: 'O\'rtacha xavf', r_chads_lo: 'Insult xavfi past',
+  r_chads_hi_1: 'Uzoq muddatli antikoagulyantlar tavsiya etiladi.',
+
+  // --- 7. CHILD-PUGH ---
+  r_cp_a: 'A sinf: Kompensatsiyalangan', r_cp_b: 'B sinf: Sezilarli buzilish', r_cp_c: 'C sinf: Dekompensatsiyalangan',
+  r_cp_c_1: 'Gepatolog ko\'rigi va transplantatsiya baholash.',
+
+  // --- 8. BMI ---
+  r_bmi_under: 'Vazn kam', r_bmi_norm: 'Normal vazn', r_bmi_over: 'Semizlik oldi', r_bmi_ob1: 'I darajali semizlik', r_bmi_ob2: 'II+ darajali semizlik',
+  r_bmi_norm_1: 'Sog’lom turmush tarzini davom ettiring.',
+
+  // --- 10. MEWS ---
+  r_mews_hi: 'Kritik yomonlashuv', r_mews_md: 'Ehtimoliy beqarorlik', r_mews_lo: 'Fiziologik stabil',
+  r_mews_hi_1: 'Zudlik bilan shifokor ko\'rigi; RRT chaqiruv.',
+
+  // --- 12. NIHSS ---
+  r_nihss_sev: 'Og\'ir insult', r_nihss_modsev: 'O\'rta-og\'ir', r_nihss_mod: 'O\'rtacha insult', r_nihss_minor: 'Yengil insult',
+  r_nihss_mod_1: 'Insultni davolash bayonnomasini faollashtirish.'
 }
-
-function rowS(num, text) {
-    if (!text || text === 'undefined') return '';
-    return '<div style="margin-bottom:12px; display:flex; gap:10px;"><span style="color:var(--gold); font-weight:bold;">' + num + '.</span> <span>' + text + '</span></div>';
-}
-
-function rowD(title, desc) {
-    if (!title) return '';
-    return '<div style="margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.05);"><strong style="color:var(--white); font-size:15px; display:block; margin-bottom:4px;">' + title + '</strong><span style="color:var(--w60); font-size:13px; line-height:1.5;">' + desc + '</span></div>';
-}
-
-// Drug Safety Proxy: Prevents crash if drugs.js is missing a function
-var Rx = function(drugName) {
-    if (typeof window.RX !== 'undefined' && window.RX && typeof window.RX[drugName] === 'function') {
-        return window.RX[drugName]();
-    }
-    return rowD(drugName.replace(/_/g, ' ').toUpperCase(), 'Consult institutional guidelines for dosage.');
 };
 
-// --- 2. CALCULATORS ---
-
-// 1. GCS
-window.calc_gcs = function(){
-    var e = gv('ge'), v = gv('gv'), m = gv('gm');
-    if(e===null || v===null || m===null) return alert("Select all fields");
-    var s = e + v + m;
-    var sev = s >= 13 ? 'lo' : s >= 9 ? 'md' : 'hi';
-    var plan = s >= 13 ? rowS(1, window.t('r_gcs_mild_1'))+rowS(2, window.t('r_gcs_mild_2')) : s >= 9 ? rowS(1, window.t('r_gcs_mod_1'))+rowS(2, window.t('r_gcs_mod_2')) : rowS(1, window.t('r_gcs_sev_1'))+rowS(2, window.t('r_gcs_sev_2'));
-    window.showResult(s, '/15', sev, window.t(s >= 13 ? 'r_gcs_mild' : s >= 9 ? 'r_gcs_mod' : 'r_gcs_sev'), plan, Rx('thiamine')+Rx('manni'));
-};
-
-// 2. APGAR
-window.calc_apgar = function(){
-    var ks = ['aa','ap','ag','ac','ar'];
-    var s = 0;
-    for(var i=0; i<ks.length; i++){
-        var val = gv(ks[i]); if(val===null) return alert("Select all fields");
-        s += val;
-    }
-    var sev = s >= 7 ? 'lo' : s >= 4 ? 'md' : 'hi';
-    window.showResult(s, '/10', sev, window.t(s >= 7 ? 'r_apgar_norm' : s >= 4 ? 'r_apgar_mod' : 'r_apgar_crit'), rowS(1, window.t(s >= 7 ? 'r_apgar_norm_1' : s >= 4 ? 'r_apgar_mod_1' : 'r_apgar_crit_1')), Rx('vitk'));
-};
-
-// 3. WELLS DVT
-window.calc_wellsdvt = window.calc_dvt = function(){
-    var ks = ['d1','d2','d3','d4','d5','d6','d7','d8','d9'];
-    var s = 0; ks.forEach(function(k) { s += (gv(k) || 0); });
-    var sev = s >= 3 ? 'hi' : s >= 1 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s >= 3 ? 'r_dvt_hi' : s >= 1 ? 'r_dvt_md' : 'r_dvt_lo'), rowS(1, window.t(s >= 3 ? 'r_dvt_hi_1' : s >= 1 ? 'r_dvt_md_1' : 'r_dvt_lo_1')), Rx('apix_dvt'));
-};
-
-// 4. WELLS PE
-window.calc_wellspe = window.calc_pe = function(){
-    var ks = ['p1','p2','p3','p4','p5','p6','p7'];
-    var s = 0; ks.forEach(function(k) { s += (gv(k) || 0); });
-    var sev = s > 4 ? 'hi' : s >= 2 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s > 4 ? 'r_pe_hi' : s >= 2 ? 'r_pe_md' : 'r_pe_lo'), rowS(1, window.t(s > 4 ? 'r_pe_hi_1' : s >= 2 ? 'r_pe_md_1' : 'r_pe_lo_1')), Rx('enox'));
-};
-
-// 5. CURB-65
-window.calc_curb65 = function(){
-    var ks = ['c1','c2','c3','c4','c5'];
-    var s = 0; ks.forEach(function(k) { s += (gv(k) || 0); });
-    var sev = s >= 3 ? 'hi' : s === 2 ? 'md' : 'lo';
-    window.showResult(s, '/5', sev, window.t(s >= 3 ? 'r_curb_hi' : s === 2 ? 'r_curb_md' : 'r_curb_lo'), rowS(1, window.t(s >= 3 ? 'r_curb_hi_1' : 'r_curb_lo_1')), Rx('amox_curb'));
-};
-
-// 6. CHADS-VASc
-window.calc_chads2 = function(){
-    var ks = ['ch_c','ch_h','ch_a2','ch_d','ch_s2','ch_v','ch_a1','ch_sex'];
-    var s = 0; ks.forEach(function(k) { s += (gv(k) || 0); });
-    var sev = s >= 2 ? 'hi' : s === 1 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s >= 2 ? 'r_chads_hi' : s === 1 ? 'r_chads_md' : 'r_chads_lo'), rowS(1, window.t('r_chads_hi_1')), Rx('apix_af'));
-};
-
-// 7. CHILD-PUGH
-window.calc_childpugh = function(){
-    var ks = ['cb','ca','cp','casc','ce'];
-    var s = 0;
-    for(var i=0; i<ks.length; i++){
-        var val = gv(ks[i]); if(val===null) return alert("Select all fields");
-        s += val;
-    }
-    var sev = s >= 10 ? 'hi' : s >= 7 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s >= 10 ? 'r_cp_c' : s >= 7 ? 'r_cp_b' : 'r_cp_a'), rowS(1, window.t('r_cp_c_1')), Rx('lact')+Rx('spiro'));
-};
-
-// 8. BMI
-window.calc_bmi = function(){
-    var w = parseFloat(document.getElementById('bw').value);
-    var h = parseFloat(document.getElementById('bh').value)/100;
-    if(isNaN(w) || isNaN(h)) return alert("Enter weight and height");
-    var b = (w/(h*h)).toFixed(1);
-    var sev = b >= 30 ? 'hi' : b >= 25 ? 'md' : 'lo';
-    var interp = b < 18.5 ? 'r_bmi_under' : b < 25 ? 'r_bmi_norm' : b < 30 ? 'r_bmi_over' : b < 35 ? 'r_bmi_ob1' : 'r_bmi_ob2';
-    window.showResult(b, 'kg/m²', sev, window.t(interp), rowS(1, window.t(interp+'_1')), '');
-};
-
-// 9. EGFR (CKD-EPI 2021 Formula)
-window.calc_egfr = function(){
-    var cr = parseFloat(document.getElementById('ecr').value);
-    var age = parseFloat(document.getElementById('eage').value);
-    var sex = gv('esex'); 
-    if(isNaN(cr) || isNaN(age) || sex === null) return alert("Fill all fields");
-    var crMg = cr/88.4;
-    var k = (sex === 1.012) ? 0.7 : 0.9;
-    var a = (sex === 1.012) ? -0.241 : -0.302;
-    var egfr = Math.round(142 * Math.pow(Math.min(crMg/k, 1), a) * Math.pow(Math.max(crMg/k, 1), -1.200) * Math.pow(0.9938, age) * sex);
-    var sev = egfr < 30 ? 'hi' : egfr < 60 ? 'md' : 'lo';
-    window.showResult(egfr, 'mL/min', sev, "Renal Function Assessed", rowS(1, "Review renally cleared medications."), Rx('acei'));
-};
-
-// 10. MEWS
-window.calc_mews = function(){
-    var ks = ['mrr','mbp','mhr','mtemp','mavpu'];
-    var s = 0;
-    for(var i=0; i<ks.length; i++){
-        var val = gv(ks[i]); if(val===null) return alert("Select all fields");
-        s += val;
-    }
-    var sev = s >= 5 ? 'hi' : s >= 3 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s >= 5 ? 'r_mews_hi' : s >= 3 ? 'r_mews_md' : 'r_mews_lo'), rowS(1, window.t('r_mews_hi_1')), Rx('iv_fluid'));
-};
-
-// 11. CENTOR
-window.calc_centor = function(){
-    var ks = ['cen1','cen2','cen3','cen4','cenage'];
-    var s = 0; ks.forEach(function(k) { s += (gv(k) || 0); });
-    var sev = s >= 4 ? 'hi' : s >= 2 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s >= 4 ? 'r_centor_hi' : s >= 2 ? 'r_centor_md' : 'r_centor_lo'), rowS(1, window.t('r_centor_hi_1')), Rx('penV'));
-};
-
-// 12. NIHSS
-window.calc_nihss = function(){
-    var el = document.getElementById('nihss_s');
-    if(!el || el.value === "") return alert("Enter score");
-    var s = parseInt(el.value);
-    var sev = s > 15 ? 'hi' : s > 5 ? 'md' : 'lo';
-    window.showResult(s, '/42', sev, window.t(s > 20 ? 'r_nihss_sev' : s > 15 ? 'r_nihss_modsev' : 'r_nihss_minor'), rowS(1, window.t('r_nihss_mod_1')), Rx('altep_str'));
-};
-
-// 13. SOFA
-window.calc_sofa = function(){
-    var ks = ['sr','sc','sl','scv','sn','sk'];
-    var s = 0; ks.forEach(function(k) { s += (gv(k) || 0); });
-    var sev = s >= 12 ? 'hi' : s >= 7 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s >= 12 ? 'r_sofa_hi' : s >= 7 ? 'r_sofa_md' : 'r_sofa_lo'), rowS(1, window.t('r_sofa_hi_1')), Rx('nora'));
-};
-
-// 14. RANSON
-window.calc_ranson = function(){
-    var ks = ['rn1','rn2','rn3','rn4','rn5','rn6','rn7','rn8','rn9','rn10'];
-    var s = 0; ks.forEach(function(k) { s += (gv(k) || 0); });
-    var sev = s >= 5 ? 'hi' : s >= 3 ? 'md' : 'lo';
-    window.showResult(s, 'pts', sev, window.t(s >= 5 ? 'r_ranson_hi' : s >= 3 ? 'r_ranson_md' : 'r_ranson_lo'), rowS(1, window.t('r_ranson_hi_1')), Rx('hart'));
-};
-
-// 15. PSI/PORT
-window.calc_psi = function(){
-    var age = parseFloat(document.getElementById('psi_age').value);
-    var sex = gv('psi_sex');
-    if(isNaN(age) || sex === null) return alert("Fill age and sex");
-    var s = age + sex;
-    var ks = ['psi_nh','psi_neo','psi_liv','psi_chf','psi_cvd','psi_ren','psi_ams','psi_rr','psi_sbp','psi_temp','psi_pulse','psi_ph','psi_bun','psi_na','psi_gluc','psi_hct','psi_pao2','psi_eff'];
-    ks.forEach(function(k) { s += (gv(k) || 0); });
-    var cls = s <= 50 ? 1 : s <= 70 ? 2 : s <= 90 ? 3 : s <= 130 ? 4 : 5;
-    var sev = cls >= 4 ? 'hi' : cls === 3 ? 'md' : 'lo';
-    window.showResult('Class ' + cls, '(' + s + ' pts)', sev, window.t('r_psi_' + cls), rowS(1, window.t('r_psi_' + cls + '_1')), Rx('amox_curb'));
+// --- GLOBAL HANDLER ---
+window.t = function(key) {
+    var lang = localStorage.getItem('wardcalc_lang') || 'en';
+    var dict = (window.T && window.T[lang]) ? window.T[lang] : (window.T ? window.T.en : {});
+    return dict[key] || (window.T.en ? window.T.en[key] : key) || key;
 };
