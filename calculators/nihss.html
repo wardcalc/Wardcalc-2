@@ -1,98 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>NIH Stroke Scale — WardCalc</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
-    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
-  </div>
-
-  <nav>
-    <a class="logo" href="../index.html">
-      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div></div>
+  <nav style="display:flex;justify-content:space-between;padding:20px;align-items:center;border-bottom:1px solid var(--border);">
+    <a href="../index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+      <div style="background:var(--bg2);border:1px solid var(--border);padding:8px;border-radius:8px;display:flex;align-items:center;justify-content:center;"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div style="color:var(--white);font-size:20px;font-weight:bold;font-family:'Playfair Display',serif;">Ward<em style="color:var(--gold);font-style:italic;">Calc</em></div>
     </a>
-    <div class="lang-sw">
-      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
-      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    <div class="lang-sw" style="display:flex;gap:5px;background:rgba(255,255,255,0.05);padding:4px;border-radius:20px;border:1px solid var(--border);">
+      <button class="lang-btn active">EN</button><button class="lang-btn">RU</button><button class="lang-btn">UZ</button>
     </div>
   </nav>
 
-  <main class="main" style="padding-top: 20px;">
-    
-    <div style="max-width: 600px; margin: 0 auto 20px;">
-        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
-            AdSense Space (Top Banner)
-        </div>
-    </div>
-
-    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+  <div class="page-wrap">
+    <div class="calc-header-row">
+      <div class="calc-container" style="flex:1;">
+        <span class="sp-badge bg-neuro" data-k="sp_neuro">Neurology</span>
+        <h1 class="tool-title" style="margin-bottom:8px;">NIH Stroke Scale</h1>
+        <p class="tool-info" data-k="d_nihss" style="margin-bottom:24px;"></p>
         
-        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
-
-        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_neuro"></div>
-
-        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">NIH Stroke Scale</h1>
-        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_nihss"></p>
-
-        <div class="input-group" style="margin-bottom: 25px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:12px;" data-k="f_nihss_score"></label>
-            <div class="num-input-wrap" style="display: flex; align-items: center; background: var(--bg3); border-radius: 12px; padding: 0 15px; border: 1px solid rgba(255,255,255,0.1);">
-                <input class="num-field" type="number" id="nihss_s" placeholder="0-42" min="0" max="42" style="background: transparent; border: none; color: var(--gold); font-size: 22px; font-weight: bold; width: 100%; padding: 18px 0; outline: none; text-align: right; font-family: var(--mono);">
-            </div>
+        <div class="field"><span class="field-label" data-k="n1a_q">1a. Level of Consciousness</span>
+          <div class="chips"><div class="chip" data-g="n1a" data-v="0" data-k="n1a_0">0</div><div class="chip" data-g="n1a" data-v="1" data-k="n1a_1">1</div><div class="chip" data-g="n1a" data-v="2" data-k="n1a_2">2</div><div class="chip" data-g="n1a" data-v="3" data-k="n1a_3">3</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n1b_q">1b. LOC Questions</span>
+          <div class="chips"><div class="chip" data-g="n1b" data-v="0" data-k="n1b_0">0</div><div class="chip" data-g="n1b" data-v="1" data-k="n1b_1">1</div><div class="chip" data-g="n1b" data-v="2" data-k="n1b_2">2</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n1c_q">1c. LOC Commands</span>
+          <div class="chips"><div class="chip" data-g="n1c" data-v="0" data-k="n1c_0">0</div><div class="chip" data-g="n1c" data-v="1" data-k="n1c_1">1</div><div class="chip" data-g="n1c" data-v="2" data-k="n1c_2">2</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n2_q">2. Best Gaze</span>
+          <div class="chips"><div class="chip" data-g="n2" data-v="0" data-k="n2_0">0</div><div class="chip" data-g="n2" data-v="1" data-k="n2_1">1</div><div class="chip" data-g="n2" data-v="2" data-k="n2_2">2</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n3_q">3. Visual Fields</span>
+          <div class="chips"><div class="chip" data-g="n3" data-v="0" data-k="n3_0">0</div><div class="chip" data-g="n3" data-v="1" data-k="n3_1">1</div><div class="chip" data-g="n3" data-v="2" data-k="n3_2">2</div><div class="chip" data-g="n3" data-v="3" data-k="n3_3">3</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n4_q">4. Facial Palsy</span>
+          <div class="chips"><div class="chip" data-g="n4" data-v="0" data-k="n4_0">0</div><div class="chip" data-g="n4" data-v="1" data-k="n4_1">1</div><div class="chip" data-g="n4" data-v="2" data-k="n4_2">2</div><div class="chip" data-g="n4" data-v="3" data-k="n4_3">3</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n5a_q">5a. Motor Left Arm</span>
+          <div class="chips"><div class="chip" data-g="n5a" data-v="0" data-k="n5a_0">0</div><div class="chip" data-g="n5a" data-v="1" data-k="n5a_1">1</div><div class="chip" data-g="n5a" data-v="2" data-k="n5a_2">2</div><div class="chip" data-g="n5a" data-v="3" data-k="n5a_3">3</div><div class="chip" data-g="n5a" data-v="4" data-k="n5a_4">4</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n5b_q">5b. Motor Right Arm</span>
+          <div class="chips"><div class="chip" data-g="n5b" data-v="0" data-k="n5b_0">0</div><div class="chip" data-g="n5b" data-v="1" data-k="n5b_1">1</div><div class="chip" data-g="n5b" data-v="2" data-k="n5b_2">2</div><div class="chip" data-g="n5b" data-v="3" data-k="n5b_3">3</div><div class="chip" data-g="n5b" data-v="4" data-k="n5b_4">4</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n6a_q">6a. Motor Left Leg</span>
+          <div class="chips"><div class="chip" data-g="n6a" data-v="0" data-k="n6a_0">0</div><div class="chip" data-g="n6a" data-v="1" data-k="n6a_1">1</div><div class="chip" data-g="n6a" data-v="2" data-k="n6a_2">2</div><div class="chip" data-g="n6a" data-v="3" data-k="n6a_3">3</div><div class="chip" data-g="n6a" data-v="4" data-k="n6a_4">4</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n6b_q">6b. Motor Right Leg</span>
+          <div class="chips"><div class="chip" data-g="n6b" data-v="0" data-k="n6b_0">0</div><div class="chip" data-g="n6b" data-v="1" data-k="n6b_1">1</div><div class="chip" data-g="n6b" data-v="2" data-k="n6b_2">2</div><div class="chip" data-g="n6b" data-v="3" data-k="n6b_3">3</div><div class="chip" data-g="n6b" data-v="4" data-k="n6b_4">4</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n7_q">7. Limb Ataxia</span>
+          <div class="chips"><div class="chip" data-g="n7" data-v="0" data-k="n7_0">0</div><div class="chip" data-g="n7" data-v="1" data-k="n7_1">1</div><div class="chip" data-g="n7" data-v="2" data-k="n7_2">2</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n8_q">8. Sensory</span>
+          <div class="chips"><div class="chip" data-g="n8" data-v="0" data-k="n8_0">0</div><div class="chip" data-g="n8" data-v="1" data-k="n8_1">1</div><div class="chip" data-g="n8" data-v="2" data-k="n8_2">2</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n9_q">9. Best Language</span>
+          <div class="chips"><div class="chip" data-g="n9" data-v="0" data-k="n9_0">0</div><div class="chip" data-g="n9" data-v="1" data-k="n9_1">1</div><div class="chip" data-g="n9" data-v="2" data-k="n9_2">2</div><div class="chip" data-g="n9" data-v="3" data-k="n9_3">3</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n10_q">10. Dysarthria</span>
+          <div class="chips"><div class="chip" data-g="n10" data-v="0" data-k="n10_0">0</div><div class="chip" data-g="n10" data-v="1" data-k="n10_1">1</div><div class="chip" data-g="n10" data-v="2" data-k="n10_2">2</div></div>
+        </div>
+        <div class="field"><span class="field-label" data-k="n11_q">11. Extinction/Inattention</span>
+          <div class="chips"><div class="chip" data-g="n11" data-v="0" data-k="n11_0">0</div><div class="chip" data-g="n11" data-v="1" data-k="n11_1">1</div><div class="chip" data-g="n11" data-v="2" data-k="n11_2">2</div></div>
         </div>
 
-        <button class="calc-btn" onclick="calc_nihss()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;"></button>
-
-        <div id="R" style="margin-top: 20px; display: block;"></div>
-
-        <div style="margin-top: 30px;">
-            <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
-                AdSense Space (Below Results)
-            </div>
-        </div>
-    </div>
-
-    <div style="max-width: 600px; margin: 20px auto 50px;">
+        <button class="go-btn" onclick="calc_nihss()" data-k="btn">Calculate</button>
         
-        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all"></div>
-            <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
-                🌍 <strong style="color: #fff">0</strong> None · <strong style="color: #fff">1–4</strong> Minor · <strong style="color: #fff">5–15</strong> Mod · <strong style="color: #fff">16–20</strong> Mod-Sev · <strong style="color: #fff">21–42</strong> Severe
-            </div>
-        </div>
-
-        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
-            <h3 data-k="nihss_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
-            
-            <p data-k="nihss_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            
-            <p data-k="nihss_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            
-            <p style="color: var(--white); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
-                <b><span data-k="nihss_info_p3"></span></b>
-            </p>
-        </div>
+        <div class="ad-banner" style="margin-top:20px;">AdSense Space (Below Results)</div>
+        <div id="R"></div>
+      </div>
+      <a href="../index.html" class="close-btn">✕</a>
     </div>
 
-  </main>
+    <div class="mnem-panel"><div class="mnem-head"><div class="mnem-head-title" data-k="mnem_all">Memory Aid</div></div>
+      <div class="mnem-body">
+        <div class="mnem-block"><span class="mnem-flag">🇬🇧</span><div class="mnem-main"><b>0</b> None · <b>1-4</b> Minor · <b>5-15</b> Mod · <b>16-20</b> Mod-Sev · <b>21-42</b> Severe</div></div>
+        <div class="mnem-block"><span class="mnem-flag">🇷🇺</span><div class="mnem-main"><b>0</b> Нет · <b>1-4</b> Легкий · <b>5-15</b> Средний · <b>16-20</b> Средне-тяж. · <b>21-42</b> Тяжелый</div></div>
+        <div class="mnem-block" style="border:none;"><span class="mnem-flag">🇺🇿</span><div class="mnem-main"><b>0</b> Yo'q · <b>1-4</b> Yengil · <b>5-15</b> O'rtacha · <b>16-20</b> O'rta-og'ir · <b>21-42</b> Og'ir</div></div>
+      </div>
+    </div>
+  </div>
 
-  <script src="../js/translations.js?v=15"></script>
-  <script src="../js/drugs.js?v=15"></script>
-  <script src="../js/ui.js?v=15"></script>
-  <script src="../js/calculators.js?v=15"></script> 
-  <script src="../js/main.js?v=15"></script>
-
+  <script src="../js/translations.js?v=NIHSS_FULL"></script>
+  <script src="../js/ui.js?v=NIHSS_FULL"></script>
+  <script src="../js/calculators.js?v=NIHSS_FULL"></script>
 </body>
 </html>
