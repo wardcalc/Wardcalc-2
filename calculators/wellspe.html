@@ -2,14 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Wells Score for PE | WardCalc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Wells' Criteria for PE — WardCalc</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
+
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  </div>
+
   <nav>
-    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <a class="logo" href="../index.html">
+      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+    </a>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
       <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
@@ -17,74 +29,121 @@
     </div>
   </nav>
 
-  <div class="page-wrap">
-    <div class="ad-banner">AdSense Space (Above Tool)</div>
-
-    <div class="calc-container">
-      <h1 class="tool-title">Wells Score for PE</h1>
-      <p class="tool-info">The Wells Score for Pulmonary Embolism (PE) objectifies the pre-test probability of PE to guide diagnostic testing.</p>
-
-      <div class="field"><label class="field-label" data-k="f_dvt_signs">Clinical signs/symptoms of DVT</label>
-        <div class="chips"><button class="chip" data-g="p1" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p1" data-v="3" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_pe_no1">PE is #1 diagnosis OR equally likely</label>
-        <div class="chips"><button class="chip" data-g="p2" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p2" data-v="3" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_hr100">Heart rate > 100 bpm</label>
-        <div class="chips"><button class="chip" data-g="p3" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p3" data-v="1.5" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_immob">Immobilisation ≥ 3 days or surgery in previous 4 weeks</label>
-        <div class="chips"><button class="chip" data-g="p4" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p4" data-v="1.5" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_prev_pe">Previous DVT or PE</label>
-        <div class="chips"><button class="chip" data-g="p5" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p5" data-v="1.5" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_haemoptysis">Haemoptysis</label>
-        <div class="chips"><button class="chip" data-g="p6" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p6" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_malignancy">Active malignancy (treatment within 6 months)</label>
-        <div class="chips"><button class="chip" data-g="p7" data-v="0" onclick="pickChip(this)" data-k="no">No</button><button class="chip" data-g="p7" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button></div>
-      </div>
-      
-      <button class="go-btn" onclick="calc_pe()">Calculate Wells PE</button>
-      <div id="R" class="result-box"></div>
-
-      <div class="ad-banner">AdSense Space (Below Tool)</div>
-
-      <div class="mnem-panel">
-        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
-        <div class="mnem-body">
-          <div class="mnem-block">
-            <div class="mnem-flag">🇬🇧</div>
-            <div class="mnem-main"><b>D</b>VT · <b>P</b>E#1 · <b>H</b>R>100 · <b>I</b>mmobile · <b>P</b>revious · <b>H</b>aemoptysis · <b>M</b>alignancy</div>
-          </div>
-          <div class="mnem-block">
-            <div class="mnem-flag">🇷🇺</div>
-            <div class="mnem-main"><b>Т</b>ГВ · <b>Т</b>ЭЛА#1 · <b>Ч</b>СС>100 · <b>И</b>ммоб · <b>А</b>намнез · <b>К</b>рово · <b>Р</b>ак</div>
-          </div>
-          <div class="mnem-block">
-            <div class="mnem-flag">🇺🇿</div>
-            <div class="mnem-main"><b>D</b>VT · <b>O</b>E#1 · <b>Y</b>U>100 · <b>I</b>mmob · <b>A</b>vval · <b>Q</b>on · <b>S</b>araton</div>
-          </div>
+  <main class="main" style="padding-top: 20px;">
+    
+    <div style="max-width: 600px; margin: 0 auto 20px;">
+        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+            AdSense Space (Top Banner)
         </div>
-      </div>
     </div>
 
-    <!-- SEO TEXT FOR ADSENSE -->
-    <div class="seo-content">
-      <h2>Understanding the Wells Score for PE</h2>
-      <p>Pulmonary Embolism (PE) is a potentially fatal condition that can present with vague or non-specific symptoms. The Wells Score allows clinicians to calculate a pre-test probability to determine the safest and most cost-effective diagnostic pathway.</p>
-      
-      <h2>Clinical Interpretations (Two-Tier Model)</h2>
-      <ul>
-        <li><strong>PE Unlikely (≤ 4 points):</strong> Consider applying the PERC rule. If PERC positive or not applied, obtain a highly sensitive D-dimer test. A negative D-dimer rules out PE.</li>
-        <li><strong>PE Likely (> 4 points):</strong> Proceed directly to diagnostic imaging, typically Computed Tomography Pulmonary Angiography (CTPA). A D-dimer is not recommended here, as a negative result does not safely rule out PE in a high-risk patient.</li>
-      </ul>
-      <p><em>References: Wells PS, Anderson DR, Rodger M, et al. Derivation of a simple clinical model to categorize patients probability of pulmonary embolism. Thromb Haemost. 2000;83(3):416-420.</em></p>
-    </div>
-  </div>
+    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+        
+        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
 
-  <script src="../js/global.js"></script>
-  <script>updateUI();</script>
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_resp"></div>
+
+        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">Wells' PE Criteria</h1>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_pe"></p>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_dvt"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="p1" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="p1" data-v="3" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_alt"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="p2" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="p2" data-v="3" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_hr"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="p3" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="p3" data-v="1.5" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_immob"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="p4" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="p4" data-v="1.5" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_hx"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="p5" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="p5" data-v="1.5" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 15px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_hemop"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="p6" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="p6" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <div class="input-group" style="margin-bottom: 30px;">
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pe_malig"></label>
+            <div class="chip-row">
+                <button class="chip" data-g="p7" data-v="0" onclick="pickChip(this)" data-k="no"></button>
+                <button class="chip" data-g="p7" data-v="1" onclick="pickChip(this)" data-k="yes"></button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calc_wellspe()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;"></button>
+
+        <div id="R" style="margin-top: 20px; display: block;"></div>
+
+        <div style="margin-top: 30px;">
+            <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+                AdSense Space (Below Results)
+            </div>
+        </div>
+    </div>
+
+    <div style="max-width: 600px; margin: 20px auto 50px;">
+        
+        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all"></div>
+            <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
+                🇬🇧 <b>D</b>VT · <b>P</b>E#1 · <b>H</b>R>100 · <b>I</b>mmob · <b>P</b>revious · <b>H</b>aemoptysis · <b>M</b>alignancy — "<b>DPIH</b>"<br>
+                🇷🇺 <b>Т</b>ГВ · <b>Т</b>ЭЛА#1 · <b>Ч</b>СС>100 · <b>И</b>ммоб · <b>А</b>намнез · <b>К</b>рово · <b>Р</b>ак — "<b>ТТЧИАКР</b>"<br>
+                🇺🇿 <b>D</b>VT · <b>O</b>E#1 · <b>Y</b>U>100 · <b>I</b>mmob · <b>A</b>vval · <b>Q</b>on · <b>S</b>araton — "<b>DOYIAQS</b>"
+            </div>
+        </div>
+
+        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
+            <h3 data-k="pe_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
+            
+            <p data-k="pe_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
+            
+            <p data-k="pe_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
+            
+            <p style="color: var(--white); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
+                <b><span data-k="pe_info_p3"></span></b>
+            </p>
+        </div>
+    </div>
+
+  </main>
+
+  <script src="../js/translations.js?v=20"></script>
+  <script src="../js/drugs.js?v=20"></script>
+  <script src="../js/ui.js?v=20"></script>
+  <script src="../js/calculators.js?v=20"></script> 
+  <script src="../js/main.js?v=20"></script>
+
 </body>
 </html>
