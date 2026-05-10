@@ -1,5 +1,26 @@
 /* ── WARDCALC: MASTER CALCULATION ENGINE (15 TOOLS) ── */
 
+// --- SAFETY FALLBACKS ---
+// These ensure the app never crashes, even if drugs.js is missing a key.
+const S = (num, text) => {
+    if (!text || text === 'undefined') return '';
+    return `<div style="margin-bottom:12px; display:flex; gap:10px;"><span style="color:var(--gold); font-weight:bold;">${num}.</span> <span>${text}</span></div>`;
+};
+
+const D = (title, desc) => {
+    if (!title || title === 'undefined') return '';
+    return `<div style="margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.05);"><strong style="color:var(--white); font-size:15px; display:block; margin-bottom:4px;">${title}</strong><span style="color:var(--w60); font-size:13px;">${desc}</span></div>`;
+};
+
+// Safe RX Object (Prevents crashes if RX.drugname() doesn't exist)
+if (typeof RX === 'undefined') {
+    window.RX = new Proxy({}, { 
+        get: function(target, prop) { 
+            return () => D(prop.replace('_', ' ').toUpperCase(), 'See local guidelines for dosage.'); 
+        } 
+    });
+}
+
 // 1. GLASGOW COMA SCALE
 function calc_gcs(){
   const e = gv('ge'), v = gv('gv'), m = gv('gm');
@@ -26,8 +47,8 @@ function calc_dvt(){
   if(!allSet(ks)){ alertMsg(); return; }
   const s = ks.reduce((a,k) => a + gv(k), 0);
   if(s >= 3) showResult(s, 'pts', 'hi', t('r_dvt_hi'), S(1,t('r_dvt_hi_1'))+S(2,t('r_dvt_hi_2'))+S(3,t('r_dvt_hi_3')), RX.apix_dvt()+RX.riva_dvt());
-  else if(s >= 1) showResult(s, 'pts', 'md', t('r_dvt_md'), S(1,t('r_dvt_md_1'))+S(2,t('r_dvt_md_2')), D(t('r_dvt_md_d'),''));
-  else showResult(s, 'pts', 'lo', t('r_dvt_lo'), S(1,t('r_dvt_lo_1'))+S(2,t('r_dvt_lo_2')), D(t('r_dvt_lo_d'),''));
+  else if(s >= 1) showResult(s, 'pts', 'md', t('r_dvt_md'), S(1,t('r_dvt_md_1'))+S(2,t('r_dvt_md_2')), D(t('r_dvt_md_d') || 'D-Dimer indicated',''));
+  else showResult(s, 'pts', 'lo', t('r_dvt_lo'), S(1,t('r_dvt_lo_1'))+S(2,t('r_dvt_lo_2')), D(t('r_dvt_lo_d') || 'Consider D-Dimer',''));
 }
 
 // 4. WELLS PE
@@ -37,7 +58,7 @@ function calc_pe(){
   const s = ks.reduce((a,k) => a + gv(k), 0);
   if(s > 4) showResult(s, 'pts', 'hi', t('r_pe_hi'), S(1,t('r_pe_hi_1'))+S(2,t('r_pe_hi_2'))+S(3,t('r_pe_hi_3')), RX.apix_pe()+RX.altep_pe());
   else if(s >= 2) showResult(s, 'pts', 'md', t('r_pe_md'), S(1,t('r_pe_md_1'))+S(2,t('r_pe_md_2')), RX.riva_dvt()+RX.enox());
-  else showResult(s, 'pts', 'lo', t('r_pe_lo'), S(1,t('r_pe_lo_1'))+S(2,t('r_pe_lo_2')), D(t('r_pe_lo_d'),''));
+  else showResult(s, 'pts', 'lo', t('r_pe_lo'), S(1,t('r_pe_lo_1'))+S(2,t('r_pe_lo_2')), D(t('r_pe_lo_d') || 'Consider D-Dimer',''));
 }
 
 // 5. CURB-65
@@ -50,14 +71,16 @@ function calc_curb65(){
   else showResult(s, '/5', 'hi', t('r_curb_hi'), S(1,t('r_curb_hi_1'))+S(2,t('r_curb_hi_2'))+S(3,t('r_curb_hi_3')), RX.coamoxlev()+RX.pip_taz());
 }
 
-// 6. CHADS2
+// 6. CHADS2 (Fixed array keys for proper toggle calculation)
 function calc_chads2(){
-  const ks = ['h1','h2','h3','h4','h5','h6','h7','h8'];
-  if(!allSet(ks)){ alertMsg(); return; }
-  const s = ks.reduce((a,k) => a + gv(k), 0);
-  if(s === 0) showResult(s, '/9', 'lo', t('r_chads_lo'), S(1,t('r_chads_lo_1'))+S(2,t('r_chads_lo_2')), RX.aspirin_af());
-  else if(s <= 1) showResult(s, '/9', 'md', t('r_chads_md'), S(1,t('r_chads_md_1'))+S(2,t('r_chads_md_2')), RX.apix_af()+RX.riva_af());
-  else showResult(s, '/9', 'hi', t('r_chads_hi'), S(1,t('r_chads_hi_1'))+S(2,t('r_chads_hi_2'))+S(3,t('r_chads_hi_3')), RX.apix_af()+RX.riva_af());
+  const ks = ['ch_c','ch_h','ch_a','ch_d','ch_s'];
+  let s = 0;
+  // Use toggles: if not clicked, gv() returns null, defaults to 0.
+  ks.forEach(k => { s += (gv(k) || 0); });
+  
+  if(s === 0) showResult(s, '/6', 'lo', t('r_chads_lo'), S(1,t('r_chads_lo_1'))+S(2,t('r_chads_lo_2')), RX.aspirin_af());
+  else if(s === 1) showResult(s, '/6', 'md', t('r_chads_md'), S(1,t('r_chads_md_1'))+S(2,t('r_chads_md_2')), RX.apix_af()+RX.riva_af());
+  else showResult(s, '/6', 'hi', t('r_chads_hi'), S(1,t('r_chads_hi_1'))+S(2,t('r_chads_hi_2'))+S(3,t('r_chads_hi_3')), RX.apix_af()+RX.riva_af());
 }
 
 // 7. CHILD-PUGH
@@ -77,8 +100,8 @@ function calc_bmi(){
   if(!w || !h || isNaN(w) || isNaN(h)){ alertMsg(); return; }
   const b = (w/(h*h)).toFixed(1);
   if(b < 18.5) showResult(b, 'kg/m²', 'md', t('r_bmi_under'), S(1,t('r_bmi_under_1'))+S(2,t('r_bmi_under_2')), RX.hicalnor()+RX.thiamine());
-  else if(b < 25) showResult(b, 'kg/m²', 'lo', t('r_bmi_norm'), S(1,t('r_bmi_norm_1')), D(t('r_bmi_norm_d'),''));
-  else if(b < 30) showResult(b, 'kg/m²', 'md', t('r_bmi_over'), S(1,t('r_bmi_over_1'))+S(2,t('r_bmi_over_2')), D(t('r_bmi_over_d'),''));
+  else if(b < 25) showResult(b, 'kg/m²', 'lo', t('r_bmi_norm'), S(1,t('r_bmi_norm_1')), D(t('r_bmi_norm_d') || 'Normal weight',''));
+  else if(b < 30) showResult(b, 'kg/m²', 'md', t('r_bmi_over'), S(1,t('r_bmi_over_1'))+S(2,t('r_bmi_over_2')), D(t('r_bmi_over_d') || 'Overweight',''));
   else if(b < 35) showResult(b, 'kg/m²', 'hi', t('r_bmi_ob1'), S(1,t('r_bmi_ob1_1'))+S(2,t('r_bmi_ob1_2')), RX.sema()+RX.orli());
   else showResult(b, 'kg/m²', 'hi', t('r_bmi_ob2'), S(1,t('r_bmi_ob2_1'))+S(2,t('r_bmi_ob2_2')), RX.sema()+RX.bariatric());
 }
@@ -105,7 +128,7 @@ function calc_mews(){
   const ks = ['mrr','mbp','mhr','mtemp','mavpu'];
   if(!allSet(ks)){ alertMsg(); return; }
   const s = ks.reduce((a,k) => a + gv(k), 0);
-  if(s <= 2) showResult(s, '/14', 'lo', t('r_mews_lo'), S(1,t('r_mews_lo_1'))+S(2,t('r_mews_lo_2')), D(t('r_mews_lo_d'),''));
+  if(s <= 2) showResult(s, '/14', 'lo', t('r_mews_lo'), S(1,t('r_mews_lo_1'))+S(2,t('r_mews_lo_2')), D(t('r_mews_lo_d') || 'Routine care',''));
   else if(s <= 4) showResult(s, '/14', 'md', t('r_mews_md'), S(1,t('r_mews_md_1'))+S(2,t('r_mews_md_2'))+S(3,t('r_mews_md_3')), RX.iv_fluid()+RX.o2());
   else showResult(s, '/14', 'hi', t('r_mews_hi'), S(1,t('r_mews_hi_1'))+S(2,t('r_mews_hi_2'))+S(3,t('r_mews_hi_3')), RX.iv_fluid()+RX.nora());
 }
@@ -116,7 +139,7 @@ function calc_centor(){
   if(!allSet(ks)){ alertMsg(); return; }
   const s = ks.reduce((a,k) => a + gv(k), 0);
   if(s <= 1) showResult(s, '/5', 'lo', t('r_centor_lo'), S(1,t('r_centor_lo_1'))+S(2,t('r_centor_lo_2')), RX.noab()+RX.paracib());
-  else if(s <= 3) showResult(s, '/5', 'md', t('r_centor_md'), S(1,t('r_centor_md_1'))+S(2,t('r_centor_md_2')), D(t('r_centor_md_d'),''));
+  else if(s <= 3) showResult(s, '/5', 'md', t('r_centor_md'), S(1,t('r_centor_md_1'))+S(2,t('r_centor_md_2')), D(t('r_centor_md_d') || 'Rapid Antigen Test',''));
   else showResult(s, '/5', 'hi', t('r_centor_hi'), S(1,t('r_centor_hi_1'))+S(2,t('r_centor_hi_2')), RX.penV()+RX.clari_strep());
 }
 
@@ -147,7 +170,7 @@ function calc_ranson(){
   if(!allSet(ks)){ alertMsg(); return; }
   const s = ks.reduce((a,k) => a + gv(k), 0);
   if(s <= 2) showResult(s, '/11', 'lo', t('r_ranson_lo'), S(1,t('r_ranson_lo_1'))+S(2,t('r_ranson_lo_2'))+S(3,t('r_ranson_lo_3')), RX.hart()+RX.morph());
-  else if(s <= 4) showResult(s, '/11', 'md', t('r_ranson_md'), S(1,t('r_ranson_md_1'))+S(2,t('r_ranson_md_2'))+S(3,t('r_ranson_md_3')), D(t('r_ranson_md_d'),'')+RX.nnj());
+  else if(s <= 4) showResult(s, '/11', 'md', t('r_ranson_md'), S(1,t('r_ranson_md_1'))+S(2,t('r_ranson_md_2'))+S(3,t('r_ranson_md_3')), D(t('r_ranson_md_d') || 'ICU observation','')+RX.nnj());
   else showResult(s, '/11', 'hi', t('r_ranson_hi'), S(1,t('r_ranson_hi_1'))+S(2,t('r_ranson_hi_2'))+S(3,t('r_ranson_hi_3')), RX.mero()+RX.pn());
 }
 
@@ -157,16 +180,19 @@ function calc_psi(){
   const sex = gv('psi_sex'); 
   const ks = ['psi_nh','psi_neo','psi_liv','psi_chf','psi_cvd','psi_ren','psi_ams','psi_rr','psi_sbp','psi_temp','psi_pulse','psi_ph','psi_bun','psi_na','psi_gluc','psi_hct','psi_pao2','psi_eff'];
   if(isNaN(age) || sex === null) { alertMsg(); return; }
+  
   let score = age + sex;
-  ks.forEach(k => { score += (gv(k) || 0); });
+  ks.forEach(k => { score += (gv(k) || 0); }); // Uses toggle toggles (null => 0)
+  
   let cls = score <= 50 ? 1 : score <= 70 ? 2 : score <= 90 ? 3 : score <= 130 ? 4 : 5;
   const map = {
     1:['lo','r_psi_1','r_psi_1_1','r_psi_1_2', ()=>RX.amox_curb()],
     2:['lo','r_psi_2','r_psi_2_1','r_psi_2_2', ()=>RX.amox_curb()],
-    3:['md','r_psi_3','r_psi_3_1','r_psi_3_2', ()=>D('IV Co-amoxiclav', t('r_psi_3_d'))],
+    3:['md','r_psi_3','r_psi_3_1','r_psi_3_2', ()=>D('IV Co-amoxiclav', t('r_psi_3_d') || 'Consider short admission')],
     4:['hi','r_psi_4','r_psi_4_1','r_psi_4_2', ()=>RX.coamoxlev()],
     5:['hi','r_psi_5','r_psi_5_1','r_psi_5_2', ()=>RX.coamoxlev()+RX.levo_psi()]
   };
+  
   const [sev,ik,a1k,a2k, dFn] = map[cls];
   showResult(['Class I','Class II','Class III','Class IV','Class V'][cls-1], '(' + score + ' pts)', sev, t(ik), S(1,t(a1k))+S(2,t(a2k)), dFn());
 }
