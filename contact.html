@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - WardCalc</title>
-    <!-- This links back your premium dark styling -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
 
-    <!-- Top Navigation Bar -->
     <nav class="navbar" style="display: flex; justify-content: space-between; padding: 20px 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
         <a href="index.html" style="color: var(--white, #fff); text-decoration: none; font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
             <span style="background: var(--bg3, #222); padding: 8px 12px; border-radius: 8px; color: var(--gold, #d4af37);">🫀</span> WardCalc
@@ -22,19 +20,15 @@
         </div>
     </nav>
 
-    <!-- Main Content inside the Dark Card -->
     <div style="padding: 20px; max-width: 800px; margin: 40px auto;">
         <div class="content-card" style="background: var(--bg2, #1a1b26); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);">
             
-            <!-- Translated Heading -->
             <h2 data-k="nav_contact" style="color: var(--gold, #d4af37); margin-bottom: 20px; font-size: 24px;">Contact</h2>
             
-            <!-- Translated Paragraph -->
             <p data-k="contact_p1" style="color: var(--w80, #cbd5e1); line-height: 1.8; font-size: 15px; margin-bottom: 25px;">
                 Have feedback, found a bug, or want to suggest a new calculator? We would love to hear from you.
             </p>
             
-            <!-- Clickable Email Box (Hardcoded so JS doesn't overwrite it) -->
             <div style="background: var(--bg3, #222); padding: 15px 20px; border-radius: 10px; display: inline-block; border-left: 3px solid var(--gold, #d4af37);">
                 <span style="color: var(--w80, #cbd5e1); font-size: 15px; margin-right: 8px;">Email:</span> 
                 <a href="mailto:wardcalc.med@gmail.com" style="color: var(--gold, #d4af37); text-decoration: none; font-size: 16px; font-weight: bold; letter-spacing: 0.5px;">wardcalc.med@gmail.com</a>
@@ -43,14 +37,13 @@
         </div>
     </div>
 
-    <!-- This connects your translations -->
-    <script src="js/global.js"></script>
-    
-    <!-- Ensures text updates immediately when the page loads -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typeof updateUI === 'function') updateUI();
-        });
-    </script>
+    <script src="js/translations.js"></script>
+    <script src="js/drugs.js"></script>
+
+    <script src="js/ui.js"></script>
+
+    <script src="js/calculator.js"></script> 
+
+    <script src="js/main.js"></script>
 </body>
 </html>
