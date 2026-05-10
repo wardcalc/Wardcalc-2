@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>CHADS2 Score — WardCalc</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div><div class="orb orb1"></div></div>
+  <nav>
+    <a class="logo" href="../index.html"><div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="logo-text">Ward<em>Calc</em></div></div></a>
+    <div class="lang-sw">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button><button class="lang-btn" onclick="setLang('ru',this)">RU</button><button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    </div>
+  </nav>
+
+  <main class="main" style="padding-top: 20px;">
+    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none;">&times;</a>
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); text-transform: uppercase; margin-bottom: 15px;">Cardiology</div>
+        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">CHADS2 Score</h1>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;">Stroke risk in atrial fibrillation.</p>
+
+        <div style="display:grid; gap:10px; margin-bottom:25px;">
+            <button class="chip" data-g="ch_c" data-v="1" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;">Congestive Heart Failure (+1)</button>
+            <button class="chip" data-g="ch_h" data-v="1" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;">Hypertension (+1)</button>
+            <button class="chip" data-g="ch_a" data-v="1" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;">Age ≥ 75 (+1)</button>
+            <button class="chip" data-g="ch_d" data-v="1" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;">Diabetes Mellitus (+1)</button>
+            <button class="chip" data-g="ch_s" data-v="2" onclick="toggleChip(this)" style="text-align:left; padding-left:20px;">Stroke or TIA history (+2)</button>
+        </div>
+
+        <button class="calc-btn" onclick="calc_chads2()" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer;">Calculate</button>
+        <div id="R" style="margin-top: 20px; display: block;"></div>
+    </div>
+  </main>
+
+  <script src="../js/translations.js?v=99"></script>
+  <script src="../js/ui.js?v=99"></script>
+  <script src="../js/calculators.js?v=99"></script> 
+</body>
+</html>
