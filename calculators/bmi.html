@@ -1,55 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>BMI Calculator | WardCalc</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator - WardCalc</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Calculator Specific Styles to match your premium theme */
+        .calc-container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        .input-group { background: var(--bg2, #1a1b26); padding: 25px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .input-label { color: var(--white, #fff); font-size: 15px; font-weight: 600; margin-bottom: 15px; display: block; }
+        
+        /* Numeric Input Styling */
+        .num-input-wrap { display: flex; align-items: center; background: var(--bg3, #222); border-radius: 10px; padding: 0 15px; border: 1px solid rgba(255,255,255,0.1); }
+        .num-field { background: transparent; border: none; color: var(--gold, #d4af37); font-size: 20px; font-weight: bold; width: 100%; padding: 15px 0; outline: none; text-align: right; }
+        .num-unit { color: var(--w60, #888); margin-left: 10px; font-size: 14px; font-weight: 600; text-transform: lowercase; }
+        
+        .calc-btn { width: 100%; background: transparent; color: var(--gold, #d4af37); border: 1px solid var(--gold, #d4af37); padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; letter-spacing: 1px; margin-top: 10px; transition: 0.3s; }
+        .calc-btn:hover { background: var(--gold, #d4af37); color: #000; }
+        
+        .mnem-box { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 30px; }
+        .mnem-title { color: var(--w60, #888); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
+        .mnem-text { color: var(--gold, #d4af37); font-family: var(--mono, monospace); font-size: 14px; line-height: 1.8; }
+        .mnem-flag { display: inline-block; width: 25px; }
+        
+        .seo-content { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--w60, #888); font-size: 14px; line-height: 1.6; }
+        .seo-content h2 { color: var(--w80, #cbd5e1); font-size: 18px; margin-bottom: 15px; }
+    </style>
 </head>
-<body>
-  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
-  <nav>
-    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
-    <div class="lang-sw">
-      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
-      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
-    </div>
-  </nav>
+<body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
 
-  <div class="page-wrap">
-    <div class="ad-banner">AdSense Space</div>
+    <nav class="navbar" style="display: flex; justify-content: space-between; padding: 20px 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <a href="../index.html" style="color: var(--white, #fff); text-decoration: none; font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
+            <span style="background: var(--bg3, #222); padding: 8px 12px; border-radius: 8px; color: var(--gold, #d4af37);">🫀</span> WardCalc
+        </a>
+        
+        <div class="lang-switch" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+            <button class="lang-btn" onclick="setLang('ru', this)">RU</button>
+            <button class="lang-btn" onclick="setLang('uz', this)">UZ</button>
+        </div>
+    </nav>
 
     <div class="calc-container">
-      <h1 class="tool-title">BMI Calculator</h1>
-      <p class="tool-info" data-k="d_bmi">Body Mass Index with full WHO classification and clinical action plan.</p>
-
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-        <div class="field"><label class="field-label" data-k="f_weight">Weight (kg)</label><input class="num-field" type="number" id="bw" placeholder="70" min="1" max="300"></div>
-        <div class="field"><label class="field-label" data-k="f_height">Height (cm)</label><input class="num-field" type="number" id="bh" placeholder="170" min="50" max="250"></div>
-      </div>
-      
-      <button class="go-btn" onclick="calc_bmi()" data-k="btn">Calculate</button>
-      <div id="R" class="result-box"></div>
-
-      <div class="ad-banner">AdSense Space</div>
-
-      <div class="mnem-panel">
-        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid</span></div>
-        <div class="mnem-body">
-          <div class="mnem-block"><div class="mnem-flag">🇬🇧</div><div class="mnem-main">BMI = Weight(kg) ÷ Height(m)²</div></div>
-          <div class="mnem-block"><div class="mnem-flag">🇷🇺</div><div class="mnem-main">ИМТ = Вес(кг) ÷ Рост(м)²</div></div>
-          <div class="mnem-block"><div class="mnem-flag">🇺🇿</div><div class="mnem-main">TVI = Vazn(kg) ÷ Bo'y(m)²</div></div>
+        <div style="margin-bottom: 30px;">
+            <div style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold, #d4af37); padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px;" data-k="sp_gen">GENERAL</div>
+            <h1 style="color: var(--white, #fff); margin: 0 0 10px 0; font-size: 32px;">BMI Calculator</h1>
+            <p style="color: var(--w60, #888); margin: 0; font-size: 15px;" data-k="d_bmi">Body Mass Index with full WHO classification and clinical action plan.</p>
         </div>
-      </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom: 20px;">
+            <div class="input-group" style="margin-bottom: 0;">
+                <span class="input-label" data-k="f_weight">Weight (kg)</span>
+                <div class="num-input-wrap">
+                    <input class="num-field" type="number" id="bw" placeholder="70" min="1" max="300">
+                    <span class="num-unit">kg</span>
+                </div>
+            </div>
+
+            <div class="input-group" style="margin-bottom: 0;">
+                <span class="input-label" data-k="f_height">Height (cm)</span>
+                <div class="num-input-wrap">
+                    <input class="num-field" type="number" id="bh" placeholder="170" min="50" max="250">
+                    <span class="num-unit">cm</span>
+                </div>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calc_bmi()" data-k="btn">Calculate</button>
+
+        <div id="R" style="margin-top: 30px;"></div>
+
+        <div class="mnem-box">
+            <div class="mnem-title" data-k="mnem_all">Memory Aid — All 3 Languages</div>
+            <div class="mnem-text">
+                <div><span class="mnem-flag">🇬🇧</span> BMI = Weight(kg) ÷ Height(m)²</div>
+                <div style="margin: 10px 0;"><span class="mnem-flag">🇷🇺</span> ИМТ = Вес(кг) ÷ Рост(м)²</div>
+                <div><span class="mnem-flag">🇺🇿</span> TVI = Vazn(kg) ÷ Bo'y(m)²</div>
+            </div>
+        </div>
+
+        <div class="seo-content">
+            <h2>Understanding Body Mass Index (BMI)</h2>
+            <p>Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight, overweight, and obesity in adults. It is defined as a person's weight in kilograms divided by the square of their height in meters (kg/m²).</p>
+            <p>While BMI is a useful population-level screening tool, it does not directly measure body fat and must be interpreted alongside other clinical factors, such as muscle mass and waist circumference.</p>
+        </div>
+
     </div>
 
-    <div class="seo-content">
-      <h2>Understanding Body Mass Index (BMI)</h2>
-      <p>Body Mass Index (BMI) is a simple index of weight-for-height that is commonly used to classify underweight, overweight, and obesity in adults. It is defined as a person's weight in kilograms divided by the square of their height in meters (kg/m²).</p>
-      <p>While BMI is a useful population-level screening tool, it does not directly measure body fat and must be interpreted alongside other clinical factors, such as muscle mass and waist circumference.</p>
-    </div>
-  </div>
-  <script src="../js/global.js"></script><script>updateUI();</script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/drugs.js"></script>
+
+    <script src="../js/ui.js"></script>
+
+    <script src="../js/calculator.js"></script> 
+
+    <script src="../js/main.js"></script>
 </body>
 </html>
