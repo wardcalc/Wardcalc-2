@@ -1,7 +1,9 @@
+// This alert will pop up the second the page loads to prove the file works!
+alert("Calculator file is successfully connected!");
+
 /* ── CALCULATION LOGIC FOR ALL 15 TOOLS ── */
 
 function calc_gcs(){
-  alert("Calculation process started! The file is loaded.");
   try {
       const e=gv('ge'),v=gv('gv'),m=gv('gm');
       if(e===null||v===null||m===null){
@@ -13,11 +15,11 @@ function calc_gcs(){
       else if(s>=9) showResult(s,'/15','md',t('r_gcs_mod'), S(1,t('r_gcs_mod_1'))+S(2,t('r_gcs_mod_2'))+S(3,t('r_gcs_mod_3'))+S(4,t('r_gcs_mod_4')), RX.manni()+RX.leve2());
       else showResult(s,'/15','hi',t('r_gcs_sev'), S(1,t('r_gcs_sev_1'))+S(2,t('r_gcs_sev_2'))+S(3,t('r_gcs_sev_3'))+S(4,t('r_gcs_sev_4')), RX.ketam()+RX.suxam());
 
-      // Guarantee the result box shows up
+      // Force the result box to display
       document.getElementById('R').style.display = 'block';
 
   } catch (err) {
-      alert("Error Caught: " + err.message);
+      alert("Error: " + err.message);
   }
 }
 
