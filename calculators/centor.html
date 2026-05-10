@@ -1,122 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centor Score - WardCalc</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        /* Calculator Specific Styles to match your premium theme */
-        .calc-container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
-        .input-group { background: var(--bg2, #1a1b26); padding: 25px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .input-label { color: var(--white, #fff); font-size: 15px; font-weight: 600; margin-bottom: 15px; display: block; }
-        .chip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .chip-grid-3 { display: flex; flex-direction: column; gap: 10px; } /* For Age Group */
-        .chip { background: var(--bg3, #222); color: var(--w80, #cbd5e1); padding: 15px; border-radius: 10px; border: 1px solid transparent; cursor: pointer; text-align: center; font-size: 14px; transition: all 0.2s; font-weight: 600; }
-        .chip-grid-3 .chip { text-align: left; }
-        .chip.on { background: rgba(212, 175, 55, 0.1); border-color: var(--gold, #d4af37); color: var(--gold, #d4af37); }
-        
-        .calc-btn { width: 100%; background: transparent; color: var(--gold, #d4af37); border: 1px solid var(--gold, #d4af37); padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; letter-spacing: 1px; margin-top: 10px; transition: 0.3s; }
-        .calc-btn:hover { background: var(--gold, #d4af37); color: #000; }
-        
-        .mnem-box { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 30px; }
-        .mnem-title { color: var(--w60, #888); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
-        .mnem-text { color: var(--gold, #d4af37); font-family: var(--mono, monospace); font-size: 14px; line-height: 1.8; }
-        .mnem-flag { display: inline-block; width: 25px; }
-        
-        .seo-content { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--w60, #888); font-size: 14px; line-height: 1.6; }
-        .seo-content h2 { color: var(--w80, #cbd5e1); font-size: 18px; margin-bottom: 15px; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>WardCalc — Clinical Decision Tools</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .hero-container { text-align: center; padding: 40px 20px 20px; max-width: 600px; margin: 0 auto; }
+    
+    .student-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(212, 175, 55, 0.05); padding: 8px 18px; border-radius: 50px; font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 25px; }
+    .student-badge .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 8px var(--gold); }
+    
+    .hero-h1 { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.1; margin: 0 0 20px 0; font-weight: 700; color: var(--white); }
+    .hero-h1 em { color: var(--gold); font-style: italic; }
+    
+    .hero-desc { color: var(--w60); font-size: 16px; line-height: 1.6; max-width: 90%; margin: 0 auto 35px; }
+    
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 40px; }
+    .stat-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 15px; padding: 18px 10px; text-align: center; }
+    .stat-num { color: var(--gold); font-size: 24px; font-weight: 700; margin-bottom: 5px; }
+    .stat-label { color: var(--w40); font-family: var(--mono); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+
+    .search-wrap { position: relative; margin-bottom: 40px; }
+    .search-wrap span { position: absolute; left: 18px; top: 18px; font-size: 18px; opacity: 0.5; }
+    .search-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 15px; padding: 18px 20px 18px 50px; color: var(--white); font-size: 16px; outline: none; transition: 0.3s; }
+    .search-input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); }
+
+    .section-label { display: flex; align-items: center; gap: 15px; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+    .section-label::after { content: ''; flex-grow: 1; height: 1px; background: var(--border); }
+
+    .tool-card { display: block; background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-decoration: none; margin-bottom: 15px; transition: 0.3s; }
+    .tool-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .tool-tag { display: inline-block; background: rgba(255,255,255,0.05); color: var(--w60); padding: 4px 10px; border-radius: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .tool-title { color: var(--white); font-size: 18px; font-weight: 600; margin: 0 0 5px 0; }
+    .tool-desc { color: var(--w40); font-size: 14px; margin: 0; }
+  </style>
 </head>
-<body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
+<body>
 
-    <nav class="navbar" style="display: flex; justify-content: space-between; padding: 20px 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <a href="../index.html" style="color: var(--white, #fff); text-decoration: none; font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
-            <span style="background: var(--bg3, #222); padding: 8px 12px; border-radius: 8px; color: var(--gold, #d4af37);">🫀</span> WardCalc
-        </a>
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  </div>
+
+  <nav style="display: flex; justify-content: space-between; padding: 20px; align-items: center; border-bottom: 1px solid var(--border);">
+    <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+      <div style="background: var(--bg2); border: 1px solid var(--border); padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div style="color: var(--white); font-size: 20px; font-weight: bold; font-family: 'Playfair Display', serif;">Ward<em style="color: var(--gold); font-style: italic;">Calc</em></div>
+    </a>
+    
+    <div class="lang-sw" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 4px; border-radius: 20px; border: 1px solid var(--border);">
+      <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru', this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz', this)">UZ</button>
+    </div>
+  </nav>
+
+  <main class="hero-container">
+    
+    <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 40px;">
+        AdSense Space (Top Banner)
+    </div>
+
+    <div class="student-badge">
+        <span class="dot"></span>
+        <span data-k="badge_stu">Built by a medical student · For medical students</span>
+    </div>
+
+    <h1 class="hero-h1">
+        <span data-k="h1_main">Clinical Tools</span><br>
+        <em data-k="h1_sub">for Ward Rounds</em>
+    </h1>
+
+    <p class="hero-desc" data-k="hero_desc">15 evidence-based calculators with mnemonics in 3 languages. Fast, free, mobile-first — everything you need at the bedside.</p>
+
+    <div class="stat-grid">
+        <div class="stat-box">
+            <div class="stat-num">15</div>
+            <div class="stat-label" data-k="stat_calc">Calculators</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-num">3</div>
+            <div class="stat-label" data-k="stat_lang">Languages</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-num">100%</div>
+            <div class="stat-label" data-k="stat_free">Free</div>
+        </div>
+    </div>
+
+    <div class="search-wrap">
+        <span>🔍</span>
+        <input type="text" id="search" class="search-input" placeholder="Search calculators, scores, specialties..." onkeyup="filterTools()">
+    </div>
+
+    <div class="section-label" data-k="all_label">All Calculators</div>
+
+    <div id="toolList" style="text-align: left;">
         
-        <div class="lang-switch" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
-            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
-            <button class="lang-btn" onclick="setLang('ru', this)">RU</button>
-            <button class="lang-btn" onclick="setLang('uz', this)">UZ</button>
-        </div>
-    </nav>
-
-    <div class="calc-container">
-        <div style="margin-bottom: 30px;">
-            <div style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold, #d4af37); padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px;" data-k="sp_inf">INFECTIOUS</div>
-            <h1 style="color: var(--white, #fff); margin: 0 0 10px 0; font-size: 32px;">Centor Score</h1>
-            <p style="color: var(--w60, #888); margin: 0; font-size: 15px;" data-k="d_centor">Streptococcal pharyngitis probability. Evidence-based answer to "prescribe antibiotics?"</p>
-        </div>
-
-        <div class="input-group">
-            <span class="input-label" data-k="f_cough_a">Absence of cough</span>
-            <div class="chip-grid">
-                <button class="chip" data-g="cen1" data-v="0" onclick="pickChip(this)" data-k="no">No</button>
-                <button class="chip" data-g="cen1" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button>
+        <a href="calculators/gcs.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_neuro">Neurology</span>
+                <span style="font-size: 18px;">🧠</span>
             </div>
-        </div>
+            <h3 class="tool-title">Glasgow Coma Scale (GCS)</h3>
+            <p class="tool-desc">Assess consciousness level in any patient.</p>
+        </a>
 
-        <div class="input-group">
-            <span class="input-label" data-k="f_exudates">Tonsillar exudates or swelling</span>
-            <div class="chip-grid">
-                <button class="chip" data-g="cen2" data-v="0" onclick="pickChip(this)" data-k="no">No</button>
-                <button class="chip" data-g="cen2" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button>
+        <a href="calculators/apgar.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_ped">Pediatrics</span>
+                <span style="font-size: 18px;">👶</span>
             </div>
-        </div>
+            <h3 class="tool-title">APGAR Score</h3>
+            <p class="tool-desc">Newborn assessment at 1 and 5 minutes.</p>
+        </a>
 
-        <div class="input-group">
-            <span class="input-label" data-k="f_lymph">Tender anterior cervical lymphadenopathy</span>
-            <div class="chip-grid">
-                <button class="chip" data-g="cen3" data-v="0" onclick="pickChip(this)" data-k="no">No</button>
-                <button class="chip" data-g="cen3" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button>
+        <a href="calculators/bmi.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_gen">General</span>
+                <span style="font-size: 18px;">⚖️</span>
             </div>
-        </div>
+            <h3 class="tool-title">BMI Calculator</h3>
+            <p class="tool-desc">Body Mass Index with WHO classification.</p>
+        </a>
 
-        <div class="input-group">
-            <span class="input-label" data-k="f_temp38">Temperature > 38.0°C</span>
-            <div class="chip-grid">
-                <button class="chip" data-g="cen4" data-v="0" onclick="pickChip(this)" data-k="no">No</button>
-                <button class="chip" data-g="cen4" data-v="1" onclick="pickChip(this)" data-k="yes">Yes</button>
+        <a href="calculators/curb65.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_resp">Respiratory</span>
+                <span style="font-size: 18px;">🫁</span>
             </div>
-        </div>
+            <h3 class="tool-title">CURB-65</h3>
+            <p class="tool-desc">Predicts mortality in community-acquired pneumonia.</p>
+        </a>
 
-        <div class="input-group">
-            <span class="input-label" data-k="f_c_age">Age Group</span>
-            <div class="chip-grid-3">
-                <button class="chip" data-g="cenage" data-v="1" onclick="pickChip(this)">3–14 years (+1)</button>
-                <button class="chip" data-g="cenage" data-v="0" onclick="pickChip(this)">15–44 years (0)</button>
-                <button class="chip" data-g="cenage" data-v="-1" onclick="pickChip(this)">≥ 45 years (-1)</button>
+        <a href="calculators/wellsdvt.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_cardio">Cardiology</span>
+                <span style="font-size: 18px;">🩸</span>
             </div>
-        </div>
+            <h3 class="tool-title">Wells Criteria (DVT)</h3>
+            <p class="tool-desc">Risk stratification for Deep Vein Thrombosis.</p>
+        </a>
 
-        <button class="calc-btn" onclick="calc_centor()" data-k="btn">Calculate</button>
-
-        <div id="R" style="margin-top: 30px;"></div>
-
-        <div class="mnem-box">
-            <div class="mnem-title" data-k="mnem_all">Memory Aid — All 3 Languages</div>
-            <div class="mnem-text">
-                <div><span class="mnem-flag">🇬🇧</span> <b>C</b>ough absent · <b>E</b>xudates · <b>N</b>odes · <b>T</b>emp>38 — "<b>CENT</b>or"</div>
-                <div style="margin: 10px 0;"><span class="mnem-flag">🇷🇺</span> <b>К</b>ашель нет · <b>Э</b>кссудат · <b>Л</b>имфоузлы · <b>Т</b>емп — "<b>КЭЛТ</b>"</div>
-                <div><span class="mnem-flag">🇺🇿</span> <b>Y</b>o'tal yo'q · <b>E</b>ksudat · <b>L</b>imfa · <b>H</b>arorat — "<b>YELH</b>"</div>
+        <a href="calculators/wellspe.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_resp">Respiratory</span>
+                <span style="font-size: 18px;">🫁</span>
             </div>
-        </div>
+            <h3 class="tool-title">Wells Criteria (PE)</h3>
+            <p class="tool-desc">Risk stratification for Pulmonary Embolism.</p>
+        </a>
 
-        <div class="seo-content">
-            <h2>Understanding the Centor Score</h2>
-            <p>The Centor Score helps clinicians determine the likelihood of Group A Streptococcal (GAS) pharyngitis. By estimating this probability, it guides the judicious use of rapid antigen detection testing (RADT) and empiric antibiotics, reducing unnecessary prescriptions and antimicrobial resistance.</p>
-        </div>
+        <a href="calculators/chads2.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_cardio">Cardiology</span>
+                <span style="font-size: 18px;">❤️</span>
+            </div>
+            <h3 class="tool-title">CHADS2 Score</h3>
+            <p class="tool-desc">Assesses stroke risk in atrial fibrillation.</p>
+        </a>
+
+        <a href="calculators/childpugh.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_gastro">Gastroenterology</span>
+                <span style="font-size: 18px;">🩺</span>
+            </div>
+            <h3 class="tool-title">Child-Pugh Score</h3>
+            <p class="tool-desc">Assesses the prognosis of chronic liver disease.</p>
+        </a>
+
+        <a href="calculators/egfr.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_gen">General</span>
+                <span style="font-size: 18px;">💧</span>
+            </div>
+            <h3 class="tool-title">eGFR (CKD-EPI)</h3>
+            <p class="tool-desc">Estimates Glomerular Filtration Rate.</p>
+        </a>
+
+        <a href="calculators/mews.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_gen">General</span>
+                <span style="font-size: 18px;">📊</span>
+            </div>
+            <h3 class="tool-title">MEWS Score</h3>
+            <p class="tool-desc">Modified Early Warning Score for clinical deterioration.</p>
+        </a>
+
+        <a href="calculators/centor.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_id">Infectious Disease</span>
+                <span style="font-size: 18px;">🦠</span>
+            </div>
+            <h3 class="tool-title">Centor Criteria</h3>
+            <p class="tool-desc">Estimates probability of Strep pharyngitis.</p>
+        </a>
+
+        <a href="calculators/nihss.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_neuro">Neurology</span>
+                <span style="font-size: 18px;">🧠</span>
+            </div>
+            <h3 class="tool-title">NIH Stroke Scale</h3>
+            <p class="tool-desc">Quantitative measure of stroke-related neurologic deficit.</p>
+        </a>
+
+        <a href="calculators/sofa.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_gen">General</span>
+                <span style="font-size: 18px;">🛏️</span>
+            </div>
+            <h3 class="tool-title">SOFA Score</h3>
+            <p class="tool-desc">Sequential Organ Failure Assessment in ICU.</p>
+        </a>
+
+        <a href="calculators/ranson.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_gastro">Gastroenterology</span>
+                <span style="font-size: 18px;">🩺</span>
+            </div>
+            <h3 class="tool-title">Ranson's Criteria</h3>
+            <p class="tool-desc">Estimates severity and mortality risk of acute pancreatitis.</p>
+        </a>
+
+        <a href="calculators/psi.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_resp">Respiratory</span>
+                <span style="font-size: 18px;">🫁</span>
+            </div>
+            <h3 class="tool-title">PSI/PORT Score</h3>
+            <p class="tool-desc">Pneumonia Severity Index for mortality prediction.</p>
+        </a>
 
     </div>
 
-    <script src="../js/translations.js"></script>
-    <script src="../js/drugs.js"></script>
+  </main>
 
-    <script src="../js/ui.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
 
-    <script src="../js/calculator.js"></script> 
-
-    <script src="../js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search');
+        if (searchInput) {
+            const ph = typeof t === 'function' ? t('search_ph') : 'Search calculators...';
+            searchInput.placeholder = ph !== 'search_ph' ? ph : 'Search calculators, scores, specialties...';
+        }
+    });
+    
+    // Simple search filter function
+    function filterTools() {
+        let input = document.getElementById('search').value.toLowerCase();
+        let cards = document.getElementsByClassName('tool-card');
+        for (let i = 0; i < cards.length; i++) {
+            let text = cards[i].innerText.toLowerCase();
+            cards[i].style.display = text.includes(input) ? "block" : "none";
+        }
+    }
+  </script>
 </body>
 </html>
