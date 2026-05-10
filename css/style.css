@@ -314,6 +314,7 @@ footer{border-top:1px solid var(--border);padding:28px;text-align:center}
 .footer-links{margin-top:15px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;}
 .footer-links a{color:var(--w40);text-decoration:none;font-size:12px;}
 .contact-link{color:var(--sapphire);text-decoration:none;font-weight:600;}
+
 /* ── CLOSE BUTTON FOR STANDALONE PAGES ── */
 .calc-header-row {
   display: flex;
@@ -330,3 +331,35 @@ footer{border-top:1px solid var(--border);padding:28px;text-align:center}
 .close-btn:hover {
   background: rgba(224,92,122,.12); border-color: var(--rose); color: var(--rose);
 }
+
+/* --- PREMIUM TOOL CARDS UPGRADE --- */
+
+/* 1. Make all Tool Names Gold */
+.tool-card h2, 
+.tool-card h3, 
+.tool-title {
+    color: #d4af37 !important; /* Premium Gold */
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* 2. Base Premium Box for Specialties */
+.sp-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* 3. Unique, Translucent Colors for Each Specialty */
+.bg-neuro  { background: rgba(156, 39, 176, 0.15); color: #ce93d8; border: 1px solid rgba(156, 39, 176, 0.4); } /* Purple */
+.bg-ped    { background: rgba(255, 152, 0, 0.15);  color: #ffcc80; border: 1px solid rgba(255, 152, 0, 0.4); }  /* Orange */
+.bg-gen    { background: rgba(158, 158, 158, 0.15); color: #eeeeee; border: 1px solid rgba(158, 158, 158, 0.4); } /* Silver */
+.bg-resp   { background: rgba(3, 169, 244, 0.15);  color: #81d4fa; border: 1px solid rgba(3, 169, 244, 0.4); }  /* Blue */
+.bg-cardio { background: rgba(244, 67, 54, 0.15);  color: #ef9a9a; border: 1px solid rgba(244, 67, 54, 0.4); }  /* Red */
+.bg-gastro { background: rgba(76, 175, 80, 0.15);  color: #a5d6a7; border: 1px solid rgba(76, 175, 80, 0.4); }  /* Green */
+.bg-id     { background: rgba(0, 150, 136, 0.15);  color: #80cbc4; border: 1px solid rgba(0, 150, 136, 0.4); }  /* Teal */
