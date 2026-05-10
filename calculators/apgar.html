@@ -1,103 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>APGAR Score | WardCalc</title>
-  <link rel="stylesheet" href="../css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APGAR Score - WardCalc</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Calculator Specific Styles to match your premium theme */
+        .calc-container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
+        .input-group { background: var(--bg2, #1a1b26); padding: 25px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .input-label { color: var(--white, #fff); font-size: 15px; font-weight: 600; margin-bottom: 15px; display: block; }
+        .chip-grid { display: flex; flex-direction: column; gap: 10px; }
+        .chip { background: var(--bg3, #222); color: var(--w80, #cbd5e1); padding: 15px; border-radius: 10px; border: 1px solid transparent; cursor: pointer; text-align: left; font-size: 14px; transition: all 0.2s; }
+        .chip.on { background: rgba(212, 175, 55, 0.1); border-color: var(--gold, #d4af37); color: var(--gold, #d4af37); }
+        .calc-btn { width: 100%; background: transparent; color: var(--gold, #d4af37); border: 1px solid var(--gold, #d4af37); padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; letter-spacing: 1px; margin-top: 10px; transition: 0.3s; }
+        .calc-btn:hover { background: var(--gold, #d4af37); color: #000; }
+        .mnem-box { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 30px; }
+        .mnem-title { color: var(--w60, #888); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+        .mnem-text { color: var(--gold, #d4af37); font-family: var(--mono, monospace); font-size: 13px; line-height: 1.6; }
+    </style>
 </head>
-<body>
-  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div></div>
-  <nav>
-    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
-    <div class="lang-sw">
-      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
-      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
-    </div>
-  </nav>
+<body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
 
-  <div class="page-wrap">
-    <div class="ad-banner">AdSense Space (Above Tool)</div>
+    <nav class="navbar" style="display: flex; justify-content: space-between; padding: 20px 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <a href="../index.html" style="color: var(--white, #fff); text-decoration: none; font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
+            <span style="background: var(--bg3, #222); padding: 8px 12px; border-radius: 8px; color: var(--gold, #d4af37);">🫀</span> WardCalc
+        </a>
+        
+        <div class="lang-switch" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
+            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+            <button class="lang-btn" onclick="setLang('ru', this)">RU</button>
+            <button class="lang-btn" onclick="setLang('uz', this)">UZ</button>
+        </div>
+    </nav>
 
     <div class="calc-container">
-      <h1 class="tool-title">APGAR Score</h1>
-      <p class="tool-info" data-k="info_apgar">The APGAR score provides a standardized assessment for infants after delivery...</p>
+        <div style="margin-bottom: 30px;">
+            <div style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold, #d4af37); padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px;" data-k="sp_ped">PEDIATRICS</div>
+            <h1 style="color: var(--white, #fff); margin: 0 0 10px 0; font-size: 32px;">APGAR Score</h1>
+            <p style="color: var(--w60, #888); margin: 0; font-size: 15px;" data-k="d_apgar">Newborn assessment at 1 and 5 minutes. Guides resuscitation decisions.</p>
+        </div>
 
-      <div class="field"><label class="field-label" data-k="f_appear">Appearance</label>
-        <div class="chips">
-          <button class="chip" data-g="aa" data-v="2" onclick="pickChip(this)">Pink all over (2)</button>
-          <button class="chip" data-g="aa" data-v="1" onclick="pickChip(this)">Blue extremities (1)</button>
-          <button class="chip" data-g="aa" data-v="0" onclick="pickChip(this)">Blue/pale all over (0)</button>
+        <div class="input-group">
+            <span class="input-label" data-k="f_appear">Appearance (Skin Colour)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="aa" data-v="0" onclick="pickChip(this)" data-k="a_a0">Blue/pale all over (0)</button>
+                <button class="chip" data-g="aa" data-v="1" onclick="pickChip(this)" data-k="a_a1">Blue extremities (1)</button>
+                <button class="chip" data-g="aa" data-v="2" onclick="pickChip(this)" data-k="a_a2">Pink all over (2)</button>
+            </div>
         </div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_pulse">Pulse</label>
-        <div class="chips">
-          <button class="chip" data-g="ap" data-v="2" onclick="pickChip(this)">≥ 100 bpm (2)</button>
-          <button class="chip" data-g="ap" data-v="1" onclick="pickChip(this)">< 100 bpm (1)</button>
-          <button class="chip" data-g="ap" data-v="0" onclick="pickChip(this)">Absent (0)</button>
-        </div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_grimace">Grimace</label>
-        <div class="chips">
-          <button class="chip" data-g="ag" data-v="2" onclick="pickChip(this)">Cry/Cough (2)</button>
-          <button class="chip" data-g="ag" data-v="1" onclick="pickChip(this)">Grimace only (1)</button>
-          <button class="chip" data-g="ag" data-v="0" onclick="pickChip(this)">None (0)</button>
-        </div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_activity">Activity</label>
-        <div class="chips">
-          <button class="chip" data-g="ac" data-v="2" onclick="pickChip(this)">Active motion (2)</button>
-          <button class="chip" data-g="ac" data-v="1" onclick="pickChip(this)">Some flexion (1)</button>
-          <button class="chip" data-g="ac" data-v="0" onclick="pickChip(this)">Limp (0)</button>
-        </div>
-      </div>
-      <div class="field"><label class="field-label" data-k="f_resp_a">Respiration</label>
-        <div class="chips">
-          <button class="chip" data-g="ar" data-v="2" onclick="pickChip(this)">Strong cry (2)</button>
-          <button class="chip" data-g="ar" data-v="1" onclick="pickChip(this)">Weak/irregular (1)</button>
-          <button class="chip" data-g="ar" data-v="0" onclick="pickChip(this)">Absent (0)</button>
-        </div>
-      </div>
-      
-      <button class="go-btn" onclick="calc_apgar()" data-k="btn">Calculate APGAR</button>
-      <div id="R" class="result-box"></div>
 
-      <div class="ad-banner">AdSense Space (Below Tool)</div>
-
-      <div class="mnem-panel">
-        <div class="mnem-head"><span class="mnem-head-title" data-k="mnem_all">Memory Aid — All 3 Languages</span></div>
-        <div class="mnem-body">
-          <div class="mnem-block">
-            <div class="mnem-flag">🇬🇧</div>
-            <div class="mnem-main"><b>A</b>ppearance · <b>P</b>ulse · <b>G</b>rimace · <b>A</b>ctivity · <b>R</b>espiration</div>
-          </div>
-          <div class="mnem-block">
-            <div class="mnem-flag">🇷🇺</div>
-            <div class="mnem-main"><b>В</b>нешний вид · <b>П</b>ульс · <b>Г</b>римаса · <b>А</b>ктивность · <b>Д</b>ыхание</div>
-          </div>
-          <div class="mnem-block">
-            <div class="mnem-flag">🇺🇿</div>
-            <div class="mnem-main"><b>K</b>o'rinish · <b>Y</b>urak · <b>G</b>rimasa · <b>F</b>aollik · <b>N</b>afas</div>
-          </div>
+        <div class="input-group">
+            <span class="input-label" data-k="f_pulse">Pulse (Heart Rate)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="ap" data-v="0" onclick="pickChip(this)" data-k="a_p0">Absent (0)</button>
+                <button class="chip" data-g="ap" data-v="1" onclick="pickChip(this)" data-k="a_p1">&lt; 100 bpm (1)</button>
+                <button class="chip" data-g="ap" data-v="2" onclick="pickChip(this)" data-k="a_p2">&ge; 100 bpm (2)</button>
+            </div>
         </div>
-      </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_grimace">Grimace (Reflex Irritability)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="ag" data-v="0" onclick="pickChip(this)" data-k="a_g0">None (0)</button>
+                <button class="chip" data-g="ag" data-v="1" onclick="pickChip(this)" data-k="a_g1">Grimace only (1)</button>
+                <button class="chip" data-g="ag" data-v="2" onclick="pickChip(this)" data-k="a_g2">Cry/Cough (2)</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_activity">Activity (Muscle Tone)</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="ac" data-v="0" onclick="pickChip(this)" data-k="a_c0">Limp (0)</button>
+                <button class="chip" data-g="ac" data-v="1" onclick="pickChip(this)" data-k="a_c1">Some flexion (1)</button>
+                <button class="chip" data-g="ac" data-v="2" onclick="pickChip(this)" data-k="a_c2">Active motion (2)</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <span class="input-label" data-k="f_resp_a">Respiration</span>
+            <div class="chip-grid">
+                <button class="chip" data-g="ar" data-v="0" onclick="pickChip(this)" data-k="a_r0">Absent (0)</button>
+                <button class="chip" data-g="ar" data-v="1" onclick="pickChip(this)" data-k="a_r1">Weak/irregular (1)</button>
+                <button class="chip" data-g="ar" data-v="2" onclick="pickChip(this)" data-k="a_r2">Strong cry (2)</button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calc_apgar()" data-k="btn">Calculate</button>
+
+        <div id="R" style="margin-top: 30px;"></div>
+
+        <div class="mnem-box">
+            <div class="mnem-title" data-k="mnem_all">Memory Aid — All 3 Languages</div>
+            <div class="mnem-text">
+                🇬🇧 <b>A</b>ppearance · <b>P</b>ulse · <b>G</b>rimace · <b>A</b>ctivity · <b>R</b>espiration<br><br>
+                🇷🇺 <b>В</b>нешний вид · <b>П</b>ульс · <b>Г</b>римаса · <b>А</b>ктивность · <b>Д</b>ыхание<br><br>
+                🇺🇿 <b>R</b>ang · <b>P</b>uls · <b>G</b>rimasa · <b>A</b>ktivlik · <b>N</b>afas
+            </div>
+        </div>
+
     </div>
 
-    <div class="seo-content">
-      <h2>Understanding the APGAR Score</h2>
-      <p>Designed by Dr. Virginia Apgar in 1952, the APGAR score is a rapid method for assessing the clinical status of the newborn infant at 1 minute and 5 minutes after birth. It provides a standardized mechanism to record fetal-to-neonatal transition.</p>
-      
-      <h2>Clinical Interpretations</h2>
-      <ul>
-        <li><strong>7-10:</strong> Normal. The infant is transitioning well. Routine post-delivery care is appropriate.</li>
-        <li><strong>4-6:</strong> Moderately depressed. The infant requires interventions such as stimulation and supplemental oxygen.</li>
-        <li><strong>0-3:</strong> Severely depressed. Immediate, full neonatal resuscitation protocols must be initiated.</li>
-      </ul>
-    </div>
-  </div>
+    <script src="../js/translations.js"></script>
+    <script src="../js/drugs.js"></script>
 
-  <script src="../js/global.js"></script>
-  <script>updateUI();</script>
+    <script src="../js/ui.js"></script>
+
+    <script src="../js/calculator.js"></script> 
+
+    <script src="../js/main.js"></script>
 </body>
 </html>
