@@ -14,16 +14,29 @@ en:{
   
   // --- FOOTER & INFO PAGES (EXPANDED & PROFESSIONAL) ---
   ft_about: 'About Us', ft_contact: 'Contact', ft_disc: 'Disclaimer', ft_terms: 'Terms', ft_privacy: 'Privacy', ft_rights: '© 2026 WardCalc. All rights reserved.',
+  
   nav_about: 'About WardCalc',
   about_p1: 'WardCalc is a comprehensive clinical decision support system developed by Ali Muhammad Sabir, a final year medical student at Bukhara State Medical Institute. Designed to bridge the gap between complex medical literature and fast-paced bedside practice, WardCalc delivers rapid, evidence-based calculation tools to healthcare professionals and medical students globally.',
   about_h2: 'Our Mission',
   about_p2: 'In acute medical settings, time and accuracy are paramount. Our mission is to digitize and simplify internationally validated medical scoring systems into an intuitive, mobile-first interface. By reducing cognitive load, WardCalc empowers clinicians to make safer, faster, and more standardized triage and therapeutic decisions.',
   about_h3: 'Educational Purpose',
   about_p3: 'While all algorithms and logic models within WardCalc are built strictly upon recognized peer-reviewed medical guidelines, the application is designated as an educational and reference tool. It is designed to assist, not replace, formal clinical judgment and institutional protocols.',
-  nav_contact: 'Contact Us', contact_p1: 'We are committed to continuous improvement. If you have clinical feedback, feature suggestions, or have encountered a technical issue, please reach out to our development team.',
-  nav_disc: 'Disclaimer', disc_p1: 'The information provided by WardCalc is for educational and informational purposes only. It does not constitute medical advice. Healthcare providers should exercise their own independent clinical judgment. WardCalc assumes no liability for clinical decisions made based on the outputs of this application.',
-  nav_terms: 'Terms & Conditions', terms_p1: 'By accessing and utilizing WardCalc, you agree to these terms. This platform is provided "as is" without warranty. Users are responsible for verifying the accuracy of calculations before applying them to patient care scenarios.',
-  nav_privacy: 'Privacy Policy', privacy_p1: 'Data security is integral to our architecture. WardCalc operates entirely client-side (within your browser). We do not collect, transmit, or store any Personal Health Information (PHI) or patient-identifiable data.',
+  
+  nav_contact: 'Contact Us', 
+  contact_p1: 'We are committed to continuous improvement. If you have clinical feedback, feature suggestions, or have encountered a technical issue, please reach out to our development team.',
+  contact_p2: 'For support, collaborations, or academic inquiries, please email us directly or submit an issue via our official GitHub repository. We actively review all peer feedback to ensure clinical accuracy.',
+  
+  nav_disc: 'Disclaimer', 
+  disc_p1: 'The information provided by WardCalc is strictly for educational and informational purposes. It does not constitute professional medical advice, diagnosis, or treatment guidelines.',
+  disc_p2: 'Healthcare providers must exercise their own independent clinical judgment. WardCalc and its creator, Ali Muhammad Sabir, assume no liability for clinical decisions made, or actions taken, based on the outputs of this application. Always consult primary literature and institutional protocols.',
+  
+  nav_terms: 'Terms & Conditions', 
+  terms_p1: 'By accessing and utilizing WardCalc, you agree to these Terms and Conditions. This platform is provided on an "as is" and "as available" basis without any warranties, express or implied.',
+  terms_p2: 'Users are entirely responsible for verifying the accuracy of all calculations before applying them to real-world patient care scenarios. Intellectual property rights for the interface and codebase belong to the creator.',
+  
+  nav_privacy: 'Privacy Policy', 
+  privacy_p1: 'Data security and patient confidentiality are integral to our architecture. WardCalc operates entirely client-side, meaning all calculations are performed locally within your browser.',
+  privacy_p2: 'We do not collect, transmit, or store any Personal Health Information (PHI) or patient-identifiable data. Your language preferences are saved locally on your device using standard web storage without external tracking.',
 
   // --- SEVERITY TAGS ---
   sev_lo: 'LOW RISK', sev_md: 'MODERATE RISK', sev_hi: 'HIGH RISK',
@@ -230,16 +243,29 @@ ru:{
   
   // --- FOOTER & INFO PAGES (EXPANDED & PROFESSIONAL) ---
   ft_about: 'О нас', ft_contact: 'Контакты', ft_disc: 'Отказ', ft_terms: 'Условия', ft_privacy: 'Конфиденциальность', ft_rights: '© 2026 WardCalc. Все права защищены.',
+  
   nav_about: 'О проекте WardCalc',
   about_p1: 'WardCalc — это комплексная система поддержки принятия клинических решений, разработанная Али Мухаммадом Сабиром, студентом выпускного курса Бухарского государственного медицинского института. Приложение создано для быстрого предоставления доказательных инструментов медицинским работникам и студентам по всему миру.',
   about_h2: 'Наша миссия',
   about_p2: 'В условиях неотложной медицины время и точность имеют первостепенное значение. Наша миссия — оцифровать признанные международные шкалы в интуитивно понятный интерфейс. Снижая когнитивную нагрузку, WardCalc помогает врачам принимать более безопасные и стандартизированные терапевтические решения.',
   about_h3: 'Образовательная цель',
   about_p3: 'Хотя все алгоритмы WardCalc строго основаны на рецензируемых медицинских руководствах, приложение предназначено исключительно для образовательных и справочных целей. Оно должно помогать, а не заменять клиническое мышление и протоколы учреждений.',
-  nav_contact: 'Свяжитесь с нами', contact_p1: 'Мы стремимся к постоянному улучшению. Если у вас есть клинические отзывы, предложения или вы столкнулись с технической проблемой, пожалуйста, свяжитесь с нашей командой.',
-  nav_disc: 'Отказ от ответственности', disc_p1: 'Информация, предоставляемая WardCalc, предназначена только для образовательных целей и не является медицинской консультацией. Врачи должны полагаться на собственное клиническое суждение. WardCalc не несет ответственности за решения, принятые на основе этого приложения.',
-  nav_terms: 'Условия использования', terms_p1: 'Используя WardCalc, вы соглашаетесь с этими условиями. Платформа предоставляется "как есть" без гарантий. Пользователи несут ответственность за проверку точности расчетов перед применением их в лечении.',
-  nav_privacy: 'Конфиденциальность', privacy_p1: 'Безопасность данных — основа нашей архитектуры. WardCalc работает полностью на стороне клиента (в браузере). Мы не собираем и не храним личные медицинские данные пациентов.',
+  
+  nav_contact: 'Свяжитесь с нами', 
+  contact_p1: 'Мы стремимся к постоянному улучшению. Если у вас есть клинические отзывы, предложения по функциям или вы столкнулись с технической проблемой, пожалуйста, свяжитесь с нашей командой разработчиков.',
+  contact_p2: 'Для технической поддержки, предложений о сотрудничестве или академических вопросов напишите нам напрямую или оставьте сообщение в нашем репозитории GitHub. Мы регулярно проверяем отзывы коллег.',
+  
+  nav_disc: 'Отказ от ответственности', 
+  disc_p1: 'Информация, предоставляемая WardCalc, предназначена исключительно для образовательных и информационных целей. Она не является профессиональной медицинской консультацией, диагнозом или официальным руководством к лечению.',
+  disc_p2: 'Медицинские работники обязаны полагаться на собственное независимое клиническое суждение. WardCalc и его создатель, Али Мухаммад Сабир, не несут никакой ответственности за клинические решения, принятые на основе вычислений этого приложения.',
+  
+  nav_terms: 'Условия использования', 
+  terms_p1: 'Используя WardCalc, вы соглашаетесь с настоящими Условиями. Эта платформа предоставляется «как есть» и «по мере доступности» без каких-либо явных или подразумеваемых гарантий.',
+  terms_p2: 'Пользователи несут полную ответственность за проверку точности всех расчетов перед их применением в реальной клинической практике. Права на интеллектуальную собственность интерфейса и кода принадлежат создателю.',
+  
+  nav_privacy: 'Политика конфиденциальности', 
+  privacy_p1: 'Безопасность данных и врачебная тайна являются основой нашей архитектуры. WardCalc работает полностью на стороне клиента, что означает, что все вычисления выполняются локально в вашем браузере.',
+  privacy_p2: 'Мы не собираем, не передаем и не храним защищенную медицинскую информацию (PHI) или личные данные пациентов. Ваши языковые настройки сохраняются локально на вашем устройстве без внешнего отслеживания.',
 
   // --- SEVERITY TAGS ---
   sev_lo: 'НИЗКИЙ РИСК', sev_md: 'СРЕДНИЙ РИСК', sev_hi: 'ВЫСОКИЙ РИСК',
@@ -446,16 +472,29 @@ uz:{
   
   // --- FOOTER & INFO PAGES (EXPANDED & PROFESSIONAL) ---
   ft_about: 'Biz haqimizda', ft_contact: 'Aloqa', ft_disc: 'Rad etish', ft_terms: 'Shartlar', ft_privacy: 'Maxfiylik', ft_rights: '© 2026 WardCalc. Barcha huquqlar himoyalangan.',
+  
   nav_about: 'WardCalc haqida',
-  about_p1: 'WardCalc - bu Buxoro davlat tibbiyot instituti bitiruvchi talabasi Ali Muhammad Sabir tomonidan ishlab chiqilgan kompleks klinik qarorlarni qabul qilishni qo\'llab-quvvatlash tizimi. Murakkab tibbiy adabiyotlar va tezkor palata amaliyoti o\'rtasidagi tafovutni ko\'prik qilish uchun mo\'ljallangan ushbu dastur tibbiyot xodimlariga tezkor, dalillarga asoslangan hisoblash vositalarini taqdim etadi.',
+  about_p1: 'WardCalc - bu Buxoro davlat tibbiyot instituti bitiruvchi talabasi  Muhammad Sabir Ali tomonidan ishlab chiqilgan kompleks klinik qarorlarni qabul qilishni qo\'llab-quvvatlash tizimi. Murakkab tibbiy adabiyotlar va tezkor palata amaliyoti o\'rtasidagi tafovutni ko\'prik qilish uchun mo\'ljallangan ushbu dastur tibbiyot xodimlariga tezkor, dalillarga asoslangan hisoblash vositalarini taqdim etadi.',
   about_h2: 'Bizning maqsadimiz',
   about_p2: 'Shoshilinch tibbiy sharoitlarda vaqt va aniqlik birinchi o\'rinda turadi. Bizning vazifamiz xalqaro miqyosda tasdiqlangan tibbiy ball tizimlarini intuitiv, mobil qurilmalarga mos interfeysga aylantirishdir. Kognitiv yukni kamaytirish orqali WardCalc shifokorlarga xavfsizroq va standartlashtirilgan qarorlar qabul qilish imkonini beradi.',
   about_h3: 'Ta\'lim maqsadi',
   about_p3: 'WardCalc doirasidagi barcha algoritmlar va mantiqiy modellar qat\'iy ravishda tan olingan tibbiy ko\'rsatmalarga asoslangan bo\'lsa-da, dastur ta\'lim va ma\'lumot vositasi sifatida belgilangan. U rasmiy klinik xulosa va muassasa protokollarini almashtirish uchun emas, balki yordam berish uchun mo\'ljallangan.',
-  nav_contact: 'Aloqa', contact_p1: 'Biz doimiy takomillashtirish tarafdorimiz. Agar sizda klinik mulohazalar, xususiyatlar bo\'yicha takliflar bo\'lsa yoki texnik muammoga duch kelsangiz, iltimos, bizning guruhimiz bilan bog\'laning.',
-  nav_disc: 'Rad etish', disc_p1: 'WardCalc tomonidan taqdim etilgan ma\'lumotlar faqat ta\'lim va ma\'lumot olish maqsadida. U tibbiy maslahat hisoblanmaydi. WardCalc ushbu dastur natijalariga asoslangan klinik qarorlar uchun hech qanday javobgarlikni o\'z zimmasiga olmaydi.',
-  nav_terms: 'Foydalanish shartlari', terms_p1: 'WardCalc-ga kirish va undan foydalanish orqali siz ushbu shartlarga rozilik bildirasiz. Foydalanuvchilar hisob-kitoblar aniqligini bemorni parvarish qilish stsenariylariga qo\'llashdan oldin tekshirish uchun javobgardir.',
-  nav_privacy: 'Maxfiylik siyosati', privacy_p1: 'Ma\'lumotlar xavfsizligi bizning arxitekturamizning ajralmas qismidir. WardCalc to\'liq mijoz tomonida (brauzeringizda) ishlaydi. Biz hech qanday shaxsiy sog\'liqni saqlash ma\'lumotlarini (PHI) yig\'maymiz.',
+  
+  nav_contact: 'Biz bilan aloqa', 
+  contact_p1: 'Biz dasturni doimiy takomillashtirish tarafdorimiz. Agar sizda klinik mulohazalar, yangi xususiyatlar bo\'yicha takliflar bo\'lsa yoki texnik muammoga duch kelsangiz, jamoamiz bilan bog\'laning.',
+  contact_p2: 'Qo\'llab-quvvatlash, hamkorlik yoki akademik savollar uchun bizga to\'g\'ridan-to\'g\'ri elektron pochta orqali yozing yoki GitHub orqali xabar qoldiring. Biz klinik aniqlikni ta\'minlash uchun mutaxassislar fikrini muntazam o\'rganamiz.',
+  
+  nav_disc: 'Rad etish', 
+  disc_p1: 'WardCalc tomonidan taqdim etilgan ma\'lumotlar faqat ta\'lim va ma\'lumot olish maqsadida. U kasbiy tibbiy maslahat, tashxis yoki davolash bo\'yicha rasmiy ko\'rsatma o\'rnini bosmaydi.',
+  disc_p2: 'Tibbiyot xodimlari o\'zlarining mustaqil klinik xulosalariga tayanishlari shart. WardCalc va uning yaratuvchisi Muhammad Sabir Ali ushbu dastur natijalariga asoslangan holda qabul qilingan qarorlar uchun hech qanday javobgarlikni o\'z zimmasiga olmaydi. Har doim birlamchi adabiyotlar va muassasa protokollariga murojaat qiling.',
+  
+  nav_terms: 'Foydalanish shartlari', 
+  terms_p1: 'WardCalc-ga kirish va undan foydalanish orqali siz ushbu shartlarga rozilik bildirasiz. Ushbu platforma hech qanday kafolatsiz "boricha" taqdim etiladi.',
+  terms_p2: 'Foydalanuvchilar hisob-kitoblar aniqligini bemorni parvarish qilish stsenariylariga qo\'llashdan oldin tekshirish uchun to\'liq javobgardir. Interfeys va kod uchun intellektual mulk huquqlari yaratuvchiga tegishli.',
+  
+  nav_privacy: 'Maxfiylik siyosati', 
+  privacy_p1: 'Ma\'lumotlar xavfsizligi va bemor maxfiyligi bizning arxitekturamizning ajralmas qismidir. WardCalc to\'liq mijoz tomonida (brauzeringizda) ishlaydi, ya\'ni barcha hisob-kitoblar lokal ravishda amalga oshiriladi.',
+  privacy_p2: 'Biz hech qanday shaxsiy sog\'liqni saqlash ma\'lumotlarini (PHI) yoki bemorni identifikatsiya qiluvchi ma\'lumotlarni yig\'maymiz, uzatmaymiz va saqlamaymiz. Sizning til afzalliklaringiz tashqi kuzatuvsiz qurilmangizda lokal tarzda saqlanadi.',
 
   // --- SEVERITY TAGS ---
   sev_lo: 'PAST XAVF', sev_md: 'O\'RTACHA XAVF', sev_hi: 'YUQORI XAVF',
@@ -650,5 +689,8 @@ uz:{
 }
 };
 
-let LANG = localStorage.getItem('wardcalc_lang') || 'en';
-const t = k => (T[LANG]||T.en)[k] || T.en[k] || k;
+// Bulletproof Translator: Checks memory directly every single time it runs
+const t = k => {
+  let activeLang = localStorage.getItem('wardcalc_lang') || 'en';
+  return (T[activeLang] || T.en)[k] || T.en[k] || k;
+};
