@@ -3,85 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>WardCalc — Clinical Calculators</title>
+  <title>WardCalc — Clinical Decision Tools</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Premium Home Page Specific Styles */
+    .hero-container { text-align: center; padding: 40px 20px 20px; max-width: 600px; margin: 0 auto; }
+    
+    .student-badge { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(212, 175, 55, 0.05); padding: 8px 18px; border-radius: 50px; font-family: var(--mono); font-size: 10px; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 25px; }
+    .student-badge .dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; box-shadow: 0 0 8px var(--gold); }
+    
+    .hero-h1 { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.1; margin: 0 0 20px 0; font-weight: 700; color: var(--white); }
+    .hero-h1 em { color: var(--gold); font-style: italic; }
+    
+    .hero-desc { color: var(--w60); font-size: 16px; line-height: 1.6; max-width: 90%; margin: 0 auto 35px; }
+    
+    .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 40px; }
+    .stat-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 15px; padding: 18px 10px; text-align: center; }
+    .stat-num { color: var(--gold); font-size: 24px; font-weight: 700; margin-bottom: 5px; }
+    .stat-label { color: var(--w40); font-family: var(--mono); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+
+    .search-wrap { position: relative; margin-bottom: 40px; }
+    .search-wrap span { position: absolute; left: 18px; top: 18px; font-size: 18px; opacity: 0.5; }
+    .search-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 15px; padding: 18px 20px 18px 50px; color: var(--white); font-size: 16px; outline: none; transition: 0.3s; }
+    .search-input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); }
+
+    .section-label { display: flex; align-items: center; gap: 15px; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+    .section-label::after { content: ''; flex-grow: 1; height: 1px; background: var(--border); }
+
+    .tool-card { display: block; background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-decoration: none; margin-bottom: 15px; transition: 0.3s; }
+    .tool-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .tool-tag { display: inline-block; background: rgba(255,255,255,0.05); color: var(--w60); padding: 4px 10px; border-radius: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .tool-title { color: var(--white); font-size: 18px; font-weight: 600; margin: 0 0 5px 0; }
+    .tool-desc { color: var(--w40); font-size: 14px; margin: 0; }
+  </style>
 </head>
 <body>
 
   <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-mesh"></div>
-    <div class="bg-grid"></div>
-    <div class="bg-noise"></div>
-    <div class="orb orb1"></div>
-    <div class="orb orb2"></div>
-    <div class="orb orb3"></div>
+    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
   </div>
 
-  <nav>
-    <a class="logo" href="index.html" aria-label="WardCalc">
-      <div class="logo-mark">
-        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
-          <path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  <nav style="display: flex; justify-content: space-between; padding: 20px; align-items: center; border-bottom: 1px solid var(--border);">
+    <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+      <div style="background: var(--bg2); border: 1px solid var(--border); padding: 8px; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <div>
-        <div class="logo-text">Ward<em>Calc</em></div>
-        <div class="logo-tagline">Clinical Decision Tools</div>
-      </div>
+      <div style="color: var(--white); font-size: 20px; font-weight: bold; font-family: 'Playfair Display', serif;">Ward<em style="color: var(--gold); font-style: italic;">Calc</em></div>
     </a>
-    <div class="lang-sw">
-      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
-      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
+    
+    <div class="lang-sw" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 4px; border-radius: 20px; border: 1px solid var(--border);">
+      <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
+      <button class="lang-btn" onclick="setLang('ru', this)">RU</button>
+      <button class="lang-btn" onclick="setLang('uz', this)">UZ</button>
     </div>
   </nav>
 
-  <div style="padding: 0 28px; max-width: 1100px; margin: 0 auto;">
-    <div class="ad-banner">AdSense Space (Top Banner)</div>
-  </div>
-
-  <section class="hero">
-    <div class="hero-chip">
-      <div class="chip-dot"></div>
-      <span data-k="badge">BUILT BY A MEDICAL STUDENT · FOR MEDICAL STUDENTS</span>
+  <main class="hero-container">
+    
+    <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 40px;">
+        AdSense Space (Top Banner)
     </div>
-    <h1>
-      <span class="solid" data-k="h1a">Clinical Tools</span>
-      <span class="accent" data-k="h1b">for Ward Rounds</span>
+
+    <div class="student-badge">
+        <span class="dot"></span>
+        <span data-k="badge_stu">Built by a medical student · For medical students</span>
+    </div>
+
+    <h1 class="hero-h1">
+        <span data-k="h1_main">Clinical Tools</span><br>
+        <em data-k="h1_sub">for Ward Rounds</em>
     </h1>
-    <p class="hero-sub" data-k="sub">15 evidence-based calculators with mnemonics in 3 languages. Fast, free, mobile-first.</p>
-  </section>
 
-  <main class="main">
-    <div class="grid-header">
-      <span class="grid-label" data-k="all_label">All Calculators</span>
-      <div class="grid-line"></div>
+    <p class="hero-desc" data-k="hero_desc">15 evidence-based calculators with mnemonics in 3 languages. Fast, free, mobile-first — everything you need at the bedside.</p>
+
+    <div class="stat-grid">
+        <div class="stat-box">
+            <div class="stat-num">15</div>
+            <div class="stat-label" data-k="stat_calc">Calculators</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-num">3</div>
+            <div class="stat-label" data-k="stat_lang">Languages</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-num">100%</div>
+            <div class="stat-label" data-k="stat_free">Free</div>
+        </div>
     </div>
-    <div class="calc-grid" id="calcGrid"></div>
+
+    <div class="search-wrap">
+        <span>🔍</span>
+        <input type="text" id="search" class="search-input" placeholder="Search calculators, scores, specialties..." onkeyup="filterTools()">
+    </div>
+
+    <div class="section-label" data-k="all_label">All Calculators</div>
+
+    <div id="toolList" style="text-align: left;">
+        
+        <a href="calculators/gcs.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_neuro">Neurology</span>
+                <span style="font-size: 18px;">🧠</span>
+            </div>
+            <h3 class="tool-title">Glasgow Coma Scale (GCS)</h3>
+            <p class="tool-desc" data-k="d_gcs">Assess consciousness level in any patient.</p>
+        </a>
+
+        <a href="calculators/apgar.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_ped">Pediatrics</span>
+                <span style="font-size: 18px;">👶</span>
+            </div>
+            <h3 class="tool-title">APGAR Score</h3>
+            <p class="tool-desc" data-k="d_apgar">Newborn assessment at 1 and 5 minutes.</p>
+        </a>
+
+        <a href="calculators/bmi.html" class="tool-card">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="tool-tag" data-k="sp_gen">General</span>
+                <span style="font-size: 18px;">⚖️</span>
+            </div>
+            <h3 class="tool-title">BMI Calculator</h3>
+            <p class="tool-desc" data-k="d_bmi">Body Mass Index with WHO classification.</p>
+        </a>
+
+        </div>
+
   </main>
 
-  <footer>
-    <p class="footer-text"><b>WardCalc</b> &nbsp;·&nbsp; <span data-k="footer">Built by a medical student, for medical students</span></p>
-    <div class="footer-links">
-      <a href="about.html" data-k="nav_about">About Us</a>
-      <a href="contact.html" data-k="nav_contact">Contact</a>
-      <a href="privacy.html" data-k="nav_privacy">Privacy Policy</a>
-      <a href="terms.html" data-k="nav_terms">Terms</a>
-      <a href="disclaimer.html" data-k="nav_disc">Disclaimer</a>
-    </div>
-  </footer>
-
   <script src="js/translations.js"></script>
-  <script src="js/drugs.js"></script>
-
   <script src="js/ui.js"></script>
-
-  <script src="js/calculator.js"></script> 
-
   <script src="js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search');
+        if (searchInput) {
+            // Check translation file, default to English if missing
+            const ph = typeof t === 'function' ? t('search_ph') : 'Search calculators, scores, specialties...';
+            searchInput.placeholder = ph !== 'search_ph' ? ph : 'Search calculators, scores, specialties...';
+        }
+    });
+  </script>
 </body>
 </html>
