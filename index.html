@@ -20,22 +20,37 @@
     .stat-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 15px; padding: 18px 10px; text-align: center; }
     .stat-num { color: var(--gold); font-size: 24px; font-weight: 700; margin-bottom: 5px; }
     .stat-label { color: var(--w40); font-family: var(--mono); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+    
+    /* Search Bar */
     .search-wrap { position: relative; margin-bottom: 40px; }
     .search-wrap span { position: absolute; left: 18px; top: 18px; font-size: 18px; opacity: 0.5; }
     .search-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: 15px; padding: 18px 20px 18px 50px; color: var(--white); font-size: 16px; outline: none; transition: 0.3s; }
     .search-input:focus { border-color: var(--gold); box-shadow: 0 0 15px rgba(212, 175, 55, 0.1); }
     .section-label { display: flex; align-items: center; gap: 15px; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
     .section-label::after { content: ''; flex-grow: 1; height: 1px; background: var(--border); }
+    
+    /* Tool Cards Base */
     .tool-card { display: block; background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-decoration: none; margin-bottom: 15px; transition: 0.3s; text-align: left; }
     .tool-card:hover { border-color: var(--gold); transform: translateY(-2px); }
-    .tool-tag { display: inline-block; background: rgba(255,255,255,0.05); color: var(--w60); padding: 4px 10px; border-radius: 8px; font-family: var(--mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
-    .tool-title { color: var(--white); font-size: 18px; font-weight: 600; margin: 0 0 5px 0; }
     .tool-desc { color: var(--w40); font-size: 14px; margin: 0; line-height: 1.4; }
+    
+    /* Footer */
     .footer { margin-top: 50px; padding: 30px 20px; border-top: 1px solid var(--border); text-align: center; }
     .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
     .footer-links a { color: var(--w60); text-decoration: none; font-size: 14px; transition: 0.2s; }
     .footer-links a:hover { color: var(--gold); }
     .footer-copy { color: var(--w40); font-size: 12px; font-family: var(--mono); }
+
+    /* --- PREMIUM TOOL CARDS UPGRADE --- */
+    .tool-title { color: #d4af37 !important; font-weight: 600; margin: 0 0 8px 0; font-family: 'Playfair Display', serif; }
+    .sp-badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-family: var(--mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+    .bg-neuro  { background: rgba(156, 39, 176, 0.15); color: #ce93d8; border: 1px solid rgba(156, 39, 176, 0.4); } 
+    .bg-ped    { background: rgba(255, 152, 0, 0.15);  color: #ffcc80; border: 1px solid rgba(255, 152, 0, 0.4); }  
+    .bg-gen    { background: rgba(158, 158, 158, 0.15); color: #eeeeee; border: 1px solid rgba(158, 158, 158, 0.4); } 
+    .bg-resp   { background: rgba(3, 169, 244, 0.15);  color: #81d4fa; border: 1px solid rgba(3, 169, 244, 0.4); }  
+    .bg-cardio { background: rgba(244, 67, 54, 0.15);  color: #ef9a9a; border: 1px solid rgba(244, 67, 54, 0.4); }  
+    .bg-gastro { background: rgba(76, 175, 80, 0.15);  color: #a5d6a7; border: 1px solid rgba(76, 175, 80, 0.4); }  
+    .bg-id     { background: rgba(0, 150, 136, 0.15);  color: #80cbc4; border: 1px solid rgba(0, 150, 136, 0.4); }  
   </style>
 </head>
 <body>
@@ -95,7 +110,7 @@
 
     <div class="search-wrap">
         <span>🔍</span>
-        <input type="text" id="search" class="search-input" placeholder="Search calculators, scores, specialties..." onkeyup="filterTools()">
+        <input type="text" id="search" class="search-input" data-k="search_ph" placeholder="Search calculators, scores, specialties..." onkeyup="filterTools()">
     </div>
 
     <div class="section-label" data-k="all_label">All Calculators</div>
@@ -103,91 +118,91 @@
     <div id="toolList">
         
         <a href="calculators/gcs.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_neuro">Neurology</span><span style="font-size: 18px;">🧠</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-neuro" data-k="sp_neuro">Neurology</span><span style="font-size: 18px;">🧠</span></div>
             <h3 class="tool-title">Glasgow Coma Scale (GCS)</h3>
             <p class="tool-desc" data-k="d_gcs">Assess consciousness level in any patient.</p>
         </a>
 
         <a href="calculators/apgar.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_ped">Pediatrics</span><span style="font-size: 18px;">👶</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-ped" data-k="sp_ped">Pediatrics</span><span style="font-size: 18px;">👶</span></div>
             <h3 class="tool-title">APGAR Score</h3>
             <p class="tool-desc" data-k="d_apgar">Newborn assessment at 1 and 5 minutes.</p>
         </a>
 
         <a href="calculators/bmi.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_gen">General</span><span style="font-size: 18px;">⚖️</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-gen" data-k="sp_gen">General</span><span style="font-size: 18px;">⚖️</span></div>
             <h3 class="tool-title">BMI Calculator</h3>
             <p class="tool-desc" data-k="d_bmi">Body Mass Index with WHO classification.</p>
         </a>
 
         <a href="calculators/curb65.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_resp">Respiratory</span><span style="font-size: 18px;">🫁</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-resp" data-k="sp_resp">Respiratory</span><span style="font-size: 18px;">🫁</span></div>
             <h3 class="tool-title">CURB-65 Score</h3>
             <p class="tool-desc" data-k="d_curb65">Community-acquired pneumonia mortality risk.</p>
         </a>
 
         <a href="calculators/wellsdvt.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_cardio">Cardiology</span><span style="font-size: 18px;">🩸</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-cardio" data-k="sp_cardio">Cardiology</span><span style="font-size: 18px;">🩸</span></div>
             <h3 class="tool-title">Wells' Criteria for DVT</h3>
             <p class="tool-desc" data-k="d_dvt">Deep vein thrombosis probability.</p>
         </a>
 
         <a href="calculators/wellspe.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_resp">Respiratory</span><span style="font-size: 18px;">🫁</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-resp" data-k="sp_resp">Respiratory</span><span style="font-size: 18px;">🫁</span></div>
             <h3 class="tool-title">Wells' Criteria for PE</h3>
             <p class="tool-desc" data-k="d_pe">Pulmonary embolism probability.</p>
         </a>
 
         <a href="calculators/chads2.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_cardio">Cardiology</span><span style="font-size: 18px;">🫀</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-cardio" data-k="sp_cardio">Cardiology</span><span style="font-size: 18px;">🫀</span></div>
             <h3 class="tool-title">CHA₂DS₂-VASc Score</h3>
             <p class="tool-desc" data-k="d_chads2">Stroke risk in atrial fibrillation.</p>
         </a>
 
         <a href="calculators/childpugh.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_gastro">Gastroenterology</span><span style="font-size: 18px;">🩺</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-gastro" data-k="sp_gastro">Gastroenterology</span><span style="font-size: 18px;">🩺</span></div>
             <h3 class="tool-title">Child-Pugh Score</h3>
             <p class="tool-desc" data-k="d_cp">Cirrhosis mortality risk.</p>
         </a>
 
         <a href="calculators/egfr.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_gen">General</span><span style="font-size: 18px;">💧</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-gen" data-k="sp_gen">General</span><span style="font-size: 18px;">💧</span></div>
             <h3 class="tool-title">eGFR (CKD-EPI)</h3>
             <p class="tool-desc" data-k="d_egfr">Estimated glomerular filtration rate.</p>
         </a>
 
         <a href="calculators/mews.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_gen">General</span><span style="font-size: 18px;">🛏️</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-gen" data-k="sp_gen">General</span><span style="font-size: 18px;">🛏️</span></div>
             <h3 class="tool-title">MEWS</h3>
             <p class="tool-desc" data-k="d_mews">Early warning score for clinical deterioration.</p>
         </a>
 
         <a href="calculators/centor.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_id">Infectious Disease</span><span style="font-size: 18px;">🦠</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-id" data-k="sp_id">Infectious Disease</span><span style="font-size: 18px;">🦠</span></div>
             <h3 class="tool-title">Centor Criteria</h3>
             <p class="tool-desc" data-k="d_centor">Streptococcal pharyngitis probability.</p>
         </a>
 
         <a href="calculators/nihss.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_neuro">Neurology</span><span style="font-size: 18px;">🧠</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-neuro" data-k="sp_neuro">Neurology</span><span style="font-size: 18px;">🧠</span></div>
             <h3 class="tool-title">NIH Stroke Scale</h3>
             <p class="tool-desc" data-k="d_nihss">Stroke severity assessment.</p>
         </a>
 
         <a href="calculators/sofa.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_gen">General</span><span style="font-size: 18px;">📉</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-gen" data-k="sp_gen">General</span><span style="font-size: 18px;">📉</span></div>
             <h3 class="tool-title">SOFA Score</h3>
             <p class="tool-desc" data-k="d_sofa">Sepsis-related organ failure assessment.</p>
         </a>
 
         <a href="calculators/ranson.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_gastro">Gastroenterology</span><span style="font-size: 18px;">🩺</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-gastro" data-k="sp_gastro">Gastroenterology</span><span style="font-size: 18px;">🩺</span></div>
             <h3 class="tool-title">Ranson's Criteria</h3>
             <p class="tool-desc" data-k="d_ranson">Acute pancreatitis mortality risk.</p>
         </a>
 
         <a href="calculators/psi.html" class="tool-card">
-            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="tool-tag" data-k="sp_resp">Respiratory</span><span style="font-size: 18px;">🫁</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center;"><span class="sp-badge bg-resp" data-k="sp_resp">Respiratory</span><span style="font-size: 18px;">🫁</span></div>
             <h3 class="tool-title">PSI / PORT Score</h3>
             <p class="tool-desc" data-k="d_psi">Pneumonia Severity Index (PORT Score).</p>
         </a>
@@ -207,17 +222,7 @@
 
   </main>
 
-  <script src="js/translations.js?v=99"></script>
-  <script src="js/ui.js?v=99"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const searchInput = document.getElementById('search');
-        if (searchInput) {
-            const ph = typeof t === 'function' ? t('search_ph') : 'Search calculators, scores, specialties...';
-            searchInput.placeholder = ph !== 'search_ph' ? ph : 'Search calculators, scores, specialties...';
-        }
-    });
-  </script>
+  <script src="js/translations.js?v=FINAL"></script>
+  <script src="js/ui.js?v=FINAL"></script>
 </body>
 </html>
