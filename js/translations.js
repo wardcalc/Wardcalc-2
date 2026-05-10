@@ -11,6 +11,9 @@ en:{
   tab_i: 'Interpretation', tab_a: 'Action Plan', tab_d: 'First-Line Rx',
   sp_neuro: 'Neurology', sp_ped: 'Pediatrics', sp_gen: 'General', sp_resp: 'Respiratory', sp_cardio: 'Cardiology', sp_gastro: 'Gastroenterology', sp_id: 'Infectious Disease',
   mnem_all: 'Memory Aid — All 3 Languages', yes: 'Yes', no: 'No',
+  
+  // SEVERITY TAGS
+  sev_lo: 'LOW RISK', sev_md: 'MODERATE RISK', sev_hi: 'HIGH RISK',
 
   // --- 1. GCS ---
   d_gcs: 'Assess consciousness level in any patient. The score every doctor demands first on a trauma call.',
@@ -149,6 +152,9 @@ ru:{
   sp_neuro: 'Неврология', sp_ped: 'Педиатрия', sp_gen: 'Общие', sp_resp: 'Пульмонология', sp_cardio: 'Кардиология', sp_gastro: 'Гастроэнтерология', sp_id: 'Инфекционные болезни',
   mnem_all: 'Мнемоника — На 3 языках', yes: 'Да', no: 'Нет',
 
+  // SEVERITY TAGS
+  sev_lo: 'НИЗКИЙ РИСК', sev_md: 'СРЕДНИЙ РИСК', sev_hi: 'ВЫСОКИЙ РИСК',
+
   // --- 1. GCS ---
   d_gcs: 'Оценка уровня сознания. Первый показатель при травмах.',
   f_eye:'Открывание глаз', f_verbal:'Речевой ответ', f_motor:'Двигательный ответ',
@@ -285,6 +291,9 @@ uz:{
   tab_i: 'Talqin', tab_a: 'Harakat Rejasi', tab_d: 'Birinchi Davolash',
   sp_neuro: 'Nevrologiya', sp_ped: 'Pediatriya', sp_gen: 'Umumiy', sp_resp: 'Nafas tizimi', sp_cardio: 'Kardiologiya', sp_gastro: 'Gastroenterologiya', sp_id: 'Yuqumli kasalliklar',
   mnem_all: 'Mnemonika — 3 tilda', yes: 'Ha', no: 'Yo\'q',
+  
+  // SEVERITY TAGS
+  sev_lo: 'PAST XAVF', sev_md: 'O\'RTACHA XAVF', sev_hi: 'YUQORI XAVF',
 
   // --- 1. GCS ---
   d_gcs: 'Ong darajasini baholash. Jarohatda birinchi talab qilinadigan ko\'rsatkich.',
