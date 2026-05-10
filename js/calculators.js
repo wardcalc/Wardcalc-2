@@ -1,6 +1,6 @@
-/* ── WARDCALC: MULTILINGUAL CALCULATION LOGIC ── */
+/* ── WARDCALC: MASTER CALCULATION ENGINE (15 TOOLS) ── */
 
-// 1. GLASGOW COMA SCALE (GCS)
+// 1. GLASGOW COMA SCALE
 function calc_gcs(){
   const e = gv('ge'), v = gv('gv'), m = gv('gm');
   if(e === null || v === null || m === null){ alertMsg(); return; }
