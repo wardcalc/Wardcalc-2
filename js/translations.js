@@ -165,7 +165,18 @@ en:{
   r_psi_1:'Class I — Very low risk (< 0.1% mortality)', r_psi_2:'Class II — Low risk (~0.6% mortality)', r_psi_3:'Class III — Low-moderate risk (~2.8% mortality)', r_psi_4:'Class IV — Moderate-high risk (~8.2% mortality)', r_psi_5:'Class V — High risk (~29% mortality)',
   r_psi_1_1:'Outpatient treatment appropriate.', r_psi_1_2:'Amoxicillin 500mg TDS × 5 days.', r_psi_2_1:'Outpatient appropriate for most.', r_psi_2_2:'Same oral antibiotics as Class I.', r_psi_3_1:'Brief admission or 24h observation.', r_psi_3_2:'IV antibiotics if not tolerating oral.', r_psi_4_1:'Hospital admission required.', r_psi_4_2:'Dual IV antibiotics.', r_psi_5_1:'⚠ Admit. ICU/HDU if severe features.', r_psi_5_2:'Full pneumonia care bundle.',
   
-  // NOTE: Paste your translated nihss_info_title strings here (from our earlier fix) for the NIHSS modal!
+  gcs_info_title: 'Understanding the GCS',
+  gcs_info_p1: 'The Glasgow Coma Scale provides a standardized method to assess impairment of conscious level. It is used globally in emergency departments and ICUs, especially for patients with head injuries.',
+  gcs_info_p2: 'Clinical Threshold: A score of 8 or less is generally considered the threshold where a patient can no longer protect their own airway and requires intubation.',
+  
+  nihss_info_title: "NIH Stroke Scale (NIHSS) Information",
+  nihss_info_p1: "The NIHSS is a 15-item neurologic examination stroke scale used to evaluate the effect of acute cerebral infarction on the levels of consciousness, language, neglect, visual-field loss, extraocular movement, motor strength, ataxia, dysarthria, and sensory loss.",
+  nihss_info_subtitle: "Score Interpretation",
+  nihss_info_b1: "0 = No stroke symptoms",
+  nihss_info_b2: "1-4 = Minor stroke",
+  nihss_info_b3: "5-15 = Moderate stroke",
+  nihss_info_b4: "16-20 = Moderate to Severe stroke",
+  nihss_info_b5: "21-42 = Severe stroke"
 },
 
 ru:{
@@ -315,6 +326,19 @@ ru:{
   r_ranson_hi:'Тяжёлый панкреатит (летальность > 50% при балле > 6)', r_ranson_hi_1:"⚠ Госпитализация в ОРИТ. Агрессивная инфузия раствора Хартмана 500 мл/ч.", r_ranson_hi_2:'Консультация гепатобилиарного хирурга. Инфицированный некроз → вмешательство.', r_ranson_hi_3:'Артериальная линия, ЦВК, почасовой контроль водного баланса.',
   r_psi_1:'Класс I — Очень низкий риск (летальность < 0,1%)', r_psi_2:'Класс II — Низкий риск (летальность ~0,6%)', r_psi_3:'Класс III — Умеренный риск (летальность ~2,8%)', r_psi_4:'Класс IV — Умеренно-высокий риск (летальность ~8,2%)', r_psi_5:'Класс V — Высокий риск (летальность ~29%)',
   r_psi_1_1:'Амбулаторное лечение.', r_psi_1_2:'Амоксициллин 500 мг 3 р/сут × 5 дней.', r_psi_2_1:'Амбулаторно для большинства.', r_psi_2_2:'Те же пероральные антибиотики, что и при классе I.', r_psi_3_1:'Краткая госпитализация или наблюдение 24 часа.', r_psi_3_2:'Внутривенные антибиотики при невозможности перорального приёма.', r_psi_4_1:'Госпитализация обязательна.', r_psi_4_2:'Двойная внутривенная антибактериальная терапия.', r_psi_5_1:'⚠ Госпитализация. ОРИТ/ПМСН при тяжёлых признаках.', r_psi_5_2:'Полный протокол ведения пневмонии.',
+  
+  gcs_info_title: 'Понимание шкалы Глазго (ШКГ)',
+  gcs_info_p1: 'Шкала ком Глазго представляет собой стандартизированный метод оценки нарушения уровня сознания. Она используется во всем мире в отделениях неотложной помощи и ОРИТ, особенно у пациентов с травмами головы.',
+  gcs_info_p2: 'Клинический порог: балл 8 или меньше обычно считается порогом, при котором пациент больше не может защитить свои дыхательные пути и требует интубации.',
+
+  nihss_info_title: "Информация о Шкале Инсульта NIH (NIHSS)",
+  nihss_info_p1: "NIHSS — это шкала неврологического обследования из 15 пунктов, используемая для оценки влияния острого инфаркта мозга на уровень сознания, речь, игнорирование, выпадение полей зрения, экстраокулярные движения, мышечную силу, атаксию, дизартрию и потерю чувствительности.",
+  nihss_info_subtitle: "Интерпретация Баллов",
+  nihss_info_b1: "0 = Нет симптомов инсульта",
+  nihss_info_b2: "1-4 = Легкий инсульт",
+  nihss_info_b3: "5-15 = Инсульт средней тяжести",
+  nihss_info_b4: "16-20 = Инсульт от средней до тяжелой степени",
+  nihss_info_b5: "21-42 = Тяжелый инсульт"
 },
 
 uz:{
@@ -463,8 +487,21 @@ uz:{
   r_ranson_hi:"Og'ir pankreatit (ball > 6 da o'lim > 50%)", r_ranson_hi_1:"⚠ ORIT ga yotqizish. Agressiv Hartman eritmasi 500 mL/soat.", r_ranson_hi_2:"Gepatobiliaria jarrohi yo'llanmasi. Infitsiyalangan nekroz → aralashuv.", r_ranson_hi_3:"Arterial liniya, MVO, soatlik suyuqlik balansi.",
   r_psi_1:'I sinf — Juda past xavf (o\'lim < 0,1%)', r_psi_2:'II sinf — Past xavf (o\'lim ~0,6%)', r_psi_3:'III sinf — O\'rtacha xavf (o\'lim ~2,8%)', r_psi_4:'IV sinf — O\'rtacha-yuqori xavf (o\'lim ~8,2%)', r_psi_5:'V sinf — Yuqori xavf (o\'lim ~29%)',
   r_psi_1_1:'Ambulatoriya davolash mos.', r_psi_1_2:'Amoksitsillin 500 mg 3 marta/kun × 5 kun.', r_psi_2_1:'Ko\'pchilik uchun ambulatoriya mos.', r_psi_2_2:'I sinfdagi kabi og\'iz orqali antibiotiklar.', r_psi_3_1:'Qisqa muddatli kasalxona yoki 24 soat kuzatuv.', r_psi_3_2:'Og\'iz orqali qabul qilib bo\'lmasa IV antibiotiklar.', r_psi_4_1:'Kasalxonaga yotqizish majburiy.', r_psi_4_2:'Ikki tomonlama IV antibiotik terapiyasi.', r_psi_5_1:'⚠ Kasalxona. Og\'ir belgilar bo\'lsa ORIT/PMSP.', r_psi_5_2:'To\'liq pnevmoniya parvarish protokoli.',
+  
+  gcs_info_title: 'Glazgo shkalasini (GCS) tushunish',
+  gcs_info_p1: 'Glazgo koma shkalasi ong darajasining buzilishini baholash uchun standartlashtirilgan usulni taqdim etadi. U butun dunyo bo\'ylab shoshilinch yordam bo\'limlari va reanimatsiya bo\'limlarida, ayniqsa bosh jarohati bo\'lgan bemorlar uchun qo\'llaniladi.',
+  gcs_info_p2: 'Klinik chegara: 8 yoki undan past ball odatda bemor o\'z nafas yo\'llarini himoya qila olmaydigan va intubatsiyani talab qiladigan chegara hisoblanadi.',
+
+  nihss_info_title: "NIH Insult Shkalasi (NIHSS) Ma'lumotlari",
+  nihss_info_p1: "NIHSS - bu o'tkir miya infarktining ong darajasi, til, e'tiborsizlik, ko'rish maydonining yo'qolishi, ko'zning harakati, vosita kuchi, ataksiya, dizartriya va sezgi yo'qolishiga ta'sirini baholash uchun ishlatiladigan 15 banddan iborat nevrologik tekshiruv shkalasi.",
+  nihss_info_subtitle: "Natijalarni Talqin Qilish",
+  nihss_info_b1: "0 = Insult belgilari yo'q",
+  nihss_info_b2: "1-4 = Yengil insult",
+  nihss_info_b3: "5-15 = O'rtacha insult",
+  nihss_info_b4: "16-20 = O'rtachadan og'irgacha insult",
+  nihss_info_b5: "21-42 = Og'ir insult"
 }
 };
 
-let LANG = 'en';
+let LANG = localStorage.getItem('wardcalc_lang') || 'en';
 const t = k => (T[LANG]||T.en)[k] || T.en[k] || k;
