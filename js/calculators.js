@@ -1,117 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Glasgow Coma Scale — WardCalc</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
+/* ── CALCULATION LOGIC FOR ALL 15 TOOLS ── */
 
-  <div class="bg-wrap" aria-hidden="true">
-    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
-    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
-  </div>
+function calc_gcs(){
+  try {
+      const e=gv('ge'),v=gv('gv'),m=gv('gm');
+      if(e===null||v===null||m===null){
+          alertMsg();
+          return;
+      }
+      const s=e+v+m;
+      if(s>=13) showResult(s,'/15','lo',t('r_gcs_mild'), S(1,t('r_gcs_mild_1'))+S(2,t('r_gcs_mild_2'))+S(3,t('r_gcs_mild_3')), RX.thiamine()+RX.dex());
+      else if(s>=9) showResult(s,'/15','md',t('r_gcs_mod'), S(1,t('r_gcs_mod_1'))+S(2,t('r_gcs_mod_2'))+S(3,t('r_gcs_mod_3'))+S(4,t('r_gcs_mod_4')), RX.manni()+RX.leve2());
+      else showResult(s,'/15','hi',t('r_gcs_sev'), S(1,t('r_gcs_sev_1'))+S(2,t('r_gcs_sev_2'))+S(3,t('r_gcs_sev_3'))+S(4,t('r_gcs_sev_4')), RX.ketam()+RX.suxam());
+      
+      document.getElementById('R').style.display = 'block';
+  } catch (err) {
+      console.error(err);
+  }
+}
 
-  <nav>
-    <a class="logo" href="../index.html">
-      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="logo-text">Ward<em>Calc</em></div></div>
-    </a>
-    <div class="lang-sw">
-      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
-      <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
-      <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
-    </div>
-  </nav>
+function calc_apgar(){
+  const ks=['aa','ap','ag','ac','ar'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s>=7) showResult(s,'/10','lo',t('r_apgar_norm'), S(1,t('r_apgar_norm_1'))+S(2,t('r_apgar_norm_2'))+S(3,t('r_apgar_norm_3')), RX.vitk()+RX.dex());
+  else if(s>=4) showResult(s,'/10','md',t('r_apgar_mod'), S(1,t('r_apgar_mod_1'))+S(2,t('r_apgar_mod_2'))+S(3,t('r_apgar_mod_3'))+S(4,t('r_apgar_mod_4')), RX.o2()+RX.glucose10());
+  else showResult(s,'/10','hi',t('r_apgar_crit'), S(1,t('r_apgar_crit_1'))+S(2,t('r_apgar_crit_2'))+S(3,t('r_apgar_crit_3'))+S(4,t('r_apgar_crit_4')), RX.adren_ap()+RX.bicarb());
+}
 
-  <main class="main" style="padding-top: 20px;">
-    
-    <div style="max-width: 600px; margin: 0 auto 20px;">
-        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
-            AdSense Space (Top Banner)
-        </div>
-    </div>
+function calc_dvt(){
+  const ks=['d1','d2','d3','d4','d5','d6','d7','d8','d9'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s>=3) showResult(s,'pts','hi',t('r_dvt_hi'), S(1,t('r_dvt_hi_1'))+S(2,t('r_dvt_hi_2'))+S(3,t('r_dvt_hi_3')), RX.apix_dvt()+RX.riva_dvt());
+  else if(s>=1) showResult(s,'pts','md',t('r_dvt_md'), S(1,t('r_dvt_md_1'))+S(2,t('r_dvt_md_2')), D('Anticoagulation only if USS confirms DVT',''));
+  else showResult(s,'pts','lo',t('r_dvt_lo'), S(1,t('r_dvt_lo_1'))+S(2,t('r_dvt_lo_2')), D('No empirical anticoagulation',''));
+}
 
-    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
-        
-        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
+function calc_pe(){
+  const ks=['p1','p2','p3','p4','p5','p6','p7'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s>4) showResult(s,'pts','hi',t('r_pe_hi'), S(1,t('r_pe_hi_1'))+S(2,t('r_pe_hi_2'))+S(3,t('r_pe_hi_3')), RX.apix_pe()+RX.altep_pe());
+  else if(s>=2) showResult(s,'pts','md',t('r_pe_md'), S(1,t('r_pe_md_1'))+S(2,t('r_pe_md_2')), RX.riva_dvt()+RX.enox());
+  else showResult(s,'pts','lo',t('r_pe_lo'), S(1,t('r_pe_lo_1'))+S(2,t('r_pe_lo_2')), D('No empirical anticoagulation',''));
+}
 
-        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_neuro">Neurology</div>
+function calc_curb65(){
+  const ks=['c1','c2','c3','c4','c5'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s<=1) showResult(s,'/5','lo',t('r_curb_lo'), S(1,t('r_curb_lo_1'))+S(2,t('r_curb_lo_2'))+S(3,t('r_curb_lo_3')), RX.amox_curb());
+  else if(s===2) showResult(s,'/5','md',t('r_curb_md'), S(1,t('r_curb_md_1'))+S(2,t('r_curb_md_2'))+S(3,t('r_curb_md_3')), RX.coamox());
+  else showResult(s,'/5','hi',t('r_curb_hi'), S(1,t('r_curb_hi_1'))+S(2,t('r_curb_hi_2'))+S(3,t('r_curb_hi_3')), RX.coamoxlev()+RX.pip_taz());
+}
 
-        <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 30px; font-family: 'Playfair Display', serif;">Glasgow Coma Scale</h1>
+function calc_chads2(){
+  const ks=['h1','h2','h3','h4','h5','h6','h7','h8'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s===0) showResult(s,'/9','lo',t('r_chads_lo'), S(1,t('r_chads_lo_1'))+S(2,t('r_chads_lo_2')), RX.aspirin_af());
+  else if(s<=1) showResult(s,'/9','md',t('r_chads_md'), S(1,t('r_chads_md_1'))+S(2,t('r_chads_md_2')), RX.apix_af()+RX.riva_af());
+  else showResult(s,'/9','hi',t('r_chads_hi'), S(1,t('r_chads_hi_1'))+S(2,t('r_chads_hi_2'))+S(3,t('r_chads_hi_3')), RX.apix_af()+RX.riva_af());
+}
 
-        <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_eye">Eye Opening</label>
-            <div class="chip-row">
-                <button class="chip" data-g="ge" data-v="4" onclick="pickChip(this)" data-k="g_e4"></button>
-                <button class="chip" data-g="ge" data-v="3" onclick="pickChip(this)" data-k="g_e3"></button>
-                <button class="chip" data-g="ge" data-v="2" onclick="pickChip(this)" data-k="g_e2"></button>
-                <button class="chip" data-g="ge" data-v="1" onclick="pickChip(this)" data-k="g_e1"></button>
-            </div>
-        </div>
+function calc_childpugh(){
+  const ks=['cb','ca','cp','casc','ce'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  const cls=s<=6?'A':s<=9?'B':'C';
+  const sev=s<=6?'lo':s<=9?'md':'hi';
+  showResult(s,`(Class ${cls})`,sev,t(s<=6?'r_cp_a':s<=9?'r_cp_b':'r_cp_c'), s<=6?S(1,t('r_cp_a_1'))+S(2,t('r_cp_a_2')):s<=9?S(1,t('r_cp_b_1'))+S(2,t('r_cp_b_2')):S(1,t('r_cp_c_1'))+S(2,t('r_cp_c_2')), s<=6?RX.prop():s<=9?RX.spiro()+RX.lact():RX.norflo()+RX.terlip());
+}
 
-        <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_verbal">Verbal Response</label>
-            <div class="chip-row">
-                <button class="chip" data-g="gv" data-v="5" onclick="pickChip(this)" data-k="g_v5"></button>
-                <button class="chip" data-g="gv" data-v="4" onclick="pickChip(this)" data-k="g_v4"></button>
-                <button class="chip" data-g="gv" data-v="3" onclick="pickChip(this)" data-k="g_v3"></button>
-                <button class="chip" data-g="gv" data-v="2" onclick="pickChip(this)" data-k="g_v2"></button>
-                <button class="chip" data-g="gv" data-v="1" onclick="pickChip(this)" data-k="g_v1"></button>
-            </div>
-        </div>
+function calc_bmi(){
+  const w=parseFloat(document.getElementById('bw').value);
+  const h=parseFloat(document.getElementById('bh').value)/100;
+  if(!w||!h||isNaN(w)||isNaN(h)){alertMsg();return;}
+  const b=(w/(h*h)).toFixed(1);
+  if(b<18.5) showResult(b,'kg/m²','md',t('r_bmi_under'), S(1,t('r_bmi_under_1'))+S(2,t('r_bmi_under_2')), RX.hicalnor()+RX.thiamine());
+  else if(b<25) showResult(b,'kg/m²','lo',t('r_bmi_norm'), S(1,t('r_bmi_norm_1')), D('No pharmacological intervention',''));
+  else if(b<30) showResult(b,'kg/m²','md',t('r_bmi_over'), S(1,t('r_bmi_over_1'))+S(2,t('r_bmi_over_2')), D('No medication at this BMI',''));
+  else if(b<35) showResult(b,'kg/m²','hi',t('r_bmi_ob1'), S(1,t('r_bmi_ob1_1'))+S(2,t('r_bmi_ob1_2')), RX.sema()+RX.orli());
+  else showResult(b,'kg/m²','hi',t('r_bmi_ob2'), S(1,t('r_bmi_ob2_1'))+S(2,t('r_bmi_ob2_2')), RX.sema()+RX.bariatric());
+}
 
-        <div class="input-group" style="margin-bottom: 30px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_motor">Motor Response</label>
-            <div class="chip-row">
-                <button class="chip" data-g="gm" data-v="6" onclick="pickChip(this)" data-k="g_m6"></button>
-                <button class="chip" data-g="gm" data-v="5" onclick="pickChip(this)" data-k="g_m5"></button>
-                <button class="chip" data-g="gm" data-v="4" onclick="pickChip(this)" data-k="g_m4"></button>
-                <button class="chip" data-g="gm" data-v="3" onclick="pickChip(this)" data-k="g_m3"></button>
-                <button class="chip" data-g="gm" data-v="2" onclick="pickChip(this)" data-k="g_m2"></button>
-                <button class="chip" data-g="gm" data-v="1" onclick="pickChip(this)" data-k="g_m1"></button>
-            </div>
-        </div>
+function calc_egfr(){
+  const cr=parseFloat(document.getElementById('ecr').value);
+  const age=parseFloat(document.getElementById('eage').value);
+  const sx=document.querySelector('[data-g="esex"].on');
+  if(!cr||!age||!sx){alertMsg();return;}
+  const sex=sx.dataset.v;
+  const crMg=cr/88.4,kappa=sex==='F'?0.7:0.9,alpha=sex==='F'?-0.241:-0.302,sf=sex==='F'?1.012:1;
+  const eg=Math.round(142*Math.pow(Math.min(crMg/kappa,1),alpha)*Math.pow(Math.max(crMg/kappa,1),-1.200)*Math.pow(0.9938,age)*sf);
+  if(eg>=90) showResult(eg,'mL/min','lo',t('r_egfr_g1'), S(1,t('r_egfr_g1_1'))+S(2,t('r_egfr_g1_2')), RX.acei()+RX.sglt2());
+  else if(eg>=60) showResult(eg,'mL/min','lo',t('r_egfr_g2'), S(1,t('r_egfr_g2_1'))+S(2,t('r_egfr_g2_2')), RX.acei());
+  else if(eg>=45) showResult(eg,'mL/min','md',t('r_egfr_g3a'), S(1,t('r_egfr_g3a_1'))+S(2,t('r_egfr_g3a_2')), RX.sglt2());
+  else if(eg>=30) showResult(eg,'mL/min','md',t('r_egfr_g3b'), S(1,t('r_egfr_g3b_1'))+S(2,t('r_egfr_g3b_2')), RX.stopmeta()+RX.esa());
+  else if(eg>=15) showResult(eg,'mL/min','hi',t('r_egfr_g4'), S(1,t('r_egfr_g4_1'))+S(2,t('r_egfr_g4_2')), RX.phosbind()+RX.alfacal());
+  else showResult(eg,'mL/min','hi',t('r_egfr_g5'), S(1,t('r_egfr_g5_1'))+S(2,t('r_egfr_g5_2')), D('Haemodialysis / Peritoneal Dialysis',''));
+}
 
-        <button class="calc-btn" onclick="calc_gcs()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 10px; cursor: pointer; transition: 0.2s;">Calculate</button>
+function calc_mews(){
+  const ks=['mrr','mbp','mhr','mtemp','mavpu'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s<=2) showResult(s,'/14','lo',t('r_mews_lo'), S(1,t('r_mews_lo_1'))+S(2,t('r_mews_lo_2')), D('No specific pharmacological intervention',''));
+  else if(s<=4) showResult(s,'/14','md',t('r_mews_md'), S(1,t('r_mews_md_1'))+S(2,t('r_mews_md_2'))+S(3,t('r_mews_md_3')), RX.iv_fluid()+RX.o2());
+  else showResult(s,'/14','hi',t('r_mews_hi'), S(1,t('r_mews_hi_1'))+S(2,t('r_mews_hi_2'))+S(3,t('r_mews_hi_3')), RX.iv_fluid()+RX.nora());
+}
 
-        <div id="R" style="margin-top: 20px; display: block;"></div>
+function calc_centor(){
+  const ks=['cen1','cen2','cen3','cen4','cenage'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s<=1) showResult(s,'/5','lo',t('r_centor_lo'), S(1,t('r_centor_lo_1'))+S(2,t('r_centor_lo_2')), RX.noab()+RX.paracib());
+  else if(s<=3) showResult(s,'/5','md',t('r_centor_md'), S(1,t('r_centor_md_1'))+S(2,t('r_centor_md_2')), D('Antibiotics only if Strep A confirmed',''));
+  else showResult(s,'/5','hi',t('r_centor_hi'), S(1,t('r_centor_hi_1'))+S(2,t('r_centor_hi_2')), RX.penV()+RX.clari_strep());
+}
 
-        <div style="margin-top: 30px;">
-            <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
-                AdSense Space (Below Results)
-            </div>
-        </div>
-    </div>
+function calc_nihss(){
+  const s=parseInt(document.getElementById('nihss_s').value);
+  if(isNaN(s)||s<0||s>42){alertMsg();return;}
+  if(s===0) showResult(s,'/42','lo',t('r_nihss_none'), S(1,t('r_nihss_none_1'))+S(2,t('r_nihss_none_2')), RX.aspirin_tia());
+  else if(s<=4) showResult(s,'/42','lo',t('r_nihss_minor'), S(1,t('r_nihss_minor_1'))+S(2,t('r_nihss_minor_2'))+S(3,t('r_nihss_minor_3')), RX.altep_str()+RX.aspirin_tia());
+  else if(s<=15) showResult(s,'/42','md',t('r_nihss_mod'), S(1,t('r_nihss_mod_1'))+S(2,t('r_nihss_mod_2'))+S(3,t('r_nihss_mod_3')), RX.altep_str()+RX.thrombect());
+  else if(s<=20) showResult(s,'/42','hi',t('r_nihss_modsev'), S(1,t('r_nihss_modsev_1'))+S(2,t('r_nihss_modsev_2'))+S(3,t('r_nihss_modsev_3')), RX.thrombect());
+  else showResult(s,'/42','hi',t('r_nihss_sev'), S(1,t('r_nihss_sev_1'))+S(2,t('r_nihss_sev_2'))+S(3,t('r_nihss_sev_3')), RX.thrombect()+RX.leve());
+}
 
-    <div style="max-width: 600px; margin: 20px auto 50px;">
-        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all">MNEMONIKA — 3 TILDA</div>
-            <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
-                🇬🇧 Eyes · Verbal · Motor = "EVM"<br>
-                🇷🇺 Глаза · Речь · Движение = ШКГ — "ГРД"<br>
-                🇺🇿 Ko'z · Nutq · Harakat = GCS — "KNH"
-            </div>
-        </div>
+function calc_sofa(){
+  const ks=['sr','sc','sl','scv','sn','sk'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s<=6) showResult(s,'/24','lo',t('r_sofa_lo'), S(1,t('r_sofa_lo_1'))+S(2,t('r_sofa_lo_2'))+S(3,t('r_sofa_lo_3')), RX.pip_sep()+RX.iv_fluid());
+  else if(s<=12) showResult(s,'/24','md',t('r_sofa_md'), S(1,t('r_sofa_md_1'))+S(2,t('r_sofa_md_2'))+S(3,t('r_sofa_md_3')), RX.nora()+RX.hc());
+  else showResult(s,'/24','hi',t('r_sofa_hi'), S(1,t('r_sofa_hi_1'))+S(2,t('r_sofa_hi_2'))+S(3,t('r_sofa_hi_3')), RX.vaso()+RX.crrt());
+}
 
-        <div style="padding: 25px; background: var(--bg2); border-radius: 15px;">
-            <h3 data-k="gcs_info_title" style="color: var(--white); margin-bottom: 15px; font-size: 18px; font-weight: 500;"></h3>
-            <p data-k="gcs_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            <p data-k="gcs_info_p3" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            <p data-k="gcs_info_p4" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            <p style="color: var(--w80); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;"><b><span data-k="gcs_info_p2"></span></b></p>
-        </div>
-    </div>
+function calc_ranson(){
+  const ks=['rn1','rn2','rn3','rn4','rn5','rn6','rn7','rn8','rn9','rn10'];
+  if(!allSet(ks)){alertMsg();return;}
+  const s=ks.reduce((a,k)=>a+gv(k),0);
+  if(s<=2) showResult(s,'/11','lo',t('r_ranson_lo'), S(1,t('r_ranson_lo_1'))+S(2,t('r_ranson_lo_2'))+S(3,t('r_ranson_lo_3')), RX.hart()+RX.morph());
+  else if(s<=4) showResult(s,'/11','md',t('r_ranson_md'), S(1,t('r_ranson_md_1'))+S(2,t('r_ranson_md_2'))+S(3,t('r_ranson_md_3')), D("Hartmann's solution preferred", '')+RX.nnj());
+  else showResult(s,'/11','hi',t('r_ranson_hi'), S(1,t('r_ranson_hi_1'))+S(2,t('r_ranson_hi_2'))+S(3,t('r_ranson_hi_3')), RX.mero()+RX.pn());
+}
 
-  </main>
-
-  <script src="../js/translations.js?v=999"></script>
-  <script src="../js/drugs.js?v=999"></script>
-  <script src="../js/ui.js?v=999"></script>
-  <script src="../js/calculators.js?v=999"></script> <script src="../js/main.js?v=999"></script>
-
-</body>
-</html>
+function calc_psi(){
+  const age = parseFloat(document.getElementById('psi_age').value);
+  const sex = gv('psi_sex'); 
+  const ks = ['psi_nh','psi_neo','psi_liv','psi_chf','psi_cvd','psi_ren','psi_ams','psi_rr','psi_sbp','psi_temp','psi_pulse','psi_ph','psi_bun','psi_na','psi_gluc','psi_hct','psi_pao2','psi_eff'];
+  if(isNaN(age) || sex===null) { alertMsg(); return; }
+  let score = age + sex;
+  ks.forEach(k => { score += (gv(k) || 0); });
+  let cls = score <= 50 ? 1 : score <= 70 ? 2 : score <= 90 ? 3 : score <= 130 ? 4 : 5;
+  const map = {
+    1:['lo','r_psi_1','r_psi_1_1','r_psi_1_2', ()=>RX.amox_curb()],
+    2:['lo','r_psi_2','r_psi_2_1','r_psi_2_2', ()=>RX.amox_curb()],
+    3:['md','r_psi_3','r_psi_3_1','r_psi_3_2', ()=>D('IV Co-amoxiclav','Switch oral at 24–48h if improving')],
+    4:['hi','r_psi_4','r_psi_4_1','r_psi_4_2', ()=>RX.coamoxlev()],
+    5:['hi','r_psi_5','r_psi_5_1','r_psi_5_2', ()=>RX.coamoxlev()+RX.levo_psi()]
+  };
+  const [sev,ik,a1k,a2k, dFn] = map[cls];
+  showResult(['Class I','Class II','Class III','Class IV','Class V'][cls-1], '(' + score + ' pts)', sev, t(ik), S(1,t(a1k))+S(2,t(a2k)), dFn());
+}
