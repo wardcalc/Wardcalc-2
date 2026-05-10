@@ -12,8 +12,12 @@ en:{
   sp_neuro: 'Neurology', sp_ped: 'Pediatrics', sp_gen: 'General', sp_resp: 'Respiratory', sp_cardio: 'Cardiology', sp_gastro: 'Gastroenterology', sp_id: 'Infectious Disease',
   mnem_all: 'Memory Aid — All 3 Languages', yes: 'Yes', no: 'No',
   
-  // SEVERITY TAGS
+  // --- FOOTER ---
+  ft_about: 'About Us', ft_contact: 'Contact', ft_disc: 'Disclaimer', ft_rights: '© 2026 WardCalc. All rights reserved.',
+  
+  // --- SEVERITY TAGS (BOTH CASES) ---
   sev_lo: 'LOW RISK', sev_md: 'MODERATE RISK', sev_hi: 'HIGH RISK',
+  SEV_LO: 'LOW RISK', SEV_MD: 'MODERATE RISK', SEV_HI: 'HIGH RISK',
 
   // --- 1. GCS ---
   d_gcs: 'Assess consciousness level in any patient. The score every doctor demands first on a trauma call.',
@@ -151,9 +155,13 @@ ru:{
   tab_i: 'Интерпретация', tab_a: 'План действий', tab_d: 'Лечение',
   sp_neuro: 'Неврология', sp_ped: 'Педиатрия', sp_gen: 'Общие', sp_resp: 'Пульмонология', sp_cardio: 'Кардиология', sp_gastro: 'Гастроэнтерология', sp_id: 'Инфекционные болезни',
   mnem_all: 'Мнемоника — На 3 языках', yes: 'Да', no: 'Нет',
+  
+  // --- FOOTER ---
+  ft_about: 'О нас', ft_contact: 'Контакты', ft_disc: 'Отказ от ответственности', ft_rights: '© 2026 WardCalc. Все права защищены.',
 
-  // SEVERITY TAGS
+  // --- SEVERITY TAGS (BOTH CASES) ---
   sev_lo: 'НИЗКИЙ РИСК', sev_md: 'СРЕДНИЙ РИСК', sev_hi: 'ВЫСОКИЙ РИСК',
+  SEV_LO: 'НИЗКИЙ РИСК', SEV_MD: 'СРЕДНИЙ РИСК', SEV_HI: 'ВЫСОКИЙ РИСК',
 
   // --- 1. GCS ---
   d_gcs: 'Оценка уровня сознания. Первый показатель при травмах.',
@@ -292,8 +300,12 @@ uz:{
   sp_neuro: 'Nevrologiya', sp_ped: 'Pediatriya', sp_gen: 'Umumiy', sp_resp: 'Nafas tizimi', sp_cardio: 'Kardiologiya', sp_gastro: 'Gastroenterologiya', sp_id: 'Yuqumli kasalliklar',
   mnem_all: 'Mnemonika — 3 tilda', yes: 'Ha', no: 'Yo\'q',
   
-  // SEVERITY TAGS
+  // --- FOOTER ---
+  ft_about: 'Biz haqimizda', ft_contact: 'Aloqa', ft_disc: 'Rad etish', ft_rights: '© 2026 WardCalc. Barcha huquqlar himoyalangan.',
+
+  // --- SEVERITY TAGS (BOTH CASES) ---
   sev_lo: 'PAST XAVF', sev_md: 'O\'RTACHA XAVF', sev_hi: 'YUQORI XAVF',
+  SEV_LO: 'PAST XAVF', SEV_MD: 'O\'RTACHA XAVF', SEV_HI: 'YUQORI XAVF',
 
   // --- 1. GCS ---
   d_gcs: 'Ong darajasini baholash. Jarohatda birinchi talab qilinadigan ko\'rsatkich.',
