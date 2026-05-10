@@ -2,13 +2,20 @@
 
 const T = {
 en:{
-  // GENERAL UI
-  alert_msg: 'Please complete all fields.', btn:'Calculate',
-  tab_i:'Interpretation', tab_a:'Action Plan', tab_d:'First-Line Rx',
-  sp_neuro:'Neurology', sp_ped: 'Pediatrics', sp_gen: 'General',
-  mnem_all:'Memory Aid — All 3 Languages',
+  // --- HOME PAGE & GENERAL UI ---
+  badge: 'CLINICAL DECISION TOOLS',
+  h1a: 'Ward', h1b: 'Calc',
+  sub: 'Evidence-based medical calculators for daily ward practice.',
+  all_label: 'ALL CALCULATORS',
+  search_ph: 'Search tools (e.g., GCS, BMI)...',
+  alert_msg: 'Please complete all fields.',
+  btn: 'Calculate',
+  tab_i: 'Interpretation', tab_a: 'Action Plan', tab_d: 'First-Line Rx',
+  sp_neuro: 'Neurology', sp_ped: 'Pediatrics', sp_gen: 'General', sp_resp: 'Respiratory', sp_cardio: 'Cardiology', sp_gastro: 'Gastroenterology', sp_id: 'Infectious Disease',
+  mnem_all: 'Memory Aid — All 3 Languages',
   
-  // 1. GCS 
+  // --- 1. GCS ---
+  d_gcs: 'Assess consciousness level in any patient. The score every doctor demands first on a trauma call.',
   f_eye:'Eye Opening', f_verbal:'Verbal Response', f_motor:'Motor Response',
   g_e4: 'Spontaneous (4)', g_e3: 'To voice (3)', g_e2: 'To pain (2)', g_e1: 'None (1)',
   g_v5: 'Oriented (5)', g_v4: 'Confused (4)', g_v3: 'Words (3)', g_v2: 'Sounds (2)', g_v1: 'None (1)',
@@ -16,120 +23,125 @@ en:{
   r_gcs_mild:'Mild impairment / Normal', r_gcs_mild_1:'Full neurological assessment.', r_gcs_mild_2:'Neuro obs every 30–60 mins.', r_gcs_mild_3:'CT head if indicated.',
   r_gcs_mod:'Moderate brain injury', r_gcs_mod_1:'⚠ Urgent CT head.', r_gcs_mod_2:'Neurosurgery referral.', r_gcs_mod_3:'30° head elevation. IV access.', r_gcs_mod_4:'Reassess GCS every 15 mins.',
   r_gcs_sev:'Severe brain injury', r_gcs_sev_1:'⚠ GCS ≤ 8 = intubation threshold.', r_gcs_sev_2:'Rapid Sequence Intubation (RSI).', r_gcs_sev_3:'Urgent CT head + spine.', r_gcs_sev_4:'ICU admission.',
-  d_gcs: 'Assess consciousness level in any patient. The score every doctor demands first on a trauma call.',
-  gcs_info_title: 'Understanding the GCS',
-  gcs_info_p1: 'The Glasgow Coma Scale provides a standardized method to assess impairment of conscious level.',
-  gcs_info_p3: 'A normal, fully alert patient will score 15 (E4, V5, M6), while a completely unresponsive patient scores 3 (E1, V1, M1).',
-  gcs_info_p4: 'When calculating the score, always record the best response.',
-  gcs_info_p2: 'Clinical Threshold: A score of 8 or less requires intubation.',
+  gcs_info_title: 'Understanding the GCS', gcs_info_p1: 'Standardized method to assess impairment of conscious level.', gcs_info_p3: 'Normal patient scores 15; completely unresponsive scores 3.', gcs_info_p4: 'Always record the best response.', gcs_info_p2: 'Clinical Threshold: A score of 8 or less requires intubation.',
 
-  // 2. APGAR
+  // --- 2. APGAR ---
   d_apgar: 'Newborn assessment at 1 and 5 minutes. Guides resuscitation decisions.',
-  f_appear: 'Appearance (Skin Colour)', f_pulse: 'Pulse (Heart Rate)', f_grimace: 'Grimace (Reflex Irritability)', f_activity: 'Activity (Muscle Tone)', f_resp_a: 'Respiration',
-  a_a2: 'Pink all over (2)', a_a1: 'Blue extremities (1)', a_a0: 'Blue/pale all over (0)',
+  f_appear: 'Appearance', f_pulse: 'Pulse', f_grimace: 'Grimace', f_activity: 'Activity', f_resp_a: 'Respiration',
+  a_a2: 'Pink (2)', a_a1: 'Blue extremities (1)', a_a0: 'Blue/pale (0)',
   a_p2: '≥ 100 bpm (2)', a_p1: '< 100 bpm (1)', a_p0: 'Absent (0)',
-  a_g2: 'Cry/Cough (2)', a_g1: 'Grimace only (1)', a_g0: 'None (0)',
-  a_c2: 'Active motion (2)', a_c1: 'Some flexion (1)', a_c0: 'Limp (0)',
-  a_r2: 'Strong cry (2)', a_r1: 'Weak/irregular (1)', a_r0: 'Absent (0)',
-  r_apgar_norm: 'Reassuring', r_apgar_norm_1: 'Routine post-delivery care.', r_apgar_norm_2: 'Dry, keep warm, clear airway.', r_apgar_norm_3: 'Hand to mother for skin-to-skin.',
-  r_apgar_mod: 'Moderately abnormal', r_apgar_mod_1: 'Stimulate infant vigorously.', r_apgar_mod_2: 'Give oxygen if cyanosis persists.', r_apgar_mod_3: 'Consider CPAP.', r_apgar_mod_4: 'Re-evaluate every minute.',
-  r_apgar_crit: 'Critically low', r_apgar_crit_1: 'Immediate aggressive resuscitation.', r_apgar_crit_2: 'Positive pressure ventilation (PPV).', r_apgar_crit_3: 'Start chest compressions if HR < 60.', r_apgar_crit_4: 'Prepare for intubation.',
-  apgar_info_title: 'Understanding the APGAR Score',
-  apgar_info_p1: 'The APGAR score is a rapid method for assessing the clinical status of the newborn infant at 1 minute and 5 minutes after birth.',
-  apgar_info_p2: 'It evaluates Appearance (color), Pulse (heart rate), Grimace (reflex irritability), Activity (muscle tone), and Respiration. A score of 7-10 is reassuring.',
-  apgar_info_p3: 'Clinical Threshold: A score of 3 or below at 5 minutes is considered critically low and indicates a need for immediate intervention.',
+  a_g2: 'Cry/Cough (2)', a_g1: 'Grimace (1)', a_g0: 'None (0)',
+  a_c2: 'Active (2)', a_c1: 'Some flexion (1)', a_c0: 'Limp (0)',
+  a_r2: 'Strong cry (2)', a_r1: 'Weak (1)', a_r0: 'Absent (0)',
+  r_apgar_norm: 'Reassuring', r_apgar_norm_1: 'Routine care.', r_apgar_norm_2: 'Dry, keep warm.', r_apgar_norm_3: 'Skin-to-skin contact.',
+  r_apgar_mod: 'Moderately abnormal', r_apgar_mod_1: 'Stimulate infant.', r_apgar_mod_2: 'Give oxygen.', r_apgar_mod_3: 'Consider CPAP.', r_apgar_mod_4: 'Re-evaluate every min.',
+  r_apgar_crit: 'Critically low', r_apgar_crit_1: 'Immediate resuscitation.', r_apgar_crit_2: 'PPV immediately.', r_apgar_crit_3: 'Chest compressions if HR < 60.', r_apgar_crit_4: 'Prepare to intubate.',
+  apgar_info_title: 'Understanding APGAR', apgar_info_p1: 'Rapid method assessing clinical status at 1 and 5 minutes.', apgar_info_p2: 'A score of 7-10 is reassuring.', apgar_info_p3: 'Clinical Threshold: Score ≤ 3 at 5 mins needs immediate intervention.',
 
-  // 3. BMI
-  d_bmi: 'Body Mass Index with full WHO classification and clinical action plan.',
+  // --- 3. BMI ---
+  d_bmi: 'Body Mass Index with WHO classification.',
   f_weight: 'Weight (kg)', f_height: 'Height (cm)',
-  r_bmi_under: 'Underweight', r_bmi_under_1: 'Assess for malnutrition or eating disorders.', r_bmi_under_2: 'Dietician referral recommended.',
-  r_bmi_norm: 'Normal Weight', r_bmi_norm_1: 'Maintain healthy lifestyle.', r_bmi_norm_d: 'No pharmacological intervention',
-  r_bmi_over: 'Overweight', r_bmi_over_1: 'Advise on diet and exercise.', r_bmi_over_2: 'Screen for metabolic syndrome.', r_bmi_over_d: 'Lifestyle optimization',
-  r_bmi_ob1: 'Obesity Class I', r_bmi_ob1_1: 'Intensive lifestyle intervention.', r_bmi_ob1_2: 'Consider pharmacotherapy if comorbidities exist.',
-  r_bmi_ob2: 'Obesity Class II/III', r_bmi_ob2_1: 'High risk of cardiovascular disease.', r_bmi_ob2_2: 'Consider bariatric surgery referral.',
+  r_bmi_under: 'Underweight', r_bmi_under_1: 'Assess for malnutrition.', r_bmi_under_2: 'Dietician referral.',
+  r_bmi_norm: 'Normal Weight', r_bmi_norm_1: 'Maintain healthy lifestyle.', r_bmi_norm_d: 'No meds',
+  r_bmi_over: 'Overweight', r_bmi_over_1: 'Diet and exercise.', r_bmi_over_2: 'Screen for metabolic syndrome.', r_bmi_over_d: 'Lifestyle optimization',
+  r_bmi_ob1: 'Obesity Class I', r_bmi_ob1_1: 'Intensive lifestyle intervention.', r_bmi_ob1_2: 'Consider pharmacotherapy.',
+  r_bmi_ob2: 'Obesity Class II/III', r_bmi_ob2_1: 'High cardiovascular risk.', r_bmi_ob2_2: 'Consider bariatric surgery.',
+  bmi_info_title: 'Understanding BMI', bmi_info_p1: 'Index of weight-for-height classifying obesity.', bmi_info_p2: 'Must be interpreted alongside clinical factors like muscle mass.',
 
-  // --- INFO SECTIONS FOR THE REMAINING 12 TOOLS ---
+  // --- 4. CURB-65 ---
+  r_curb_lo: 'Low Risk', r_curb_lo_1: 'Outpatient treatment suitable.', r_curb_lo_2: 'Oral antibiotics.', r_curb_lo_3: 'Safety net advice.',
+  r_curb_md: 'Moderate Risk', r_curb_md_1: 'Consider hospital admission.', r_curb_md_2: 'Short stay assessment.', r_curb_md_3: 'Oral or IV antibiotics.',
+  r_curb_hi: 'High Risk', r_curb_hi_1: 'Urgent hospital admission.', r_curb_hi_2: 'Assess for ICU.', r_curb_hi_3: 'IV broad-spectrum antibiotics.',
+  curb_info_title: 'Understanding CURB-65', curb_info_p1: 'Predicts mortality in community-acquired pneumonia.', curb_info_p2: 'Evaluates Confusion, Urea, RR, BP, Age ≥ 65.', curb_info_p3: 'Clinical Threshold: Score ≥ 3 indicates severe pneumonia.',
 
-  // CURB-65
-  curb_info_title: 'Understanding CURB-65',
-  curb_info_p1: 'CURB-65 is a clinical prediction rule validated for predicting mortality in community-acquired pneumonia.',
-  curb_info_p2: 'It evaluates Confusion, Urea, Respiratory rate, Blood pressure, and Age ≥ 65.',
-  curb_info_p3: 'Clinical Threshold: A score of 3 or more indicates severe pneumonia usually requiring hospital or ICU admission.',
+  // --- 5. WELLS DVT ---
+  r_dvt_hi: 'DVT Likely', r_dvt_hi_1: 'Urgent proximal leg ultrasound.', r_dvt_hi_2: 'Consider D-Dimer if USS negative.', r_dvt_hi_3: 'Start empiric anticoagulation if delay.',
+  r_dvt_md: 'Moderate Risk', r_dvt_md_1: 'High-sensitivity D-Dimer test.', r_dvt_md_2: 'If positive, perform ultrasound.', r_dvt_md_d: 'Anticoagulation only if confirmed.',
+  r_dvt_lo: 'DVT Unlikely', r_dvt_lo_1: 'Perform D-Dimer test.', r_dvt_lo_2: 'If negative, DVT excluded.', r_dvt_lo_d: 'No empirical anticoagulation.',
+  dvt_info_title: 'Understanding Wells DVT', dvt_info_p1: 'Risk stratifies for Deep Vein Thrombosis.', dvt_info_p2: 'Evaluates clinical signs and alternative diagnoses.', dvt_info_p3: 'Threshold: Score ≥ 2 means DVT is likely.',
 
-  // Wells DVT
-  dvt_info_title: 'Understanding Wells Criteria for DVT',
-  dvt_info_p1: 'The Wells Criteria risk stratifies patients for suspected Deep Vein Thrombosis (DVT).',
-  dvt_info_p2: 'It evaluates clinical signs, risk factors like surgery or cancer, and alternative diagnoses.',
-  dvt_info_p3: 'Clinical Threshold: A score ≥ 2 means DVT is likely; ultrasound imaging is indicated.',
+  // --- 6. WELLS PE ---
+  r_pe_hi: 'PE Likely', r_pe_hi_1: 'Urgent CTPA imaging.', r_pe_hi_2: 'Start empiric anticoagulation.', r_pe_hi_3: 'Admit to hospital.',
+  r_pe_md: 'Moderate Risk', r_pe_md_1: 'D-Dimer testing.', r_pe_md_2: 'If positive, perform CTPA.', r_pe_lo_d: 'No empirical anticoagulation.',
+  r_pe_lo: 'PE Unlikely', r_pe_lo_1: 'Use PERC rule or D-Dimer.', r_pe_lo_2: 'If negative, PE excluded.',
+  pe_info_title: 'Understanding Wells PE', pe_info_p1: 'Risk stratifies for Pulmonary Embolism.', pe_info_p2: 'Evaluates HR, hemoptysis, and DVT signs.', pe_info_p3: 'Threshold: Score > 4 means PE is likely.',
 
-  // Wells PE
-  pe_info_title: 'Understanding Wells Criteria for PE',
-  pe_info_p1: 'The Wells Criteria risk stratifies patients for suspected Pulmonary Embolism (PE).',
-  pe_info_p2: 'It evaluates heart rate, hemoptysis, prior DVT/PE, and the likelihood of alternative diagnoses.',
-  pe_info_p3: 'Clinical Threshold: A score > 4 means PE is likely; imaging (CTPA) is indicated.',
+  // --- 7. CHADS2 ---
+  r_chads_lo: 'Low Risk', r_chads_lo_1: 'No anticoagulation usually needed.', r_chads_lo_2: 'Consider individual patient factors.',
+  r_chads_md: 'Moderate Risk', r_chads_md_1: 'Consider oral anticoagulation.', r_chads_md_2: 'Weigh bleeding risk.',
+  r_chads_hi: 'High Risk', r_chads_hi_1: 'Oral anticoagulation recommended.', r_chads_hi_2: 'DOACs preferred over Warfarin.', r_chads_hi_3: 'Monitor adherence.',
+  chads_info_title: 'Understanding CHADS2', chads_info_p1: 'Assesses stroke risk in atrial fibrillation.', chads_info_p2: 'Evaluates CHF, HTN, Age, Diabetes, Stroke.', chads_info_p3: 'Threshold: Score ≥ 2 requires anticoagulation.',
 
-  // CHADS2
-  chads_info_title: 'Understanding CHADS2 Score',
-  chads_info_p1: 'The CHADS2 score assesses stroke risk in patients with non-valvular atrial fibrillation.',
-  chads_info_p2: 'It evaluates Congestive heart failure, Hypertension, Age ≥ 75, Diabetes, and prior Stroke/TIA.',
-  chads_info_p3: 'Clinical Threshold: A score ≥ 2 generally requires oral anticoagulation.',
+  // --- 8. CHILD-PUGH ---
+  r_cp_a: 'Mild Hepatic Impairment', r_cp_a_1: 'Good operative risk.', r_cp_a_2: '1-year survival ~100%.',
+  r_cp_b: 'Moderate Impairment', r_cp_b_1: 'Moderate operative risk.', r_cp_b_2: 'Consider liver transplant evaluation.',
+  r_cp_c: 'Severe Impairment', r_cp_c_1: 'High mortality risk.', r_cp_c_2: 'Transplant evaluation indicated.',
+  cp_info_title: 'Understanding Child-Pugh', cp_info_p1: 'Assesses prognosis of liver cirrhosis.', cp_info_p2: 'Evaluates bilirubin, albumin, ascites, PT/INR.', cp_info_p3: 'Threshold: Class C indicates severe disease.',
 
-  // Child-Pugh
-  cp_info_title: 'Understanding Child-Pugh Score',
-  cp_info_p1: 'The Child-Pugh score assesses the prognosis of chronic liver disease, primarily cirrhosis.',
-  cp_info_p2: 'It evaluates bilirubin, albumin, ascites, encephalopathy, and PT/INR.',
-  cp_info_p3: 'Clinical Threshold: Class C (10-15 points) indicates severe liver disease with 1-year survival around 45%.',
+  // --- 9. EGFR ---
+  r_egfr_g1: 'Normal or High', r_egfr_g1_1: 'Monitor if underlying kidney disease.', r_egfr_g1_2: 'Manage comorbidities.',
+  r_egfr_g2: 'Mildly Decreased', r_egfr_g2_1: 'Estimate progression rate.', r_egfr_g2_2: 'Reduce cardiovascular risk.',
+  r_egfr_g3a: 'Mild to Moderate', r_egfr_g3a_1: 'Evaluate and treat complications.', r_egfr_g3a_2: 'Adjust renally cleared meds.',
+  r_egfr_g3b: 'Moderate to Severe', r_egfr_g3b_1: 'Nephrology referral recommended.', r_egfr_g3b_2: 'Prepare for renal replacement.',
+  r_egfr_g4: 'Severely Decreased', r_egfr_g4_1: 'Close nephrology follow-up.', r_egfr_g4_2: 'Discuss dialysis/transplant.',
+  r_egfr_g5: 'Kidney Failure', r_egfr_g5_1: 'Initiate dialysis.', r_egfr_g5_2: 'Palliative care if appropriate.',
+  egfr_info_title: 'Understanding eGFR', egfr_info_p1: 'Best overall index of kidney function.', egfr_info_p2: 'Uses creatinine, age, and sex.', egfr_info_p3: 'Threshold: < 60 mL/min for ≥ 3 months indicates CKD.',
 
-  // EGFR
-  egfr_info_title: 'Understanding eGFR (CKD-EPI)',
-  egfr_info_p1: 'Estimated Glomerular Filtration Rate (eGFR) is the best overall index of kidney function.',
-  egfr_info_p2: 'The CKD-EPI equation uses serum creatinine, age, and sex to estimate the GFR.',
-  egfr_info_p3: 'Clinical Threshold: An eGFR < 60 mL/min/1.73m² for ≥ 3 months indicates chronic kidney disease (CKD).',
+  // --- 10. MEWS ---
+  r_mews_lo: 'Stable', r_mews_lo_1: 'Routine observations.', r_mews_lo_2: 'Continue current care plan.', r_mews_lo_d: 'No specific intervention.',
+  r_mews_md: 'Increased Risk', r_mews_md_1: 'Increase observation frequency.', r_mews_md_2: 'Inform nurse in charge.', r_mews_md_3: 'Medical review within 30 mins.',
+  r_mews_hi: 'Critical', r_mews_hi_1: 'Immediate medical review.', r_mews_hi_2: 'Call rapid response team.', r_mews_hi_3: 'Consider ICU transfer.',
+  mews_info_title: 'Understanding MEWS', mews_info_p1: 'Identifies patients at risk of deterioration.', mews_info_p2: 'Evaluates vitals and AVPU.', mews_info_p3: 'Threshold: Score ≥ 5 links to ICU admission.',
 
-  // MEWS
-  mews_info_title: 'Understanding MEWS',
-  mews_info_p1: 'The Modified Early Warning Score (MEWS) identifies hospitalized patients at risk of clinical deterioration.',
-  mews_info_p2: 'It evaluates systolic BP, heart rate, respiratory rate, temperature, and AVPU level of consciousness.',
-  mews_info_p3: 'Clinical Threshold: A score ≥ 5 is statistically linked to increased likelihood of death or ICU admission.',
+  // --- 11. CENTOR ---
+  r_centor_lo: 'Strep Unlikely', r_centor_lo_1: 'Symptomatic treatment.', r_centor_lo_2: 'Antibiotics NOT recommended.',
+  r_centor_md: 'Possible Strep', r_centor_md_1: 'Perform rapid strep test.', r_centor_md_2: 'Treat if test is positive.', r_centor_md_d: 'Antibiotics only if confirmed.',
+  r_centor_hi: 'Strep Likely', r_centor_hi_1: 'Empiric antibiotics justified.', r_centor_hi_2: 'Consider rapid test to confirm.',
+  centor_info_title: 'Understanding Centor', centor_info_p1: 'Estimates probability of Strep pharyngitis.', centor_info_p2: 'Evaluates fever, exudate, nodes, lack of cough.', centor_info_p3: 'Threshold: Score ≥ 3 suggests antibiotics.',
 
-  // Centor
-  centor_info_title: 'Understanding Centor Criteria',
-  centor_info_p1: 'Centor Criteria estimates the probability that pharyngitis is caused by Group A Streptococcus.',
-  centor_info_p2: 'It evaluates fever, tonsillar exudate, tender cervical adenopathy, and absence of cough.',
-  centor_info_p3: 'Clinical Threshold: A score ≥ 3 suggests considering rapid strep testing or empiric antibiotics.',
+  // --- 12. NIHSS ---
+  r_nihss_none: 'No Stroke Symptoms', r_nihss_none_1: 'Evaluate for TIA.', r_nihss_none_2: 'Secondary prevention.',
+  r_nihss_minor: 'Minor Stroke', r_nihss_minor_1: 'Admit to stroke unit.', r_nihss_minor_2: 'Consider thrombolysis if disabling.', r_nihss_minor_3: 'Supportive care.',
+  r_nihss_mod: 'Moderate Stroke', r_nihss_mod_1: 'Evaluate for thrombolysis (Alteplase).', r_nihss_mod_2: 'Evaluate for thrombectomy.', r_nihss_mod_3: 'Strict BP control.',
+  r_nihss_modsev: 'Moderate-Severe', r_nihss_modsev_1: 'Urgent neurology consult.', r_nihss_modsev_2: 'Thrombectomy evaluation.', r_nihss_modsev_3: 'ICU/Stroke unit admission.',
+  r_nihss_sev: 'Severe Stroke', r_nihss_sev_1: 'High risk of complications.', r_nihss_sev_2: 'Airway protection.', r_nihss_sev_3: 'Palliative considerations if massive.',
+  nihss_info_title: 'Understanding NIHSS', nihss_info_p1: 'Quantitative measure of neurologic deficit.', nihss_info_p2: 'Evaluates motor, sensory, language, vision.', nihss_info_p3: 'Threshold: > 15 indicates severe stroke.',
 
-  // NIHSS
-  nihss_info_title: 'Understanding NIH Stroke Scale',
-  nihss_info_p1: 'The NIHSS is a systematic assessment tool that provides a quantitative measure of stroke-related neurologic deficit.',
-  nihss_info_p2: 'It evaluates consciousness, vision, motor, sensory, ataxia, language, and inattention.',
-  nihss_info_p3: 'Clinical Threshold: Scores > 15 indicate a severe stroke; scores ≤ 4 may be considered for thrombolytics.',
+  // --- 13. SOFA ---
+  r_sofa_lo: 'Low Mortality Risk', r_sofa_lo_1: 'Continue supportive care.', r_sofa_lo_2: 'Treat underlying infection.', r_sofa_lo_3: 'Monitor for deterioration.',
+  r_sofa_md: 'Moderate Organ Failure', r_sofa_md_1: 'ICU level care indicated.', r_sofa_md_2: 'Hemodynamic support.', r_sofa_md_3: 'Consider mechanical ventilation.',
+  r_sofa_hi: 'Severe Multi-Organ Failure', r_sofa_hi_1: 'Aggressive ICU management.', r_sofa_hi_2: 'Vasopressors/CRRT likely needed.', r_sofa_hi_3: 'High mortality probability.',
+  sofa_info_title: 'Understanding SOFA', sofa_info_p1: 'Tracks patient status during ICU stay.', sofa_info_p2: 'Evaluates 6 organ systems.', sofa_info_p3: 'Threshold: Increase of ≥ 2 points defines sepsis.',
 
-  // SOFA
-  sofa_info_title: 'Understanding SOFA Score',
-  sofa_info_p1: 'The Sequential Organ Failure Assessment (SOFA) score tracks a patient\'s status during an ICU stay.',
-  sofa_info_p2: 'It evaluates respiratory, cardiovascular, hepatic, coagulation, renal, and neurological systems.',
-  sofa_info_p3: 'Clinical Threshold: An acute increase of ≥ 2 points reflects organ dysfunction associated with a high mortality risk (sepsis).',
+  // --- 14. RANSON ---
+  r_ranson_lo: 'Mild Pancreatitis', r_ranson_lo_1: 'IV fluid resuscitation.', r_ranson_lo_2: 'Analgesia.', r_ranson_lo_3: 'Early oral feeding if tolerated.',
+  r_ranson_md: 'Severe Pancreatitis Risk', r_ranson_md_1: 'Aggressive IV fluids.', r_ranson_md_2: 'ICU monitoring.', r_ranson_md_3: 'Enteral nutrition.', r_ranson_md_d: 'Hartmanns preferred.',
+  r_ranson_hi: 'High Mortality Risk', r_ranson_hi_1: 'ICU admission mandatory.', r_ranson_hi_2: 'Monitor for necrosis/infection.', r_ranson_hi_3: 'Surgical consult.',
+  ranson_info_title: 'Understanding Ranson', ranson_info_p1: 'Estimates severity of acute pancreatitis.', ranson_info_p2: 'Evaluates admission and 48hr labs.', ranson_info_p3: 'Threshold: Score ≥ 3 indicates severe disease.',
 
-  // Ranson
-  ranson_info_title: 'Understanding Ranson\'s Criteria',
-  ranson_info_p1: 'Ranson\'s Criteria estimates the severity and mortality risk of acute pancreatitis.',
-  ranson_info_p2: 'It evaluates parameters at admission and at 48 hours (Hct drop, BUN rise, calcium, PaO2, etc.).',
-  ranson_info_p3: 'Clinical Threshold: A score ≥ 3 indicates severe pancreatitis and increased mortality risk.',
-
-  // PSI/PORT
-  psi_info_title: 'Understanding PSI/PORT Score',
-  psi_info_p1: 'The Pneumonia Severity Index (PSI/PORT) predicts 30-day mortality in patients with community-acquired pneumonia.',
-  psi_info_p2: 'It extensively evaluates demographics, comorbidities, vital signs, and laboratory findings.',
-  psi_info_p3: 'Clinical Threshold: Risk Classes IV and V indicate severe pneumonia requiring hospital admission.'
+  // --- 15. PSI/PORT ---
+  r_psi_1: 'Risk Class I (Low)', r_psi_1_1: 'Outpatient care.', r_psi_1_2: 'Oral antibiotics.',
+  r_psi_2: 'Risk Class II (Low)', r_psi_2_1: 'Outpatient care.', r_psi_2_2: 'Oral antibiotics.',
+  r_psi_3: 'Risk Class III (Moderate)', r_psi_3_1: 'Observation unit or short stay.', r_psi_3_2: 'IV/Oral antibiotics.', r_psi_3_d: 'Switch to oral when stable.',
+  r_psi_4: 'Risk Class IV (High)', r_psi_4_1: 'Inpatient admission.', r_psi_4_2: 'IV antibiotics.',
+  r_psi_5: 'Risk Class V (Very High)', r_psi_5_1: 'ICU admission likely.', r_psi_5_2: 'Broad-spectrum IV antibiotics.',
+  psi_info_title: 'Understanding PSI/PORT', psi_info_p1: 'Predicts mortality in pneumonia.', psi_info_p2: 'Evaluates demographics and labs.', psi_info_p3: 'Threshold: Classes IV & V require hospital admission.'
 },
 
 ru:{
-  alert_msg: 'Пожалуйста, заполните все поля.', btn:'Рассчитать',
-  tab_i:'Интерпретация', tab_a:'План действий', tab_d:'Лечение',
-  sp_neuro:'Неврология', sp_ped: 'Педиатрия', sp_gen: 'Общие',
-  mnem_all:'Мнемоника — На 3 языках',
-  
-  // GCS, APGAR, BMI UI...
+  // --- HOME PAGE & GENERAL UI ---
+  badge: 'КЛИНИЧЕСКИЕ КАЛЬКУЛЯТОРЫ',
+  h1a: 'Ward', h1b: 'Calc',
+  sub: 'Доказательные медицинские калькуляторы для ежедневной практики.',
+  all_label: 'ВСЕ КАЛЬКУЛЯТОРЫ',
+  search_ph: 'Поиск инструментов (напр., ШКГ, ИМТ)...',
+  alert_msg: 'Пожалуйста, заполните все поля.', btn: 'Рассчитать',
+  tab_i: 'Интерпретация', tab_a: 'План действий', tab_d: 'Лечение',
+  sp_neuro: 'Неврология', sp_ped: 'Педиатрия', sp_gen: 'Общие', sp_resp: 'Пульмонология', sp_cardio: 'Кардиология', sp_gastro: 'Гастроэнтерология', sp_id: 'Инфекционные болезни',
+  mnem_all: 'Мнемоника — На 3 языках',
+
+  // --- 1. GCS ---
+  d_gcs: 'Оценка уровня сознания. Первый показатель при травмах.',
   f_eye:'Открывание глаз', f_verbal:'Речевой ответ', f_motor:'Двигательный ответ',
   g_e4: 'Самопроизвольно (4)', g_e3: 'На голос (3)', g_e2: 'На боль (2)', g_e1: 'Нет (1)',
   g_v5: 'Ориентирован (5)', g_v4: 'Спутанная (4)', g_v3: 'Слова (3)', g_v2: 'Звуки (2)', g_v1: 'Нет (1)',
@@ -137,109 +149,114 @@ ru:{
   r_gcs_mild:'Легкая ЧМТ', r_gcs_mild_1:'Полный неврологический осмотр.', r_gcs_mild_2:'Наблюдение каждые 30–60 мин.', r_gcs_mild_3:'КТ головы при ухудшении.',
   r_gcs_mod:'Умеренная ЧМТ', r_gcs_mod_1:'⚠ Срочная КТ головы.', r_gcs_mod_2:'Консультация нейрохирурга.', r_gcs_mod_3:'Голова приподнята на 30°.', r_gcs_mod_4:'Оценка ШКГ каждые 15 мин.',
   r_gcs_sev:'Тяжёлая ЧМТ', r_gcs_sev_1:'⚠ ШКГ ≤ 8 = порог интубации.', r_gcs_sev_2:'БСИ (интубация).', r_gcs_sev_3:'Срочная КТ головы + позвоночника.', r_gcs_sev_4:'Госпитализация в ОРИТ.',
-  d_gcs: 'Оценка уровня сознания. Первый показатель при травмах.',
-  gcs_info_title: 'Понимание шкалы Глазго (ШКГ)', gcs_info_p1: 'Шкала ком Глазго — стандартизированный метод оценки нарушения уровня сознания.', gcs_info_p3: 'Нормальный пациент набирает 15 баллов, полностью невосприимчивый — 3 балла.', gcs_info_p4: 'Всегда фиксируйте наилучший ответ.', gcs_info_p2: 'Клинический порог: балл 8 или меньше требует интубации.',
-  
-  d_apgar: 'Оценка новорожденного на 1-й и 5-й минутах. Определяет тактику реанимации.',
-  f_appear: 'Цвет кожи', f_pulse: 'Пульс (ЧСС)', f_grimace: 'Гримаса (рефлексы)', f_activity: 'Активность (тонус)', f_resp_a: 'Дыхание',
-  a_a2: 'Полностью розовый (2)', a_a1: 'Акроцианоз (1)', a_a0: 'Бледный/синий (0)',
-  a_p2: '≥ 100 уд/мин (2)', a_p1: '< 100 уд/мин (1)', a_p0: 'Отсутствует (0)',
-  a_g2: 'Кашель/крик (2)', a_g1: 'Слабая гримаса (1)', a_g0: 'Нет (0)',
-  a_c2: 'Активные движения (2)', a_c1: 'Слабое сгибание (1)', a_c0: 'Вялый (0)',
-  a_r2: 'Громкий крик (2)', a_r1: 'Слабое/нерегулярное (1)', a_r0: 'Отсутствует (0)',
-  r_apgar_norm: 'Норма', r_apgar_norm_1: 'Стандартный уход после родов.', r_apgar_norm_2: 'Обсушить, согреть.', r_apgar_norm_3: 'Передать матери.',
-  r_apgar_mod: 'Умеренная асфиксия', r_apgar_mod_1: 'Тактильная стимуляция.', r_apgar_mod_2: 'Кислород при цианозе.', r_apgar_mod_3: 'Рассмотреть CPAP.', r_apgar_mod_4: 'Повторная оценка каждую минуту.',
-  r_apgar_crit: 'Тяжелая асфиксия', r_apgar_crit_1: 'Немедленная реанимация.', r_apgar_crit_2: 'ИВЛ с положительным давлением.', r_apgar_crit_3: 'Непрямой массаж сердца при ЧСС < 60.', r_apgar_crit_4: 'Подготовка к интубации.',
-  apgar_info_title: 'Понимание шкалы Апгар', apgar_info_p1: 'Шкала Апгар — это быстрый метод оценки клинического состояния новорожденного на 1-й и 5-й минутах.', apgar_info_p2: 'Оценивает цвет кожи, пульс, рефлексы, мышечный тонус и дыхание. 7–10 баллов — норма.', apgar_info_p3: 'Клинический порог: Оценка 3 и ниже на 5-й минуте требует немедленной реанимации.',
-  
-  d_bmi: 'Индекс массы тела с классификацией ВОЗ и клиническим планом.',
+  gcs_info_title: 'Понимание шкалы Глазго', gcs_info_p1: 'Стандартизированный метод оценки нарушения уровня сознания.', gcs_info_p3: 'Нормальный пациент набирает 15 баллов.', gcs_info_p4: 'Всегда фиксируйте наилучший ответ.', gcs_info_p2: 'Порог: балл 8 или меньше требует интубации.',
+
+  // --- 2. APGAR ---
+  d_apgar: 'Оценка новорожденного на 1-й и 5-й минутах.',
+  f_appear: 'Цвет кожи', f_pulse: 'Пульс', f_grimace: 'Гримаса', f_activity: 'Тонус', f_resp_a: 'Дыхание',
+  a_a2: 'Розовый (2)', a_a1: 'Акроцианоз (1)', a_a0: 'Бледный (0)',
+  a_p2: '≥ 100 уд/мин (2)', a_p1: '< 100 уд/мин (1)', a_p0: 'Нет (0)',
+  a_g2: 'Крик (2)', a_g1: 'Гримаса (1)', a_g0: 'Нет (0)',
+  a_c2: 'Активный (2)', a_c1: 'Слабое сгибание (1)', a_c0: 'Вялый (0)',
+  a_r2: 'Громкий крик (2)', a_r1: 'Слабое (1)', a_r0: 'Нет (0)',
+  r_apgar_norm: 'Норма', r_apgar_norm_1: 'Стандартный уход.', r_apgar_norm_2: 'Обсушить, согреть.', r_apgar_norm_3: 'Передать матери.',
+  r_apgar_mod: 'Умеренная асфиксия', r_apgar_mod_1: 'Стимуляция.', r_apgar_mod_2: 'Кислород.', r_apgar_mod_3: 'Рассмотреть CPAP.', r_apgar_mod_4: 'Оценка каждую минуту.',
+  r_apgar_crit: 'Тяжелая асфиксия', r_apgar_crit_1: 'Немедленная реанимация.', r_apgar_crit_2: 'ИВЛ.', r_apgar_crit_3: 'Массаж сердца при ЧСС < 60.', r_apgar_crit_4: 'Подготовка к интубации.',
+  apgar_info_title: 'Понимание шкалы Апгар', apgar_info_p1: 'Быстрый метод оценки состояния новорожденного.', apgar_info_p2: '7–10 баллов — норма.', apgar_info_p3: 'Порог: Оценка ≤ 3 на 5-й минуте требует реанимации.',
+
+  // --- 3. BMI ---
+  d_bmi: 'Индекс массы тела с классификацией ВОЗ.',
   f_weight: 'Вес (кг)', f_height: 'Рост (см)',
-  r_bmi_under: 'Дефицит массы', r_bmi_under_1: 'Оценить на предмет недоедания.', r_bmi_under_2: 'Консультация диетолога.',
-  r_bmi_norm: 'Нормальный вес', r_bmi_norm_1: 'Поддерживайте здоровый образ жизни.', r_bmi_norm_d: 'Без медикаментов',
-  r_bmi_over: 'Избыточный вес', r_bmi_over_1: 'Диета и физические упражнения.', r_bmi_over_2: 'Скрининг метаболического синдрома.', r_bmi_over_d: 'Оптимизация образа жизни',
-  r_bmi_ob1: 'Ожирение I степени', r_bmi_ob1_1: 'Интенсивное изменение образа жизни.', r_bmi_ob1_2: 'Рассмотреть фармакотерапию.',
-  r_bmi_ob2: 'Ожирение II/III степени', r_bmi_ob2_1: 'Высокий риск сердечно-сосудистых заболеваний.', r_bmi_ob2_2: 'Рассмотреть бариатрическую хирургию.',
+  r_bmi_under: 'Дефицит массы', r_bmi_under_1: 'Оценить питание.', r_bmi_under_2: 'Консультация диетолога.',
+  r_bmi_norm: 'Нормальный вес', r_bmi_norm_1: 'Здоровый образ жизни.', r_bmi_norm_d: 'Без медикаментов',
+  r_bmi_over: 'Избыточный вес', r_bmi_over_1: 'Диета и спорт.', r_bmi_over_2: 'Скрининг метаболического синдрома.', r_bmi_over_d: 'Оптимизация образа жизни',
+  r_bmi_ob1: 'Ожирение I', r_bmi_ob1_1: 'Изменение образа жизни.', r_bmi_ob1_2: 'Рассмотреть фармакотерапию.',
+  r_bmi_ob2: 'Ожирение II/III', r_bmi_ob2_1: 'Высокий риск ССЗ.', r_bmi_ob2_2: 'Бариатрическая хирургия.',
+  bmi_info_title: 'Понимание ИМТ', bmi_info_p1: 'Отношение веса к росту.', bmi_info_p2: 'Не измеряет жир напрямую.',
 
-  // CURB-65
-  curb_info_title: 'Понимание шкалы CURB-65',
-  curb_info_p1: 'CURB-65 — это шкала для оценки риска смертности при внебольничной пневмонии.',
-  curb_info_p2: 'Оценивает спутанность сознания, мочевину, частоту дыхания, артериальное давление и возраст ≥ 65 лет.',
-  curb_info_p3: 'Клинический порог: 3 и более баллов указывают на тяжелую пневмонию, требующую госпитализации в стационар или ОРИТ.',
+  // --- OTHER TOOLS (RU) ---
+  r_curb_lo: 'Низкий риск', r_curb_lo_1: 'Амбулаторное лечение.', r_curb_lo_2: 'Пероральные антибиотики.', r_curb_lo_3: 'Инструкции для пациента.',
+  r_curb_md: 'Средний риск', r_curb_md_1: 'Рассмотреть госпитализацию.', r_curb_md_2: 'Краткосрочное наблюдение.', r_curb_md_3: 'Антибиотики в/в или внутрь.',
+  r_curb_hi: 'Высокий риск', r_curb_hi_1: 'Срочная госпитализация.', r_curb_hi_2: 'Рассмотреть ОРИТ.', r_curb_hi_3: 'В/в антибиотики.',
+  curb_info_title: 'Шкала CURB-65', curb_info_p1: 'Риск при пневмонии.', curb_info_p2: 'Оценивает сознание, мочевину, ЧДД, АД.', curb_info_p3: 'Порог: ≥ 3 баллов — тяжелая пневмония.',
 
-  // Wells DVT
-  dvt_info_title: 'Критерии Уэллса для ТГВ',
-  dvt_info_p1: 'Критерии Уэллса оценивают риск при подозрении на тромбоз глубоких вен (ТГВ).',
-  dvt_info_p2: 'Оценивает клинические признаки, факторы риска (операции, рак) и альтернативные диагнозы.',
-  dvt_info_p3: 'Клинический порог: Оценка ≥ 2 означает высокую вероятность ТГВ; показано УЗИ.',
+  r_dvt_hi: 'ТГВ вероятен', r_dvt_hi_1: 'Срочное УЗИ вен.', r_dvt_hi_2: 'D-димер при (-).', r_dvt_hi_3: 'Эмпирические антикоагулянты.',
+  r_dvt_md: 'Средний риск', r_dvt_md_1: 'Тест на D-димер.', r_dvt_md_2: 'При (+) — УЗИ.', r_dvt_md_d: 'Только при подтверждении.',
+  r_dvt_lo: 'ТГВ маловероятен', r_dvt_lo_1: 'Тест на D-димер.', r_dvt_lo_2: 'При (-) ТГВ исключен.', r_dvt_lo_d: 'Не показано.',
+  dvt_info_title: 'Критерии Уэллса', dvt_info_p1: 'Риск тромбоза глубоких вен.', dvt_info_p2: 'Оценивает симптомы и факторы риска.', dvt_info_p3: 'Порог: ≥ 2 — высокая вероятность.',
 
-  // Wells PE
-  pe_info_title: 'Критерии Уэллса для ТЭЛА',
-  pe_info_p1: 'Критерии Уэллса оценивают риск при подозрении на тромбоэмболию легочной артерии (ТЭЛА).',
-  pe_info_p2: 'Оценивает ЧСС, кровохарканье, предшествующий ТГВ/ТЭЛА и альтернативные диагнозы.',
-  pe_info_p3: 'Клинический порог: Оценка > 4 означает высокую вероятность ТЭЛА; показана КТ-ангиография.',
+  r_pe_hi: 'ТЭЛА вероятна', r_pe_hi_1: 'Срочная КТ-АГ.', r_pe_hi_2: 'Антикоагулянты.', r_pe_hi_3: 'Госпитализация.',
+  r_pe_md: 'Средний риск', r_pe_md_1: 'D-димер.', r_pe_md_2: 'При (+) — КТ-АГ.', r_pe_lo_d: 'Не показано.',
+  r_pe_lo: 'ТЭЛА маловероятна', r_pe_lo_1: 'Критерии PERC или D-димер.', r_pe_lo_2: 'ТЭЛА исключена.',
+  pe_info_title: 'ТЭЛА по Уэллсу', pe_info_p1: 'Риск тромбоэмболии.', pe_info_p2: 'Оценивает ЧСС, ТГВ.', pe_info_p3: 'Порог: > 4 — ТЭЛА вероятна.',
 
-  // CHADS2
-  chads_info_title: 'Понимание шкалы CHADS2',
-  chads_info_p1: 'Шкала CHADS2 оценивает риск инсульта у пациентов с неклапанной фибрилляцией предсердий.',
-  chads_info_p2: 'Оценивает сердечную недостаточность, гипертензию, возраст ≥ 75, диабет и перенесенный инсульт/ТИА.',
-  chads_info_p3: 'Клинический порог: Оценка ≥ 2 обычно требует назначения пероральных антикоагулянтов.',
+  r_chads_lo: 'Низкий риск', r_chads_lo_1: 'Антикоагулянты не нужны.', r_chads_lo_2: 'Оценка факторов.',
+  r_chads_md: 'Средний риск', r_chads_md_1: 'Рассмотреть антикоагулянты.', r_chads_md_2: 'Оценить риск кровотечения.',
+  r_chads_hi: 'Высокий риск', r_chads_hi_1: 'Показаны антикоагулянты.', r_chads_hi_2: 'НОАК предпочтительнее.', r_chads_hi_3: 'Контроль.',
+  chads_info_title: 'Шкала CHADS2', chads_info_p1: 'Риск инсульта при ФП.', chads_info_p2: 'Возраст, АГ, СН, диабет.', chads_info_p3: 'Порог: ≥ 2 — нужны антикоагулянты.',
 
-  // Child-Pugh
-  cp_info_title: 'Шкала Чайлд-Пью',
-  cp_info_p1: 'Шкала Чайлд-Пью оценивает прогноз хронического заболевания печени, преимущественно цирроза.',
-  cp_info_p2: 'Оценивает билирубин, альбумин, асцит, энцефалопатию и ПВ/МНО.',
-  cp_info_p3: 'Клинический порог: Класс C (10-15 баллов) указывает на тяжелое заболевание с выживаемостью около 45% за 1 год.',
+  r_cp_a: 'Легкое нарушение', r_cp_a_1: 'Хороший прогноз.', r_cp_a_2: 'Выживаемость ~100%.',
+  r_cp_b: 'Умеренное', r_cp_b_1: 'Средний риск.', r_cp_b_2: 'Рассмотреть трансплантацию.',
+  r_cp_c: 'Тяжелое', r_cp_c_1: 'Высокая смертность.', r_cp_c_2: 'Показана трансплантация.',
+  cp_info_title: 'Чайлд-Пью', cp_info_p1: 'Прогноз при циррозе.', cp_info_p2: 'Билирубин, альбумин, асцит.', cp_info_p3: 'Порог: Класс C — тяжелое течение.',
 
-  // EGFR
-  egfr_info_title: 'Понимание рСКФ (CKD-EPI)',
-  egfr_info_p1: 'Расчетная скорость клубочковой фильтрации (рСКФ) — лучший показатель функции почек.',
-  egfr_info_p2: 'Формула CKD-EPI использует уровень креатинина в сыворотке крови, возраст и пол.',
-  egfr_info_p3: 'Клинический порог: рСКФ < 60 мл/мин в течение ≥ 3 месяцев указывает на хроническую болезнь почек (ХБП).',
+  r_egfr_g1: 'Норма', r_egfr_g1_1: 'Наблюдение.', r_egfr_g1_2: 'Лечение сопутствующих.',
+  r_egfr_g2: 'Легкое снижение', r_egfr_g2_1: 'Оценка прогрессирования.', r_egfr_g2_2: 'Контроль ССЗ.',
+  r_egfr_g3a: 'Умеренное', r_egfr_g3a_1: 'Лечение осложнений.', r_egfr_g3a_2: 'Коррекция доз лекарств.',
+  r_egfr_g3b: 'Выраженное', r_egfr_g3b_1: 'Консультация нефролога.', r_egfr_g3b_2: 'Подготовка к ЗПТ.',
+  r_egfr_g4: 'Тяжелое', r_egfr_g4_1: 'Строгое наблюдение.', r_egfr_g4_2: 'Диализ/трансплантация.',
+  r_egfr_g5: 'Терминальная ХБП', r_egfr_g5_1: 'Диализ.', r_egfr_g5_2: 'Паллиатив.',
+  egfr_info_title: 'рСКФ (CKD-EPI)', egfr_info_p1: 'Функция почек.', egfr_info_p2: 'Учитывает креатинин, пол, возраст.', egfr_info_p3: 'Порог: < 60 мл/мин — ХБП.',
 
-  // MEWS
-  mews_info_title: 'Понимание шкалы MEWS',
-  mews_info_p1: 'Шкала MEWS выявляет госпитализированных пациентов с риском клинического ухудшения.',
-  mews_info_p2: 'Оценивает систолическое АД, ЧСС, частоту дыхания, температуру и уровень сознания.',
-  mews_info_p3: 'Клинический порог: Оценка ≥ 5 статистически связана с повышенным риском летального исхода или перевода в ОРИТ.',
+  r_mews_lo: 'Стабилен', r_mews_lo_1: 'Обычное наблюдение.', r_mews_lo_2: 'Текущий план.', r_mews_lo_d: 'Не требуется.',
+  r_mews_md: 'Риск', r_mews_md_1: 'Участить осмотры.', r_mews_md_2: 'Сообщить врачу.', r_mews_md_3: 'Осмотр в течение 30 мин.',
+  r_mews_hi: 'Критическое', r_mews_hi_1: 'Срочный осмотр.', r_mews_hi_2: 'Реанимационная бригада.', r_mews_hi_3: 'Перевод в ОРИТ.',
+  mews_info_title: 'Шкала MEWS', mews_info_p1: 'Выявляет риск ухудшения.', mews_info_p2: 'Жизненные показатели.', mews_info_p3: 'Порог: ≥ 5 — высокий риск.',
 
-  // Centor
-  centor_info_title: 'Критерии Центора',
-  centor_info_p1: 'Критерии Центора оценивают вероятность стрептококкового фарингита группы А.',
-  centor_info_p2: 'Учитывают лихорадку, налет на миндалинах, болезненность лимфоузлов и отсутствие кашля.',
-  centor_info_p3: 'Клинический порог: Оценка ≥ 3 требует экспресс-тестирования или эмпирической антибиотикотерапии.',
+  r_centor_lo: 'Стрептококк маловероятен', r_centor_lo_1: 'Симптоматическое лечение.', r_centor_lo_2: 'Антибиотики НЕ нужны.',
+  r_centor_md: 'Возможен стрептококк', r_centor_md_1: 'Экспресс-тест.', r_centor_md_2: 'Лечить при (+).', r_centor_md_d: 'Только при подтверждении.',
+  r_centor_hi: 'Стрептококк вероятен', r_centor_hi_1: 'Эмпирические антибиотики.', r_centor_hi_2: 'Подтвердить тестом.',
+  centor_info_title: 'Критерии Центора', centor_info_p1: 'Вероятность стрептококка.', centor_info_p2: 'Лихорадка, налет.', centor_info_p3: 'Порог: ≥ 3 — антибиотики.',
 
-  // NIHSS
-  nihss_info_title: 'Шкала инсульта NIHSS',
-  nihss_info_p1: 'NIHSS — это систематизированный инструмент для количественной оценки неврологического дефицита при инсульте.',
-  nihss_info_p2: 'Оценивает сознание, зрение, моторику, чувствительность, атаксию и речь.',
-  nihss_info_p3: 'Клинический порог: Балл > 15 указывает на тяжелый инсульт; балл ≤ 4 может рассматриваться для тромболизиса.',
+  r_nihss_none: 'Нет инсульта', r_nihss_none_1: 'Оценка ТИА.', r_nihss_none_2: 'Профилактика.',
+  r_nihss_minor: 'Легкий', r_nihss_minor_1: 'Инсультное отделение.', r_nihss_minor_2: 'Тромболизис при инвалидизации.', r_nihss_minor_3: 'Уход.',
+  r_nihss_mod: 'Средний', r_nihss_mod_1: 'Тромболизис.', r_nihss_mod_2: 'Тромбэктомия.', r_nihss_mod_3: 'Контроль АД.',
+  r_nihss_modsev: 'Тяжелый', r_nihss_modsev_1: 'Срочно невролог.', r_nihss_modsev_2: 'Тромбэктомия.', r_nihss_modsev_3: 'ОРИТ.',
+  r_nihss_sev: 'Крайне тяжелый', r_nihss_sev_1: 'Высокий риск.', r_nihss_sev_2: 'Защита ВДП.', r_nihss_sev_3: 'Паллиатив.',
+  nihss_info_title: 'Шкала NIHSS', nihss_info_p1: 'Оценка дефицита.', nihss_info_p2: 'Движения, речь.', nihss_info_p3: 'Порог: > 15 — тяжелый инсульт.',
 
-  // SOFA
-  sofa_info_title: 'Шкала SOFA',
-  sofa_info_p1: 'Шкала SOFA отслеживает состояние пациента и дисфункцию органов во время пребывания в ОРИТ.',
-  sofa_info_p2: 'Оценивает дыхательную, сердечно-сосудистую, печеночную, коагуляционную, почечную и неврологическую системы.',
-  sofa_info_p3: 'Клинический порог: Острое увеличение на ≥ 2 балла отражает дисфункцию органов, связанную с высоким риском смертности (сепсис).',
+  r_sofa_lo: 'Низкий риск', r_sofa_lo_1: 'Уход.', r_sofa_lo_2: 'Лечение инфекции.', r_sofa_lo_3: 'Мониторинг.',
+  r_sofa_md: 'Органная дисфункция', r_sofa_md_1: 'Уровень ОРИТ.', r_sofa_md_2: 'Поддержка.', r_sofa_md_3: 'ИВЛ.',
+  r_sofa_hi: 'ПОН', r_sofa_hi_1: 'Агрессивное лечение.', r_sofa_hi_2: 'Вазопрессоры.', r_sofa_hi_3: 'Высокая смертность.',
+  sofa_info_title: 'Шкала SOFA', sofa_info_p1: 'Состояние в ОРИТ.', sofa_info_p2: '6 систем.', sofa_info_p3: 'Порог: Рост ≥ 2 — сепсис.',
 
-  // Ranson
-  ranson_info_title: 'Критерии Рэнсона',
-  ranson_info_p1: 'Критерии Рэнсона оценивают тяжесть и риск смертности при остром панкреатите.',
-  ranson_info_p2: 'Оценивают параметры при поступлении и через 48 часов (падение гематокрита, повышение мочевины, кальций и т.д.).',
-  ranson_info_p3: 'Клинический порог: Оценка ≥ 3 указывает на тяжелый панкреатит и повышенный риск смертности.',
+  r_ranson_lo: 'Легкий', r_ranson_lo_1: 'Инфузии.', r_ranson_lo_2: 'Анальгезия.', r_ranson_lo_3: 'Питание.',
+  r_ranson_md: 'Риск тяжелого', r_ranson_md_1: 'Агрессивные инфузии.', r_ranson_md_2: 'ОРИТ.', r_ranson_md_3: 'Зонд.', r_ranson_md_d: 'Раствор Хартмана.',
+  r_ranson_hi: 'Высокий риск', r_ranson_hi_1: 'ОРИТ обязательно.', r_ranson_hi_2: 'Контроль некроза.', r_ranson_hi_3: 'Хирург.',
+  ranson_info_title: 'Критерии Рэнсона', ranson_info_p1: 'Тяжесть панкреатита.', ranson_info_p2: 'Анализы.', ranson_info_p3: 'Порог: ≥ 3 — тяжелый.',
 
-  // PSI/PORT
-  psi_info_title: 'Индекс тяжести пневмонии (PSI/PORT)',
-  psi_info_p1: 'Индекс PSI/PORT прогнозирует 30-дневную смертность у пациентов с внебольничной пневмонией.',
-  psi_info_p2: 'Детально оценивает демографические данные, сопутствующие заболевания, жизненно важные показатели и анализы.',
-  psi_info_p3: 'Клинический порог: Классы риска IV и V указывают на тяжелую пневмонию, требующую госпитализации.'
+  r_psi_1: 'Класс I', r_psi_1_1: 'Амбулаторно.', r_psi_1_2: 'Внутрь АБ.',
+  r_psi_2: 'Класс II', r_psi_2_1: 'Амбулаторно.', r_psi_2_2: 'Внутрь АБ.',
+  r_psi_3: 'Класс III', r_psi_3_1: 'Краткосрочно.', r_psi_3_2: 'В/в АБ.', r_psi_3_d: 'Переход на внутрь.',
+  r_psi_4: 'Класс IV', r_psi_4_1: 'Госпитализация.', r_psi_4_2: 'В/в АБ.',
+  r_psi_5: 'Класс V', r_psi_5_1: 'ОРИТ.', r_psi_5_2: 'Широкого спектра.',
+  psi_info_title: 'Шкала PSI', psi_info_p1: 'Прогноз пневмонии.', psi_info_p2: 'Анализы и клиника.', psi_info_p3: 'Порог: IV и V — стационар.'
 },
 
 uz:{
-  alert_msg: 'Barcha maydonlarni to\'ldiring.', btn:'Hisoblash',
-  tab_i:'Talqin', tab_a:'Harakat Rejasi', tab_d:'Birinchi Davolash',
-  sp_neuro:'Nevrologiya', sp_ped: 'Pediatriya', sp_gen: 'Umumiy',
-  mnem_all:"Mnemonika — 3 tilda",
+  // --- HOME PAGE & GENERAL UI ---
+  badge: 'KLINIK QAROR QABUL QILISH VOSITALARI',
+  h1a: 'Ward', h1b: 'Calc',
+  sub: 'Kundalik amaliyot uchun isbotlarga asoslangan tibbiy kalkulyatorlar.',
+  all_label: 'BARCHA KALKULYATORLAR',
+  search_ph: 'Qidiruv (masalan, GCS, BMI)...',
+  alert_msg: 'Barcha maydonlarni to\'ldiring.', btn: 'Hisoblash',
+  tab_i: 'Talqin', tab_a: 'Harakat Rejasi', tab_d: 'Birinchi Davolash',
+  sp_neuro: 'Nevrologiya', sp_ped: 'Pediatriya', sp_gen: 'Umumiy', sp_resp: 'Nafas tizimi', sp_cardio: 'Kardiologiya', sp_gastro: 'Gastroenterologiya', sp_id: 'Yuqumli kasalliklar',
+  mnem_all: 'Mnemonika — 3 tilda',
 
-  // GCS, APGAR, BMI UI...
+  // --- 1. GCS ---
+  d_gcs: 'Ong darajasini baholash. Jarohatda birinchi talab qilinadigan ko\'rsatkich.',
   f_eye:"Ko'z ochilishi", f_verbal:"Og'zaki javob", f_motor:'Harakat javobi',
   g_e4: 'O\'z-o\'zidan (4)', g_e3: 'Ovozga (3)', g_e2: 'Og\'riqqa (2)', g_e1: 'Yo\'q (1)',
   g_v5: 'Mo\'ljallangan (5)', g_v4: 'Chalkash (4)', g_v3: 'So\'zlar (3)', g_v2: 'Tovushlar (2)', g_v1: 'Yo\'q (1)',
@@ -247,100 +264,98 @@ uz:{
   r_gcs_mild:"Yengil jarohat", r_gcs_mild_1:"To'liq nevrologik tekshiruv.", r_gcs_mild_2:"Har 30–60 daqiqada kuzatuv.", r_gcs_mild_3:"Yomonlashsa bosh KT.",
   r_gcs_mod:"O'rtacha jarohat", r_gcs_mod_1:"⚠ Shoshilinch bosh KT.", r_gcs_mod_2:"Neyrojarroh maslahati.", r_gcs_mod_3:"Bosh 30° ko'tarilgan.", r_gcs_mod_4:"Har 15 daqiqada baholash.",
   r_gcs_sev:"Og'ir jarohat", r_gcs_sev_1:"⚠ GCS ≤ 8 = intubatsiya.", r_gcs_sev_2:"Tezkor intubatsiya (RSI).", r_gcs_sev_3:"Shoshilinch bosh+umurtqa KT.", r_gcs_sev_4:"ORIT ga yotqizish.",
-  d_gcs: "Ong darajasini baholash. Jarohatda birinchi talab qilinadigan ko'rsatkich.",
-  gcs_info_title: 'Glazgo shkalasini tushunish', gcs_info_p1: 'Glazgo koma shkalasi ong darajasini baholash uchun standartlashtirilgan usul.', gcs_info_p3: 'Normal bemor 15 ball oladi, butunlay javobsiz bemor esa 3 ball.', gcs_info_p4: 'Har doim eng yaxshi javobni yozing.', gcs_info_p2: 'Klinik chegara: 8 yoki undan past ball intubatsiyani talab qiladi.',
-  
+  gcs_info_title: 'Glazgo shkalasini tushunish', gcs_info_p1: 'Ong darajasini baholash uchun standartlashtirilgan usul.', gcs_info_p3: 'Normal bemor 15 ball oladi.', gcs_info_p4: 'Har doim eng yaxshi javobni yozing.', gcs_info_p2: 'Klinik chegara: 8 yoki undan past ball intubatsiyani talab qiladi.',
+
+  // --- 2. APGAR ---
   d_apgar: 'Chaqaloqni 1 va 5-daqiqada baholash. Reanimatsiya taktikasini belgilaydi.',
-  f_appear: 'Teri rangi', f_pulse: 'Puls (Yurak urishi)', f_grimace: 'Grimasa (Reflekslar)', f_activity: 'Aktivlik (Tonus)', f_resp_a: 'Nafas olish',
-  a_a2: 'Butunlay pushti (2)', a_a1: 'Qo\'llar/oyoqlar ko\'k (1)', a_a0: 'Oqarib ketgan/ko\'k (0)',
+  f_appear: 'Teri rangi', f_pulse: 'Puls', f_grimace: 'Grimasa', f_activity: 'Aktivlik', f_resp_a: 'Nafas',
+  a_a2: 'Pushti (2)', a_a1: 'Qo\'llar/oyoqlar ko\'k (1)', a_a0: 'Oqarib ketgan (0)',
   a_p2: '≥ 100 ta/daq (2)', a_p1: '< 100 ta/daq (1)', a_p0: 'Yo\'q (0)',
-  a_g2: 'Yig\'lash/yo\'tal (2)', a_g1: 'Faqat grimasa (1)', a_g0: 'Yo\'q (0)',
-  a_c2: 'Faol harakatlar (2)', a_c1: 'Biroz bukilish (1)', a_c0: 'Bo\'shashgan (0)',
-  a_r2: 'Baland yig\'i (2)', a_r1: 'Sust/tartibsiz (1)', a_r0: 'Yo\'q (0)',
-  r_apgar_norm: 'Qoniqarli holat', r_apgar_norm_1: 'Standart parvarish.', r_apgar_norm_2: 'Quritish, issiq tutish.', r_apgar_norm_3: 'Onaga berish (teri-teriga).',
-  r_apgar_mod: 'O\'rtacha asfiksiya', r_apgar_mod_1: 'Chaqaloqni stimulyatsiya qilish.', r_apgar_mod_2: 'Sianozda kislorod.', r_apgar_mod_3: 'CPAP ko\'rib chiqish.', r_apgar_mod_4: 'Har daqiqada baholash.',
-  r_apgar_crit: 'Og\'ir asfiksiya', r_apgar_crit_1: 'Zudlik bilan reanimatsiya.', r_apgar_crit_2: 'Sun\'iy nafas (PPV).', r_apgar_crit_3: 'Yurak urishi < 60 bo\'lsa massaj.', r_apgar_crit_4: 'Intubatsiyaga tayyorgarlik.',
-  apgar_info_title: 'Apgar shkalasini tushunish', apgar_info_p1: 'Apgar shkalasi chaqaloqning 1 va 5-daqiqalardagi holatini baholaydi.', apgar_info_p2: 'U teri rangi, puls, reflekslar, mushak tonusi va nafasni baholaydi. 7-10 ball me\'yor.', apgar_info_p3: 'Klinik chegara: 5-daqiqada 3 yoki undan past ball zudlik bilan reanimatsiyani talab qiladi.',
-  
-  d_bmi: 'JSST klassifikatsiyasi va klinik harakatlar rejasi bilan Tana Vazni Indeksi.',
+  a_g2: 'Yig\'lash (2)', a_g1: 'Grimasa (1)', a_g0: 'Yo\'q (0)',
+  a_c2: 'Faol (2)', a_c1: 'Biroz bukilish (1)', a_c0: 'Bo\'shashgan (0)',
+  a_r2: 'Baland yig\'i (2)', a_r1: 'Sust (1)', a_r0: 'Yo\'q (0)',
+  r_apgar_norm: 'Qoniqarli holat', r_apgar_norm_1: 'Standart parvarish.', r_apgar_norm_2: 'Quritish, issiq tutish.', r_apgar_norm_3: 'Onaga berish.',
+  r_apgar_mod: 'O\'rtacha asfiksiya', r_apgar_mod_1: 'Stimulyatsiya qilish.', r_apgar_mod_2: 'Kislorod.', r_apgar_mod_3: 'CPAP ko\'rib chiqish.', r_apgar_mod_4: 'Har daqiqada baholash.',
+  r_apgar_crit: 'Og\'ir asfiksiya', r_apgar_crit_1: 'Zudlik bilan reanimatsiya.', r_apgar_crit_2: 'Sun\'iy nafas (PPV).', r_apgar_crit_3: 'Yurak massaji < 60.', r_apgar_crit_4: 'Intubatsiyaga tayyorgarlik.',
+  apgar_info_title: 'Apgar shkalasini tushunish', apgar_info_p1: 'Chaqaloqning holatini tezkor baholash.', apgar_info_p2: '7-10 ball me\'yor.', apgar_info_p3: 'Chegara: 5-daqiqada ≤ 3 ball zudlik bilan reanimatsiyani talab qiladi.',
+
+  // --- 3. BMI ---
+  d_bmi: 'JSST klassifikatsiyasi va klinik harakatlar rejasi bilan TVI.',
   f_weight: 'Vazn (kg)', f_height: 'Bo\'y (sm)',
-  r_bmi_under: 'Vazn yetishmovchiligi', r_bmi_under_1: 'Ovqatlanish buzilishini tekshiring.', r_bmi_under_2: 'Diyetolog maslahati.',
-  r_bmi_norm: 'Normal vazn', r_bmi_norm_1: 'Sog\'lom turmush tarzini saqlang.', r_bmi_norm_d: 'Dori-darmonsiz',
-  r_bmi_over: 'Ortiqcha vazn', r_bmi_over_1: 'Parhez va jismoniy mashqlar.', r_bmi_over_2: 'Metabolik sindrom skriningi.', r_bmi_over_d: 'Turmush tarzini optimallashtirish',
-  r_bmi_ob1: 'I darajali semizlik', r_bmi_ob1_1: 'Turmush tarzini intensiv o\'zgartirish.', r_bmi_ob1_2: 'Farmakoterapiyani ko\'rib chiqish.',
-  r_bmi_ob2: 'II/III darajali semizlik', r_bmi_ob2_1: 'Yurak-qon tomir kasalliklari xavfi yuqori.', r_bmi_ob2_2: 'Bariatrik jarrohlikni ko\'rib chiqish.',
+  r_bmi_under: 'Vazn yetishmovchiligi', r_bmi_under_1: 'Ovqatlanishni tekshiring.', r_bmi_under_2: 'Diyetolog maslahati.',
+  r_bmi_norm: 'Normal vazn', r_bmi_norm_1: 'Sog\'lom turmush tarzi.', r_bmi_norm_d: 'Dori-darmonsiz',
+  r_bmi_over: 'Ortiqcha vazn', r_bmi_over_1: 'Parhez va mashqlar.', r_bmi_over_2: 'Metabolik sindrom skriningi.', r_bmi_over_d: 'Turmush tarzini optimallashtirish',
+  r_bmi_ob1: 'I darajali semizlik', r_bmi_ob1_1: 'Turmush tarzini o\'zgartirish.', r_bmi_ob1_2: 'Farmakoterapiyani ko\'rib chiqish.',
+  r_bmi_ob2: 'II/III darajali semizlik', r_bmi_ob2_1: 'Yuqori xavf.', r_bmi_ob2_2: 'Bariatrik jarrohlik.',
+  bmi_info_title: 'TVI ni tushunish', bmi_info_p1: 'Vazn va bo\'y nisbati.', bmi_info_p2: 'To\'g\'ridan-to\'g\'ri tana yog\'ini o\'lchamaydi.',
 
-  // CURB-65
-  curb_info_title: 'CURB-65 shkalasini tushunish',
-  curb_info_p1: 'CURB-65 kasalxonadan tashqari pnevmoniyada o\'lim xavfini bashorat qiluvchi shkaladir.',
-  curb_info_p2: 'U ong chalkashligi, mochevina, nafas olish tezligi, qon bosimi va yoshni (≥ 65) baholaydi.',
-  curb_info_p3: 'Klinik chegara: 3 va undan yuqori ball kasalxona yoki reanimatsiyaga yotqizishni talab qiluvchi og\'ir pnevmoniyani ko\'rsatadi.',
+  // --- OTHER TOOLS (UZ) ---
+  r_curb_lo: 'Past xavf', r_curb_lo_1: 'Uyda davolanish.', r_curb_lo_2: 'Peroral antibiotiklar.', r_curb_lo_3: 'Kuzatuv.',
+  r_curb_md: 'O\'rtacha xavf', r_curb_md_1: 'Kasalxonaga yotqizish.', r_curb_md_2: 'Qisqa kuzatuv.', r_curb_md_3: 'Vena ichiga antibiotiklar.',
+  r_curb_hi: 'Yuqori xavf', r_curb_hi_1: 'Zudlik bilan yotqizish.', r_curb_hi_2: 'Reanimatsiya.', r_curb_hi_3: 'Keng spektrli antibiotiklar.',
+  curb_info_title: 'CURB-65 shkalasi', curb_info_p1: 'Pnevmoniyada o\'lim xavfi.', curb_info_p2: 'Ong, mochevina, nafas, bosim.', curb_info_p3: 'Chegara: ≥ 3 ball og\'ir pnevmoniya.',
 
-  // Wells DVT
-  dvt_info_title: 'Chuqur Vena Trombozi (DVT) uchun Wells mezonlari',
-  dvt_info_p1: 'Wells mezonlari chuqur vena trombozi (DVT) ehtimolini baholaydi.',
-  dvt_info_p2: 'U klinik belgilar, xavf omillari (jarrohlik, saraton) va muqobil tashxislarni baholaydi.',
-  dvt_info_p3: 'Klinik chegara: ≥ 2 ball DVT ehtimoli yuqoriligini anglatadi; UTT tekshiruvi ko\'rsatilgan.',
+  r_dvt_hi: 'DVT ehtimoli yuqori', r_dvt_hi_1: 'Zudlik bilan UTT.', r_dvt_hi_2: 'Agar UTT manfiy bo\'lsa D-Dimer.', r_dvt_hi_3: 'Antikoagulyantlar.',
+  r_dvt_md: 'O\'rtacha xavf', r_dvt_md_1: 'D-Dimer testi.', r_dvt_md_2: 'Musbat bo\'lsa UTT.', r_dvt_md_d: 'Tasdiqlangandan so\'ng.',
+  r_dvt_lo: 'DVT ehtimoli past', r_dvt_lo_1: 'D-Dimer testi.', r_dvt_lo_2: 'Manfiy bo\'lsa DVT istisno qilinadi.', r_dvt_lo_d: 'Kerak emas.',
+  dvt_info_title: 'Wells mezonlari', dvt_info_p1: 'DVT xavfini baholaydi.', dvt_info_p2: 'Klinik belgilar.', dvt_info_p3: 'Chegara: ≥ 2 ball yuqori ehtimol.',
 
-  // Wells PE
-  pe_info_title: 'O\'pka Emboliyasi (PE) uchun Wells mezonlari',
-  pe_info_p1: 'Wells mezonlari o\'pka emboliyasi (PE) ehtimolini baholaydi.',
-  pe_info_p2: 'U yurak urishi, qon tupurish, oldingi DVT/PE va muqobil tashxis ehtimolini baholaydi.',
-  pe_info_p3: 'Klinik chegara: > 4 ball PE ehtimoli yuqoriligini anglatadi; KT angiografiyasi ko\'rsatilgan.',
+  r_pe_hi: 'PE ehtimoli yuqori', r_pe_hi_1: 'Zudlik bilan KT-AG.', r_pe_hi_2: 'Antikoagulyantlar.', r_pe_hi_3: 'Kasalxonaga yotqizish.',
+  r_pe_md: 'O\'rtacha xavf', r_pe_md_1: 'D-Dimer.', r_pe_md_2: 'Musbat bo\'lsa KT-AG.', r_pe_lo_d: 'Kerak emas.',
+  r_pe_lo: 'PE ehtimoli past', r_pe_lo_1: 'PERC yoki D-Dimer.', r_pe_lo_2: 'PE istisno qilinadi.',
+  pe_info_title: 'Wells PE', pe_info_p1: 'O\'pka emboliyasi xavfi.', pe_info_p2: 'Puls va belgilar.', pe_info_p3: 'Chegara: > 4 ball PE ehtimoli yuqori.',
 
-  // CHADS2
-  chads_info_title: 'CHADS2 shkalasini tushunish',
-  chads_info_p1: 'CHADS2 shkalasi bo\'lmachalar fibrillyatsiyasi bo\'lgan bemorlarda insult xavfini baholaydi.',
-  chads_info_p2: 'U yurak yetishmovchiligi, gipertenziya, yosh (≥ 75), qandli diabet va oldingi insult/TIA ni baholaydi.',
-  chads_info_p3: 'Klinik chegara: ≥ 2 ball odatda peroral antikoagulyantlar buyurishni talab qiladi.',
+  r_chads_lo: 'Past xavf', r_chads_lo_1: 'Antikoagulyantlar kerak emas.', r_chads_lo_2: 'Kuzatuv.',
+  r_chads_md: 'O\'rtacha xavf', r_chads_md_1: 'Antikoagulyantlar.', r_chads_md_2: 'Qon ketish xavfi.',
+  r_chads_hi: 'Yuqori xavf', r_chads_hi_1: 'Antikoagulyantlar ko\'rsatilgan.', r_chads_hi_2: 'NOAK afzal.', r_chads_hi_3: 'Monitoring.',
+  chads_info_title: 'CHADS2 shkalasi', chads_info_p1: 'Insult xavfi.', chads_info_p2: 'Yosh, gipertenziya.', chads_info_p3: 'Chegara: ≥ 2 ball antikoagulyantlar.',
 
-  // Child-Pugh
-  cp_info_title: 'Child-Pugh shkalasini tushunish',
-  cp_info_p1: 'Child-Pugh shkalasi surunkali jigar kasalligi (asosan sirroz) prognozini baholaydi.',
-  cp_info_p2: 'U bilirubin, albumin, assit, ensefalopatiya va PV/XNN (PT/INR) ni baholaydi.',
-  cp_info_p3: 'Klinik chegara: C sinfi (10-15 ball) og\'ir jigar kasalligi va 1 yillik yashovchanlik ~45% ekanligini ko\'rsatadi.',
+  r_cp_a: 'Yengil', r_cp_a_1: 'Yaxshi prognoz.', r_cp_a_2: 'Yashovchanlik ~100%.',
+  r_cp_b: 'O\'rtacha', r_cp_b_1: 'O\'rtacha xavf.', r_cp_b_2: 'Transplantatsiya.',
+  r_cp_c: 'Og\'ir', r_cp_c_1: 'Yuqori o\'lim xavfi.', r_cp_c_2: 'Transplantatsiya ko\'rsatilgan.',
+  cp_info_title: 'Child-Pugh', cp_info_p1: 'Jigar sirrozi prognozi.', cp_info_p2: 'Bilirubin, albumin.', cp_info_p3: 'Chegara: C sinf og\'ir.',
 
-  // EGFR
-  egfr_info_title: 'eGFR (CKD-EPI) ni tushunish',
-  egfr_info_p1: 'Taxminiy koptokchalar filtratsiyasi tezligi (eGFR) buyrak faoliyatining eng yaxshi ko\'rsatkichidir.',
-  egfr_info_p2: 'CKD-EPI formulasi qon zardobidagi kreatinin, yosh va jinsdan foydalanib GFR ni hisoblaydi.',
-  egfr_info_p3: 'Klinik chegara: ≥ 3 oy davomida eGFR < 60 ml/min/1.73m² bo\'lishi surunkali buyrak kasalligini (SBK) ko\'rsatadi.',
+  r_egfr_g1: 'Normal', r_egfr_g1_1: 'Kuzatuv.', r_egfr_g1_2: 'Kasalliklarni davolash.',
+  r_egfr_g2: 'Biroz pasaygan', r_egfr_g2_1: 'Progressiya.', r_egfr_g2_2: 'Yurak xavfi.',
+  r_egfr_g3a: 'O\'rtacha', r_egfr_g3a_1: 'Asoratlarni davolash.', r_egfr_g3a_2: 'Dori dozasi.',
+  r_egfr_g3b: 'Og\'ir', r_egfr_g3b_1: 'Nefrolog.', r_egfr_g3b_2: 'Gemosodializga tayyorgarlik.',
+  r_egfr_g4: 'Juda og\'ir', r_egfr_g4_1: 'Qattiq kuzatuv.', r_egfr_g4_2: 'Transplantatsiya.',
+  r_egfr_g5: 'Terminal', r_egfr_g5_1: 'Dializ.', r_egfr_g5_2: 'Palliativ.',
+  egfr_info_title: 'eGFR', egfr_info_p1: 'Buyrak faoliyati.', egfr_info_p2: 'Kreatinin.', egfr_info_p3: 'Chegara: < 60 ml/min.',
 
-  // MEWS
-  mews_info_title: 'MEWS shkalasini tushunish',
-  mews_info_p1: 'MEWS shkalasi (Bemor holati yomonlashuvini erta aniqlash) kasalxonadagi bemorlarda klinik yomonlashuv xavfini aniqlaydi.',
-  mews_info_p2: 'U sistolik qon bosimi, puls, nafas olish tezligi, harorat va ong darajasini baholaydi.',
-  mews_info_p3: 'Klinik chegara: ≥ 5 ball o\'lim yoki reanimatsiyaga o\'tkazish ehtimoli ortganligini anglatadi.',
+  r_mews_lo: 'Stabil', r_mews_lo_1: 'Kuzatuv.', r_mews_lo_2: 'Reja.', r_mews_lo_d: 'Kerak emas.',
+  r_mews_md: 'Xavf', r_mews_md_1: 'Tez-tez kuzatish.', r_mews_md_2: 'Shifokorga xabar.', r_mews_md_3: '30 min.',
+  r_mews_hi: 'Kritik', r_mews_hi_1: 'Zudlik bilan shifokor.', r_mews_hi_2: 'Reanimatsiya.', r_mews_hi_3: 'ORIT.',
+  mews_info_title: 'MEWS shkalasi', mews_info_p1: 'Yomonlashuv xavfi.', mews_info_p2: 'Hayotiy belgilar.', mews_info_p3: 'Chegara: ≥ 5 ball yuqori xavf.',
 
-  // Centor
-  centor_info_title: 'Centor mezonlarini tushunish',
-  centor_info_p1: 'Centor mezonlari faringitning A guruh streptokokklari tomonidan chaqirilganlik ehtimolini baholaydi.',
-  centor_info_p2: 'U isitma, murtak bezlaridagi karash, bo\'yin limfa tugunlari og\'rig\'i va yo\'tal yo\'qligini baholaydi.',
-  centor_info_p3: 'Klinik chegara: ≥ 3 ball ekspress-test yoki empirik antibiotiklarni talab qiladi.',
+  r_centor_lo: 'Strep ehtimoli past', r_centor_lo_1: 'Simptomatik.', r_centor_lo_2: 'Antibiotiklar KERAK EMAS.',
+  r_centor_md: 'Strep mumkin', r_centor_md_1: 'Ekspress-test.', r_centor_md_2: 'Musbat bo\'lsa davolash.', r_centor_md_d: 'Tasdiqlangandan so\'ng.',
+  r_centor_hi: 'Strep ehtimoli yuqori', r_centor_hi_1: 'Empirik antibiotiklar.', r_centor_hi_2: 'Test bilan tasdiqlash.',
+  centor_info_title: 'Centor mezonlari', centor_info_p1: 'Streptokokk ehtimoli.', centor_info_p2: 'Isitma, karash.', centor_info_p3: 'Chegara: ≥ 3 ball antibiotiklar.',
 
-  // NIHSS
-  nihss_info_title: 'NIHSS insult shkalasini tushunish',
-  nihss_info_p1: 'NIHSS insult bilan bog\'liq nevrologik defitsitni miqdoriy baholash uchun tizimli vositadir.',
-  nihss_info_p2: 'U ong, ko\'rish, motorika, sezgi, ataksiya va nutqni baholaydi.',
-  nihss_info_p3: 'Klinik chegara: > 15 ball og\'ir insultni anglatadi; ≤ 4 ball trombolizis uchun ko\'rib chiqilishi mumkin.',
+  r_nihss_none: 'Insult yo\'q', r_nihss_none_1: 'TIA.', r_nihss_none_2: 'Profilaktika.',
+  r_nihss_minor: 'Yengil', r_nihss_minor_1: 'Insult bo\'limi.', r_nihss_minor_2: 'Trombolizis.', r_nihss_minor_3: 'Parvarish.',
+  r_nihss_mod: 'O\'rtacha', r_nihss_mod_1: 'Trombolizis.', r_nihss_mod_2: 'Trombektomiya.', r_nihss_mod_3: 'Qon bosimi.',
+  r_nihss_modsev: 'Og\'ir', r_nihss_modsev_1: 'Nevrolog.', r_nihss_modsev_2: 'Trombektomiya.', r_nihss_modsev_3: 'ORIT.',
+  r_nihss_sev: 'Juda og\'ir', r_nihss_sev_1: 'Yuqori xavf.', r_nihss_sev_2: 'Nafas yo\'llari.', r_nihss_sev_3: 'Palliativ.',
+  nihss_info_title: 'NIHSS shkalasi', nihss_info_p1: 'Nevrologik defitsit.', nihss_info_p2: 'Harakat, nutq.', nihss_info_p3: 'Chegara: > 15 ball og\'ir insult.',
 
-  // SOFA
-  sofa_info_title: 'SOFA shkalasini tushunish',
-  sofa_info_p1: 'SOFA (A\'zolar yetishmovchiligini ketma-ket baholash) shkalasi reanimatsiyadagi bemorning holatini kuzatib boradi.',
-  sofa_info_p2: 'U nafas olish, yurak-qon tomir, jigar, koagulyatsiya, buyrak va asab tizimlarini baholaydi.',
-  sofa_info_p3: 'Klinik chegara: ≥ 2 ballga o\'tkir o\'sish yuqori o\'lim xavfi (sepsis) bilan bog\'liq a\'zolar disfunksiyasini aks ettiradi.',
+  r_sofa_lo: 'Past xavf', r_sofa_lo_1: 'Parvarish.', r_sofa_lo_2: 'Infeksiyani davolash.', r_sofa_lo_3: 'Kuzatuv.',
+  r_sofa_md: 'A\'zolar disfunksiyasi', r_sofa_md_1: 'ORIT.', r_sofa_md_2: 'Qo\'llab-quvvatlash.', r_sofa_md_3: 'IVL.',
+  r_sofa_hi: 'Poliorgan yetishmovchiligi', r_sofa_hi_1: 'Agressiv davolash.', r_sofa_hi_2: 'Vazopressorlar.', r_sofa_hi_3: 'Yuqori o\'lim xavfi.',
+  sofa_info_title: 'SOFA shkalasi', sofa_info_p1: 'Reanimatsiyadagi holat.', sofa_info_p2: '6 tizim.', sofa_info_p3: 'Chegara: ≥ 2 ball o\'sish - sepsis.',
 
-  // Ranson
-  ranson_info_title: 'Ranson mezonlarini tushunish',
-  ranson_info_p1: 'Ranson mezonlari o\'tkir pankreatitning og\'irligi va o\'lim xavfini baholaydi.',
-  ranson_info_p2: 'U kasalxonaga yotqizish paytidagi va 48 soatdan keyingi laborator parametrlarini baholaydi.',
-  ranson_info_p3: 'Klinik chegara: ≥ 3 ball og\'ir pankreatit va o\'lim xavfi ortganligini ko\'rsatadi.',
+  r_ranson_lo: 'Yengil', r_ranson_lo_1: 'Infuziyalar.', r_ranson_lo_2: 'Og\'riqsizlantirish.', r_ranson_lo_3: 'Oziqlantirish.',
+  r_ranson_md: 'Og\'ir xavf', r_ranson_md_1: 'Agressiv infuziyalar.', r_ranson_md_2: 'ORIT.', r_ranson_md_3: 'Zond.', r_ranson_md_d: 'Hartman.',
+  r_ranson_hi: 'Yuqori xavf', r_ranson_hi_1: 'ORIT majburiy.', r_ranson_hi_2: 'Nekroz nazorati.', r_ranson_hi_3: 'Jarroh.',
+  ranson_info_title: 'Ranson mezonlari', ranson_info_p1: 'Pankreatit og\'irligi.', ranson_info_p2: 'Tahlillar.', ranson_info_p3: 'Chegara: ≥ 3 ball og\'ir.',
 
-  // PSI/PORT
-  psi_info_title: 'PSI/PORT shkalasini tushunish',
-  psi_info_p1: 'PSI/PORT (Pnevmoniya og\'irlik indeksi) kasalxonadan tashqari pnevmoniyada 30 kunlik o\'lim xavfini bashorat qiladi.',
-  psi_info_p2: 'U demografiya, yondosh kasalliklar, hayotiy ko\'rsatkichlar va laborator tahlillarni chuqur baholaydi.',
-  psi_info_p3: 'Klinik chegara: IV va V xavf sinflari kasalxonaga yotqizishni talab qiluvchi og\'ir pnevmoniyani ko\'rsatadi.'
+  r_psi_1: 'I Sinf', r_psi_1_1: 'Uyda.', r_psi_1_2: 'Peroral.',
+  r_psi_2: 'II Sinf', r_psi_2_1: 'Uyda.', r_psi_2_2: 'Peroral.',
+  r_psi_3: 'III Sinf', r_psi_3_1: 'Qisqa muddat.', r_psi_3_2: 'Vena ichiga.', r_psi_3_d: 'Peroralga o\'tish.',
+  r_psi_4: 'IV Sinf', r_psi_4_1: 'Kasalxona.', r_psi_4_2: 'Vena ichiga.',
+  r_psi_5: 'V Sinf', r_psi_5_1: 'ORIT.', r_psi_5_2: 'Keng spektrli.',
+  psi_info_title: 'PSI/PORT', psi_info_p1: 'Pnevmoniya prognozi.', psi_info_p2: 'Klinika va tahlil.', psi_info_p3: 'Chegara: IV va V sinflar yotqizish.'
 }
 };
 
