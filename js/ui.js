@@ -1,12 +1,9 @@
-/* ── UI HELPERS ── */
+'use strict';
 
 // 1. MEMORY: Auto-load saved language when ANY page opens
 document.addEventListener('DOMContentLoaded', () => {
   let savedLang = localStorage.getItem('wardcalc_lang') || 'en';
-  
-  if (typeof window !== 'undefined') {
-    window.LANG = savedLang;
-  }
+  window.LANG = savedLang;
 
   // Force apply strict CSS to the correct button on load
   document.querySelectorAll('.lang-btn').forEach(b => {
@@ -19,42 +16,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  updateUI();
-  if(document.getElementById('calcGrid') && typeof renderGrid === 'function') renderGrid();
+  if (typeof window.updateUI === 'function') window.updateUI();
 });
 
 // 2. SWITCHER: Save language to memory and update buttons
-function setLang(l, btn){
-  // 1. Save directly to memory BEFORE translating
-  if (typeof window !== 'undefined') window.LANG = l;
+window.setLang = function(l, btn){
+  window.LANG = l;
   localStorage.setItem('wardcalc_lang', l); 
   
-  // 2. Force reset ALL buttons with strict CSS
   document.querySelectorAll('.lang-btn').forEach(b => {
     b.classList.remove('active');
     b.style.cssText = 'background: transparent !important; color: #888 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   });
   
-  // 3. Force apply gold to the CLICKED button
   if (btn) {
     btn.classList.add('active');
     btn.style.cssText = 'background: #d4af37 !important; color: #000 !important; border: none; padding: 6px 14px; border-radius: 15px; cursor: pointer; font-size: 11px; font-weight: 700; letter-spacing: 1px;';
   }
-
-  // 4. Clear any visible calculator results so they don't get stuck in the old language
-  const resultBox = document.getElementById('R');
-  if (resultBox) {
-    resultBox.innerHTML = '';
-    resultBox.className = ''; // Remove the 'visible' class
-  }
   
-  // 5. Fire the translator
-  updateUI();
-  if(document.getElementById('calcGrid') && typeof renderGrid === 'function') renderGrid();
-}
+  const resultBox = document.getElementById('R');
+  if (resultBox) resultBox.innerHTML = '';
+  
+  if (typeof window.updateUI === 'function') window.updateUI();
+};
 
-// 3. TRANSLATOR: Applies dictionary text to the page
-function updateUI(){
+// 3. TRANSLATOR
+window.updateUI = function(){
   if (typeof t !== 'function') return;
   document.querySelectorAll('[data-k]').forEach(el => {
     const key = el.dataset.k;
@@ -68,33 +55,30 @@ function updateUI(){
         }
     }
   });
-}
+};
 
-// 4. CHIP LOGIC: Single Selection (Yes/No, Male/Female)
-function pickChip(btn){
+// 4. CHIP LOGIC
+window.pickChip = function(btn){
   document.querySelectorAll(`[data-g="${btn.dataset.g}"]`).forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
-}
+};
 
-// 5. CHIP LOGIC: Multiple Selection / Toggles (Fixes PSI/PORT Score!)
-function toggleChip(el) {
+window.toggleChip = function(el) {
   el.classList.toggle('on');
-}
+};
 
-// 6. CALCULATOR HELPERS
-function gv(g){ 
-  const e=document.querySelector(`[data-g="${g}"].on`); 
+// 5. CALCULATOR HELPERS
+window.gv = function(g){ 
+  const e = document.querySelector(`[data-g="${g}"].on`); 
   return e ? parseFloat(e.dataset.v) : null; 
-}
-function allSet(gs){ 
-  return gs.every(g=>gv(g)!==null); 
-}
-function alertMsg(){ 
-  alert(t('alert_msg')); 
-}
+};
 
-// 7. RESULT TAB SYSTEM
-function switchTab(i){
+window.allSet = function(gs){ 
+  return gs.every(g => window.gv(g) !== null); 
+};
+
+// 6. RESULT TAB SYSTEM
+window.switchTab = function(i){
   const tabs = document.querySelectorAll('.result-tab');
   const panels = document.querySelectorAll('.result-panel');
   
@@ -108,10 +92,10 @@ function switchTab(i){
     p.style.display = (j === i) ? 'block' : 'none';
     p.classList.toggle('on', j === i);
   });
-}
+};
 
-// 8. RESULT DISPLAY GENERATOR
-function showResult(score, unit, sev, interp, actions, drugs){
+// 7. RESULT DISPLAY GENERATOR
+window.showResult = function(score, unit, sev, interp, actions, drugs){
   const box = document.getElementById('R'); if(!box) return;
   box.className = `result-box visible`;
   
@@ -119,7 +103,7 @@ function showResult(score, unit, sev, interp, actions, drugs){
   const riskColor = sev === 'hi' ? 'var(--rose)' : sev === 'md' ? 'var(--amber)' : 'var(--emerald)';
 
   box.innerHTML = `
-    <div class="result-hero" style="background:var(--bg3); padding:30px; border-bottom:1px solid var(--border);">
+    <div class="result-hero" style="background:var(--bg3); padding:30px; border-bottom:1px solid var(--border); border-radius: 12px 12px 0 0;">
       <div style="display:flex; align-items:center; gap:10px;">
         <div class="result-number" style="color: ${riskColor}; font-size:48px; font-weight:800; line-height:1;">${score}</div>
         <span style="color:var(--w40); font-family:var(--mono); font-size:12px; text-transform:uppercase;">${unit}</span>
@@ -129,31 +113,25 @@ function showResult(score, unit, sev, interp, actions, drugs){
       </div>
     </div>
     <div class="result-tabs" style="display:flex; background:var(--bg2);">
-      <button class="result-tab on" onclick="switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_i')}</button>
-      <button class="result-tab" onclick="switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_a')}</button>
-      <button class="result-tab" onclick="switchTab(2)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_d')}</button>
+      <button class="result-tab on" onclick="window.switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_i')}</button>
+      <button class="result-tab" onclick="window.switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_a')}</button>
+      <button class="result-tab" onclick="window.switchTab(2)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_d')}</button>
     </div>
-    <div class="result-panels" style="background:var(--bg2);">
+    <div class="result-panels" style="background:var(--bg2); border-radius: 0 0 12px 12px; border: 1px solid var(--border); border-top: none;">
       <div class="result-panel on" style="padding:24px; color:var(--w80); font-size:15px; font-style:italic; line-height:1.7;">${interp}</div>
       <div class="result-panel" style="padding:24px; display:none;">${actions}</div>
       <div class="result-panel" style="padding:24px; display:none;">${drugs}</div>
     </div>`;
-}
+};
 
-// 9. SEARCH BAR FUNCTION (For index.html)
-function filterTools() {
+// 8. SEARCH BAR FUNCTION
+window.filterTools = function() {
     let input = document.getElementById('search');
     if (!input) return;
-    
     let filter = input.value.toLowerCase();
     let tools = document.querySelectorAll('.tool-card');
-    
     tools.forEach(tool => {
-        let text = tool.innerText.toLowerCase();
-        if (text.includes(filter)) {
-            tool.style.display = "block";
-        } else {
-            tool.style.display = "none";
-        }
+        if (tool.innerText.toLowerCase().includes(filter)) tool.style.display = "block";
+        else tool.style.display = "none";
     });
-}
+};
