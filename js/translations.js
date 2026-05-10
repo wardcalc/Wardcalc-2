@@ -108,7 +108,7 @@ en:{
   r_dvt_lo: 'DVT Unlikely', r_dvt_lo_1: 'Perform D-Dimer test.', r_dvt_lo_2: 'If negative, DVT excluded.', r_dvt_lo_d: 'No empirical anticoagulation.',
   dvt_info_title: 'Understanding Wells DVT', 
   dvt_info_p1: 'The Wells Criteria for DVT safely and objectively categorizes patients into risk tiers, standardizing the diagnostic approach to suspected lower extremity deep vein thrombosis.', 
-  dvt_info_p2: 'It actively prevents unnecessary ultrasonography in low-risk populations by utilizing the D-dimer assay as a rule-out mechanism.', 
+  dvt_info_p2: 'It actively prevents unnecessary ultrasonography in low-risk populations by utilizing the D-dimer assay as a rule-out mechanism. The crucial "Alternative diagnosis" metric relies heavily on the clinician’s experience to identify cellulitis, Baker\'s cyst rupture, or muscle tears.', 
   dvt_info_p3: 'Threshold: A score ≥ 2 categorizes the patient into the "DVT Likely" tier, where D-dimer alone is insufficient, and imaging is mandatory.',
 
   // --- 6. WELLS PE ---
@@ -118,7 +118,7 @@ en:{
   r_pe_md: 'Moderate Risk', r_pe_md_1: 'D-Dimer testing.', r_pe_md_2: 'If positive, perform CTPA.', r_pe_lo_d: 'No empirical anticoagulation.',
   r_pe_lo: 'PE Unlikely', r_pe_lo_1: 'Use PERC rule or D-Dimer.', r_pe_lo_2: 'If negative, PE excluded.',
   pe_info_title: 'Understanding Wells PE', 
-  pe_info_p1: 'The Wells Score for PE provides a structured framework to calculate a pre-test probability, directly dictating whether a patient should undergo D-dimer blood testing or proceed immediately to a CT Pulmonary Angiogram (CTPA).', 
+  pe_info_p1: 'Pulmonary Embolism can present with highly non-specific symptoms. The Wells Score for PE provides a structured framework to calculate a pre-test probability, directly dictating whether a patient should undergo D-dimer blood testing or proceed immediately to a CT Pulmonary Angiogram (CTPA).', 
   pe_info_p2: 'Applying this rule significantly reduces unnecessary radiation exposure and contrast-induced nephropathy in low-risk patients.', 
   pe_info_p3: 'Threshold: A score > 4 means PE is likely; a negative D-dimer cannot safely rule out PE in this cohort, and imaging is required.',
 
@@ -130,8 +130,8 @@ en:{
   r_chads_hi: 'High Risk', r_chads_hi_1: 'Oral anticoagulation recommended.', r_chads_hi_2: 'DOACs preferred over Warfarin.', r_chads_hi_3: 'Monitor adherence.',
   chads_info_title: 'Understanding CHADS2', 
   chads_info_p1: 'The CHADS2 score is a clinical tool used to estimate the annual risk of ischemic stroke in patients with non-valvular atrial fibrillation.', 
-  chads_info_p2: 'The score balances the risk of thromboembolic events against the inherent bleeding risks associated with anticoagulants.', 
-  chads_info_p3: 'Threshold: A score of 2 or greater signifies a high stroke risk, establishing a strong clinical indication for systemic anticoagulation.',
+  chads_info_p2: 'The score balances the risk of thromboembolic events against the inherent bleeding risks associated with anticoagulants (DOACs or Vitamin K antagonists).', 
+  chads_info_p3: 'Threshold: A score of 2 or greater signifies a high stroke risk (≥ 4.0% per year), establishing a strong clinical indication for systemic anticoagulation.',
 
   // --- 8. CHILD-PUGH ---
   d_cp: 'Prognostic classification of liver cirrhosis severity.', 
@@ -145,9 +145,9 @@ en:{
   r_cp_b: 'Moderate Impairment', r_cp_b_1: 'Moderate operative risk.', r_cp_b_2: 'Consider liver transplant evaluation.',
   r_cp_c: 'Severe Impairment', r_cp_c_1: 'High mortality risk.', r_cp_c_2: 'Transplant evaluation indicated.',
   cp_info_title: 'Understanding Child-Pugh', 
-  cp_info_p1: 'The Child-Turcotte-Pugh score is an established system for assessing the prognosis of chronic liver disease, primarily cirrhosis.', 
-  cp_info_p2: 'It provides a reliable estimate of survival, critical for determining perioperative risk before abdominal surgery.', 
-  cp_info_p3: 'Threshold: Progression to Class C (10-15 points) denotes decompensated disease with poor prognosis.',
+  cp_info_p1: 'The Child-Turcotte-Pugh score is an established system for assessing the prognosis of chronic liver disease, primarily cirrhosis. It blends objective laboratory measures with subjective clinical assessments.', 
+  cp_info_p2: 'It provides a reliable estimate of survival, critical for determining perioperative risk before abdominal surgery and for adjusting dosages of hepatically metabolized medications.', 
+  cp_info_p3: 'Threshold: Progression to Class C (10-15 points) denotes decompensated disease with poor prognosis, necessitating urgent transplant assessment.',
 
   // --- 9. EGFR ---
   d_egfr: 'Estimated glomerular filtration rate via the CKD-EPI equation.', 
@@ -159,9 +159,9 @@ en:{
   r_egfr_g4: 'Severely Decreased', r_egfr_g4_1: 'Close nephrology follow-up.', r_egfr_g4_2: 'Discuss dialysis/transplant.',
   r_egfr_g5: 'Kidney Failure', r_egfr_g5_1: 'Initiate dialysis.', r_egfr_g5_2: 'Palliative care if appropriate.',
   egfr_info_title: 'Understanding eGFR', 
-  egfr_info_p1: 'The estimated Glomerular Filtration Rate (eGFR) is the most robust overall index of renal function. The CKD-EPI equation is currently the gold standard.', 
-  egfr_info_p2: 'It is a mandatory calculation prior to prescribing renally excreted drugs to prevent toxicity.', 
-  egfr_info_p3: 'Threshold: An eGFR of < 60 mL/min/1.73m² persisting for 3 months formally establishes a diagnosis of CKD.',
+  egfr_info_p1: 'The estimated Glomerular Filtration Rate (eGFR) is the most robust overall index of renal function. The CKD-EPI Creatinine equation is currently the gold standard.', 
+  egfr_info_p2: 'It is a mandatory calculation prior to prescribing renally excreted or nephrotoxic drugs (such as Metformin, DOACs, or certain antibiotics) to prevent systemic toxicity.', 
+  egfr_info_p3: 'Threshold: An eGFR of < 60 mL/min/1.73m² persisting for 3 or more months formally establishes a diagnosis of Chronic Kidney Disease (CKD).',
 
   // --- 10. MEWS ---
   d_mews: 'Track physiology to detect catastrophic deterioration early.', 
@@ -170,9 +170,9 @@ en:{
   r_mews_md: 'Increased Risk', r_mews_md_1: 'Increase observation frequency.', r_mews_md_2: 'Inform nurse in charge.', r_mews_md_3: 'Medical review within 30 mins.',
   r_mews_hi: 'Critical', r_mews_hi_1: 'Immediate medical review.', r_mews_hi_2: 'Call rapid response team.', r_mews_hi_3: 'Consider ICU transfer.',
   mews_info_title: 'Understanding MEWS', 
-  mews_info_p1: 'The Modified Early Warning Score (MEWS) identifies patients at risk of impending clinical decline, including cardiac arrest.', 
-  mews_info_p2: 'By algorithmically converting routine vital signs into a single number, MEWS acts as a standard clinical trigger.', 
-  mews_info_p3: 'Threshold: A score of 5 or higher is statistically associated with a severely increased likelihood of death.',
+  mews_info_p1: 'The Modified Early Warning Score (MEWS) is a physiological scoring system used universally to rapidly identify patients at risk of impending clinical decline, including cardiac arrest.', 
+  mews_info_p2: 'By converting routine vital signs and AVPU scores into a single aggregate number, MEWS acts as an objective "trigger" to mandate escalation of care.', 
+  mews_info_p3: 'Threshold: A score of 5 or higher is statistically associated with a severely increased likelihood of ICU admission or death.',
 
   // --- 11. CENTOR ---
   d_centor: 'Clinical probability of Group A Streptococcal pharyngitis.', 
@@ -182,8 +182,8 @@ en:{
   r_centor_md: 'Possible Strep', r_centor_md_1: 'Perform rapid strep test.', r_centor_md_2: 'Treat if test is positive.', r_centor_md_d: 'Antibiotics only if confirmed.',
   r_centor_hi: 'Strep Likely', r_centor_hi_1: 'Empiric antibiotics justified.', r_centor_hi_2: 'Consider rapid test to confirm.',
   centor_info_title: 'Understanding Centor', 
-  centor_info_p1: 'The Centor Criteria provides a framework to evaluate patients presenting with a sore throat, estimating Group A beta-hemolytic Streptococcus infection likelihood.', 
-  centor_info_p2: 'Its primary utility lies in antibiotic stewardship—preventing empirical prescription for viral pharyngitis.', 
+  centor_info_p1: 'The Centor Criteria (modified with age) provides a framework to evaluate patients presenting with a sore throat, estimating Group A beta-hemolytic Streptococcus (GAS) infection likelihood.', 
+  centor_info_p2: 'Its primary utility lies in antibiotic stewardship—discouraging empirical prescription for viral pharyngitis while identifying those needing treatment to prevent complications like rheumatic fever.', 
   centor_info_p3: 'Threshold: A score of 4-5 may justify empirical antibiotics.',
 
   // --- 12. NIHSS ---
@@ -195,9 +195,9 @@ en:{
   r_nihss_modsev: 'Moderate-Severe', r_nihss_modsev_1: 'Urgent neurology consult.', r_nihss_modsev_2: 'Thrombectomy evaluation.', r_nihss_modsev_3: 'ICU/Stroke unit admission.',
   r_nihss_sev: 'Severe Stroke', r_nihss_sev_1: 'High risk of complications.', r_nihss_sev_2: 'Airway protection.', r_nihss_sev_3: 'Palliative considerations if massive.',
   nihss_info_title: 'Understanding the NIHSS', 
-  nihss_info_p1: 'The NIH Stroke Scale is the international standard for acute stroke evaluation, quantifying stroke-related neurologic deficit.', 
-  nihss_info_p2: 'It determines eligibility for IV thrombolysis and endovascular thrombectomy.', 
-  nihss_info_p3: 'Threshold: A score > 15 indicates a severe stroke with a poor prognosis.',
+  nihss_info_p1: 'The National Institutes of Health Stroke Scale (NIHSS) is a structured assessment tool providing a quantitative measure of stroke-related neurologic deficit. It is the standard for evaluation.', 
+  nihss_info_p2: 'It systematically evaluates consciousness, language, motor strength, and sensory loss to determine eligibility for IV thrombolysis and endovascular thrombectomy.', 
+  nihss_info_p3: 'Threshold: A score greater than 15 indicates a severe stroke with a higher likelihood of long-term disability.',
 
   // --- 13. SOFA ---
   d_sofa: 'Define sepsis (Sepsis-3) via sequential organ failure assessment.', 
@@ -206,9 +206,9 @@ en:{
   r_sofa_md: 'Moderate Organ Failure', r_sofa_md_1: 'ICU level care indicated.', r_sofa_md_2: 'Hemodynamic support.', r_sofa_md_3: 'Consider mechanical ventilation.',
   r_sofa_hi: 'Severe Multi-Organ Failure', r_sofa_hi_1: 'Aggressive ICU management.', r_sofa_hi_2: 'Vasopressors/CRRT likely needed.', r_sofa_hi_3: 'High mortality probability.',
   sofa_info_title: 'Understanding SOFA', 
-  sofa_info_p1: 'The Sequential Organ Failure Assessment (SOFA) tracks status in the ICU to determine physiological deterioration.', 
-  sofa_info_p2: 'Unlike older SIRS criteria, SOFA requires laboratory inputs to objectify organ dysfunction.', 
-  sofa_info_p3: 'Threshold: An acute increase in the total SOFA score of ≥ 2 points defines sepsis.',
+  sofa_info_p1: 'The Sequential Organ Failure Assessment (SOFA) score tracks a patient\'s clinical status in the ICU to determine physiological deterioration and multi-organ failure.', 
+  sofa_info_p2: 'It scores respiratory, cardiovascular, hepatic, coagulation, renal, and neurological systems. Unlike older SIRS criteria, SOFA requires labs to objectify organ dysfunction.', 
+  sofa_info_p3: 'Threshold: The Sepsis-3 consensus dictates that an acute increase in the total SOFA score of ≥ 2 points defines sepsis.',
 
   // --- 14. RANSON ---
   d_ranson: 'Predictive algorithm for acute pancreatitis mortality risk.', 
@@ -217,9 +217,9 @@ en:{
   r_ranson_md: 'Severe Pancreatitis Risk', r_ranson_md_1: 'Aggressive IV fluids.', r_ranson_md_2: 'ICU monitoring.', r_ranson_md_3: 'Enteral nutrition.', r_ranson_md_d: 'Hartmanns preferred.',
   r_ranson_hi: 'High Mortality Risk', r_ranson_hi_1: 'ICU admission mandatory.', r_ranson_hi_2: 'Monitor for necrosis/infection.', r_ranson_hi_3: 'Surgical consult.',
   ranson_info_title: 'Understanding Ranson Criteria', 
-  ranson_info_p1: 'Ranson\'s criteria evaluate the severity and prognosis of acute pancreatitis based on 11 specific clinical signs.', 
-  ranson_info_p2: 'Variables are assessed at admission and at 48 hours to capture systemic impact.', 
-  ranson_info_p3: 'Threshold: A score of 3 or higher indicates severe pancreatitis.',
+  ranson_info_p1: 'Ranson\'s criteria comprise 11 specific clinical signs designed to evaluate the severity and prognosis of acute pancreatitis.', 
+  ranson_info_p2: 'Variables are assessed upon admission and at 48 hours to capture the delayed effects of hypocalcemia and worsening hypoxia.', 
+  ranson_info_p3: 'Threshold: A score of 3 or higher indicates severe pancreatitis, correlating with a sharp increase in mortality.',
 
   // --- 15. PSI/PORT ---
   d_psi: 'Comprehensive mortality stratification for CAP.', 
@@ -230,9 +230,9 @@ en:{
   r_psi_4: 'Risk Class IV (High)', r_psi_4_1: 'Inpatient admission.', r_psi_4_2: 'IV antibiotics.',
   r_psi_5: 'Risk Class V (Very High)', r_psi_5_1: 'ICU admission likely.', r_psi_5_2: 'Broad-spectrum IV antibiotics.',
   psi_info_title: 'Understanding PSI/PORT', 
-  psi_info_p1: 'The Pneumonia Severity Index (PSI) calculates 30-day mortality for patients with community-acquired pneumonia.', 
-  psi_info_p2: 'It is considered the superior tool for identifying low-risk patients who can be safely discharged.', 
-  psi_info_p3: 'Threshold: Risk Classes IV and V mandate inpatient admission.'
+  psi_info_p1: 'The Pneumonia Severity Index (PSI) is a clinical prediction rule used to calculate mortality for patients with community-acquired pneumonia.', 
+  psi_info_p2: 'It is considered the superior tool for identifying low-risk patients who can be safely treated as outpatients.', 
+  psi_info_p3: 'Threshold: Risk Classes IV and V carry substantial risks and mandate inpatient admission.'
 },
 
 ru:{
@@ -260,19 +260,16 @@ ru:{
   contact_p2: 'Для академических запросов или технической поддержки пишите через наш официальный репозиторий GitHub. Мы отвечаем на профессиональную корреспонденцию в течение 48 часов.',
   
   nav_disc: 'Отказ от ответственности', 
-  disc_p1: 'WardCalc является исключительно образовательным и справочным инструментом. Он не предоставляет медицинских консультаций, диагнозов или окончательных рекомендаций по лечению.',
-  disc_p2: 'Пользователь несет полную ответственность за принятые клинические решения. Ни Мухаммад Сабир Али, ни Бухарский ГМИ не несут ответственности за ущерб, возникший в результате использования данных расчетов.',
+  disc_p1: 'WardCalc является исключительно образовательным и справочным инструментом. Он не предоставляет медицинских консультаций, диагнозов или рекомендаций.',
+  disc_p2: 'Пользователь несет полную ответственность за принятые клинические решения. Ни Мухаммад Сабир Али, ни Бухарский ГМИ не несут ответственности за ущерб.',
   
   nav_terms: 'Условия использования', 
-  terms_p1: 'Используя платформу WardCalc, вы подтверждаете, что используете это программное обеспечение на свой страх и риск. Сервис предоставляется «как есть» без каких-либо гарантий.',
+  terms_p1: 'Используя платформу WardCalc, вы подтверждаете, что используете это ПО на свой страх и риск. Сервис предоставляется «как есть» без каких-либо гарантий.',
   terms_p2: 'Пользователи несут полную ответственность за проверку точности всех расчетов перед их применением в реальной практике.',
   
   nav_privacy: 'Конфиденциальность', 
-  privacy_p1: 'WardCalc построен на архитектуре «Privacy-First». Вся обработка данных происходит локально на вашем устройстве. Никакая личная информация о пациентах (PHI) никогда не передается на сервер.',
-  privacy_p2: 'Мы соблюдаем принципы минимизации данных. Ваши языковые предпочтения сохраняются локально в браузере, обеспечивая 100% безопасность в автономном режиме.',
-
-  // --- SEVERITY TAGS ---
-  sev_lo: 'НИЗКИЙ РИСК', sev_md: 'СРЕДНИЙ РИСК', sev_hi: 'ВЫСОКИЙ РИСК',
+  privacy_p1: 'WardCalc построен на архитектуре «Privacy-First». Вся обработка данных происходит локально на вашем устройстве. Личная информация пациентов не передается на сервер.',
+  privacy_p2: 'Мы соблюдаем принципы минимизации данных. Ваши языковые предпочтения сохраняются локально в браузере.',
 
   // --- 1. GCS ---
   d_gcs: 'Базовая оценка уровня сознания. Первый показатель при травмах.',
@@ -313,17 +310,17 @@ uz:{
   nav_about: 'WardCalc haqida',
   about_p1: 'WardCalc - bu Buxoro davlat tibbiyot instituti bitiruvchi talabasi Muhammad Sabir Ali tomonidan ishlab chiqilgan kompleks klinik qarorlarni qabul qilishni qo\'llab-quvvatlash tizimi.',
   about_h2: 'Bizning maqsadimiz',
-  about_p2: 'Shifokorlarni tasdiqlangan tibbiy ball tizimlariga tezkor kirish bilan ta\'minlash. WardCalc diagnostika jarayonlarini standartlashtirish va xatolarni kamaytirishni maqsad qiladi.',
+  about_p2: 'Shifokorlarni tasdiqlangan tibbiy ball tizimlariga tezkor kirish bilan ta\'minlash. WardCalc diagnostika jarayonlarini standartlashtirishni maqsad qiladi.',
   about_h3: 'Klinik yaxlitlik',
   about_p3: 'WardCalc ichidagi har bir formula nufuzli tibbiy adabiyotlarga asoslangan. Ushbu vositalar klinik tajribani to\'ldirish uchun mo\'ljallangan.',
   
   nav_contact: 'Biz bilan aloqa', 
-  contact_p1: 'Biz professional hamkasblarning fikr-mulohazalarini qadrlaymiz. Agar klinik nomuvofiqlik yoki texnik xatolikni aniqlasangiz, biz bilan bog\'laning.',
-  contact_p2: 'Akademik so\'rovlar yoki texnik yordam uchun rasmiy GitHub repozitoriyamiz orqali murojaat qiling. Biz 48 soat ichida javob berishga harakat qilamiz.',
+  contact_p1: 'Biz professional hamkasblarning fikr-mulohazalarini qadrlaymiz. Agar klinik xatolikni aniqlasangiz, biz bilan bog\'laning.',
+  contact_p2: 'Akademik so\'rovlar yoki texnik yordam uchun GitHub orqali murojaat qiling. Biz 48 soat ichida javob berishga harakat qilamiz.',
   
   nav_disc: 'Rad etish', 
   disc_p1: 'WardCalc faqat ta\'lim va ma\'lumot olish maqsadida mo\'ljallangan. U rasmiy tibbiy maslahat yoki tashxis hisoblanmaydi.',
-  disc_p2: 'Barcha klinik qarorlar uchun foydalanuvchi javobgardir. Muhammad Sabir Ali yoki Buxoro davlat tibbiyot instituti ushbu dasturdan foydalanish natijasida yuzaga keladigan zararlar uchun javobgar emas.',
+  disc_p2: 'Barcha klinik qarorlar uchun foydalanuvchi javobgardir. Muhammad Sabir Ali yoki Buxoro davlat tibbiyot instituti zararlar uchun javobgar emas.',
   
   nav_terms: 'Foydalanish shartlari', 
   terms_p1: 'WardCalc platformasidan foydalanish orqali siz ushbu shartlarga rozilik bildirasiz. Ushbu xizmat hech qanday kafolatsiz taqdim etiladi.',
@@ -331,7 +328,7 @@ uz:{
   
   nav_privacy: 'Maxfiylik siyosati', 
   privacy_p1: 'WardCalc maxfiylikka asoslangan arxitekturaga ega. Barcha ma\'lumotlar lokal ravishda qurilmangizda qayta ishlanadi.',
-  privacy_p2: 'Biz hech qanday shaxsiy sog\'liqni saqlash ma\'lumotlarini yig\'maymiz. Sizning til sozlamalaringiz tashqi kuzatuvsiz brauzerda saqlanadi.',
+  privacy_p2: 'Biz hech qanday shaxsiy sog\'liqni saqlash ma\'lumotlarini yig\'maymiz. Til sozlamalaringiz brauzerda saqlanadi.',
 
   // --- 8. CHILD-PUGH ---
   cp_b1: '< 34', cp_b2: '34–50', cp_b3: '> 50',
