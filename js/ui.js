@@ -1,7 +1,11 @@
 'use strict';
 
+// 🚨 CRASH DETECTOR
+window.onerror = function(msg, url, line) { alert("🚨 UI CRASH:\n" + msg + "\nLine: " + line); };
+
 document.addEventListener('DOMContentLoaded', () => {
     let savedLang = localStorage.getItem('wardcalc_lang') || 'en';
+    window.LANG = savedLang;
     
     document.querySelectorAll('.lang-btn').forEach(b => {
         if (b.innerText.toLowerCase() === savedLang.toLowerCase()) {
@@ -13,10 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    if (typeof updateUI === 'function') updateUI();
+    if (typeof window.updateUI === 'function') window.updateUI();
 });
 
 function setLang(l, btn){
+    window.LANG = l;
     localStorage.setItem('wardcalc_lang', l); 
     
     document.querySelectorAll('.lang-btn').forEach(b => {
@@ -32,11 +37,12 @@ function setLang(l, btn){
     const resultBox = document.getElementById('R');
     if (resultBox) resultBox.innerHTML = '';
     
-    if (typeof updateUI === 'function') updateUI();
+    if (typeof window.updateUI === 'function') window.updateUI();
 }
 
 function updateUI(){
-    if (typeof t !== 'function') return;
+    if (typeof window.t !== 'function') return;
+    const t = window.t;
     document.querySelectorAll('[data-k]').forEach(el => {
         const key = el.getAttribute('data-k');
         const translatedText = t(key);
@@ -80,13 +86,9 @@ function showResult(score, unit, sev, interp, actions, drugs){
     if(!box) return;
     box.className = `result-box visible`;
     
-    const riskText = sev === 'lo' ? (typeof t === 'function' ? t('sev_lo') : 'LOW RISK') : 
-                     sev === 'md' ? (typeof t === 'function' ? t('sev_md') : 'MODERATE RISK') : 
-                                    (typeof t === 'function' ? t('sev_hi') : 'HIGH RISK');
+    const t = typeof window.t === 'function' ? window.t : (k=>k);
+    const riskText = sev === 'lo' ? t('sev_lo') : sev === 'md' ? t('sev_md') : t('sev_hi');
     const riskColor = sev === 'hi' ? 'var(--rose)' : sev === 'md' ? 'var(--amber)' : 'var(--emerald)';
-    const tab1 = typeof t === 'function' ? t('tab_i') : 'Interpretation';
-    const tab2 = typeof t === 'function' ? t('tab_a') : 'Action Plan';
-    const tab3 = typeof t === 'function' ? t('tab_d') : 'First-Line Rx';
 
     box.innerHTML = `
         <div class="result-hero" style="background:var(--bg3); padding:30px; border-bottom:1px solid var(--border); border-radius: 12px 12px 0 0;">
@@ -99,9 +101,9 @@ function showResult(score, unit, sev, interp, actions, drugs){
         </div>
         </div>
         <div class="result-tabs" style="display:flex; background:var(--bg2);">
-        <button class="result-tab on" onclick="switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${tab1}</button>
-        <button class="result-tab" onclick="switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${tab2}</button>
-        <button class="result-tab" onclick="switchTab(2)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${tab3}</button>
+        <button class="result-tab on" onclick="switchTab(0)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid var(--gold); color:var(--gold); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_i')}</button>
+        <button class="result-tab" onclick="switchTab(1)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_a')}</button>
+        <button class="result-tab" onclick="switchTab(2)" style="flex:1; padding:15px; background:none; border:none; border-bottom:2px solid transparent; color:var(--w40); cursor:pointer; font-family:var(--mono); font-size:9px; letter-spacing:1.5px; text-transform:uppercase;">${t('tab_d')}</button>
         </div>
         <div class="result-panels" style="background:var(--bg2); border-radius: 0 0 12px 12px; border: 1px solid var(--border); border-top: none;">
         <div class="result-panel on" style="padding:24px; color:var(--w80); font-size:15px; font-style:italic; line-height:1.7;">${interp}</div>
@@ -120,3 +122,12 @@ function filterTools() {
         else tool.style.display = "none";
     });
 }
+
+// FORCE GLOBAL BINDING FOR IDE SANDBOX
+window.setLang = setLang;
+window.updateUI = updateUI;
+window.pickChip = pickChip;
+window.toggleChip = toggleChip;
+window.switchTab = switchTab;
+window.showResult = showResult;
+window.filterTools = filterTools;
