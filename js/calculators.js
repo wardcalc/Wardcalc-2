@@ -77,7 +77,13 @@ window.calc_centor = function(){
 };
 
 window.calc_nihss = function(){
-    var s=parseInt(document.getElementById('nihss_s').value); if(isNaN(s)) return alert(window.t('alert_msg'));
+    var ks = ['n1a','n1b','n1c','n2','n3','n4','n5a','n5b','n6a','n6b','n7','n8','n9','n10','n11'];
+    var s = 0;
+    for(var i=0; i<ks.length; i++){
+        var v = gv(ks[i]); 
+        if(v === null) return alert(window.t('alert_msg')); 
+        s += v;
+    }
     var sev=s>15?'hi':s>5?'md':'lo', l=s>20?'se':s>15?'ms':s>5?'mo':'mi';
     window.showResult(s, '/42', sev, window.t('r_nihss_'+l), rS(window.t('a_nihss_'+l)), rD(window.t('rx_nihss_'+l+'_n'), window.t('rx_nihss_'+l+'_d')));
 };
