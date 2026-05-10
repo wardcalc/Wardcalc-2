@@ -3,111 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glasgow Coma Scale - WardCalc</title>
+    <title>GCS Calculator - WardCalc</title>
     <link rel="stylesheet" href="../css/style.css">
-    <style>
-        /* Calculator Specific Styles to match your premium theme */
-        .calc-container { max-width: 600px; margin: 40px auto; padding: 0 20px; }
-        .input-group { background: var(--bg2, #1a1b26); padding: 25px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
-        .input-label { color: var(--white, #fff); font-size: 15px; font-weight: 600; margin-bottom: 15px; display: block; }
-        .chip-grid { display: flex; flex-direction: column; gap: 8px; }
-        .chip { background: var(--bg3, #222); color: var(--w80, #cbd5e1); padding: 14px 18px; border-radius: 10px; border: 1px solid transparent; cursor: pointer; text-align: left; font-size: 14px; transition: all 0.2s; font-weight: 500; }
-        .chip.on { background: rgba(212, 175, 55, 0.1); border-color: var(--gold, #d4af37); color: var(--gold, #d4af37); }
-        
-        .calc-btn { width: 100%; background: transparent; color: var(--gold, #d4af37); border: 1px solid var(--gold, #d4af37); padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer; letter-spacing: 1px; margin-top: 10px; transition: 0.3s; }
-        .calc-btn:hover { background: var(--gold, #d4af37); color: #000; }
-        
-        .mnem-box { background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 30px; }
-        .mnem-title { color: var(--w60, #888); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; }
-        .mnem-text { color: var(--gold, #d4af37); font-family: var(--mono, monospace); font-size: 14px; line-height: 1.8; }
-        .mnem-flag { display: inline-block; width: 25px; }
-        
-        .seo-content { margin-top: 50px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); color: var(--w60, #888); font-size: 14px; line-height: 1.6; }
-        .seo-content h2 { color: var(--w80, #cbd5e1); font-size: 18px; margin-bottom: 15px; }
-    </style>
 </head>
-<body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
-
-    <nav class="navbar" style="display: flex; justify-content: space-between; padding: 20px 40px; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.05);">
-        <a href="../index.html" style="color: var(--white, #fff); text-decoration: none; font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px;">
-            <span style="background: var(--bg3, #222); padding: 8px 12px; border-radius: 8px; color: var(--gold, #d4af37);">🫀</span> WardCalc
-        </a>
-        
-        <div class="lang-switch" style="display: flex; gap: 5px; background: rgba(255,255,255,0.05); padding: 5px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1);">
-            <button class="lang-btn active" onclick="setLang('en', this)">EN</button>
-            <button class="lang-btn" onclick="setLang('ru', this)">RU</button>
-            <button class="lang-btn" onclick="setLang('uz', this)">UZ</button>
+<body>
+    <nav>
+        <a class="logo" href="../index.html">Ward<em>Calc</em></a>
+        <div class="lang-sw">
+            <button class="lang-btn" onclick="setLang('en',this)">EN</button>
+            <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
+            <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
         </div>
     </nav>
 
-    <div class="calc-container">
-        <div style="margin-bottom: 30px;">
-            <div style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold, #d4af37); padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: bold; letter-spacing: 1px; margin-bottom: 15px;" data-k="sp_neuro">NEUROLOGY</div>
-            <h1 style="color: var(--white, #fff); margin: 0 0 10px 0; font-size: 32px;">Glasgow Coma Scale</h1>
-            <p style="color: var(--w60, #888); margin: 0; font-size: 15px;" data-k="d_gcs">Assess consciousness level in any patient. The score every doctor demands first on a trauma call.</p>
-        </div>
+    <main class="main">
+        <h2 data-k="d_gcs">Glasgow Coma Scale</h2>
 
         <div class="input-group">
-            <span class="input-label" data-k="f_eye">Eye Opening</span>
-            <div class="chip-grid">
-                <button class="chip" data-g="ge" data-v="4" onclick="pickChip(this)" data-k="g_e4">Spontaneous (4)</button>
-                <button class="chip" data-g="ge" data-v="3" onclick="pickChip(this)" data-k="g_e3">To voice (3)</button>
-                <button class="chip" data-g="ge" data-v="2" onclick="pickChip(this)" data-k="g_e2">To pain (2)</button>
-                <button class="chip" data-g="ge" data-v="1" onclick="pickChip(this)" data-k="g_e1">None (1)</button>
+            <label data-k="f_eye">Eye Opening</label>
+            <div class="chip-row">
+                <button class="chip" data-g="ge" data-v="4" onclick="pickChip(this)" data-k="g_e4"></button>
+                <button class="chip" data-g="ge" data-v="3" onclick="pickChip(this)" data-k="g_e3"></button>
+                <button class="chip" data-g="ge" data-v="2" onclick="pickChip(this)" data-k="g_e2"></button>
+                <button class="chip" data-g="ge" data-v="1" onclick="pickChip(this)" data-k="g_e1"></button>
             </div>
         </div>
 
         <div class="input-group">
-            <span class="input-label" data-k="f_verbal">Verbal Response</span>
-            <div class="chip-grid">
-                <button class="chip" data-g="gv" data-v="5" onclick="pickChip(this)" data-k="g_v5">Oriented (5)</button>
-                <button class="chip" data-g="gv" data-v="4" onclick="pickChip(this)" data-k="g_v4">Confused (4)</button>
-                <button class="chip" data-g="gv" data-v="3" onclick="pickChip(this)" data-k="g_v3">Words (3)</button>
-                <button class="chip" data-g="gv" data-v="2" onclick="pickChip(this)" data-k="g_v2">Sounds (2)</button>
-                <button class="chip" data-g="gv" data-v="1" onclick="pickChip(this)" data-k="g_v1">None (1)</button>
+            <label data-k="f_verbal">Verbal Response</label>
+            <div class="chip-row">
+                <button class="chip" data-g="gv" data-v="5" onclick="pickChip(this)" data-k="g_v5"></button>
+                <button class="chip" data-g="gv" data-v="4" onclick="pickChip(this)" data-k="g_v4"></button>
+                <button class="chip" data-g="gv" data-v="3" onclick="pickChip(this)" data-k="g_v3"></button>
+                <button class="chip" data-g="gv" data-v="2" onclick="pickChip(this)" data-k="g_v2"></button>
+                <button class="chip" data-g="gv" data-v="1" onclick="pickChip(this)" data-k="g_v1"></button>
             </div>
         </div>
 
         <div class="input-group">
-            <span class="input-label" data-k="f_motor">Motor Response</span>
-            <div class="chip-grid">
-                <button class="chip" data-g="gm" data-v="6" onclick="pickChip(this)" data-k="g_m6">Obeys (6)</button>
-                <button class="chip" data-g="gm" data-v="5" onclick="pickChip(this)" data-k="g_m5">Localizes (5)</button>
-                <button class="chip" data-g="gm" data-v="4" onclick="pickChip(this)" data-k="g_m4">Withdrawal (4)</button>
-                <button class="chip" data-g="gm" data-v="3" onclick="pickChip(this)" data-k="g_m3">Flexion (3)</button>
-                <button class="chip" data-g="gm" data-v="2" onclick="pickChip(this)" data-k="g_m2">Extension (2)</button>
-                <button class="chip" data-g="gm" data-v="1" onclick="pickChip(this)" data-k="g_m1">None (1)</button>
+            <label data-k="f_motor">Motor Response</label>
+            <div class="chip-row">
+                <button class="chip" data-g="gm" data-v="6" onclick="pickChip(this)" data-k="g_m6"></button>
+                <button class="chip" data-g="gm" data-v="5" onclick="pickChip(this)" data-k="g_m5"></button>
+                <button class="chip" data-g="gm" data-v="4" onclick="pickChip(this)" data-k="g_m4"></button>
+                <button class="chip" data-g="gm" data-v="3" onclick="pickChip(this)" data-k="g_m3"></button>
+                <button class="chip" data-g="gm" data-v="2" onclick="pickChip(this)" data-k="g_m2"></button>
+                <button class="chip" data-g="gm" data-v="1" onclick="pickChip(this)" data-k="g_m1"></button>
             </div>
         </div>
 
         <button class="calc-btn" onclick="calc_gcs()" data-k="btn">Calculate</button>
 
-        <div id="R" style="margin-top: 30px;"></div>
+        <div id="R"></div>
 
-        <div class="mnem-box">
-            <div class="mnem-title" data-k="mnem_all">Memory Aid — All 3 Languages</div>
-            <div class="mnem-text">
-                <div><span class="mnem-flag">🇬🇧</span> <b>E</b>yes · <b>V</b>erbal · <b>M</b>otor = "<b>EVM</b>"</div>
-                <div style="margin: 10px 0;"><span class="mnem-flag">🇷🇺</span> <b>Г</b>лаза · <b>Р</b>ечь · <b>Д</b>вижение = ШКГ — "<b>ГРД</b>"</div>
-                <div><span class="mnem-flag">🇺🇿</span> <b>K</b>o'z · <b>N</b>utq · <b>H</b>arakat = GCS — "<b>KNH</b>"</div>
-            </div>
+        <div class="info-card" style="margin-top: 40px; padding: 20px; background: var(--bg2); border-radius: 15px;">
+            <h3 data-k="gcs_info_title" style="color: var(--gold); margin-bottom: 15px;"></h3>
+            <p data-k="gcs_info_p1" style="color: var(--w80); line-height: 1.6; margin-bottom: 10px;"></p>
+            <p style="color: var(--white);"><b><span data-k="gcs_info_p2"></span></b></p>
         </div>
-
-        <div class="seo-content">
-            <h2>Understanding the GCS</h2>
-            <p>The Glasgow Coma Scale provide a standardized method to assess impairment of conscious level. It is used globally in emergency departments and ICUs, especially for patients with head injuries.</p>
-            <p style="margin-top: 10px;"><b>Clinical Threshold:</b> A score of 8 or less is generally considered the threshold where a patient can no longer protect their own airway and requires intubation.</p>
-        </div>
-
-    </div>
+    </main>
 
     <script src="../js/translations.js"></script>
     <script src="../js/drugs.js"></script>
-
     <script src="../js/ui.js"></script>
-
     <script src="../js/calculator.js"></script> 
-
     <script src="../js/main.js"></script>
 </body>
 </html>
