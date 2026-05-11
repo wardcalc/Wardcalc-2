@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>APGAR Score — WardCalc</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>APGAR Score Calculator — WardCalc</title>
 
-  <meta name="description" content="Professional clinical calculator for medical rounds. Part of the WardCalc decision support system.">
-  <meta name="keywords" content="medical calculator, clinical tool, wardcalc, medicine, diagnosis, Bukhara State Medical Institute">
+  <meta name="description" content="Calculate APGAR scores for neonatal assessment. Professional clinical decision support for pediatricians and medical students.">
+  <meta name="keywords" content="APGAR score, neonatal assessment, pediatric calculator, wardcalc, medical student tool">
   <meta name="author" content="Muhammad Sabir Ali">
 
-  <meta property="og:title" content="WardCalc - Clinical Tool">
-  <meta property="og:description" content="Evidence-based medical calculator for clinical rotations. Fast, reliable, and mobile-friendly.">
+  <meta property="og:title" content="APGAR Score — WardCalc Clinical Tool">
+  <meta property="og:description" content="Fast and reliable neonatal assessment tool for clinical rotations.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://wardcalc.com/profile.png">
+  
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://wardcalc.com/profile.png">
 
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
-
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -34,8 +34,12 @@
 
   <nav>
     <a class="logo" href="../index.html">
-      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+      <div class="logo-mark">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+          <path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">Ward<em>Calc</em></div>
     </a>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
@@ -46,23 +50,23 @@
 
   <main class="main" style="padding-top: 20px;">
     
-    <div style="max-width: 600px; margin: 0 auto 20px;">
+    <div style="max-width: 600px; margin: 0 auto 20px; min-height: 90px;">
         <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
             AdSense Space (Top Banner)
         </div>
     </div>
 
-    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+    <article class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
         
-        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
+        <a href="../index.html" class="close-btn" aria-label="Close" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
 
-        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_ped"></div>
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_ped">Pediatrics</div>
 
         <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">APGAR Score</h1>
-        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_apgar"></p>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_apgar">Neonatal health assessment at 1 and 5 minutes post-birth.</p>
 
         <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_appear"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_appear">Appearance (Skin Color)</label>
             <div class="chip-row">
                 <button class="chip" data-g="aa" data-v="2" onclick="pickChip(this)" data-k="a_a2"></button>
                 <button class="chip" data-g="aa" data-v="1" onclick="pickChip(this)" data-k="a_a1"></button>
@@ -71,7 +75,7 @@
         </div>
 
         <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pulse"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_pulse">Pulse (Heart Rate)</label>
             <div class="chip-row">
                 <button class="chip" data-g="ap" data-v="2" onclick="pickChip(this)" data-k="a_p2"></button>
                 <button class="chip" data-g="ap" data-v="1" onclick="pickChip(this)" data-k="a_p1"></button>
@@ -80,7 +84,7 @@
         </div>
 
         <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_grimace"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_grimace">Grimace (Reflex Irritability)</label>
             <div class="chip-row">
                 <button class="chip" data-g="ag" data-v="2" onclick="pickChip(this)" data-k="a_g2"></button>
                 <button class="chip" data-g="ag" data-v="1" onclick="pickChip(this)" data-k="a_g1"></button>
@@ -89,7 +93,7 @@
         </div>
 
         <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_activity"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_activity">Activity (Muscle Tone)</label>
             <div class="chip-row">
                 <button class="chip" data-g="ac" data-v="2" onclick="pickChip(this)" data-k="a_c2"></button>
                 <button class="chip" data-g="ac" data-v="1" onclick="pickChip(this)" data-k="a_c1"></button>
@@ -98,7 +102,7 @@
         </div>
 
         <div class="input-group" style="margin-bottom: 30px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_resp_a"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_resp_a">Respiration (Effort)</label>
             <div class="chip-row">
                 <button class="chip" data-g="ar" data-v="2" onclick="pickChip(this)" data-k="a_r2"></button>
                 <button class="chip" data-g="ar" data-v="1" onclick="pickChip(this)" data-k="a_r1"></button>
@@ -106,21 +110,21 @@
             </div>
         </div>
 
-        <button class="calc-btn" onclick="calc_apgar()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 10px; cursor: pointer; transition: 0.2s;"></button>
+        <button class="calc-btn" onclick="calc_apgar()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 10px; cursor: pointer; transition: 0.2s;">Calculate Score</button>
 
-        <div id="R" style="margin-top: 20px; display: block;"></div>
+        <div id="R" style="margin-top: 20px; display: block; min-height: 50px;"></div>
 
         <div style="margin-top: 30px;">
             <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
                 AdSense Space (Below Results)
             </div>
         </div>
-    </div>
+    </article>
 
-    <div style="max-width: 600px; margin: 20px auto 50px;">
+    <section style="max-width: 600px; margin: 20px auto 50px;">
         
         <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all"></div>
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all">Mnemonics</div>
             <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
                 🇬🇧 <b>A</b>ppearance · <b>P</b>ulse · <b>G</b>rimace · <b>A</b>ctivity · <b>R</b>espiration<br>
                 🇷🇺 <b>В</b>нешний вид · <b>П</b>ульс · <b>Г</b>римаса · <b>А</b>ктивность · <b>Д</b>ыхание<br>
@@ -129,25 +133,24 @@
         </div>
 
         <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
-            <h3 data-k="apgar_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
+            <h2 data-k="apgar_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;">Clinical Use</h2>
             
             <p data-k="apgar_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            
             <p data-k="apgar_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
             
             <p style="color: var(--white); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
-                <b><span data-k="apgar_info_p3"></span></b>
+                <b><span data-k="apgar_info_p3">Important:</span></b> This score does not predict long-term neurological outcomes but guides immediate resuscitation.
             </p>
         </div>
-    </div>
+    </section>
 
   </main>
 
-  <script src="../js/translations.js?v=9"></script>
-  <script src="../js/drugs.js?v=9"></script>
-  <script src="../js/ui.js?v=9"></script>
-  <script src="../js/calculators.js?v=9"></script> 
-  <script src="../js/main.js?v=9"></script>
+  <script src="../js/translations.js?v=10"></script>
+  <script src="../js/drugs.js?v=10"></script>
+  <script src="../js/ui.js?v=10"></script>
+  <script src="../js/calculators.js?v=10"></script> 
+  <script src="../js/main.js?v=10"></script>
 
 </body>
 </html>
