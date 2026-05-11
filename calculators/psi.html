@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>PSI / PORT Score — WardCalc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>PSI / PORT Score for Pneumonia Severity — WardCalc</title>
   
-  <meta name="description" content="Professional clinical calculator for medical rounds. Part of the WardCalc decision support system.">
-  <meta name="keywords" content="medical calculator, clinical tool, wardcalc, medicine, diagnosis, Bukhara State Medical Institute">
+  <meta name="description" content="Professional Pneumonia Severity Index (PSI/PORT) calculator. Comprehensive clinical decision support for hospitalization and risk assessment in CAP.">
+  <meta name="keywords" content="PSI score, PORT score, pneumonia severity index, CAP calculator, wardcalc, medical student tool Bukhara">
   <meta name="author" content="Muhammad Sabir Ali">
 
-  <meta property="og:title" content="WardCalc - Clinical Tool">
-  <meta property="og:description" content="Evidence-based medical calculator for clinical rotations. Fast, reliable, and mobile-friendly.">
+  <meta property="og:title" content="PSI / PORT Score Calculator — WardCalc">
+  <meta property="og:description" content="Evidence-based Pneumonia Severity Index for clinical risk stratification. Fast and mobile-friendly.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://wardcalc.com/profile.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://wardcalc.com/profile.png">
 
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
@@ -23,7 +22,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
 
   <div class="bg-wrap" aria-hidden="true">
@@ -33,8 +31,12 @@
 
   <nav>
     <a class="logo" href="../index.html">
-      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+      <div class="logo-mark">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+            <path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">Ward<em>Calc</em></div>
     </a>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
@@ -45,102 +47,101 @@
 
   <main class="main" style="padding-top: 20px;">
     
-    <div style="max-width: 600px; margin: 0 auto 20px;">
+    <div style="max-width: 600px; margin: 0 auto 20px; min-height: 90px;">
         <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
             AdSense Space (Top Banner)
         </div>
     </div>
 
-    <div class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+    <article class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
         
-        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
+        <a href="../index.html" class="close-btn" aria-label="Close" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
 
-        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_resp"></div>
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_resp">Pulmonology</div>
 
         <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">PSI / PORT Score</h1>
-        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_psi"></p>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_psi">Pneumonia Severity Index for risk stratification of Community-Acquired Pneumonia.</p>
 
         <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Demographics</h3>
         
         <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_age"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_age">Age (Years)</label>
             <div class="num-input-wrap" style="display: flex; align-items: center; background: var(--bg3); border-radius: 10px; padding: 0 15px; border: 1px solid rgba(255,255,255,0.1);">
                 <input class="num-field" type="number" id="psi_age" placeholder="65" min="18" max="110" style="background: transparent; border: none; color: var(--gold); font-size: 20px; font-weight: bold; width: 100%; padding: 15px 0; outline: none; text-align: right; font-family: var(--mono);">
             </div>
         </div>
 
         <div class="input-group" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_sex"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_sex">Sex</label>
             <div class="chip-row">
-                <button class="chip" data-g="psi_sex" data-v="0" onclick="pickChip(this)" data-k="sex_m"></button>
-                <button class="chip" data-g="psi_sex" data-v="-10" onclick="pickChip(this)" data-k="sex_f"></button>
+                <button class="chip" data-g="psi_sex" data-v="0" onclick="pickChip(this)" data-k="sex_m">Male</button>
+                <button class="chip" data-g="psi_sex" data-v="-10" onclick="pickChip(this)" data-k="sex_f">Female</button>
             </div>
         </div>
 
         <div class="input-group" style="margin-bottom: 25px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_nh"></label>
+            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_psi_nh">Nursing Home Resident</label>
             <div class="chip-row">
-                <button class="chip" data-g="psi_nh" data-v="0" onclick="pickChip(this)" data-k="no"></button>
-                <button class="chip" data-g="psi_nh" data-v="10" onclick="pickChip(this)" data-k="yes"></button>
+                <button class="chip" data-g="psi_nh" data-v="0" onclick="pickChip(this)" data-k="no">No</button>
+                <button class="chip" data-g="psi_nh" data-v="10" onclick="pickChip(this)" data-k="yes">Yes</button>
             </div>
         </div>
 
         <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Comorbidities</h3>
         
-        <div style="display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:25px;">
-            <button class="chip chip-toggle" data-g="psi_neo" data-v="30" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_neo"></button>
-            <button class="chip chip-toggle" data-g="psi_liv" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_liv"></button>
-            <button class="chip chip-toggle" data-g="psi_chf" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_chf"></button>
-            <button class="chip chip-toggle" data-g="psi_cvd" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_cvd"></button>
-            <button class="chip chip-toggle" data-g="psi_ren" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_ren"></button>
+        <div style="display:grid; grid-template-columns: 1fr; gap:8px; margin-bottom:25px;">
+            <button class="chip chip-toggle" data-g="psi_neo" data-v="30" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_neo">Neoplastic Disease</button>
+            <button class="chip chip-toggle" data-g="psi_liv" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_liv">Liver Disease</button>
+            <button class="chip chip-toggle" data-g="psi_chf" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_chf">Heart Failure</button>
+            <button class="chip chip-toggle" data-g="psi_cvd" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_cvd">Cerebrovascular Disease</button>
+            <button class="chip chip-toggle" data-g="psi_ren" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_ren">Renal Disease</button>
         </div>
 
         <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Physical Exam</h3>
         
-        <div style="display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:25px;">
-            <button class="chip chip-toggle" data-g="psi_ams" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_ams"></button>
-            <button class="chip chip-toggle" data-g="psi_rr" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_rr"></button>
-            <button class="chip chip-toggle" data-g="psi_sbp" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_sbp"></button>
-            <button class="chip chip-toggle" data-g="psi_temp" data-v="15" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_temp"></button>
-            <button class="chip chip-toggle" data-g="psi_pulse" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_pulse"></button>
+        <div style="display:grid; grid-template-columns: 1fr; gap:8px; margin-bottom:25px;">
+            <button class="chip chip-toggle" data-g="psi_ams" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_ams">Altered Mental Status</button>
+            <button class="chip chip-toggle" data-g="psi_rr" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_rr">Resp. Rate ≥30/min</button>
+            <button class="chip chip-toggle" data-g="psi_sbp" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_sbp">SBP <90 mmHg</button>
+            <button class="chip chip-toggle" data-g="psi_temp" data-v="15" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_temp">Temp <35°C or ≥40°C</button>
+            <button class="chip chip-toggle" data-g="psi_pulse" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_pulse">Pulse ≥125/min</button>
         </div>
 
         <h3 style="color:var(--gold); font-size:11px; font-family:var(--mono); letter-spacing:1px; text-transform:uppercase; margin-bottom:15px; opacity:0.7;">Labs & Imaging</h3>
         
-        <div style="display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:30px;">
-            <button class="chip chip-toggle" data-g="psi_ph" data-v="30" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_ph"></button>
-            <button class="chip chip-toggle" data-g="psi_bun" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_bun"></button>
-            <button class="chip chip-toggle" data-g="psi_na" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_na"></button>
-            <button class="chip chip-toggle" data-g="psi_gluc" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_gluc"></button>
-            <button class="chip chip-toggle" data-g="psi_hct" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_hct"></button>
-            <button class="chip chip-toggle" data-g="psi_pao2" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_pao2"></button>
-            <button class="chip chip-toggle" data-g="psi_eff" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_eff"></button>
+        <div style="display:grid; grid-template-columns: 1fr; gap:8px; margin-bottom:30px;">
+            <button class="chip chip-toggle" data-g="psi_ph" data-v="30" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_ph">Arterial pH <7.35</button>
+            <button class="chip chip-toggle" data-g="psi_bun" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_bun">BUN ≥11 mmol/L (30 mg/dL)</button>
+            <button class="chip chip-toggle" data-g="psi_na" data-v="20" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_na">Sodium <130 mmol/L</button>
+            <button class="chip chip-toggle" data-g="psi_gluc" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_gluc">Glucose ≥14 mmol/L (250 mg/dL)</button>
+            <button class="chip chip-toggle" data-g="psi_hct" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_hct">Hematocrit <30%</button>
+            <button class="chip chip-toggle" data-g="psi_pao2" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_pao2">PaO2 <60 mmHg or SpO2 <90%</button>
+            <button class="chip chip-toggle" data-g="psi_eff" data-v="10" onclick="toggleChip(this)" style="text-align: left; padding:15px;" data-k="f_psi_eff">Pleural Effusion on X-ray</button>
         </div>
 
-        <button class="calc-btn" onclick="calc_psi()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 10px; cursor: pointer; transition: 0.2s;"></button>
+        <button class="calc-btn" onclick="calc_psi()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 10px; cursor: pointer; transition: 0.2s;">Calculate PSI Class</button>
 
-        <div id="R" style="margin-top: 20px; display: block;"></div>
+        <div id="R" style="margin-top: 20px; display: block; min-height: 50px;"></div>
 
         <div style="margin-top: 30px;">
             <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
                 AdSense Space (Below Results)
             </div>
         </div>
-    </div>
+    </article>
 
-    <div style="max-width: 600px; margin: 20px auto 50px;">
+    <section style="max-width: 600px; margin: 20px auto 50px;">
         <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
-            <h3 data-k="psi_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
+            <h2 data-k="psi_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;">Clinical Interpretation</h2>
             
             <p data-k="psi_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
-            
             <p data-k="psi_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
             
             <p style="color: var(--white); font-size: 14px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 15px;">
-                <b><span data-k="psi_info_p3"></span></b>
+                <b><span data-k="psi_info_p3">Recommendation:</span></b> Classes I-II generally indicate low risk (outpatient treatment); Class III indicates observation; Classes IV-V indicate high risk requiring hospitalization.
             </p>
         </div>
-    </div>
+    </section>
 
   </main>
 
