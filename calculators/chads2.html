@@ -2,19 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>CHA₂DS₂-VASc — WardCalc</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>CHA₂DS₂-VASc Score for Atrial Fibrillation — WardCalc</title>
   
-  <meta name="description" content="Professional clinical calculator for medical rounds. Part of the WardCalc decision support system.">
-  <meta name="keywords" content="medical calculator, clinical tool, wardcalc, medicine, diagnosis, Bukhara State Medical Institute">
+  <meta name="description" content="Professional CHA₂DS₂-VASc score calculator for stroke risk assessment in Atrial Fibrillation. Essential clinical tool for cardiology rotations.">
+  <meta name="keywords" content="CHADS-VASc, stroke risk AFib, cardiology calculator, wardcalc, medical student tool Bukhara">
   <meta name="author" content="Muhammad Sabir Ali">
 
-  <meta property="og:title" content="WardCalc - Clinical Tool">
-  <meta property="og:description" content="Evidence-based medical calculator for clinical rotations. Fast, reliable, and mobile-friendly.">
+  <meta property="og:title" content="CHA₂DS₂-VASc Score — WardCalc">
+  <meta property="og:description" content="Evidence-based stroke risk assessment for AFib patients. Fast and mobile-friendly.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://wardcalc.com/profile.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://wardcalc.com/profile.png">
 
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
@@ -24,8 +23,21 @@
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
+    <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+  </div>
+
   <nav>
-    <a class="logo" href="../index.html"><div class="logo-text">Ward<em>Calc</em></div></a>
+    <a class="logo" href="../index.html">
+      <div class="logo-mark">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+            <path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="logo-text">Ward<em>Calc</em></div>
+    </a>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
       <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
@@ -33,40 +45,63 @@
     </div>
   </nav>
 
-  <main class="main">
-    <div class="calc-container">
-        <a href="../index.html" class="close-btn">&times;</a>
-        <div class="spec-tag" data-k="sp_cardio">Cardiology</div>
-        <h1 style="color:var(--gold);font-size:28px;margin-bottom:8px;">CHA₂DS₂-VASc Score</h1>
-        <p style="color:var(--w60);font-size:14px;margin-bottom:25px;" data-k="d_chads2"></p>
-
-        <div style="display:grid;gap:8px;margin-bottom:25px;">
-            <button class="chip" data-g="ch_c" data-v="1" onclick="toggleChip(this)">C: Heart Failure (+1)</button>
-            <button class="chip" data-g="ch_h" data-v="1" onclick="toggleChip(this)">H: Hypertension (+1)</button>
-            <button class="chip" data-g="ch_a2" data-v="2" onclick="toggleChip(this)">A: Age ≥ 75 (+2)</button>
-            <button class="chip" data-g="ch_d" data-v="1" onclick="toggleChip(this)">D: Diabetes (+1)</button>
-            <button class="chip" data-g="ch_s2" data-v="2" onclick="toggleChip(this)">S: Stroke/TIA/TE (+2)</button>
-            <button class="chip" data-g="ch_v" data-v="1" onclick="toggleChip(this)">V: Vascular Disease (+1)</button>
-            <button class="chip" data-g="ch_a1" data-v="1" onclick="toggleChip(this)">A: Age 65–74 (+1)</button>
-            <button class="chip" data-g="ch_sex" data-v="1" onclick="toggleChip(this)">S: Sex (Female) (+1)</button>
-        </div>
-
-        <button class="calc-btn" onclick="window.calc_chads2()" style="background:var(--gold);color:#000;font-weight:700;padding:16px;width:100%;border-radius:12px;border:none;" data-k="btn"></button>
-        <div id="R" style="margin-top:20px;"></div>
-    </div>
-
-    <div style="max-width:600px;margin:20px auto 50px;">
-        <div style="padding:20px;background:var(--bg2);border-radius:12px;border:1px dashed var(--w20);margin-bottom:15px;">
-            <div style="font-family:monospace;font-size:10px;color:var(--w40);text-transform:uppercase;margin-bottom:10px;">Clinical Memory Aid</div>
-            <div style="color:var(--gold);font-family:monospace;font-size:13px;">CHADS-VASc: Failure, HTN, Age(75), DM, Stroke(2), Vascular, Age(65), Sex.</div>
-        </div>
-        <div style="padding:20px;background:var(--bg2);border-radius:12px;border:1px solid var(--border);">
-            <h3 data-k="chads_info_title" style="color:var(--gold);margin-bottom:10px;font-size:16px;"></h3>
-            <p data-k="chads_info_p1" style="color:var(--w60);font-size:13px;line-height:1.6;margin-bottom:10px;"></p>
-            <p data-k="chads_info_p2" style="color:var(--w60);font-size:13px;line-height:1.6;"></p>
+  <main class="main" style="padding-top: 20px;">
+    
+    <div style="max-width: 600px; margin: 0 auto 20px; min-height: 90px;">
+        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+            AdSense Space (Top Banner)
         </div>
     </div>
+
+    <article class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+        
+        <a href="../index.html" class="close-btn" aria-label="Close" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
+
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_cardio">Cardiology</div>
+
+        <h1 style="color: var(--gold); font-size: 30px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">CHA₂DS₂-VASc Score</h1>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 25px;" data-k="d_chads2">Stroke risk assessment in non-valvular Atrial Fibrillation.</p>
+
+        <div style="display:grid; gap:10px; margin-bottom:25px;">
+            <button class="chip" data-g="ch_c" data-v="1" onclick="toggleChip(this)" role="switch" aria-checked="false">C: Heart Failure (+1)</button>
+            <button class="chip" data-g="ch_h" data-v="1" onclick="toggleChip(this)" role="switch" aria-checked="false">H: Hypertension (+1)</button>
+            <button class="chip" data-g="ch_a2" data-v="2" onclick="toggleChip(this)" role="switch" aria-checked="false">A: Age ≥ 75 (+2)</button>
+            <button class="chip" data-g="ch_d" data-v="1" onclick="toggleChip(this)" role="switch" aria-checked="false">D: Diabetes (+1)</button>
+            <button class="chip" data-g="ch_s2" data-v="2" onclick="toggleChip(this)" role="switch" aria-checked="false">S: Stroke/TIA/TE (+2)</button>
+            <button class="chip" data-g="ch_v" data-v="1" onclick="toggleChip(this)" role="switch" aria-checked="false">V: Vascular Disease (+1)</button>
+            <button class="chip" data-g="ch_a1" data-v="1" onclick="toggleChip(this)" role="switch" aria-checked="false">A: Age 65–74 (+1)</button>
+            <button class="chip" data-g="ch_sex" data-v="1" onclick="toggleChip(this)" role="switch" aria-checked="false">S: Sex (Female) (+1)</button>
+        </div>
+
+        <button class="calc-btn" onclick="window.calc_chads2()" style="background:var(--gold); color:#000; font-weight:700; padding:18px; width:100%; border-radius:12px; border:none; cursor:pointer;" data-k="btn">Calculate Risk</button>
+        
+        <div id="R" style="margin-top:20px; min-height: 50px;"></div>
+
+        <div style="margin-top: 30px;">
+            <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
+                AdSense Space (Below Results)
+            </div>
+        </div>
+    </article>
+
+    <section style="max-width: 600px; margin: 20px auto 50px;">
+        <div style="padding:20px; background:var(--bg2); border-radius:12px; border: 1px dashed var(--w20); margin-bottom:15px;">
+            <div style="font-family: var(--mono); font-size:10px; color:var(--w40); text-transform:uppercase; margin-bottom:10px;" data-k="mnem_all">Clinical Memory Aid</div>
+            <div style="color:var(--gold); font-family: var(--mono); font-size:13px; line-height: 1.6;">
+                <b>C</b>: Failure · <b>H</b>: HTN · <b>A2</b>: Age≥75 · <b>D</b>: Diabetes · <b>S2</b>: Stroke · <b>V</b>: Vascular · <b>A</b>: Age 65-74 · <b>Sc</b>: Sex
+            </div>
+        </div>
+        
+        <div style="padding:25px; background:var(--bg2); border-radius:15px; border:1px solid var(--border);">
+            <h2 data-k="chads_info_title" style="color:var(--gold); margin-bottom:15px; font-size:18px; font-family: 'Playfair Display', serif;">Clinical Application</h2>
+            <p data-k="chads_info_p1" style="color:var(--w60); font-size:14px; line-height:1.6; margin-bottom:12px;"></p>
+            <p data-k="chads_info_p2" style="color:var(--w60); font-size:14px; line-height:1.6;"></p>
+        </div>
+    </section>
   </main>
-  <script src="../js/translations.js"></script><script src="../js/ui.js"></script><script src="../js/calculators.js"></script> 
+
+  <script src="../js/translations.js?v=11"></script>
+  <script src="../js/ui.js?v=11"></script>
+  <script src="../js/calculators.js?v=11"></script> 
 </body>
 </html>
