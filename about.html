@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - WardCalc</title>
+    <title>About WardCalc</title>
+
+    <meta name="description" content="Learn about WardCalc, a clinical decision support system built by a medical student for medical professionals.">
+    <meta name="keywords" content="about wardcalc, medical calculator, clinical tool, Bukhara State Medical Institute">
+    <meta name="author" content="Muhammad Sabir Ali">
+
+    <meta property="og:title" content="About WardCalc">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://wardcalc.com/profile.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://wardcalc.com/profile.png">
+
+    <script defer src="/_vercel/insights/script.js"></script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body style="background-color: var(--bg, #0f111a); margin: 0; font-family: system-ui, -apple-system, sans-serif;">
@@ -23,25 +37,58 @@
     <div style="padding: 20px; max-width: 800px; margin: 40px auto;">
         <div class="content-card" style="background: var(--bg2, #1a1b26); padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.05);">
             
-            <h2 data-k="nav_about" style="color: var(--gold, #d4af37); margin-bottom: 20px; font-size: 24px;">About Us</h2>
-            <p data-k="about_p1" style="color: var(--w80, #cbd5e1); line-height: 1.8; font-size: 15px; margin-bottom: 30px;">WardCalc was developed by Muhammad Sabir Ali, a medical student (2D-GenMed 21) at the Bukhara State Medical Institute. It was built to solve a practical problem on the clinical wards: accessing reliable, fast, and multi-lingual medical scoring tools.</p>
-            
-            <h3 data-k="about_h2" style="color: var(--white, #fff); margin-bottom: 15px; font-size: 18px;">Educational Mission</h3>
-            <p data-k="about_p2" style="color: var(--w80, #cbd5e1); line-height: 1.8; font-size: 15px; margin-bottom: 30px;">As healthcare becomes increasingly globalized, medical students and professionals often navigate literature and patient interactions in multiple languages. WardCalc focuses on deep educational and documentary depth, providing evidence-based calculators paired with clinical mnemonics in English, Russian, and Uzbek.</p>
-            
-            <h3 data-k="about_h3" style="color: var(--white, #fff); margin-bottom: 15px; font-size: 18px;">Our Commitment</h3>
-            <p data-k="about_p3" style="color: var(--w80, #cbd5e1); line-height: 1.8; font-size: 15px;">We are committed to providing free, mobile-first tools to assist medical students globally. By integrating clinical action plans and first-line pharmacological guidelines, we aim to bridge the gap between textbook theory and practical ward rounds.</p>
+            <div id="en-content" style="display: block; line-height: 1.6; color: var(--w80, #cbd5e1); font-size: 15px;">
+              <h2 style="color: var(--gold, #d4af37); margin-bottom: 20px; font-size: 24px;">About WardCalc</h2>
+              <p style="margin-bottom: 15px;">WardCalc is a comprehensive clinical decision support system developed by Muhammad Sabir Ali, a final-year medical student at Bukhara State Medical Institute (Group 2D-GenMed 21).</p>
+              
+              <h3 style="color: var(--white, #fff); margin-top: 15px; margin-bottom: 5px; font-size: 18px;">Our Mission</h3>
+              <p style="margin-bottom: 15px;">In acute medical settings and fast-paced clinical rotations, time and accuracy are paramount. Our mission is to digitize internationally validated medical scoring systems into a mobile-first, highly responsive interface. We eliminate the friction of complex medical math at the bedside, allowing practitioners to focus entirely on patient assessment.</p>
+              
+              <h3 style="color: var(--white, #fff); margin-top: 15px; margin-bottom: 5px; font-size: 18px;">Content Focus & Methodology</h3>
+              <p>WardCalc is built purely on a foundation of educational and documentary information. We prioritize evidence-based medical literature and peer-reviewed scoring criteria over sensationalized health content. Every calculator includes built-in mnemonics and criteria breakdowns to foster continuous learning during ward rounds.</p>
+            </div>
+
+            <div id="ru-content" style="display: none; line-height: 1.6; color: var(--w80, #cbd5e1); font-size: 15px;">
+              <h2 style="color: var(--gold, #d4af37); margin-bottom: 20px; font-size: 24px;">О WardCalc</h2>
+              <p style="margin-bottom: 15px;">WardCalc — это комплексная система поддержки принятия клинических решений, разработанная Мухаммадом Сабиром Али, студентом выпускного курса Бухарского государственного медицинского института (группа 2D-GenMed 21).</p>
+              
+              <h3 style="color: var(--white, #fff); margin-top: 15px; margin-bottom: 5px; font-size: 18px;">Наша миссия</h3>
+              <p style="margin-bottom: 15px;">В условиях оказания неотложной медицинской помощи и быстрых клинических ротаций время и точность имеют первостепенное значение. Наша миссия — оцифровать международно признанные системы медицинских оценок в удобный мобильный интерфейс. Мы устраняем сложности медицинских расчетов у постели больного, позволяя врачам полностью сосредоточиться на оценке состояния пациента.</p>
+              
+              <h3 style="color: var(--white, #fff); margin-top: 15px; margin-bottom: 5px; font-size: 18px;">Фокус контента и методология</h3>
+              <p>Платформа WardCalc построена исключительно на основе образовательной и документальной информации. Мы отдаем приоритет доказательной медицинской литературе и рецензируемым критериям оценки. Каждый калькулятор включает в себя встроенные мнемоники и разбор критериев для содействия непрерывному обучению во время клинических обходов.</p>
+            </div>
+
+            <div id="uz-content" style="display: none; line-height: 1.6; color: var(--w80, #cbd5e1); font-size: 15px;">
+              <h2 style="color: var(--gold, #d4af37); margin-bottom: 20px; font-size: 24px;">WardCalc haqida</h2>
+              <p style="margin-bottom: 15px;">WardCalc — bu Buxoro davlat tibbiyot instituti bitiruvchi bosqich talabasi (2D-GenMed 21 guruhi) Muhammad Sabir Ali tomonidan ishlab chiqilgan kompleks klinik qarorlarni qabul qilishni qo'llab-quvvatlash tizimi.</p>
+              
+              <h3 style="color: var(--white, #fff); margin-top: 15px; margin-bottom: 5px; font-size: 18px;">Bizning missiyamiz</h3>
+              <p style="margin-bottom: 15px;">Shoshilinch tibbiy yordam sharoitlarida va tezkor klinik amaliyotlarda vaqt va aniqlik eng muhim ahamiyatga ega. Bizning missiyamiz xalqaro miqyosda tasdiqlangan tibbiy baholash tizimlarini qulay mobil interfeysga raqamlashtirishdir. Biz bemor yotog'i yonida murakkab tibbiy hisob-kitoblarni bajarish qiyinchiliklarini bartaraf etamiz, bu esa shifokorlarga butun e'tiborini bemor holatini baholashga qaratish imkonini beradi.</p>
+              
+              <h3 style="color: var(--white, #fff); margin-top: 15px; margin-bottom: 5px; font-size: 18px;">Kontent yo'nalishi va metodologiya</h3>
+              <p>WardCalc butunlay ta'lim va hujjatlashtirish ma'lumotlariga asoslangan holda qurilgan. Biz isbotlarga asoslangan tibbiy adabiyotlar va taqrizdan o'tgan baholash mezonlariga ustuvorlik beramiz. Har bir kalkulyator klinik aylanib chiqishlar (obxod) vaqtida uzluksiz o'rganishni rag'batlantirish uchun o'rnatilgan mnemonika va mezonlar tahlilini o'z ichiga oladi.</p>
+            </div>
             
         </div>
     </div>
 
     <script src="js/translations.js"></script>
     <script src="js/drugs.js"></script>
-
     <script src="js/ui.js"></script>
-
     <script src="js/calculator.js"></script> 
-
     <script src="js/main.js"></script>
+    
+    <script>
+      setInterval(function() {
+        var lang = document.documentElement.lang || 'en';
+        var savedLang = localStorage.getItem('wardcalc_lang');
+        if (savedLang) lang = savedLang;
+        
+        document.getElementById('en-content').style.display = (lang === 'en') ? 'block' : 'none';
+        document.getElementById('ru-content').style.display = (lang === 'ru') ? 'block' : 'none';
+        document.getElementById('uz-content').style.display = (lang === 'uz') ? 'block' : 'none';
+      }, 300);
+    </script>
 </body>
 </html>
