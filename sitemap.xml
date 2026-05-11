@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://wardcalc.com/</loc></url>
-  <url><loc>https://wardcalc.com/calculators/gcs.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/nihss.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/apgar.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/bmi.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/curb65.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/wells-dvt.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/wells-pe.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/cha2ds2-vasc.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/child-pugh.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/egfr.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/mews.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/centor.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/sofa.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/ranson.html</loc></url>
-  <url><loc>https://wardcalc.com/calculators/psi-port.html</loc></url>
+  <url><loc>https://wardcalc.com/</loc><priority>1.0</priority></url>
+  <url><loc>https://wardcalc.com/about.html</loc><priority>0.8</priority></url>
+  <url><loc>https://wardcalc.com/contact.html</loc><priority>0.8</priority></url>
+  <url><loc>https://wardcalc.com/privacy.html</loc><priority>0.8</priority></url>
+  <url><loc>https://wardcalc.com/terms.html</loc><priority>0.8</priority></url>
+  <url><loc>https://wardcalc.com/disclaimer.html</loc><priority>0.8</priority></url>
+
+  <url><loc>https://wardcalc.com/calculators/bmi.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/centor.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/curb65.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/egfr.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/gcs.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/nihss.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/sofa.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/wells-pe.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/wells-dvt.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/ranson.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/psi.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/mews.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/child-pugh.html</loc><priority>0.9</priority></url>
+  <url><loc>https://wardcalc.com/calculators/cha2ds2vasc.html</loc><priority>0.9</priority></url>
 </urlset>
