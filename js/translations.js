@@ -8,6 +8,12 @@
 
 window.T = {
 en:{
+  hero_desc: '15 evidence-based calculators with mnemonics in 3 languages. Fast, reliable, and mobile-first — everything you need at the bedside.',
+  stat_calc: 'Calculators',
+  stat_lang: 'Languages',
+  stat_free: 'Free',
+  all_label: 'All Calculators',
+
   badge: 'CLINICAL DECISION TOOLS', h1a: 'Ward', h1b: 'Calc', sub: 'Evidence-based medical calculators.', badge_stu: 'BUILT BY A MEDICAL STUDENT · FOR MEDICAL PROFESSIONALS', h1_main: 'Clinical Tools', h1_sub: 'for Ward Rounds', search_ph: 'Search tools (e.g., GCS, BMI)...', alert_msg: 'Please complete all required fields.', btn: 'Calculate', tab_i: 'Interpretation', tab_a: 'Action Plan', tab_d: 'First-Line Rx', yes: 'Yes', no: 'No', YES: 'Yes', NO: 'No', mnem_all: 'Memory Aid / Mnemonics', MNEM_ALL: 'Memory Aid / Mnemonics',
   sp_neuro: 'Neurology', sp_ped: 'Pediatrics', sp_gen: 'General', sp_resp: 'Respiratory', sp_cardio: 'Cardiology', sp_gastro: 'Gastroenterology', sp_id: 'Infectious Disease', sev_lo: 'LOW RISK', sev_md: 'MODERATE RISK', sev_hi: 'HIGH RISK', 
   ft_about: 'About Us', ft_contact: 'Contact', ft_disc: 'Disclaimer', ft_terms: 'Terms', ft_privacy: 'Privacy', ft_rights: '© 2026 WardCalc. All rights reserved.',
@@ -68,6 +74,12 @@ en:{
 },
 
 ru:{
+  hero_desc: '15 доказательных калькуляторов с мнемоникой на 3 языках. Быстро, надежно и удобно — всё, что нужно у постели больного.',
+  stat_calc: 'Калькуляторов',
+  stat_lang: 'Языка',
+  stat_free: 'Бесплатно',
+  all_label: 'Все калькуляторы',
+
   // --- UI, LABELS & MNEMONICS ---
   badge: 'КЛИНИЧЕСКИЕ ИНСТРУМЕНТЫ', h1a: 'Ward', h1b: 'Calc', sub: 'Доказательные медицинские калькуляторы для ежедневной практики.', badge_stu: 'СОЗДАНО СТУДЕНТОМ-МЕДИКОМ · ДЛЯ ВРАЧЕЙ', h1_main: 'Клинические инструменты', h1_sub: 'для обходов', search_ph: 'Поиск (напр. ШКГ, ИМТ)...', alert_msg: 'Пожалуйста, заполните все поля.', btn: 'Рассчитать', tab_i: 'Интерпретация', tab_a: 'План действий', tab_d: 'Терапия (Rx)', yes: 'Да', no: 'Нет', YES: 'Да', NO: 'Нет', mnem_all: 'Мнемоника / Запоминание', MNEM_ALL: 'Мнемоника / Запоминание',
   sp_neuro: 'Неврология', sp_ped: 'Педиатрия', sp_gen: 'Общие', sp_resp: 'Пульмонология', sp_cardio: 'Кардиология', sp_gastro: 'Гастро', sp_id: 'Инф. болезни', sev_lo: 'НИЗКИЙ РИСК', sev_md: 'СРЕДНИЙ РИСК', sev_hi: 'ВЫСОКИЙ РИСК',
@@ -130,6 +142,12 @@ ru:{
 },
 
 uz:{
+  hero_desc: '3 tilda mnemonikaga ega 15 ta isbotlangan kalkulyatorlar. Tez, ishonchli va qulay — bemor yonida kerak bo\'lgan hamma narsa.',
+  stat_calc: 'Kalkulyatorlar',
+  stat_lang: 'Tillar',
+  stat_free: 'Bepul',
+  all_label: 'Barcha kalkulyatorlar',
+
   // --- UI, LABELS & MNEMONICS (Uzbek) ---
   badge: 'KLINIK VOSITALAR', h1a: 'Ward', h1b: 'Calc', sub: 'Kundalik amaliyot uchun isbotlarga asoslangan tibbiy kalkulyatorlar.', badge_stu: 'TIBBIYOT TALABASI TOMONIDAN YARATILGAN', h1_main: 'Klinik vositalar', h1_sub: 'palata aylanmalari uchun', search_ph: 'Qidiruv (masalan, GCS, BMI)...', alert_msg: 'Iltimos, barcha maydonlarni to\'ldiring.', btn: 'Hisoblash', tab_i: 'Talqin', tab_a: 'Harakat Rejasi', tab_d: 'Davolash (Rx)', yes: 'Ha', no: 'Yo\'q', YES: 'Ha', NO: 'Yo\'q', mnem_all: 'Mnemonika / Yodlash', MNEM_ALL: 'Mnemonika / Yodlash',
   sp_neuro: 'Nevrologiya', sp_ped: 'Pediatriya', sp_gen: 'Umumiy', sp_resp: 'Nafas tizimi', sp_cardio: 'Kardiologiya', sp_gastro: 'Gastroenterologiya', sp_id: 'Yuqumli kasal.', sev_lo: 'PAST XAVF', sev_md: 'O’RTACHA XAVF', sev_hi: 'YUQORI XAVF',
