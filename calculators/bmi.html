@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>BMI Calculator — WardCalc</title>
-    <meta name="description" content="Professional clinical calculator for medical rounds. Part of the WardCalc decision support system.">
+  
+  <meta name="description" content="Professional clinical calculator for medical rounds. Part of the WardCalc decision support system.">
   <meta name="keywords" content="medical calculator, clinical tool, wardcalc, medicine, diagnosis, Bukhara State Medical Institute">
   <meta name="author" content="Muhammad Sabir Ali">
 
@@ -33,7 +34,7 @@
   <nav>
     <a class="logo" href="../index.html">
       <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div><div class="logo-text">Ward<em>Calc</em></div></div>
+      <div class="logo-text">Ward<em>Calc</em></div>
     </a>
     <div class="lang-sw">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
@@ -54,30 +55,30 @@
         
         <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none; line-height: 1;">&times;</a>
 
-        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_gen"></div>
+        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-family: var(--mono); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_gen">General Medicine</div>
 
         <h1 style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">BMI Calculator</h1>
-        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_bmi"></p>
+        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_bmi">Body Mass Index for clinical evaluation.</p>
 
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom: 20px;">
-            <div class="input-group" style="margin-bottom: 0;">
-                <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_weight"></label>
+            <div class="input-group">
+                <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_weight">Body Weight</label>
                 <div class="num-input-wrap" style="display: flex; align-items: center; background: var(--bg3); border-radius: 10px; padding: 0 15px; border: 1px solid rgba(255,255,255,0.1);">
                     <input class="num-field" type="number" id="bw" placeholder="70" min="1" max="300" style="background: transparent; border: none; color: var(--gold); font-size: 20px; font-weight: bold; width: 100%; padding: 15px 0; outline: none; text-align: right; font-family: var(--mono);">
-                    <span class="num-unit" style="color: var(--w60); margin-left: 10px; font-size: 14px; font-weight: 600; text-transform: lowercase;">kg</span>
+                    <span class="num-unit" style="color: var(--w60); margin-left: 10px; font-size: 14px; font-weight: 600;">kg</span>
                 </div>
             </div>
 
-            <div class="input-group" style="margin-bottom: 0;">
-                <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_height"></label>
+            <div class="input-group">
+                <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="f_height">Body Height</label>
                 <div class="num-input-wrap" style="display: flex; align-items: center; background: var(--bg3); border-radius: 10px; padding: 0 15px; border: 1px solid rgba(255,255,255,0.1);">
                     <input class="num-field" type="number" id="bh" placeholder="170" min="50" max="250" style="background: transparent; border: none; color: var(--gold); font-size: 20px; font-weight: bold; width: 100%; padding: 15px 0; outline: none; text-align: right; font-family: var(--mono);">
-                    <span class="num-unit" style="color: var(--w60); margin-left: 10px; font-size: 14px; font-weight: 600; text-transform: lowercase;">cm</span>
+                    <span class="num-unit" style="color: var(--w60); margin-left: 10px; font-size: 14px; font-weight: 600;">cm</span>
                 </div>
             </div>
         </div>
 
-        <button class="calc-btn" onclick="calc_bmi()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 10px; cursor: pointer; transition: 0.2s;"></button>
+        <button class="calc-btn" onclick="calc_bmi()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; margin-top: 10px; cursor: pointer; transition: 0.2s;">Calculate Score</button>
 
         <div id="R" style="margin-top: 20px; display: block;"></div>
 
@@ -90,7 +91,7 @@
 
     <div style="max-width: 600px; margin: 20px auto 50px;">
         <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all"></div>
+            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all">Clinical Formula</div>
             <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2.2;">
                 🇬🇧 BMI = Weight(kg) ÷ Height(m)²<br>
                 🇷🇺 ИМТ = Вес(кг) ÷ Рост(м)²<br>
@@ -99,7 +100,7 @@
         </div>
 
         <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
-            <h3 data-k="bmi_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;"></h3>
+            <h3 data-k="bmi_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-weight: 600; font-family: 'Playfair Display', serif;">Clinical Information</h3>
             <p data-k="bmi_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
             <p data-k="bmi_info_p2" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;"></p>
         </div>
@@ -107,11 +108,11 @@
 
   </main>
 
-  <script src="../js/translations.js?v=9"></script>
-  <script src="../js/drugs.js?v=9"></script>
-  <script src="../js/ui.js?v=9"></script>
-  <script src="../js/calculators.js?v=9"></script> 
-  <script src="../js/main.js?v=9"></script>
+  <script src="../js/translations.js?v=10"></script>
+  <script src="../js/drugs.js?v=10"></script>
+  <script src="../js/ui.js?v=10"></script>
+  <script src="../js/calculators.js?v=10"></script> 
+  <script src="../js/main.js?v=10"></script>
 
 </body>
 </html>
