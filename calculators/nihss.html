@@ -3,153 +3,208 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>NIH Stroke Scale (NIHSS) — WardCalc</title>
+  <title>NIH Stroke Scale (NIHSS) Calculator — WardCalc</title>
   
-  <meta name="description" content="Professional NIH Stroke Scale (NIHSS) calculator. Comprehensive clinical tool for acute stroke assessment.">
-  <meta name="keywords" content="NIHSS calculator, stroke scale, neurology tool, wardcalc">
+  <meta name="description" content="Professional NIH Stroke Scale (NIHSS) calculator for acute stroke assessment. Comprehensive clinical tool for neurologists and emergency medical rounds.">
+  <meta name="keywords" content="NIHSS calculator, NIH Stroke Scale, stroke assessment tool, wardcalc, medical student Bukhara">
   <meta name="author" content="Muhammad Sabir Ali">
+
+  <meta property="og:title" content="NIH Stroke Scale (NIHSS) Calculator — WardCalc">
+  <meta property="og:description" content="Evidence-based stroke severity assessment. Mobile-friendly clinical tool for rapid evaluation.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://wardcalc.com/profile.png">
+  <meta name="twitter:card" content="summary_large_image">
 
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-  <div class="bg-wrap" aria-hidden="true"><div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div></div>
-  
+
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-mesh"></div><div class="bg-grid"></div><div class="bg-noise"></div>
+  </div>
+
   <nav style="display:flex;justify-content:space-between;padding:20px;align-items:center;border-bottom:1px solid var(--border);">
-    <a href="../index.html" class="logo" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
-      <div class="logo-mark"><svg width="22" height="16" viewBox="0 0 22 16" fill="none"><path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <a href="../index.html" style="text-decoration:none;display:flex;align-items:center;gap:10px;">
+      <div style="background:var(--bg2);border:1px solid var(--border);padding:8px;border-radius:8px;display:flex;align-items:center;justify-content:center;">
+        <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
+            <path d="M1 8L4 8L6 2L8 14L10 5L12 11L14 8L21 8" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
       <div style="color:var(--white);font-size:20px;font-weight:bold;font-family:'Playfair Display',serif;">Ward<em style="color:var(--gold);font-style:italic;">Calc</em></div>
     </a>
-    <div class="lang-sw">
+    <div class="lang-sw" style="display:flex;gap:5px;background:rgba(255,255,255,0.05);padding:4px;border-radius:20px;border:1px solid var(--border);">
       <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
       <button class="lang-btn" onclick="setLang('ru',this)">RU</button>
       <button class="lang-btn" onclick="setLang('uz',this)">UZ</button>
     </div>
   </nav>
 
-  <main class="main" style="padding-top: 20px;">
+  <main class="page-wrap" style="padding-top: 20px;">
     
     <div style="max-width: 600px; margin: 0 auto 20px; min-height: 90px;">
-        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; text-transform: uppercase;">
+        <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">
             AdSense Space (Top Banner)
         </div>
     </div>
 
-    <article class="calc-container" style="background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 30px; position: relative; max-width: 600px; margin: 0 auto;">
+    <article class="calc-header-row">
+      <div class="calc-container" style="flex:1;">
+        <span class="sp-badge bg-neuro" data-k="sp_neuro" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; text-transform: uppercase; margin-bottom: 15px;">Neurology</span>
         
-        <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 28px; color: var(--w40); text-decoration: none;">&times;</a>
-
-        <div class="spec-tag" style="display: inline-block; background: rgba(212, 175, 55, 0.1); color: var(--gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; text-transform: uppercase; margin-bottom: 15px;" data-k="sp_neuro">Neurology</div>
-
-        <h1 style="color: var(--gold); font-size: 30px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">NIH Stroke Scale</h1>
-        <p style="color: var(--w60); font-size: 14px; margin-bottom: 30px;" data-k="d_nihss">Standardized neurological assessment for stroke severity.</p>
+        <h1 class="tool-title" style="color: var(--gold); font-size: 32px; font-weight: 700; margin-bottom: 10px; font-family: 'Playfair Display', serif;">NIH Stroke Scale</h1>
+        <p class="tool-info" data-k="d_nihss" style="color: var(--w60); font-size: 14px; margin-bottom: 30px;">Standardized clinical assessment tool for stroke severity.</p>
         
         <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n1a_q">1a. Level of Consciousness</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n1a" data-v="0" onclick="pickChip(this)" data-k="n1a_0">0</button>
-                <button class="chip" data-g="n1a" data-v="1" onclick="pickChip(this)" data-k="n1a_1">1</button>
-                <button class="chip" data-g="n1a" data-v="2" onclick="pickChip(this)" data-k="n1a_2">2</button>
-                <button class="chip" data-g="n1a" data-v="3" onclick="pickChip(this)" data-k="n1a_3">3</button>
+            <span class="field-label" data-k="n1a_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">1a. Level of Consciousness</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n1a" data-v="0" data-k="n1a_0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n1a" data-v="1" data-k="n1a_1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n1a" data-v="2" data-k="n1a_2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n1a" data-v="3" data-k="n1a_3">3</div>
             </div>
         </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n1b_q">1b. LOC Questions</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n1b" data-v="0" onclick="pickChip(this)" data-k="n1b_0">0</button>
-                <button class="chip" data-g="n1b" data-v="1" onclick="pickChip(this)" data-k="n1b_1">1</button>
-                <button class="chip" data-g="n1b" data-v="2" onclick="pickChip(this)" data-k="n1b_2">2</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n1c_q">1c. LOC Commands</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n1c" data-v="0" onclick="pickChip(this)" data-k="n1c_0">0</button>
-                <button class="chip" data-g="n1c" data-v="1" onclick="pickChip(this)" data-k="n1c_1">1</button>
-                <button class="chip" data-g="n1c" data-v="2" onclick="pickChip(this)" data-k="n1c_2">2</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n2_q">2. Best Gaze</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n2" data-v="0" onclick="pickChip(this)" data-k="n2_0">0</button>
-                <button class="chip" data-g="n2" data-v="1" onclick="pickChip(this)" data-k="n2_1">1</button>
-                <button class="chip" data-g="n2" data-v="2" onclick="pickChip(this)" data-k="n2_2">2</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n3_q">3. Visual Fields</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n3" data-v="0" onclick="pickChip(this)" data-k="n3_0">0</button>
-                <button class="chip" data-g="n3" data-v="1" onclick="pickChip(this)" data-k="n3_1">1</button>
-                <button class="chip" data-g="n3" data-v="2" onclick="pickChip(this)" data-k="n3_2">2</button>
-                <button class="chip" data-g="n3" data-v="3" onclick="pickChip(this)" data-k="n3_3">3</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n4_q">4. Facial Palsy</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n4" data-v="0" onclick="pickChip(this)" data-k="n4_0">0</button>
-                <button class="chip" data-g="n4" data-v="1" onclick="pickChip(this)" data-k="n4_1">1</button>
-                <button class="chip" data-g="n4" data-v="2" onclick="pickChip(this)" data-k="n4_2">2</button>
-                <button class="chip" data-g="n4" data-v="3" onclick="pickChip(this)" data-k="n4_3">3</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n5a_q">5a. Motor Left Arm</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n5a" data-v="0" onclick="pickChip(this)">0</button>
-                <button class="chip" data-g="n5a" data-v="1" onclick="pickChip(this)">1</button>
-                <button class="chip" data-g="n5a" data-v="2" onclick="pickChip(this)">2</button>
-                <button class="chip" data-g="n5a" data-v="3" onclick="pickChip(this)">3</button>
-                <button class="chip" data-g="n5a" data-v="4" onclick="pickChip(this)">4</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n5b_q">5b. Motor Right Arm</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n5b" data-v="0" onclick="pickChip(this)">0</button>
-                <button class="chip" data-g="n5b" data-v="1" onclick="pickChip(this)">1</button>
-                <button class="chip" data-g="n5b" data-v="2" onclick="pickChip(this)">2</button>
-                <button class="chip" data-g="n5b" data-v="3" onclick="pickChip(this)">3</button>
-                <button class="chip" data-g="n5b" data-v="4" onclick="pickChip(this)">4</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n7_q">7. Limb Ataxia</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n7" data-v="0" onclick="pickChip(this)">0</button>
-                <button class="chip" data-g="n7" data-v="1" onclick="pickChip(this)">1</button>
-                <button class="chip" data-g="n7" data-v="2" onclick="pickChip(this)">2</button>
-            </div>
-        </div>
-
-        <div class="field" style="margin-bottom: 20px;">
-            <label style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;" data-k="n9_q">9. Best Language</label>
-            <div class="chip-row">
-                <button class="chip" data-g="n9" data-v="0" onclick="pickChip(this)">0</button>
-                <button class="chip" data-g="n9" data-v="1" onclick="pickChip(this)">1</button>
-                <button class="chip" data-g="n9" data-v="2" onclick="pickChip(this)">2</button>
-                <button class="chip" data-g="n9" data-v="3" onclick="pickChip(this)">3</button>
-            </div>
-        </div>
-
-        <button class="calc-btn" onclick="calc_nihss()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; margin-top: 10px;">Calculate Score</button>
         
-        <div id="R" style="margin-top: 20px; display: block; min-height: 50px;"></div>
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n1b_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">1b. LOC Questions</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n1b" data-v="0" data-k="n1b_0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n1b" data-v="1" data-k="n1b_1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n1b" data-v="2" data-k="n1b_2">2</div>
+            </div>
+        </div>
+        
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n1c_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">1c. LOC Commands</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n1c" data-v="0" data-k="n1c_0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n1c" data-v="1" data-k="n1c_1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n1c" data-v="2" data-k="n1c_2">2</div>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n2_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">2. Best Gaze</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n2" data-v="0" data-k="n2_0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n2" data-v="1" data-k="n2_1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n2" data-v="2" data-k="n2_2">2</div>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n3_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">3. Visual Fields</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n3" data-v="0" data-k="n3_0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n3" data-v="1" data-k="n3_1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n3" data-v="2" data-k="n3_2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n3" data-v="3" data-k="n3_3">3</div>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n4_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">4. Facial Palsy</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n4" data-v="0" data-k="n4_0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n4" data-v="1" data-k="n4_1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n4" data-v="2" data-k="n4_2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n4" data-v="3" data-k="n4_3">3</div>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n5a_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">5a. Motor Left Arm</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n5a" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5a" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5a" data-v="2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5a" data-v="3">3</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5a" data-v="4">4</div>
+            </div>
+        </div>
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n5b_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">5b. Motor Right Arm</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n5b" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5b" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5b" data-v="2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5b" data-v="3">3</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n5b" data-v="4">4</div>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n6a_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">6a. Motor Left Leg</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n6a" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6a" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6a" data-v="2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6a" data-v="3">3</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6a" data-v="4">4</div>
+            </div>
+        </div>
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n6b_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">6b. Motor Right Leg</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n6b" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6b" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6b" data-v="2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6b" data-v="3">3</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n6b" data-v="4">4</div>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n7_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">7. Limb Ataxia</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n7" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n7" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n7" data-v="2">2</div>
+            </div>
+        </div>
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n8_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">8. Sensory</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n8" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n8" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n8" data-v="2">2</div>
+            </div>
+        </div>
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n9_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">9. Best Language</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n9" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n9" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n9" data-v="2">2</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n9" data-v="3">3</div>
+            </div>
+        </div>
+
+        <div class="field" style="margin-bottom: 20px;">
+            <span class="field-label" data-k="n10_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">10. Dysarthria</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n10" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n10" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n10" data-v="2">2</div>
+            </div>
+        </div>
+        <div class="field" style="margin-bottom: 30px;">
+            <span class="field-label" data-k="n11_q" style="display:block; color:var(--w80); font-size:14px; margin-bottom:10px;">11. Extinction/Inattention</span>
+            <div class="chips">
+                <div class="chip" onclick="pickChip(this)" data-g="n11" data-v="0">0</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n11" data-v="1">1</div>
+                <div class="chip" onclick="pickChip(this)" data-g="n11" data-v="2">2</div>
+            </div>
+        </div>
+
+        <button class="go-btn" onclick="calc_nihss()" data-k="btn" style="width: 100%; padding: 18px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.2s;">Calculate Score</button>
+        
+        <div id="R" style="margin-top: 20px; min-height: 50px;"></div>
 
         <div style="margin-top: 30px;">
             <div class="ad-banner" style="background: rgba(255,255,255,0.02); border: 1px dashed var(--w20); border-radius: 15px; padding: 20px; text-align: center; color: var(--w40); font-family: var(--mono); font-size: 11px; text-transform: uppercase;">
@@ -158,24 +213,27 @@
         </div>
     </article>
 
-    <section style="max-width: 600px; margin: 20px auto 50px;">
-        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px dashed var(--w20); margin-bottom: 20px;">
-            <div style="font-family: var(--mono); font-size: 10px; color: var(--w40); text-transform: uppercase; margin-bottom: 15px;" data-k="mnem_all">Scoring Reference</div>
-            <div style="color: var(--gold); font-family: var(--mono); font-size: 13px; line-height: 2;">
-                🇬🇧 0: None · 1-4: Minor · 5-15: Mod · 16-20: Mod-Sev · 21+: Severe<br>
-                🇷🇺 0: Нет · 1-4: Легкий · 5-15: Средний · 16-20: Средне-тяж · 21+: Тяжелый
-            </div>
-        </div>
+    <a href="../index.html" class="close-btn" style="position: absolute; top: 20px; right: 25px; font-size: 24px; color: var(--w40); text-decoration: none;">✕</a>
 
-        <div style="padding: 25px; background: var(--bg2); border-radius: 15px; border: 1px solid var(--border);">
-            <h2 data-k="nihss_info_title" style="color: var(--gold); margin-bottom: 15px; font-size: 18px; font-family: 'Playfair Display', serif;">Clinical Significance</h2>
-            <p data-k="nihss_info_p1" style="color: var(--w60); font-size: 14px; line-height: 1.6; margin-bottom: 15px;">The NIHSS is used to objectively quantify stroke-related neurological deficit.</p>
-            <p style="color: var(--white); font-size: 14px; border-top: 1px solid var(--border); padding-top: 15px;">
-                <b>Note:</b> A higher score indicates a more severe stroke.
-            </p>
+    <section class="mnem-panel" style="max-width: 600px; margin: 20px auto 50px;">
+      <div class="mnem-head" style="padding: 15px; background: var(--bg2); border-radius: 12px 12px 0 0; border: 1px solid var(--border); border-bottom: none;">
+          <div class="mnem-head-title" data-k="mnem_all" style="font-family: var(--mono); font-size: 10px; color: var(--w40); text-transform: uppercase;">Scoring Reference</div>
+      </div>
+      <div class="mnem-body" style="padding: 20px; background: var(--bg2); border-radius: 0 0 12px 12px; border: 1px solid var(--border);">
+        <div class="mnem-block" style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+            <span class="mnem-flag">🇬🇧</span>
+            <div class="mnem-main" style="color: var(--gold); font-family: var(--mono); font-size: 13px;"><b>0</b> None · <b>1-4</b> Minor · <b>5-15</b> Mod · <b>16-20</b> Mod-Sev · <b>21+</b> Severe</div>
         </div>
+        <div class="mnem-block" style="margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px;">
+            <span class="mnem-flag">🇷🇺</span>
+            <div class="mnem-main" style="color: var(--gold); font-family: var(--mono); font-size: 13px;"><b>0</b> Нет · <b>1-4</b> Легкий · <b>5-15</b> Средний · <b>16-20</b> Средне-тяж · <b>21+</b> Тяжелый</div>
+        </div>
+        <div class="mnem-block" style="display: flex; align-items: flex-start; gap: 10px;">
+            <span class="mnem-flag">🇺🇿</span>
+            <div class="mnem-main" style="color: var(--gold); font-family: var(--mono); font-size: 13px;"><b>0</b> Yo'q · <b>1-4</b> Yengil · <b>5-15</b> O'rtacha · <b>16-20</b> O'rta-og'ir · <b>21+</b> Og'ir</div>
+        </div>
+      </div>
     </section>
-
   </main>
 
   <script src="../js/translations.js?v=21"></script>
